@@ -359,7 +359,8 @@ _
 
 | GitHub name | Signature (type your name) | Date |
 |------|----------------------------|------|
-|      |                            |      |
-|      |                            |      |
-|      |                            |      |
-|      |                            |      |
+|      | Ian      Ian               |      |
+|      | brennansweet556 Brennan                           |      |
+|      | ChaseLingafelt  Chase                           |      |
+|      |ZKing07  Zeven
+|      |cmcbeth330 Caden
