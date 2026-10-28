@@ -16,7 +16,7 @@ _
 
 | Name | GitHub username | Usual availability |
 |------|-----------------|--------------------|
-|      |                 |                    |
+| Ian  |                 |                    |
 |      |                 |                    |
 |      |                 |                    |
 |      |                 |                    |
@@ -26,7 +26,7 @@ _
 **Sprint 1 Scrum Master:** _
 
 **Does the role rotate?** *(e.g., rotates each sprint in the order listed above; or one person for the whole project)*
-
+Yes it rotates
 _
 
 ### Product Owner
