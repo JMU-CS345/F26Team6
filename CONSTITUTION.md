@@ -6,7 +6,7 @@
 
 ## 1. Team and Roles
 
-### Team Number
+### Team 6
 
 ### Team Name
 
@@ -16,7 +16,7 @@ _
 
 | Name  | GitHub username | Usual availability |
 |------ |-----------------|--------------------|
-| Ian   | imoskeeto       |                    |
+|Ian    | igassner        |                    |
 |Chase  | ChaseLingafelt  |                    |
 |Brennan| BrennanSweet556 |                    |
 |Zeven  | ZKing07         |
