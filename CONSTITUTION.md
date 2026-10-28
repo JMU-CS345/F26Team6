@@ -357,10 +357,10 @@ _
 
 *By signing, each member agrees to follow this constitution.*
 
-| GitHub name | Signature (type your name) | Date |
-|------|----------------------------|------|
-|      | Ian      Ian               |      |
-|      | brennansweet556 Brennan                           |      |
-|      | ChaseLingafelt  Chase                           |      |
-|      |ZKing07  Zeven
-|      |cmcbeth330 Caden
+| GitHub name   | Signature (type your name) | Date |
+|---------------|----------------------------|------|
+| igassner      | Ian                        |10/28/2026|
+|brennansweet556| Brennan                    |10/28/2026|
+|ChaseLingafelt | Chase                      |10/28/2026|
+|ZKing07        | Zeven                      |10/28/2026|
+|cmcbeth330     | Caden                      |10/28/2026|
