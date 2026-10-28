@@ -14,12 +14,13 @@ _
 
 ### Members
 
-| Name | GitHub username | Usual availability |
-|------|-----------------|--------------------|
-| Ian  |                 |                    |
-|      |                 |                    |
-|      |                 |                    |
-|      |                 |                    |
+| Name  | GitHub username | Usual availability |
+|------ |-----------------|--------------------|
+| Ian   | imoskeeto       |                    |
+|Chase  | ChaseLingafelt  |                    |
+|Brennan| BrennanSweet556 |                    |
+|Zeven  | ZKing07         |
+|Caden |  cmcbeth330      |                    |
 
 ### Scrum Master
 
@@ -32,19 +33,19 @@ _
 ### Product Owner
 
 *Choose one team member who will interact with the instructor (stakeholder) to clarify and prioritize stories, and to collect new ones.*
-
+Zeven
 _
 
 ### Other Responsibilities
 
-Who is responsible for maintaining the project board / backlog in good order? *(Scrum Master?)*
+Who is responsible for maintaining the project board / backlog in good order? *(Scrum Master?)* Scrum master
 
-Who is responsible for deploying the main branch to production to update GitHub pages?
+Who is responsible for deploying the main branch to production to update GitHub pages? Scrum master
 
 ### Decision Making
 
 *(How do we decide things: consensus, majority vote, Scrum Master decides? What happens if we are deadlocked?)*
-
+majority vote. coin toss if deadlocked.
 _
 
 ---
@@ -102,9 +103,9 @@ _
 
 ### Backlog and Board
 
-**Where the backlog lives:** *(e.g., GitHub Projects board, link here)*
+**Where the backlog lives:** *(GitHub)*
 
-**Board columns:** *(e.g., To Do → In Progress → In Review → Done)*
+**Board columns:** *(To Do → In Progress → In Review → Done)*
 
 _
 
@@ -114,26 +115,26 @@ _
 
 ### Primary Channel
 
-**Channel:** *(Discord, Slack, GroupMe, ...)*
+**Channel:** *(Text)*
 
-**Expected response time:** *(e.g., within 12 hours on weekdays)*
+**Expected response time:** *(within 12 hours on weekdays and weekends before 8pm)*
 
 ### What Goes Where
 
 *(What is discussed in the chat channel vs. in GitHub issues vs. in PR comments?)*
-
+Mainly texting but code related stuff in comments.
 _
 
 ### Reporting Blockers or Falling Behind
 
 *(How and how early does a member tell the team they are stuck or behind?)*
-
+Issue dependent but as soon as the person realizes they are falling behind.
 _
 
 ### Absences
 
 *(How much notice is required? How is the absent member's work covered?)*
-
+Notify as early as possible. Split up if possible or if absent member can work from home.
 _
 
 ---
@@ -142,12 +143,12 @@ _
 
 ### Branch Naming
 
-**Format:** *(e.g., `type/issue-short-description`)*
+**Format:** *(`type/issue-short-description`)*
 
 **Allowed types:** *(e.g., `feature`, `fix`, `docs`, `refactor`, `test`, `chore`)*
 
 **Examples:**
-
+feature/movement
 -
 -
 
@@ -176,19 +177,19 @@ _
 
 ### Code Review
 
-**Review turnaround:** *(e.g., within 24 hours of being requested)*
+**Review turnaround:** *( 24-48 hours of being requested)*
 
-**Who reviews what:** *(e.g., any teammate; or a rotating assignment)*
+**Who reviews what:** *(e.g., any teammate)*
 
 _
 
 ### Merging
 
-**Merge style:** *(merge commit, squash and merge, or rebase and merge)*
+**Merge style:** *(squash and merge)*
 
-**Who merges:** *(the author after approval, or the reviewer)*
+**Who merges:** *(the author after approval)*
 
-**After merge:** *(e.g., delete the branch)*
+**After merge:** *(delete the branch)*
 
 _
 
@@ -208,13 +209,13 @@ _
 
 ### Formatting
 
-**Indentation:** *(2 spaces, 4 spaces, tabs)*
+**Indentation:** *(tabs)*
 
-**Semicolons:** *(always / never)*
+**Semicolons:** *(sometimes)*
 
-**Quotes:** *(single / double)*
+**Quotes:** *(double)*
 
-**Maximum line length:** _
+**Maximum line length:** _100
 
 **Tools:** *(e.g., Prettier and ESLint, with config files committed to the repo)*
 
@@ -277,7 +278,7 @@ _
 _
 
 **Manual playtesting:** *(Who plays the build before each sprint review, and how are bugs reported?)*
-
+The scrum master. Bugs reported through text. 
 _
 
 ---
@@ -294,7 +295,7 @@ _
 
 ## 8. AI Tool Usage
 
-**Allowed tools:** _
+**Allowed tools:** _all of them
 
 **Allowed uses:** *(e.g., code generation, tests, documentation, review)*
 
@@ -306,7 +307,7 @@ _
 
 _
 
-**Responsibility:** *(e.g., whoever submits AI-generated code must understand it and is accountable for it)*
+**Responsibility:** *(whoever submits AI-generated code must understand it and is accountable for it)*
 
 _
 
@@ -315,7 +316,7 @@ _
 ## 9. Working Agreements and Conflict
 
 ### Expected Effort
-
+3 hours a week/ assignment gets done
 *(Hours per person per week.)*
 
 _
@@ -323,7 +324,7 @@ _
 ### Fair Contribution
 
 *(What counts as contributing, and how is it tracked? e.g., PRs merged, reviews done, story points completed.)*
-
+authoring code and reviewing
 _
 
 ### Conflict Resolution
@@ -334,17 +335,20 @@ _
 2. *(e.g., raise it at the retrospective)*
 3. *(e.g., Scrum Master mediates)*
 4. *(e.g., escalate to the instructor)*
+5. talk it out with the teamate
+6. bring it to the group
+7. then bring it to the teacher
 
 ### Missed Commitments
 
 *(What happens when a member repeatedly misses commitments?)*
-
+they have to handwrite apologies
 _
 
 ### Amending This Constitution
 
 *(How can this document be changed? e.g., proposed by PR, approved by team vote at a retrospective.)*
-
+Put it up to a vote.
 _
 
 ---
