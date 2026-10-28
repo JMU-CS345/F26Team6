@@ -355,7 +355,7 @@ _
 
 | GitHub name | Signature (type your name) | Date |
 |------|----------------------------|------|
-|      |                            |      |
+|  Brennansweet556    | Brennan Sweet              |  10/28/2026    |
 |      |                            |      |
 |      |                            |      |
 |      |                            |      |
