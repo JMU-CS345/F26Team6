@@ -155,7 +155,7 @@ feature/movement
 ### Branch Protection on `main`
 
 - [ ] No direct pushes to `main`
-- [ ] Required approvals before merge: _
+- [ ] Required approvals before merge: 2
 - [ ] CI must pass before merge
 - [ ] Same protection on `production`
 
