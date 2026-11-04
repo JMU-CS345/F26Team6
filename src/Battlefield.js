@@ -1,16 +1,16 @@
-class Battlefield {
-    constructor(player, enemies) {
-        this.player = player;
-        this.enemies = enemies;
-    }
+// Battle screen entry point.
+// Called when gameState.screen === "battle"
+function drawBattleScreen() {
 
-    draw() {
-        background(100);
+    background(200, 140, 90);
 
-        this.player.draw();
+    textSize(18);
+    textAlign(LEFT, TOP);
 
-        for (let enemy of this.enemies) {
-            enemy.draw();
-        }
-    }
+    image(fireMage, 120, 180, 120, 120);
+
+    image(ratEnemy, 700, 200, 80, 80);
+    image(slimeEnemy, 700, 320, 80, 80);
+
+    drawAttackMenu();
 }
