@@ -8,7 +8,7 @@ function drawOptionsScreen() {
     fill(255);
     textAlign(CENTER, CENTER);
     textSize(36);
-    text("OPTIONS", 400, 150);
+    text("OPTIONS", 500, 150);
 
     // VISUAL / AUDIO MENU
     textSize(20);
@@ -31,13 +31,13 @@ function drawOptionsScreen() {
 
         // BACK BUTTON (only on the main options page)
         fill(180, 70, 70);
-        rect(300, 400, 200, 50, 10);
+        rect(400, 400, 200, 50, 10);
 
         fill(255);
-        text("BACK", 400, 425);
+        text("BACK", 500, 425);
 
         manageScreenButton(
-            300, 400, 200, 50,
+            400, 400, 200, 50,
             gameState,
             "screen",
             "options",
