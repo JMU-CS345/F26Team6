@@ -4,7 +4,8 @@ let optionsButton;
 let titleBg;
 
 let gameState = {
-    screen: "title"
+    screen: "title",
+    battleMenu: "main"
 };
 
 function preload() {
