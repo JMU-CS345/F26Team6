@@ -37,3 +37,9 @@ function draw() {
         drawOptionsScreen();
     }
 }
+
+function keyPressed() {
+    if (key === "d") damage(player, 10);
+    if (key === "h") heal(player, 10);
+    if (key === "e") damage(enemy, 10);
+}
