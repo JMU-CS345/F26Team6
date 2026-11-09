@@ -25,4 +25,22 @@ function drawTitleScreen() {
         "options"
     );
 
+    push();
+    fill(40);
+    rect(300, 400, 200, 50);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(20);
+    text("DIFFICULTY", 400, 425);
+    pop();
+
+    // Difficulty button functionality (new)
+    manageScreenButton(
+        300, 400, 200, 50,
+        gameState,
+        "screen",
+        "title",
+        "difficulty"
+    );
+
 }

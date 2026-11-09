@@ -7,6 +7,7 @@ let gameState = {
     screen: "title",
     battleMenu: "main",
     optionsMenu: "main"
+
 };
 
 function preload() {
@@ -35,6 +36,9 @@ function draw() {
 
     else if (gameState.screen === "options") {
         drawOptionsScreen();
+    }
+    else if (gameState.screen === "difficulty") {
+        drawDifficultyScreen();
     }
 }
 
