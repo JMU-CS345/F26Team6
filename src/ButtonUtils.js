@@ -15,10 +15,3 @@ function manageScreenButton(x, y, w, h, stateObj, stateProperty, activeScreen, t
     }
   }
 }
-mouseX >= x && mouseX <= x + w &&
-  mouseY >= y && mouseY <= y + h) {
-
-  stateObj[stateProperty] = targetScreen;
-  window._btnClickTimer = millis();
-}
-
