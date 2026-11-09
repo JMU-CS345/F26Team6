@@ -13,4 +13,7 @@ function drawBattleScreen() {
     image(slimeEnemy, 700, 320, 80, 80);
 
     drawAttackMenu();
+    drawHealthBar(50, 330, 250, 20, player);
+    drawManaBar(50, 310, 250, 20,);
+    drawHealthBar(615, 370, 300, 20, enemy);
 }

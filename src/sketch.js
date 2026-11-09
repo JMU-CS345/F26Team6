@@ -4,7 +4,9 @@ let optionsButton;
 let titleBg;
 
 let gameState = {
-    screen: "title"
+    screen: "title",
+    battleMenu: "main",
+    optionsMenu: "main"
 };
 
 function preload() {
@@ -34,4 +36,10 @@ function draw() {
     else if (gameState.screen === "options") {
         drawOptionsScreen();
     }
+}
+
+function keyPressed() {
+    if (key === "d") damage(player, 10);
+    if (key === "h") heal(player, 10);
+    if (key === "e") damage(enemy, 10);
 }
