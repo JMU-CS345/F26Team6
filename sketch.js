@@ -1,24 +1,22 @@
+function manageScreenButton(x, y, w, h, stateObj, stateProperty, activeScreen, targetScreen) {
+  if (window._btnClickTimer === undefined) window._btnClickTimer = 0;
 
+  if (stateObj[stateProperty] === activeScreen) {
+    if (mouseIsPressed && millis() - window._btnClickTimer > 250 &&
+        mouseX >= x && mouseX <= x + w &&
+        mouseY >= y && mouseY <= y + h) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+      stateObj[stateProperty] = targetScreen;
+      window._btnClickTimer = millis();
+    }
+  }
+}
 
 let bgImage;
 let titleImage;
 let startImage;
 let optionsImage;
-let currentScreen = "menu";
+let gameState = { currentScreen: "menu" };
 let difficulty = "Medium";
 
 async function setup() {
@@ -29,11 +27,6 @@ async function setup() {
   startImage = await loadImage('start_button.png');
   optionsImage = await loadImage('options_button.png');
 
-  console.log("Background:", bgImage.width, bgImage.height);
-  console.log("Title:", titleImage.width, titleImage.height);
-  console.log("Start:", startImage.width, startImage.height);
-  console.log("Options:", optionsImage.width, optionsImage.height);
-
   describe("MageQuest title screen with background image.");
 }
 
@@ -43,7 +36,7 @@ function draw() {
   imageMode(CORNER);
   image(bgImage, 0, 0, width, height);
 
-  if (currentScreen == "menu") {
+  if (gameState.currentScreen == "menu") {
     imageMode(CENTER);
     image(titleImage, width / 2, 85, 250, 180);
     image(startImage, width / 2, 220, 150, 75);
@@ -53,9 +46,12 @@ function draw() {
     textSize(20);
     fill(255);
     text("DIFFICULTY", width / 2, 375);
+
+    manageScreenButton(125, 350, 150, 45, gameState,
+      "currentScreen", "menu", "difficulty");
   }
 
-  else if (currentScreen == "difficulty") {
+  else if (gameState.currentScreen == "difficulty") {
     textAlign(CENTER);
     fill(255);
 
@@ -70,14 +66,14 @@ function draw() {
       fill(255);
     }
     text("EASY", width / 2, 190);
-    
+
     if (difficulty == "Medium") {
       fill("yellow");
     } else {
       fill(255);
     }
     text("MEDIUM", width / 2, 240);
-    
+
     if (difficulty == "Hard") {
       fill("yellow");
     } else {
@@ -91,20 +87,14 @@ function draw() {
 
     fill(255);
     text("BACK", width / 2, 370);
+
+    manageScreenButton(150, 345, 100, 45, gameState,
+      "currentScreen", "difficulty", "menu");
   }
 }
 
 function mousePressed() {
-
-  if (currentScreen == "menu") {
-    if (mouseX > 125 && mouseX < 275 &&
-        mouseY > 350 && mouseY < 395) {
-
-      currentScreen = "difficulty";
-    }
-  }
-
-  else if (currentScreen == "difficulty") {
+  if (gameState.currentScreen == "difficulty") {
 
     if (mouseX > 150 && mouseX < 250 &&
         mouseY > 170 && mouseY < 205) {
@@ -119,12 +109,6 @@ function mousePressed() {
     if (mouseX > 150 && mouseX < 250 &&
         mouseY > 270 && mouseY < 305) {
       difficulty = "Hard";
-    }
-
-    if (mouseX > 150 && mouseX < 250 &&
-        mouseY > 345 && mouseY < 390) {
-
-      currentScreen = "menu";
     }
   }
 }
