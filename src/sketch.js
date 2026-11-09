@@ -2,6 +2,7 @@ let fireMage;
 let startButton;
 let optionsButton;
 let titleBg;
+let title;
 
 let gameState = {
     screen: "title",
@@ -14,6 +15,7 @@ function preload() {
     fireMage = loadImage("assets/firemage_default.png");
     ratEnemy = loadImage("assets/rat_enemy.png");
     slimeEnemy = loadImage("assets/small_slime_enemy.png");
+    title = loadImage("assets/magequest-title.png");
 
     startButton = loadImage("assets/start_button.png");
     optionsButton = loadImage("assets/options_button.png");

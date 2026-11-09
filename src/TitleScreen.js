@@ -1,8 +1,9 @@
 function drawTitleScreen() {
     image(titleBg, 0, 0, width, height);
+    image(title, 250, -50, 300, 400);
 
     //Start Button
-    image(startButton, 300, 240, 200, 50);
+    image(startButton, 300, 240, 200, 120);
 
     // Start Button functionality
     manageScreenButton(
@@ -14,7 +15,7 @@ function drawTitleScreen() {
     );
 
     // OPTIONS BUTTON
-    image(optionsButton, 300, 320, 200, 50);
+    image(optionsButton, 310, 320, 180, 120);
 
     // Options button functionality
     manageScreenButton(
