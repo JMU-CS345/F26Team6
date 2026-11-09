@@ -1,15 +1,20 @@
 function drawTitleScreen() {
+    image(titleBg, 0, 0, width, height);
 
-    background(25, 30, 45);
+    //Start Button
+    image(startButton, 300, 240, 200, 50);
+
+    // Start Button functionality
+    manageScreenButton(
+        300, 240, 200, 50,
+        gameState,
+        "screen",
+        "title",
+        "battle"
+    );
 
     // OPTIONS BUTTON
-    fill(70, 100, 180);
-    rect(300, 320, 200, 50, 10);
-
-    fill(255);
-    textAlign(CENTER, CENTER);
-    textSize(20);
-    text("OPTIONS", 400, 345);
+    image(optionsButton, 300, 320, 200, 50);
 
     // Options button functionality
     manageScreenButton(
