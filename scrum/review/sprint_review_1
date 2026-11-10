@@ -207,9 +207,9 @@ on `production`:** *(passing / failing)*
 
 **Number of
  
-specs:** _
+specs:** 0
 
-**Known bugs in the deployed build:** _
+**Known bugs in the deployed build:** 1; Issue with the Start and Options buttons not functioning in production.
 
 ---
 
