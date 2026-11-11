@@ -2,17 +2,20 @@ let fireMage;
 let startButton;
 let optionsButton;
 let titleBg;
+let title;
 
 let gameState = {
     screen: "title",
     battleMenu: "main",
     optionsMenu: "main"
+
 };
 
 function preload() {
     fireMage = loadImage("assets/firemage_default.png");
     ratEnemy = loadImage("assets/rat_enemy.png");
     slimeEnemy = loadImage("assets/small_slime_enemy.png");
+    title = loadImage("assets/magequest-title.png");
 
     startButton = loadImage("assets/start_button.png");
     optionsButton = loadImage("assets/options_button.png");
@@ -35,6 +38,9 @@ function draw() {
 
     else if (gameState.screen === "options") {
         drawOptionsScreen();
+    }
+    else if (gameState.screen === "difficulty") {
+        drawDifficultyScreen();
     }
 }
 
