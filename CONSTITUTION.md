@@ -191,6 +191,8 @@ _
 
 **After merge:** *(delete the branch)*
 
+**When we merge:** *(Have production branch done the day before.)*
+
 _
 
 ---
@@ -359,7 +361,7 @@ _
 
 | GitHub name   | Signature (type your name) | Date |
 |---------------|----------------------------|------|
-| igassner      | Ian                        |10/28/2026|
+|igassner       | Ian                        |11/09/2026|
 |brennansweet556| Brennan                    |10/28/2026|
 |ChaseLingafelt | Chase                      |10/28/2026|
 |ZKing07        | Zeven                      |10/28/2026|
