@@ -1,24 +1,22 @@
-# Sprint Planning Report: Sprint _
-
-*Copy this file into `scrum/planning/` using your team's naming format. Fill in every field. Replace the italic guidance with your team's information.*
+# Sprint Planning Report: Sprint 2
 
 ---
 
 ## 1. Meeting Details
 
-**Date:** _
+**Date:** November 11th 2026
 
-**Scrum Master:** _
+**Scrum Master:** Chase Lingafelt
 
-**Attendees:** _
+**Attendees:** Ian Gassner, Brennan Sweet, Zeven King, Chase Lingafelt, Caden McBeth
 
-**Absent:** _
+**Absent:** N/A
 
 ---
 
 ## 2. Sprint Goal
 
-*One or two sentences describing a playable outcome, not a list of tickets. e.g., "A player can create a character and enter the first dungeon."*
+Our Sprint 2 goal is to dig deeper into battle-related work, like combat functions and RNG.
 
 _
 
@@ -26,15 +24,15 @@ _
 
 ## 3. Capacity and Velocity
 
-**Sprint dates:** _ to _
+**Sprint dates:** November 11th to November 18th
 
-**Velocity last sprint (points completed):** _ *(Sprint 1: write "n/a")*
+**Velocity last sprint (points completed):** 22 points
 
-**Average velocity so far:** _
+**Average velocity so far:** 22 points
 
-**Known absences or reduced availability this sprint:** _
+**Known absences or reduced availability this sprint:** N/A
 
-**Points committed this sprint:** _
+**Points committed this sprint:** 
 
 **Why this commitment is realistic:** *(Compare it to your velocity and capacity. If you are committing more than last sprint's velocity, explain why.)*
 
@@ -46,15 +44,18 @@ _
 
 *Every item listed here must meet the Definition of Ready in your constitution. Items should be taken from the top of the product backlog in priority order. If you skipped a higher-priority item, explain why under "Notes".*
 
-| Issue # | User story | Estimate | Owner | Ready? |
-|---------|------------|----------|-------|--------|
-|         |            |          |       | [ ]    |
-|         |            |          |       | [ ]    |
-|         |            |          |       | [ ]    |
-|         |            |          |       | [ ]    |
-|         |            |          |       | [ ]    |
+| Issue # | User story        |  Estimate | Owner | Ready? |
+|---------|--------------------|---------|-------|--------|
+|   #5    |Variance in Combat  |  5-6hours| Brennan | [Y]    |
+|   #74   |Create Battle Submenu| 3 hours  | Caden  | [Y]    |
+          |and Reward/Post Battle|
+          | Menu Sprite Work |
+|   #73   |Gold              |    1 hour  | Zeven   | [Y]    |
+|   #7    |Keyboard Playable| 3 hours       | Ian   | [Y]    |
+|   #1    |Enemies identification| 2 hours  |Chase  | [Y]    |
+|   #4    |After Combat       | 1 hour     |Zeven   | [Y]    |
 
-**Total points:** _
+**Total points:** 34
 
 **Notes:** _
 
