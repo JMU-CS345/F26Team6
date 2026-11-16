@@ -7,6 +7,12 @@ function drawAttackMenu() {
         gameState.battleMenu = "main";
     }
 
+    if (gameState.battleMenu.startsWith("use:")) {
+        const attack = getBasicAttack(gameState.battleMenu.substring(4));
+        if (attack !== null) useBasicAttack(attack, getTargetEnemy());
+        gameState.battleMenu = "main";
+    }
+
     // the one big box, always drawn
     fill(40);
     rect(50, 400, 250, 150);
@@ -23,7 +29,20 @@ function drawAttackMenu() {
                 gameState, "battleMenu", "main",
                 attackMenuOptions[i].toLowerCase());
         }
-    } else {
+    } else if (gameState.battleMenu === "attack") {
+        // the 4 basic attacks
+        for (let i = 0; i < basicAttacks.length; i++) {
+            const name = basicAttacks[i].name;
+            text("> " + name, 75, top + i * rowH + 22);
+            manageScreenButton(50, top + i * rowH, 150, rowH,
+                gameState, "battleMenu", "attack",
+                "use:" + name);
+        }
+        text("< Back", 225, 530);
+        manageScreenButton(210, 510, 80, 30,
+            gameState, "battleMenu", "attack", "main");
+    }
+    else {
         // blank box: put the sub-menu content here later
         text("< Back", 225, 530);
         for (let i = 0; i < attackMenuOptions.length; i++) {

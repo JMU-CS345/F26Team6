@@ -99,6 +99,7 @@ function draw() {
 }
 
 function keyPressed() {
+    if (key === "1") useBasicAttack(basicAttacks[0], getTargetEnemy());
     if (key === "d") damage(player, 10);
     if (key === "h") heal(player, 10);
     if (key === "t") {
