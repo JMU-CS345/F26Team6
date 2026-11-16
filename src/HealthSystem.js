@@ -1,6 +1,6 @@
 // ---------- HEALTH DATA ----------
 let player = { hp: 100, maxHp: 100 };
-let enemy = { hp: 50, maxHp: 50 };
+let targetIndex = 0;
 
 // ---------- HEALTH FUNCTIONS ----------
 function damage(target, amount) {
@@ -15,10 +15,24 @@ function isDead(target) {
     return target.hp <= 0;
 }
 
-// call this when a battle starts
-function resetBattleHealth() {
-    player.hp = player.maxHp;
-    enemy.hp = enemy.maxHp;
+function enemyMaxHp(size) {
+    return size === "big" ? 100 : 30;
+}
+
+// returns the enemy currently being targeted, skipping dead ones (null if all dead)
+function getTargetEnemy() {
+    for (let i = 0; i < battleEnemies.length; i++) {
+        const idx = (targetIndex + i) % battleEnemies.length;
+        if (!isDead(battleEnemies[idx])) {
+            targetIndex = idx;
+            return battleEnemies[idx];
+        }
+    }
+    return null;
+}
+
+function allEnemiesDead() {
+    return getTargetEnemy() === null;
 }
 
 // ---------- HEALTH BAR ----------
