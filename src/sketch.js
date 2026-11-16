@@ -63,10 +63,12 @@ function startBattle() {
     battleEnemies = [];
     for (let i = 0; i < currentFight.enemies.length; i++) {
         const e = currentFight.enemies[i];
+        const maxHp = enemyMaxHp(e.size);
         battleEnemies.push({
             type: e.type,
             size: e.size,
-            hp: e.size === "big" ? 100 : 30   // placeholder, use your health system
+            hp: maxHp,
+            maxHp: maxHp   // placeholder, use your health system
         });
     }
 }
@@ -99,5 +101,8 @@ function draw() {
 function keyPressed() {
     if (key === "d") damage(player, 10);
     if (key === "h") heal(player, 10);
-    if (key === "e") damage(enemy, 10);
+    if (key === "t") {
+        const t = getTargetEnemy();
+        if (t !== null) damage(t, 10);
+    }
 }
