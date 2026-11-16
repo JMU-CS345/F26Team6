@@ -1,7 +1,7 @@
 // ---------- BASIC (PHYSICAL) ATTACKS ----------
 // minDmg / maxDmg: damage range, accuracy: 0 to 1 chance to hit
 const basicAttacks = [
-    { name: "Punch", minDmg: 6, maxDmg: 10, accuracy: 0.95 },
+    { name: "jab", minDmg: 6, maxDmg: 10, accuracy: 0.95 },
     { name: "Kick", minDmg: 12, maxDmg: 14, accuracy: 0.80 },
     { name: "Uppercut", minDmg: 50, maxDmg: 80, accuracy: 0.40 },
     { name: "Elbow", minDmg: 9, maxDmg: 16, accuracy: 0.80 }
