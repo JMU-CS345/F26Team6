@@ -61,11 +61,9 @@ function manageScreenButton(x, y, w, h, stateObj, stateProperty, activeScreen, t
 
     // 2. Draw the red placeholder box to the left of the selected button
     if (window._btnKeyboardActive && myIndex === window._btnIndex) {
-      push();
-      noStroke();
-      fill(255, 0, 0);
-      rect(x - 24, y + h / 2 - 8, 16, 16); // swap this for your sprite later
-      pop();
+      if (battleSubmenuCursor) {
+        image(battleSubmenuCursor, x - 28, y + h / 2 - 12, 24, 24);
+      }
     }
 
     // 3. Mouse click (same as before)

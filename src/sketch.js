@@ -1,12 +1,14 @@
 let fireMage;
 let startButton;
 let optionsButton;
+let battleSubmenuCursor;
 let titleBg;
 let title;
 let rng;
 let currentFight = null;
 let battleEnemies = [];
-let playerGold = 0;
+let lastBattleReward = 0;
+let enemyTargetCursor;
 let enemyImages = {};
 let ratEnemy;
 let smallSlimeEnemy;
@@ -38,6 +40,8 @@ function preload() {
 
     startButton = loadImage("assets/start_button.png");
     optionsButton = loadImage("assets/options_button.png");
+    battleSubmenuCursor = loadImage("assets/battle_submenu_cursor.png");
+    enemyTargetCursor = loadImage("assets/enemy_target_cursor.png");
     titleBg = loadImage("assets/title_bg.png");
 
     enemyImages = {
@@ -56,6 +60,8 @@ function preload() {
 function setup() {
     createCanvas(1000, 600);
     rng = new GameRNG();
+
+    Gold.add(100); //however much starting gold
 }
 
 function startBattle() {
@@ -74,9 +80,11 @@ function startBattle() {
 }
 
 function endBattle() {
-    playerGold += rollGold(rng, currentFight);
+    lastBattleReward = awardFightGold(rng, currentFight);
     currentFight = null;
     battleEnemies = [];
+
+    gameState.screen = "victory";
 }
 
 function draw() {
@@ -96,6 +104,12 @@ function draw() {
     else if (gameState.screen === "difficulty") {
         drawDifficultyScreen();
     }
+
+    else if (gameState.screen === "victory") {
+    drawVictoryScreen();
+}
+
+    drawGoldCounter(); //puts gold on screen
 }
 
 function keyPressed() {

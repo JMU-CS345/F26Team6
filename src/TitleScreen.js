@@ -5,50 +5,28 @@ function drawTitleScreen() {
 
     // START BUTTON
 
-    if (gameState.selectedTitle === 0) {
-
-        drawKeyboardHighlight(
-            300,
-            220,
-            200,
-            140
-        );
-    }
-
-    image(startButton, 300, 220, 200, 140);
+    image(startButton, 275, 200, 200, 140);
 
     manageScreenButton(
         300,
         220,
         200,
-        140,
+        50,
         gameState,
         "screen",
         "title",
         "battle"
     );
 
-
-
     // OPTIONS BUTTON
 
-    if (gameState.selectedTitle === 1) {
-
-        drawKeyboardHighlight(
-            305,
-            260,
-            200,
-            140
-        );
-    }
-
-    image(optionsButton, 305, 260, 200, 140);
+    image(optionsButton, 295, 260, 200, 140);
 
     manageScreenButton(
+        310,
         305,
-        260,
         200,
-        140,
+        40,
         gameState,
         "screen",
         "title",
