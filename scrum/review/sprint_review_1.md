@@ -130,29 +130,29 @@ including work you didn't build.*
 
 - [ ] *Ability to progress through various screens using the ENTER or SPACE keys*
 
-### Issue #7: *Keyboard Playable*
+### Issue #73: *Gold*
 
-- [ ] *Ability to move through menus using the arrow keys*
+- [ ] *In-game counter/tracker that shows the player the amount of gold they currently have*
 
-- [ ] *Ability to progress through various screens using the ENTER or SPACE keys*
+- [ ] *Behind the scenes ability to add or subtract from the gold count*
 
-### Issue #7: *Keyboard Playable*
+### Issue #4: *After Combat*
 
-- [ ] *Ability to move through menus using the arrow keys*
+- [ ] *Visual feedback for completing a battle*
 
-- [ ] *Ability to progress through various screens using the ENTER or SPACE keys*
+- [ ] *Ability to progress to the next battle by clicking the NEXT button*
 
-### Issue #7: *Keyboard Playable*
+### Issue #1: *Enemies Identification*
 
-- [ ] *Ability to move through menus using the arrow keys*
+- [ ] *Ability to change which enemy is being targeted in battle*
 
-- [ ] *Ability to progress through various screens using the ENTER or SPACE keys*
+- [ ] *Visual marker to see which enemy is being targeted*
 
-### Issue #7: *Keyboard Playable*
+### Issue #5: *Variance in Combat*
 
-- [ ] *Ability to move through menus using the arrow keys*
+- [ ] *Ability to use different moves/attacks in combat*
 
-- [ ] *Ability to progress through various screens using the ENTER or SPACE keys*
+- [ ] *Enemy variance for each battle entered*
 
 ---
 
@@ -166,27 +166,7 @@ estimate it, even if the estimate stays the same. (Sprint 4: write "n/a")*
 What remains | New estimate | Back in backlog? |
 
 |---------|--------------|--------------|------------------|
-
-| Selectable Start Button | 3 | No |
- 
-| Options Menu | 3 | No
- 
-| Play Field (Battle) | 5 | No
- 
-| [ ]
- 
-|
-
-|
- 
-|
- 
-|
- 
-| [ ]
- 
-|
-
+N/A
 ---
 
 ## 7. Stakeholder Feedback
@@ -199,9 +179,8 @@ priorities.
 
 _
 
-Our reviewer had compliments for what we were able to show, even though a majority of the work we did was not completed in production. 
-Main compliments were in relation to our integration of what all of our team members of what we've worked on, 
-and he had no true reccomendations of priority, as we had completed more than what we could show.
+Our reviewer had only compliments of what we were able to show, a clear improvement from Sprint 1. He seemed to take a liking to the amount
+of progress we have made, as well as the visual style of our "Mage Quest". 
 
 ## 8. Backlog Changes
 
@@ -215,7 +194,7 @@ and he had no true reccomendations of priority, as we had completed more than wh
 
 **If no change was needed, why not?** _
 
-What we have completed is completed to our initial issue standards, and simply need to be pushed to production.
+We completed exactly what we sought out to complete when planning for this sprint.
 
 ## 9. Quality
 
@@ -229,7 +208,7 @@ on `production`:** *(passing / failing)*
  
 specs:** 0
 
-**Known bugs in the deployed build:** 1; Issue with the Start and Options buttons not functioning in production.
+**Known bugs in the deployed build:** 0
 
 ---
 
@@ -239,13 +218,13 @@ specs:** 0
 
 - [Y] Demo given by one presenter, crediting the members who built each story
 
-- [N] Release PR merged before the review begins
+- [Y] Release PR merged before the review begins
 
 - [Y] Every
  
 committed item marked Done or Not Done
 
-- [N] Every
+- [Y] Every
  
 item marked Done has all its acceptance
  
