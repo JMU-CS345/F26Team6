@@ -5,6 +5,10 @@ let targetIndex = 0;
 // ---------- HEALTH FUNCTIONS ----------
 function damage(target, amount) {
     target.hp = max(0, target.hp - amount);                // can't go below 0
+
+    if (allEnemiesDead()) {
+        endBattle();
+    }
 }
 
 function heal(target, amount) {
