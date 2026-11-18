@@ -31,6 +31,10 @@ function drawEnemies() {
             fill(200, 50, 50);                   // placeholder box for enemies without art yet
             rect(x, 200, size, size);
         }
+                // arrow above the currently targeted enemy
+        if (i === targetIndex) {
+            image(enemyTargetCursor, x + size / 2 - 14, 160, 28, 36);
+        }
     }
 }
 

@@ -16,6 +16,7 @@ let beeSwarmEnemy;
 let skeletonEnemy;
 let pigEnemy;
 let blockSlimeEnemy;
+let enemyTargetCursor;
 
 let gameState = {
     screen: "title",
@@ -35,6 +36,7 @@ function preload() {
     pigEnemy = loadImage("assets/pig_enemy.png");
     blockSlimeEnemy = loadImage("assets/block_slime_enemy.png");
     title = loadImage("assets/magequest-title.png");
+    enemyTargetCursor = loadImage("assets/enemy_target_cursor.png");
 
     startButton = loadImage("assets/start_button.png");
     optionsButton = loadImage("assets/options_button.png");
@@ -71,6 +73,7 @@ function startBattle() {
             maxHp: maxHp   // placeholder, use your health system
         });
     }
+    targetIndex = 0;
 }
 
 function endBattle() {
@@ -99,6 +102,8 @@ function draw() {
 }
 
 function keyPressed() {
+    handleTargetKeys();
+
     if (key === "1") useBasicAttack(basicAttacks[0], getTargetEnemy());
     if (key === "d") damage(player, 10);
     if (key === "h") heal(player, 10);
