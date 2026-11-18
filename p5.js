@@ -1,4 +1,4 @@
-/*! p5.js v1.9.4 May 21, 2024 */
+/*! p5.js v1.11.11 October 20, 2025 */
 (function (f) {
   if (typeof exports === 'object' && typeof module !== 'undefined') {
     module.exports = f()
@@ -259,17 +259,34 @@
               'params': [
                 {
                   'name': 'c1',
-                  'description': '<p>interpolate from this color.</p>\n',
+                  'description': '<p>interpolate from this color (any value created by the color() function).</p>\n',
                   'type': 'p5.Color'
                 },
                 {
                   'name': 'c2',
-                  'description': '<p>interpolate to this color.</p>\n',
+                  'description': '<p>interpolate to this color (any value created by the color() function).</p>\n',
                   'type': 'p5.Color'
                 },
                 {
                   'name': 'amt',
                   'description': '<p>number between 0 and 1.</p>\n',
+                  'type': 'Number'
+                }
+              ],
+              'class': 'p5',
+              'module': 'Color'
+            },
+            'paletteLerp': {
+              'name': 'paletteLerp',
+              'params': [
+                {
+                  'name': 'colors_stops',
+                  'description': '<p>color stops to interpolate from</p>\n',
+                  'type': '[p5.Color, Number][]'
+                },
+                {
+                  'name': 'amt',
+                  'description': '<p>number to use to interpolate relative to color stops</p>\n',
                   'type': 'Number'
                 }
               ],
@@ -558,7 +575,7 @@
                     },
                     {
                       'name': 'alpha',
-                      'description': '',
+                      'description': '<p>alpha value, controls transparency (0 - transparent, 255 - opaque).</p>\n',
                       'type': 'Number',
                       'optional': true
                     }
@@ -647,7 +664,7 @@
                     },
                     {
                       'name': 'alpha',
-                      'description': '',
+                      'description': '<p>alpha value, controls transparency (0 - transparent, 255 - opaque).</p>\n',
                       'type': 'Number',
                       'optional': true
                     }
@@ -1487,22 +1504,22 @@
               'params': [
                 {
                   'name': 'a',
-                  'description': '<p>coordinate of first control point.</p>\n',
-                  'type': 'Number'
-                },
-                {
-                  'name': 'b',
                   'description': '<p>coordinate of first anchor point.</p>\n',
                   'type': 'Number'
                 },
                 {
+                  'name': 'b',
+                  'description': '<p>coordinate of first control point.</p>\n',
+                  'type': 'Number'
+                },
+                {
                   'name': 'c',
-                  'description': '<p>coordinate of second anchor point.</p>\n',
+                  'description': '<p>coordinate of second control point.</p>\n',
                   'type': 'Number'
                 },
                 {
                   'name': 'd',
-                  'description': '<p>coordinate of second control point.</p>\n',
+                  'description': '<p>coordinate of second anchor point.</p>\n',
                   'type': 'Number'
                 },
                 {
@@ -1692,22 +1709,22 @@
               'params': [
                 {
                   'name': 'a',
-                  'description': '<p>coordinate of first anchor point.</p>\n',
-                  'type': 'Number'
-                },
-                {
-                  'name': 'b',
                   'description': '<p>coordinate of first control point.</p>\n',
                   'type': 'Number'
                 },
                 {
+                  'name': 'b',
+                  'description': '<p>coordinate of first anchor point.</p>\n',
+                  'type': 'Number'
+                },
+                {
                   'name': 'c',
-                  'description': '<p>coordinate of second control point.</p>\n',
+                  'description': '<p>coordinate of second anchor point.</p>\n',
                   'type': 'Number'
                 },
                 {
                   'name': 'd',
-                  'description': '<p>coordinate of second anchor point.</p>\n',
+                  'description': '<p>coordinate of second control point.</p>\n',
                   'type': 'Number'
                 },
                 {
@@ -2825,7 +2842,7 @@
                 {
                   'name': 'event',
                   'description': '<p>optional resize Event.</p>\n',
-                  'type': 'UIEvent',
+                  'type': 'Event',
                   'optional': true
                 }
               ],
@@ -2997,7 +3014,7 @@
                     },
                     {
                       'name': 'height',
-                      'description': '<p>width of the canvas. Defaults to 100.</p>\n',
+                      'description': '<p>height of the canvas. Defaults to 100.</p>\n',
                       'type': 'Number',
                       'optional': true
                     },
@@ -4479,7 +4496,7 @@
                     },
                     {
                       'name': 'extension',
-                      'description': '<p>file extension, either \'jpg\' or \'png\'. Defaults to \'png\'.</p>\n',
+                      'description': '<p>file extension, either \'png\', \'webp\', or \'jpg\'. Defaults to \'png\'.</p>\n',
                       'type': 'String',
                       'optional': true
                     }
@@ -6225,7 +6242,7 @@
               'params': [
                 {
                   'name': 'angle',
-                  'description': '<p>the angle.</p>\n',
+                  'description': '<p>the angle, in radians by default, or according to\nif <a href="/reference/p5/angleMode/">angleMode()</a> setting (RADIANS or DEGREES).</p>\n',
                   'type': 'Number'
                 }
               ],
@@ -6237,7 +6254,7 @@
               'params': [
                 {
                   'name': 'angle',
-                  'description': '<p>the angle.</p>\n',
+                  'description': '<p>the angle, in radians by default, or according to\nif <a href="/reference/p5/angleMode/">angleMode()</a> setting (RADIANS or DEGREES).</p>\n',
                   'type': 'Number'
                 }
               ],
@@ -6249,7 +6266,7 @@
               'params': [
                 {
                   'name': 'angle',
-                  'description': '<p>the angle.</p>\n',
+                  'description': '<p>the angle, in radians by default, or according to\nif <a href="/reference/p5/angleMode/">angleMode()</a> setting (RADIANS or DEGREES).</p>\n',
                   'type': 'Number'
                 }
               ],
@@ -8642,6 +8659,125 @@
               'class': 'p5',
               'module': 'Shape'
             },
+            'createModel': {
+              'name': 'createModel',
+              'class': 'p5',
+              'module': 'Shape',
+              'overloads': [
+                {
+                  'params': [
+                    {
+                      'name': 'modelString',
+                      'description': '<p>String of the object to be loaded</p>\n',
+                      'type': 'String'
+                    },
+                    {
+                      'name': 'fileType',
+                      'description': '<p>The file extension of the model\n                                     (<code>.stl</code>, <code>.obj</code>).</p>\n',
+                      'type': 'String',
+                      'optional': true
+                    },
+                    {
+                      'name': 'normalize',
+                      'description': '<p>If true, scale the model to a\n                                     standardized size when loading</p>\n',
+                      'type': 'Boolean'
+                    },
+                    {
+                      'name': 'successCallback',
+                      'description': '<p>Function to be called\n                                    once the model is loaded. Will be passed\n                                    the 3D model object.</p>\n',
+                      'type': 'function(p5.Geometry)',
+                      'optional': true
+                    },
+                    {
+                      'name': 'failureCallback',
+                      'description': '<p>called with event error if\n                                        the model fails to load.</p>\n',
+                      'type': 'Function(Event)',
+                      'optional': true
+                    }
+                  ]
+                },
+                {
+                  'params': [
+                    {
+                      'name': 'modelString',
+                      'description': '',
+                      'type': 'String'
+                    },
+                    {
+                      'name': 'fileType',
+                      'description': '',
+                      'type': 'String',
+                      'optional': true
+                    },
+                    {
+                      'name': 'successCallback',
+                      'description': '',
+                      'type': 'function(p5.Geometry)',
+                      'optional': true
+                    },
+                    {
+                      'name': 'failureCallback',
+                      'description': '',
+                      'type': 'Function(Event)',
+                      'optional': true
+                    }
+                  ]
+                },
+                {
+                  'params': [
+                    {
+                      'name': 'modelString',
+                      'description': '',
+                      'type': 'String'
+                    },
+                    {
+                      'name': 'fileType',
+                      'description': '',
+                      'type': 'String',
+                      'optional': true
+                    },
+                    {
+                      'name': 'options',
+                      'description': '',
+                      'type': 'Object',
+                      'optional': true,
+                      'props': [
+                        {
+                          'name': 'successCallback',
+                          'description': '',
+                          'type': 'function(p5.Geometry)',
+                          'optional': true
+                        },
+                        {
+                          'name': 'failureCallback',
+                          'description': '',
+                          'type': 'Function(Event)',
+                          'optional': true
+                        },
+                        {
+                          'name': 'normalize',
+                          'description': '',
+                          'type': 'Boolean',
+                          'optional': true
+                        },
+                        {
+                          'name': 'flipU',
+                          'description': '',
+                          'type': 'Boolean',
+                          'optional': true
+                        },
+                        {
+                          'name': 'flipV',
+                          'description': '',
+                          'type': 'Boolean',
+                          'optional': true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
             'loadShader': {
               'name': 'loadShader',
               'params': [
@@ -8683,6 +8819,12 @@
                   'name': 'fragSrc',
                   'description': '<p>source code for the fragment shader.</p>\n',
                   'type': 'String'
+                },
+                {
+                  'name': 'options',
+                  'description': '<p>An optional object describing how this shader can\nbe augmented with hooks. It can include:</p>\n<ul>\n<li><code>vertex</code>: An object describing the available vertex shader hooks.</li>\n<li><code>fragment</code>: An object describing the available frament shader hooks.</li>\n</ul>\n',
+                  'type': 'Object',
+                  'optional': true
                 }
               ],
               'class': 'p5',
@@ -8709,6 +8851,26 @@
                   'type': 'p5.Shader'
                 }
               ],
+              'class': 'p5',
+              'module': '3D'
+            },
+            'baseMaterialShader': {
+              'name': 'baseMaterialShader',
+              'class': 'p5',
+              'module': '3D'
+            },
+            'baseNormalShader': {
+              'name': 'baseNormalShader',
+              'class': 'p5',
+              'module': '3D'
+            },
+            'baseColorShader': {
+              'name': 'baseColorShader',
+              'class': 'p5',
+              'module': '3D'
+            },
+            'baseStrokeShader': {
+              'name': 'baseStrokeShader',
               'class': 'p5',
               'module': '3D'
             },
@@ -12760,6 +12922,11 @@
               'name': 'random3D',
               'class': 'p5.Vector',
               'module': 'Math'
+            },
+            'clampToZero': {
+              'name': 'clampToZero',
+              'class': 'p5.Vector',
+              'module': 'Math'
             }
           },
           'p5.Font': {
@@ -12989,6 +13156,18 @@
                   'description': '<p>z-coordinate of the frustum’s far plane. Defaults to <code>10 * 800</code>.</p>\n',
                   'type': 'Number',
                   'optional': true
+                }
+              ],
+              'class': 'p5.Camera',
+              'module': '3D'
+            },
+            'roll': {
+              'name': 'roll',
+              'params': [
+                {
+                  'name': 'angle',
+                  'description': '<p>amount to rotate camera in current\n<a href="#/p5/angleMode">angleMode</a> units.</p>\n',
+                  'type': 'Number'
                 }
               ],
               'class': 'p5.Camera',
@@ -13362,6 +13541,40 @@
               'class': 'p5.Geometry',
               'module': 'Shape'
             },
+            'saveObj': {
+              'name': 'saveObj',
+              'params': [
+                {
+                  'name': 'fileName',
+                  'description': '<p>The name of the file to save the model as.\n                                       If not specified, the default file name will be \'model.obj\'.</p>\n',
+                  'type': 'String',
+                  'optional': true,
+                  'optdefault': '\'model.obj\''
+                }
+              ],
+              'class': 'p5.Geometry',
+              'module': 'Shape'
+            },
+            'saveStl': {
+              'name': 'saveStl',
+              'params': [
+                {
+                  'name': 'fileName',
+                  'description': '<p>The name of the file to save the model as.\n                                       If not specified, the default file name will be \'model.stl\'.</p>\n',
+                  'type': 'String',
+                  'optional': true,
+                  'optdefault': '\'model.stl\''
+                },
+                {
+                  'name': 'options',
+                  'description': '<p>Optional settings. Options can include a boolean <code>binary</code> property, which\ncontrols whether or not a binary .stl file is saved. It defaults to false.</p>\n',
+                  'type': 'Object',
+                  'optional': true
+                }
+              ],
+              'class': 'p5.Geometry',
+              'module': 'Shape'
+            },
             'flipU': {
               'name': 'flipU',
               'class': 'p5.Geometry',
@@ -13403,6 +13616,24 @@
             }
           },
           'p5.Shader': {
+            'inspectHooks': {
+              'name': 'inspectHooks',
+              'class': 'p5.Shader',
+              'module': '3D'
+            },
+            'modify': {
+              'name': 'modify',
+              'params': [
+                {
+                  'name': 'hooks',
+                  'description': '<p>The hooks in the shader to replace.</p>\n',
+                  'type': 'Object',
+                  'optional': true
+                }
+              ],
+              'class': 'p5.Shader',
+              'module': '3D'
+            },
             'copyToContext': {
               'name': 'copyToContext',
               'params': [
@@ -18268,7 +18499,7 @@
       {
         'base64-js': 20,
         'buffer': 22,
-        'ieee754': 273
+        'ieee754': 276
       }
     ],
     23: [
@@ -18320,7 +18551,7 @@
       {
         '../internals/object-create': 109,
         '../internals/object-define-property': 111,
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
     26: [
@@ -18334,7 +18565,7 @@
         };
       },
       {
-        '../internals/string-multibyte': 142
+        '../internals/string-multibyte': 143
       }
     ],
     27: [
@@ -18529,9 +18760,9 @@
         '../internals/object-define-property': 111,
         '../internals/object-get-prototype-of': 116,
         '../internals/object-set-prototype-of': 120,
-        '../internals/redefine': 127,
-        '../internals/uid': 164,
-        '../internals/well-known-symbol': 167
+        '../internals/redefine': 128,
+        '../internals/uid': 165,
+        '../internals/well-known-symbol': 168
       }
     ],
     31: [
@@ -18768,11 +18999,11 @@
         '../internals/object-get-own-property-names': 114,
         '../internals/object-get-prototype-of': 116,
         '../internals/object-set-prototype-of': 120,
-        '../internals/redefine-all': 126,
-        '../internals/set-to-string-tag': 136,
-        '../internals/to-index': 152,
-        '../internals/to-integer': 154,
-        '../internals/to-length': 155
+        '../internals/redefine-all': 127,
+        '../internals/set-to-string-tag': 137,
+        '../internals/to-index': 153,
+        '../internals/to-integer': 155,
+        '../internals/to-length': 156
       }
     ],
     32: [
@@ -18808,9 +19039,9 @@
         };
       },
       {
-        '../internals/to-absolute-index': 151,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156
+        '../internals/to-absolute-index': 152,
+        '../internals/to-length': 156,
+        '../internals/to-object': 157
       }
     ],
     33: [
@@ -18833,9 +19064,9 @@
         };
       },
       {
-        '../internals/to-absolute-index': 151,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156
+        '../internals/to-absolute-index': 152,
+        '../internals/to-length': 156,
+        '../internals/to-object': 157
       }
     ],
     34: [
@@ -18917,8 +19148,8 @@
         '../internals/function-bind-context': 73,
         '../internals/get-iterator-method': 76,
         '../internals/is-array-iterator-method': 90,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156
+        '../internals/to-length': 156,
+        '../internals/to-object': 157
       }
     ],
     36: [
@@ -18956,9 +19187,9 @@
         };
       },
       {
-        '../internals/to-absolute-index': 151,
-        '../internals/to-indexed-object': 153,
-        '../internals/to-length': 155
+        '../internals/to-absolute-index': 152,
+        '../internals/to-indexed-object': 154,
+        '../internals/to-length': 156
       }
     ],
     37: [
@@ -19040,8 +19271,8 @@
         '../internals/array-species-create': 43,
         '../internals/function-bind-context': 73,
         '../internals/indexed-object': 85,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156
+        '../internals/to-length': 156,
+        '../internals/to-object': 157
       }
     ],
     38: [
@@ -19083,9 +19314,9 @@
       {
         '../internals/array-method-is-strict': 40,
         '../internals/array-method-uses-to-length': 41,
-        '../internals/to-indexed-object': 153,
-        '../internals/to-integer': 154,
-        '../internals/to-length': 155
+        '../internals/to-indexed-object': 154,
+        '../internals/to-integer': 155,
+        '../internals/to-length': 156
       }
     ],
     39: [
@@ -19115,7 +19346,7 @@
       {
         '../internals/engine-v8-version': 66,
         '../internals/fails': 69,
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
     40: [
@@ -19221,8 +19452,8 @@
       {
         '../internals/a-function': 23,
         '../internals/indexed-object': 85,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156
+        '../internals/to-length': 156,
+        '../internals/to-object': 157
       }
     ],
     43: [
@@ -19250,7 +19481,7 @@
       {
         '../internals/is-array': 91,
         '../internals/is-object': 93,
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
     44: [
@@ -19320,7 +19551,7 @@
         };
       },
       {
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
     46: [
@@ -19364,8 +19595,8 @@
       },
       {
         '../internals/classof-raw': 46,
-        '../internals/to-string-tag-support': 160,
-        '../internals/well-known-symbol': 167
+        '../internals/to-string-tag-support': 161,
+        '../internals/well-known-symbol': 168
       }
     ],
     48: [
@@ -19578,8 +19809,8 @@
         '../internals/iterate': 96,
         '../internals/object-create': 109,
         '../internals/object-define-property': 111,
-        '../internals/redefine-all': 126,
-        '../internals/set-species': 135
+        '../internals/redefine-all': 127,
+        '../internals/set-species': 136
       }
     ],
     49: [
@@ -19707,7 +19938,7 @@
         '../internals/internal-state': 89,
         '../internals/is-object': 93,
         '../internals/iterate': 96,
-        '../internals/redefine-all': 126
+        '../internals/redefine-all': 127
       }
     ],
     50: [
@@ -19824,8 +20055,8 @@
         '../internals/is-forced': 92,
         '../internals/is-object': 93,
         '../internals/iterate': 96,
-        '../internals/redefine': 127,
-        '../internals/set-to-string-tag': 136
+        '../internals/redefine': 128,
+        '../internals/set-to-string-tag': 137
       }
     ],
     51: [
@@ -19848,7 +20079,7 @@
         '../internals/has': 79,
         '../internals/object-define-property': 111,
         '../internals/object-get-own-property-descriptor': 112,
-        '../internals/own-keys': 122
+        '../internals/own-keys': 123
       }
     ],
     52: [
@@ -19870,7 +20101,7 @@
         };
       },
       {
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
     53: [
@@ -19901,7 +20132,7 @@
         };
       },
       {
-        '../internals/require-object-coercible': 132
+        '../internals/require-object-coercible': 133
       }
     ],
     55: [
@@ -19930,7 +20161,7 @@
         '../internals/iterators': 98,
         '../internals/iterators-core': 97,
         '../internals/object-create': 109,
-        '../internals/set-to-string-tag': 136
+        '../internals/set-to-string-tag': 137
       }
     ],
     56: [
@@ -19981,7 +20212,7 @@
       {
         '../internals/create-property-descriptor': 57,
         '../internals/object-define-property': 111,
-        '../internals/to-primitive': 159
+        '../internals/to-primitive': 160
       }
     ],
     59: [
@@ -20096,9 +20327,9 @@
         '../internals/iterators-core': 97,
         '../internals/object-get-prototype-of': 116,
         '../internals/object-set-prototype-of': 120,
-        '../internals/redefine': 127,
-        '../internals/set-to-string-tag': 136,
-        '../internals/well-known-symbol': 167
+        '../internals/redefine': 128,
+        '../internals/set-to-string-tag': 137,
+        '../internals/well-known-symbol': 168
       }
     ],
     60: [
@@ -20118,8 +20349,8 @@
       {
         '../internals/has': 79,
         '../internals/object-define-property': 111,
-        '../internals/path': 123,
-        '../internals/well-known-symbol-wrapped': 166
+        '../internals/path': 124,
+        '../internals/well-known-symbol-wrapped': 167
       }
     ],
     61: [
@@ -20326,8 +20557,8 @@
         '../internals/global': 78,
         '../internals/is-forced': 92,
         '../internals/object-get-own-property-descriptor': 112,
-        '../internals/redefine': 127,
-        '../internals/set-global': 134
+        '../internals/redefine': 128,
+        '../internals/set-global': 135
       }
     ],
     69: [
@@ -20476,10 +20707,10 @@
       {
         '../internals/create-non-enumerable-property': 56,
         '../internals/fails': 69,
-        '../internals/redefine': 127,
-        '../internals/regexp-exec': 129,
-        '../internals/well-known-symbol': 167,
-        '../modules/es.regexp.exec': 210
+        '../internals/redefine': 128,
+        '../internals/regexp-exec': 130,
+        '../internals/well-known-symbol': 168,
+        '../modules/es.regexp.exec': 213
       }
     ],
     71: [
@@ -20515,7 +20746,7 @@
       {
         '../internals/function-bind-context': 73,
         '../internals/is-array': 91,
-        '../internals/to-length': 155
+        '../internals/to-length': 156
       }
     ],
     72: [
@@ -20615,7 +20846,7 @@
       },
       {
         '../internals/global': 78,
-        '../internals/path': 123
+        '../internals/path': 124
       }
     ],
     76: [
@@ -20631,7 +20862,7 @@
       {
         '../internals/classof': 47,
         '../internals/iterators': 98,
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
     77: [
@@ -20875,7 +21106,7 @@
         module.exports = store.inspectSource;
       },
       {
-        '../internals/shared-store': 138
+        '../internals/shared-store': 139
       }
     ],
     88: [
@@ -20947,7 +21178,7 @@
         '../internals/hidden-keys': 80,
         '../internals/is-object': 93,
         '../internals/object-define-property': 111,
-        '../internals/uid': 164
+        '../internals/uid': 165
       }
     ],
     89: [
@@ -21022,7 +21253,7 @@
         '../internals/hidden-keys': 80,
         '../internals/is-object': 93,
         '../internals/native-weak-map': 104,
-        '../internals/shared-key': 137
+        '../internals/shared-key': 138
       }
     ],
     90: [
@@ -21038,7 +21269,7 @@
       },
       {
         '../internals/iterators': 98,
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
     91: [
@@ -21107,7 +21338,7 @@
       {
         '../internals/classof-raw': 46,
         '../internals/is-object': 93,
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
     96: [
@@ -21163,7 +21394,7 @@
         '../internals/function-bind-context': 73,
         '../internals/get-iterator-method': 76,
         '../internals/is-array-iterator-method': 90,
-        '../internals/to-length': 155
+        '../internals/to-length': 156
       }
     ],
     97: [
@@ -21210,7 +21441,7 @@
         '../internals/has': 79,
         '../internals/is-pure': 94,
         '../internals/object-get-prototype-of': 116,
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
     98: [
@@ -21329,7 +21560,7 @@
         '../internals/engine-is-ios': 64,
         '../internals/global': 78,
         '../internals/object-get-own-property-descriptor': 112,
-        '../internals/task': 149
+        '../internals/task': 150
       }
     ],
     101: [
@@ -21380,7 +21611,7 @@
       {
         '../internals/fails': 69,
         '../internals/is-pure': 94,
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
     104: [
@@ -21521,7 +21752,7 @@
         '../internals/object-get-own-property-symbols': 115,
         '../internals/object-keys': 118,
         '../internals/object-property-is-enumerable': 119,
-        '../internals/to-object': 156
+        '../internals/to-object': 157
       }
     ],
     109: [
@@ -21606,7 +21837,7 @@
         '../internals/hidden-keys': 80,
         '../internals/html': 82,
         '../internals/object-define-properties': 110,
-        '../internals/shared-key': 137
+        '../internals/shared-key': 138
       }
     ],
     110: [
@@ -21660,7 +21891,7 @@
         '../internals/an-object': 28,
         '../internals/descriptors': 61,
         '../internals/ie8-dom-define': 83,
-        '../internals/to-primitive': 159
+        '../internals/to-primitive': 160
       }
     ],
     112: [
@@ -21691,8 +21922,8 @@
         '../internals/has': 79,
         '../internals/ie8-dom-define': 83,
         '../internals/object-property-is-enumerable': 119,
-        '../internals/to-indexed-object': 153,
-        '../internals/to-primitive': 159
+        '../internals/to-indexed-object': 154,
+        '../internals/to-primitive': 160
       }
     ],
     113: [
@@ -21717,7 +21948,7 @@
       },
       {
         '../internals/object-get-own-property-names': 114,
-        '../internals/to-indexed-object': 153
+        '../internals/to-indexed-object': 154
       }
     ],
     114: [
@@ -21765,8 +21996,8 @@
       {
         '../internals/correct-prototype-getter': 53,
         '../internals/has': 79,
-        '../internals/shared-key': 137,
-        '../internals/to-object': 156
+        '../internals/shared-key': 138,
+        '../internals/to-object': 157
       }
     ],
     117: [
@@ -21793,7 +22024,7 @@
         '../internals/array-includes': 36,
         '../internals/has': 79,
         '../internals/hidden-keys': 80,
-        '../internals/to-indexed-object': 153
+        '../internals/to-indexed-object': 154
       }
     ],
     118: [
@@ -21870,6 +22101,50 @@
     ],
     121: [
       function (_dereq_, module, exports) {
+        var DESCRIPTORS = _dereq_('../internals/descriptors');
+        var objectKeys = _dereq_('../internals/object-keys');
+        var toIndexedObject = _dereq_('../internals/to-indexed-object');
+        var propertyIsEnumerable = _dereq_('../internals/object-property-is-enumerable').f;
+        // `Object.{ entries, values }` methods implementation
+        var createMethod = function (TO_ENTRIES) {
+          return function (it) {
+            var O = toIndexedObject(it);
+            var keys = objectKeys(O);
+            var length = keys.length;
+            var i = 0;
+            var result = [
+            ];
+            var key;
+            while (length > i) {
+              key = keys[i++];
+              if (!DESCRIPTORS || propertyIsEnumerable.call(O, key)) {
+                result.push(TO_ENTRIES ? [
+                  key,
+                  O[key]
+                ] : O[key]);
+              }
+            }
+            return result;
+          };
+        };
+        module.exports = {
+          // `Object.entries` method
+          // https://tc39.github.io/ecma262/#sec-object.entries
+          entries: createMethod(true),
+          // `Object.values` method
+          // https://tc39.github.io/ecma262/#sec-object.values
+          values: createMethod(false)
+        };
+      },
+      {
+        '../internals/descriptors': 61,
+        '../internals/object-keys': 118,
+        '../internals/object-property-is-enumerable': 119,
+        '../internals/to-indexed-object': 154
+      }
+    ],
+    122: [
+      function (_dereq_, module, exports) {
         'use strict';
         var TO_STRING_TAG_SUPPORT = _dereq_('../internals/to-string-tag-support');
         var classof = _dereq_('../internals/classof');
@@ -21882,10 +22157,10 @@
       },
       {
         '../internals/classof': 47,
-        '../internals/to-string-tag-support': 160
+        '../internals/to-string-tag-support': 161
       }
     ],
-    122: [
+    123: [
       function (_dereq_, module, exports) {
         var getBuiltIn = _dereq_('../internals/get-built-in');
         var getOwnPropertyNamesModule = _dereq_('../internals/object-get-own-property-names');
@@ -21905,7 +22180,7 @@
         '../internals/object-get-own-property-symbols': 115
       }
     ],
-    123: [
+    124: [
       function (_dereq_, module, exports) {
         var global = _dereq_('../internals/global');
         module.exports = global;
@@ -21914,7 +22189,7 @@
         '../internals/global': 78
       }
     ],
-    124: [
+    125: [
       function (_dereq_, module, exports) {
         module.exports = function (exec) {
           try {
@@ -21933,7 +22208,7 @@
       {
       }
     ],
-    125: [
+    126: [
       function (_dereq_, module, exports) {
         var anObject = _dereq_('../internals/an-object');
         var isObject = _dereq_('../internals/is-object');
@@ -21953,7 +22228,7 @@
         '../internals/new-promise-capability': 105
       }
     ],
-    126: [
+    127: [
       function (_dereq_, module, exports) {
         var redefine = _dereq_('../internals/redefine');
         module.exports = function (target, src, options) {
@@ -21962,10 +22237,10 @@
         };
       },
       {
-        '../internals/redefine': 127
+        '../internals/redefine': 128
       }
     ],
-    127: [
+    128: [
       function (_dereq_, module, exports) {
         var global = _dereq_('../internals/global');
         var createNonEnumerableProperty = _dereq_('../internals/create-non-enumerable-property');
@@ -22006,10 +22281,10 @@
         '../internals/has': 79,
         '../internals/inspect-source': 87,
         '../internals/internal-state': 89,
-        '../internals/set-global': 134
+        '../internals/set-global': 135
       }
     ],
-    128: [
+    129: [
       function (_dereq_, module, exports) {
         var classof = _dereq_('./classof-raw');
         var regexpExec = _dereq_('./regexp-exec');
@@ -22032,10 +22307,10 @@
       },
       {
         './classof-raw': 46,
-        './regexp-exec': 129
+        './regexp-exec': 130
       }
     ],
-    129: [
+    130: [
       function (_dereq_, module, exports) {
         'use strict';
         var regexpFlags = _dereq_('./regexp-flags');
@@ -22115,11 +22390,11 @@
         module.exports = patchedExec;
       },
       {
-        './regexp-flags': 130,
-        './regexp-sticky-helpers': 131
+        './regexp-flags': 131,
+        './regexp-sticky-helpers': 132
       }
     ],
-    130: [
+    131: [
       function (_dereq_, module, exports) {
         'use strict';
         var anObject = _dereq_('../internals/an-object');
@@ -22141,7 +22416,7 @@
         '../internals/an-object': 28
       }
     ],
-    131: [
+    132: [
       function (_dereq_, module, exports) {
         'use strict';
         var fails = _dereq_('./fails');
@@ -22167,7 +22442,7 @@
         './fails': 69
       }
     ],
-    132: [
+    133: [
       function (_dereq_, module, exports) {
         // `RequireObjectCoercible` abstract operation
         // https://tc39.github.io/ecma262/#sec-requireobjectcoercible
@@ -22179,7 +22454,7 @@
       {
       }
     ],
-    133: [
+    134: [
       function (_dereq_, module, exports) {
         // `SameValue` abstract operation
         // https://tc39.github.io/ecma262/#sec-samevalue
@@ -22191,7 +22466,7 @@
       {
       }
     ],
-    134: [
+    135: [
       function (_dereq_, module, exports) {
         var global = _dereq_('../internals/global');
         var createNonEnumerableProperty = _dereq_('../internals/create-non-enumerable-property');
@@ -22209,7 +22484,7 @@
         '../internals/global': 78
       }
     ],
-    135: [
+    136: [
       function (_dereq_, module, exports) {
         'use strict';
         var getBuiltIn = _dereq_('../internals/get-built-in');
@@ -22234,10 +22509,10 @@
         '../internals/descriptors': 61,
         '../internals/get-built-in': 75,
         '../internals/object-define-property': 111,
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
-    136: [
+    137: [
       function (_dereq_, module, exports) {
         var defineProperty = _dereq_('../internals/object-define-property').f;
         var has = _dereq_('../internals/has');
@@ -22255,10 +22530,10 @@
       {
         '../internals/has': 79,
         '../internals/object-define-property': 111,
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
-    137: [
+    138: [
       function (_dereq_, module, exports) {
         var shared = _dereq_('../internals/shared');
         var uid = _dereq_('../internals/uid');
@@ -22268,11 +22543,11 @@
         };
       },
       {
-        '../internals/shared': 139,
-        '../internals/uid': 164
+        '../internals/shared': 140,
+        '../internals/uid': 165
       }
     ],
-    138: [
+    139: [
       function (_dereq_, module, exports) {
         var global = _dereq_('../internals/global');
         var setGlobal = _dereq_('../internals/set-global');
@@ -22283,10 +22558,10 @@
       },
       {
         '../internals/global': 78,
-        '../internals/set-global': 134
+        '../internals/set-global': 135
       }
     ],
-    139: [
+    140: [
       function (_dereq_, module, exports) {
         var IS_PURE = _dereq_('../internals/is-pure');
         var store = _dereq_('../internals/shared-store');
@@ -22302,10 +22577,10 @@
       },
       {
         '../internals/is-pure': 94,
-        '../internals/shared-store': 138
+        '../internals/shared-store': 139
       }
     ],
-    140: [
+    141: [
       function (_dereq_, module, exports) {
         var anObject = _dereq_('../internals/an-object');
         var aFunction = _dereq_('../internals/a-function');
@@ -22322,10 +22597,10 @@
       {
         '../internals/a-function': 23,
         '../internals/an-object': 28,
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
-    141: [
+    142: [
       function (_dereq_, module, exports) {
         var fails = _dereq_('../internals/fails');
         // check the existence of a method, lowercase
@@ -22341,7 +22616,7 @@
         '../internals/fails': 69
       }
     ],
-    142: [
+    143: [
       function (_dereq_, module, exports) {
         var toInteger = _dereq_('../internals/to-integer');
         var requireObjectCoercible = _dereq_('../internals/require-object-coercible');
@@ -22368,11 +22643,11 @@
         };
       },
       {
-        '../internals/require-object-coercible': 132,
-        '../internals/to-integer': 154
+        '../internals/require-object-coercible': 133,
+        '../internals/to-integer': 155
       }
     ],
-    143: [
+    144: [
       function (_dereq_, module, exports) {
         // https://github.com/zloirock/core-js/issues/280
         var userAgent = _dereq_('../internals/engine-user-agent');
@@ -22383,7 +22658,7 @@
         '../internals/engine-user-agent': 65
       }
     ],
-    144: [
+    145: [
       function (_dereq_, module, exports) {
         // https://github.com/tc39/proposal-string-pad-start-end
         var toLength = _dereq_('../internals/to-length');
@@ -22416,12 +22691,12 @@
         };
       },
       {
-        '../internals/require-object-coercible': 132,
-        '../internals/string-repeat': 146,
-        '../internals/to-length': 155
+        '../internals/require-object-coercible': 133,
+        '../internals/string-repeat': 147,
+        '../internals/to-length': 156
       }
     ],
-    145: [
+    146: [
       function (_dereq_, module, exports) {
         'use strict';
         // based on https://github.com/bestiejs/punycode.js/blob/master/punycode.js
@@ -22585,7 +22860,7 @@
       {
       }
     ],
-    146: [
+    147: [
       function (_dereq_, module, exports) {
         'use strict';
         var toInteger = _dereq_('../internals/to-integer');
@@ -22602,11 +22877,11 @@
         };
       },
       {
-        '../internals/require-object-coercible': 132,
-        '../internals/to-integer': 154
+        '../internals/require-object-coercible': 133,
+        '../internals/to-integer': 155
       }
     ],
-    147: [
+    148: [
       function (_dereq_, module, exports) {
         var fails = _dereq_('../internals/fails');
         var whitespaces = _dereq_('../internals/whitespaces');
@@ -22621,10 +22896,10 @@
       },
       {
         '../internals/fails': 69,
-        '../internals/whitespaces': 168
+        '../internals/whitespaces': 169
       }
     ],
-    148: [
+    149: [
       function (_dereq_, module, exports) {
         var requireObjectCoercible = _dereq_('../internals/require-object-coercible');
         var whitespaces = _dereq_('../internals/whitespaces');
@@ -22653,11 +22928,11 @@
         };
       },
       {
-        '../internals/require-object-coercible': 132,
-        '../internals/whitespaces': 168
+        '../internals/require-object-coercible': 133,
+        '../internals/whitespaces': 169
       }
     ],
-    149: [
+    150: [
       function (_dereq_, module, exports) {
         var global = _dereq_('../internals/global');
         var fails = _dereq_('../internals/fails');
@@ -22768,7 +23043,7 @@
         '../internals/html': 82
       }
     ],
-    150: [
+    151: [
       function (_dereq_, module, exports) {
         var classof = _dereq_('../internals/classof-raw');
         // `thisNumberValue` abstract operation
@@ -22784,7 +23059,7 @@
         '../internals/classof-raw': 46
       }
     ],
-    151: [
+    152: [
       function (_dereq_, module, exports) {
         var toInteger = _dereq_('../internals/to-integer');
         var max = Math.max;
@@ -22798,10 +23073,10 @@
         };
       },
       {
-        '../internals/to-integer': 154
+        '../internals/to-integer': 155
       }
     ],
-    152: [
+    153: [
       function (_dereq_, module, exports) {
         var toInteger = _dereq_('../internals/to-integer');
         var toLength = _dereq_('../internals/to-length');
@@ -22816,11 +23091,11 @@
         };
       },
       {
-        '../internals/to-integer': 154,
-        '../internals/to-length': 155
+        '../internals/to-integer': 155,
+        '../internals/to-length': 156
       }
     ],
-    153: [
+    154: [
       function (_dereq_, module, exports) {
         // toObject with fallback for non-array-like ES3 strings
         var IndexedObject = _dereq_('../internals/indexed-object');
@@ -22831,10 +23106,10 @@
       },
       {
         '../internals/indexed-object': 85,
-        '../internals/require-object-coercible': 132
+        '../internals/require-object-coercible': 133
       }
     ],
-    154: [
+    155: [
       function (_dereq_, module, exports) {
         var ceil = Math.ceil;
         var floor = Math.floor;
@@ -22847,7 +23122,7 @@
       {
       }
     ],
-    155: [
+    156: [
       function (_dereq_, module, exports) {
         var toInteger = _dereq_('../internals/to-integer');
         var min = Math.min;
@@ -22858,10 +23133,10 @@
         };
       },
       {
-        '../internals/to-integer': 154
+        '../internals/to-integer': 155
       }
     ],
-    156: [
+    157: [
       function (_dereq_, module, exports) {
         var requireObjectCoercible = _dereq_('../internals/require-object-coercible');
         // `ToObject` abstract operation
@@ -22871,10 +23146,10 @@
         };
       },
       {
-        '../internals/require-object-coercible': 132
+        '../internals/require-object-coercible': 133
       }
     ],
-    157: [
+    158: [
       function (_dereq_, module, exports) {
         var toPositiveInteger = _dereq_('../internals/to-positive-integer');
         module.exports = function (it, BYTES) {
@@ -22884,10 +23159,10 @@
         };
       },
       {
-        '../internals/to-positive-integer': 158
+        '../internals/to-positive-integer': 159
       }
     ],
-    158: [
+    159: [
       function (_dereq_, module, exports) {
         var toInteger = _dereq_('../internals/to-integer');
         module.exports = function (it) {
@@ -22897,10 +23172,10 @@
         };
       },
       {
-        '../internals/to-integer': 154
+        '../internals/to-integer': 155
       }
     ],
-    159: [
+    160: [
       function (_dereq_, module, exports) {
         var isObject = _dereq_('../internals/is-object');
         // `ToPrimitive` abstract operation
@@ -22921,7 +23196,7 @@
         '../internals/is-object': 93
       }
     ],
-    160: [
+    161: [
       function (_dereq_, module, exports) {
         var wellKnownSymbol = _dereq_('../internals/well-known-symbol');
         var TO_STRING_TAG = wellKnownSymbol('toStringTag');
@@ -22931,10 +23206,10 @@
         module.exports = String(test) === '[object z]';
       },
       {
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
-    161: [
+    162: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23160,16 +23435,16 @@
         '../internals/object-get-own-property-descriptor': 112,
         '../internals/object-get-own-property-names': 114,
         '../internals/object-set-prototype-of': 120,
-        '../internals/set-species': 135,
-        '../internals/to-index': 152,
-        '../internals/to-length': 155,
-        '../internals/to-offset': 157,
-        '../internals/to-primitive': 159,
-        '../internals/typed-array-constructors-require-wrappers': 162,
-        '../internals/typed-array-from': 163
+        '../internals/set-species': 136,
+        '../internals/to-index': 153,
+        '../internals/to-length': 156,
+        '../internals/to-offset': 158,
+        '../internals/to-primitive': 160,
+        '../internals/typed-array-constructors-require-wrappers': 163,
+        '../internals/typed-array-from': 164
       }
     ],
-    162: [
+    163: [
       function (_dereq_, module, exports) {
         /* eslint-disable no-new */
         var global = _dereq_('../internals/global');
@@ -23199,7 +23474,7 @@
         '../internals/global': 78
       }
     ],
-    163: [
+    164: [
       function (_dereq_, module, exports) {
         var toObject = _dereq_('../internals/to-object');
         var toLength = _dereq_('../internals/to-length');
@@ -23244,11 +23519,11 @@
         '../internals/function-bind-context': 73,
         '../internals/get-iterator-method': 76,
         '../internals/is-array-iterator-method': 90,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156
+        '../internals/to-length': 156,
+        '../internals/to-object': 157
       }
     ],
-    164: [
+    165: [
       function (_dereq_, module, exports) {
         var id = 0;
         var postfix = Math.random();
@@ -23259,7 +23534,7 @@
       {
       }
     ],
-    165: [
+    166: [
       function (_dereq_, module, exports) {
         var NATIVE_SYMBOL = _dereq_('../internals/native-symbol');
         module.exports = NATIVE_SYMBOL        // eslint-disable-next-line no-undef
@@ -23270,16 +23545,16 @@
         '../internals/native-symbol': 102
       }
     ],
-    166: [
+    167: [
       function (_dereq_, module, exports) {
         var wellKnownSymbol = _dereq_('../internals/well-known-symbol');
         exports.f = wellKnownSymbol;
       },
       {
-        '../internals/well-known-symbol': 167
+        '../internals/well-known-symbol': 168
       }
     ],
-    167: [
+    168: [
       function (_dereq_, module, exports) {
         var global = _dereq_('../internals/global');
         var shared = _dereq_('../internals/shared');
@@ -23302,12 +23577,12 @@
         '../internals/global': 78,
         '../internals/has': 79,
         '../internals/native-symbol': 102,
-        '../internals/shared': 139,
-        '../internals/uid': 164,
-        '../internals/use-symbol-as-uid': 165
+        '../internals/shared': 140,
+        '../internals/uid': 165,
+        '../internals/use-symbol-as-uid': 166
       }
     ],
-    168: [
+    169: [
       function (_dereq_, module, exports) {
         // a string of all valid unicode whitespaces
         // eslint-disable-next-line max-len
@@ -23316,7 +23591,7 @@
       {
       }
     ],
-    169: [
+    170: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23340,10 +23615,10 @@
         '../internals/array-buffer': 31,
         '../internals/export': 68,
         '../internals/global': 78,
-        '../internals/set-species': 135
+        '../internals/set-species': 136
       }
     ],
-    170: [
+    171: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23419,12 +23694,12 @@
         '../internals/fails': 69,
         '../internals/is-array': 91,
         '../internals/is-object': 93,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156,
-        '../internals/well-known-symbol': 167
+        '../internals/to-length': 156,
+        '../internals/to-object': 157,
+        '../internals/well-known-symbol': 168
       }
     ],
-    171: [
+    172: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var copyWithin = _dereq_('../internals/array-copy-within');
@@ -23446,7 +23721,7 @@
         '../internals/export': 68
       }
     ],
-    172: [
+    173: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23474,7 +23749,7 @@
         '../internals/export': 68
       }
     ],
-    173: [
+    174: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var fill = _dereq_('../internals/array-fill');
@@ -23496,7 +23771,7 @@
         '../internals/export': 68
       }
     ],
-    174: [
+    175: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23526,7 +23801,7 @@
         '../internals/export': 68
       }
     ],
-    175: [
+    176: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23562,7 +23837,7 @@
         '../internals/export': 68
       }
     ],
-    176: [
+    177: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23593,11 +23868,11 @@
         '../internals/array-species-create': 43,
         '../internals/export': 68,
         '../internals/flatten-into-array': 71,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156
+        '../internals/to-length': 156,
+        '../internals/to-object': 157
       }
     ],
-    177: [
+    178: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23627,12 +23902,12 @@
         '../internals/array-species-create': 43,
         '../internals/export': 68,
         '../internals/flatten-into-array': 71,
-        '../internals/to-integer': 154,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156
+        '../internals/to-integer': 155,
+        '../internals/to-length': 156,
+        '../internals/to-object': 157
       }
     ],
-    178: [
+    179: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23653,7 +23928,7 @@
         '../internals/export': 68
       }
     ],
-    179: [
+    180: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var from = _dereq_('../internals/array-from');
@@ -23677,7 +23952,7 @@
         '../internals/export': 68
       }
     ],
-    180: [
+    181: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23709,7 +23984,7 @@
         '../internals/export': 68
       }
     ],
-    181: [
+    182: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23746,7 +24021,7 @@
         '../internals/export': 68
       }
     ],
-    182: [
+    183: [
       function (_dereq_, module, exports) {
         'use strict';
         var toIndexedObject = _dereq_('../internals/to-indexed-object');
@@ -23820,10 +24095,10 @@
         '../internals/define-iterator': 59,
         '../internals/internal-state': 89,
         '../internals/iterators': 98,
-        '../internals/to-indexed-object': 153
+        '../internals/to-indexed-object': 154
       }
     ],
-    183: [
+    184: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23850,10 +24125,10 @@
         '../internals/array-method-is-strict': 40,
         '../internals/export': 68,
         '../internals/indexed-object': 85,
-        '../internals/to-indexed-object': 153
+        '../internals/to-indexed-object': 154
       }
     ],
-    184: [
+    185: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var lastIndexOf = _dereq_('../internals/array-last-index-of');
@@ -23872,7 +24147,7 @@
         '../internals/export': 68
       }
     ],
-    185: [
+    186: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23902,7 +24177,7 @@
         '../internals/export': 68
       }
     ],
-    186: [
+    187: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -23969,13 +24244,13 @@
         '../internals/export': 68,
         '../internals/is-array': 91,
         '../internals/is-object': 93,
-        '../internals/to-absolute-index': 151,
-        '../internals/to-indexed-object': 153,
-        '../internals/to-length': 155,
-        '../internals/well-known-symbol': 167
+        '../internals/to-absolute-index': 152,
+        '../internals/to-indexed-object': 154,
+        '../internals/to-length': 156,
+        '../internals/well-known-symbol': 168
       }
     ],
-    187: [
+    188: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -24003,7 +24278,7 @@
         '../internals/export': 68
       }
     ],
-    188: [
+    189: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -24092,13 +24367,13 @@
         '../internals/array-species-create': 43,
         '../internals/create-property': 58,
         '../internals/export': 68,
-        '../internals/to-absolute-index': 151,
-        '../internals/to-integer': 154,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156
+        '../internals/to-absolute-index': 152,
+        '../internals/to-integer': 155,
+        '../internals/to-length': 156,
+        '../internals/to-object': 157
       }
     ],
-    189: [
+    190: [
       function (_dereq_, module, exports) {
         // this method was added to unscopables after implementation
         // in popular engines, so it's moved to a separate module
@@ -24109,7 +24384,7 @@
         '../internals/add-to-unscopables': 25
       }
     ],
-    190: [
+    191: [
       function (_dereq_, module, exports) {
         // this method was added to unscopables after implementation
         // in popular engines, so it's moved to a separate module
@@ -24120,7 +24395,7 @@
         '../internals/add-to-unscopables': 25
       }
     ],
-    191: [
+    192: [
       function (_dereq_, module, exports) {
         var DESCRIPTORS = _dereq_('../internals/descriptors');
         var defineProperty = _dereq_('../internals/object-define-property').f;
@@ -24148,7 +24423,7 @@
         '../internals/object-define-property': 111
       }
     ],
-    192: [
+    193: [
       function (_dereq_, module, exports) {
         'use strict';
         var collection = _dereq_('../internals/collection');
@@ -24166,7 +24441,7 @@
         '../internals/collection-strong': 48
       }
     ],
-    193: [
+    194: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var $hypot = Math.hypot;
@@ -24209,7 +24484,7 @@
         '../internals/export': 68
       }
     ],
-    194: [
+    195: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var log = Math.log;
@@ -24229,7 +24504,7 @@
         '../internals/export': 68
       }
     ],
-    195: [
+    196: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var sign = _dereq_('../internals/math-sign');
@@ -24247,7 +24522,7 @@
         '../internals/math-sign': 99
       }
     ],
-    196: [
+    197: [
       function (_dereq_, module, exports) {
         'use strict';
         var DESCRIPTORS = _dereq_('../internals/descriptors');
@@ -24352,12 +24627,28 @@
         '../internals/object-define-property': 111,
         '../internals/object-get-own-property-descriptor': 112,
         '../internals/object-get-own-property-names': 114,
-        '../internals/redefine': 127,
-        '../internals/string-trim': 148,
-        '../internals/to-primitive': 159
+        '../internals/redefine': 128,
+        '../internals/string-trim': 149,
+        '../internals/to-primitive': 160
       }
     ],
-    197: [
+    198: [
+      function (_dereq_, module, exports) {
+        var $ = _dereq_('../internals/export');
+        // `Number.EPSILON` constant
+        // https://tc39.github.io/ecma262/#sec-number.epsilon
+        $({
+          target: 'Number',
+          stat: true
+        }, {
+          EPSILON: Math.pow(2, - 52)
+        });
+      },
+      {
+        '../internals/export': 68
+      }
+    ],
+    199: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var numberIsFinite = _dereq_('../internals/number-is-finite');
@@ -24375,7 +24666,7 @@
         '../internals/number-is-finite': 107
       }
     ],
-    198: [
+    200: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -24509,12 +24800,12 @@
       {
         '../internals/export': 68,
         '../internals/fails': 69,
-        '../internals/string-repeat': 146,
-        '../internals/this-number-value': 150,
-        '../internals/to-integer': 154
+        '../internals/string-repeat': 147,
+        '../internals/this-number-value': 151,
+        '../internals/to-integer': 155
       }
     ],
-    199: [
+    201: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var assign = _dereq_('../internals/object-assign');
@@ -24533,7 +24824,27 @@
         '../internals/object-assign': 108
       }
     ],
-    200: [
+    202: [
+      function (_dereq_, module, exports) {
+        var $ = _dereq_('../internals/export');
+        var $entries = _dereq_('../internals/object-to-array').entries;
+        // `Object.entries` method
+        // https://tc39.github.io/ecma262/#sec-object.entries
+        $({
+          target: 'Object',
+          stat: true
+        }, {
+          entries: function entries(O) {
+            return $entries(O);
+          }
+        });
+      },
+      {
+        '../internals/export': 68,
+        '../internals/object-to-array': 121
+      }
+    ],
+    203: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var iterate = _dereq_('../internals/iterate');
@@ -24560,7 +24871,7 @@
         '../internals/iterate': 96
       }
     ],
-    201: [
+    204: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var fails = _dereq_('../internals/fails');
@@ -24589,10 +24900,10 @@
         '../internals/export': 68,
         '../internals/fails': 69,
         '../internals/object-get-own-property-descriptor': 112,
-        '../internals/to-indexed-object': 153
+        '../internals/to-indexed-object': 154
       }
     ],
-    202: [
+    205: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var fails = _dereq_('../internals/fails');
@@ -24616,7 +24927,7 @@
         '../internals/object-get-own-property-names-external': 113
       }
     ],
-    203: [
+    206: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var fails = _dereq_('../internals/fails');
@@ -24644,10 +24955,10 @@
         '../internals/export': 68,
         '../internals/fails': 69,
         '../internals/object-get-prototype-of': 116,
-        '../internals/to-object': 156
+        '../internals/to-object': 157
       }
     ],
-    204: [
+    207: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var toObject = _dereq_('../internals/to-object');
@@ -24672,10 +24983,10 @@
         '../internals/export': 68,
         '../internals/fails': 69,
         '../internals/object-keys': 118,
-        '../internals/to-object': 156
+        '../internals/to-object': 157
       }
     ],
-    205: [
+    208: [
       function (_dereq_, module, exports) {
         var TO_STRING_TAG_SUPPORT = _dereq_('../internals/to-string-tag-support');
         var redefine = _dereq_('../internals/redefine');
@@ -24689,12 +25000,12 @@
         }
       },
       {
-        '../internals/object-to-string': 121,
-        '../internals/redefine': 127,
-        '../internals/to-string-tag-support': 160
+        '../internals/object-to-string': 122,
+        '../internals/redefine': 128,
+        '../internals/to-string-tag-support': 161
       }
     ],
-    206: [
+    209: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -25111,18 +25422,18 @@
         '../internals/microtask': 100,
         '../internals/native-promise-constructor': 101,
         '../internals/new-promise-capability': 105,
-        '../internals/perform': 124,
-        '../internals/promise-resolve': 125,
-        '../internals/redefine': 127,
-        '../internals/redefine-all': 126,
-        '../internals/set-species': 135,
-        '../internals/set-to-string-tag': 136,
-        '../internals/species-constructor': 140,
-        '../internals/task': 149,
-        '../internals/well-known-symbol': 167
+        '../internals/perform': 125,
+        '../internals/promise-resolve': 126,
+        '../internals/redefine': 128,
+        '../internals/redefine-all': 127,
+        '../internals/set-species': 136,
+        '../internals/set-to-string-tag': 137,
+        '../internals/species-constructor': 141,
+        '../internals/task': 150,
+        '../internals/well-known-symbol': 168
       }
     ],
-    207: [
+    210: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var getBuiltIn = _dereq_('../internals/get-built-in');
@@ -25200,7 +25511,7 @@
         '../internals/object-create': 109
       }
     ],
-    208: [
+    211: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var isObject = _dereq_('../internals/is-object');
@@ -25234,7 +25545,7 @@
         '../internals/object-get-prototype-of': 116
       }
     ],
-    209: [
+    212: [
       function (_dereq_, module, exports) {
         var DESCRIPTORS = _dereq_('../internals/descriptors');
         var global = _dereq_('../internals/global');
@@ -25321,14 +25632,14 @@
         '../internals/is-regexp': 95,
         '../internals/object-define-property': 111,
         '../internals/object-get-own-property-names': 114,
-        '../internals/redefine': 127,
-        '../internals/regexp-flags': 130,
-        '../internals/regexp-sticky-helpers': 131,
-        '../internals/set-species': 135,
-        '../internals/well-known-symbol': 167
+        '../internals/redefine': 128,
+        '../internals/regexp-flags': 131,
+        '../internals/regexp-sticky-helpers': 132,
+        '../internals/set-species': 136,
+        '../internals/well-known-symbol': 168
       }
     ],
-    210: [
+    213: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -25343,10 +25654,10 @@
       },
       {
         '../internals/export': 68,
-        '../internals/regexp-exec': 129
+        '../internals/regexp-exec': 130
       }
     ],
-    211: [
+    214: [
       function (_dereq_, module, exports) {
         'use strict';
         var redefine = _dereq_('../internals/redefine');
@@ -25381,11 +25692,11 @@
       {
         '../internals/an-object': 28,
         '../internals/fails': 69,
-        '../internals/redefine': 127,
-        '../internals/regexp-flags': 130
+        '../internals/redefine': 128,
+        '../internals/regexp-flags': 131
       }
     ],
-    212: [
+    215: [
       function (_dereq_, module, exports) {
         'use strict';
         var collection = _dereq_('../internals/collection');
@@ -25403,7 +25714,7 @@
         '../internals/collection-strong': 48
       }
     ],
-    213: [
+    216: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -25445,11 +25756,11 @@
         '../internals/is-pure': 94,
         '../internals/not-a-regexp': 106,
         '../internals/object-get-own-property-descriptor': 112,
-        '../internals/require-object-coercible': 132,
-        '../internals/to-length': 155
+        '../internals/require-object-coercible': 133,
+        '../internals/to-length': 156
       }
     ],
-    214: [
+    217: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -25472,10 +25783,10 @@
         '../internals/correct-is-regexp-logic': 52,
         '../internals/export': 68,
         '../internals/not-a-regexp': 106,
-        '../internals/require-object-coercible': 132
+        '../internals/require-object-coercible': 133
       }
     ],
-    215: [
+    218: [
       function (_dereq_, module, exports) {
         'use strict';
         var charAt = _dereq_('../internals/string-multibyte').charAt;
@@ -25514,10 +25825,10 @@
       {
         '../internals/define-iterator': 59,
         '../internals/internal-state': 89,
-        '../internals/string-multibyte': 142
+        '../internals/string-multibyte': 143
       }
     ],
-    216: [
+    219: [
       function (_dereq_, module, exports) {
         'use strict';
         var fixRegExpWellKnownSymbolLogic = _dereq_('../internals/fix-regexp-well-known-symbol-logic');
@@ -25564,12 +25875,12 @@
         '../internals/advance-string-index': 26,
         '../internals/an-object': 28,
         '../internals/fix-regexp-well-known-symbol-logic': 70,
-        '../internals/regexp-exec-abstract': 128,
-        '../internals/require-object-coercible': 132,
-        '../internals/to-length': 155
+        '../internals/regexp-exec-abstract': 129,
+        '../internals/require-object-coercible': 133,
+        '../internals/to-length': 156
       }
     ],
-    217: [
+    220: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -25589,11 +25900,11 @@
       },
       {
         '../internals/export': 68,
-        '../internals/string-pad': 144,
-        '../internals/string-pad-webkit-bug': 143
+        '../internals/string-pad': 145,
+        '../internals/string-pad-webkit-bug': 144
       }
     ],
-    218: [
+    221: [
       function (_dereq_, module, exports) {
         var $ = _dereq_('../internals/export');
         var repeat = _dereq_('../internals/string-repeat');
@@ -25608,10 +25919,10 @@
       },
       {
         '../internals/export': 68,
-        '../internals/string-repeat': 146
+        '../internals/string-repeat': 147
       }
     ],
-    219: [
+    222: [
       function (_dereq_, module, exports) {
         'use strict';
         var fixRegExpWellKnownSymbolLogic = _dereq_('../internals/fix-regexp-well-known-symbol-logic');
@@ -25744,14 +26055,14 @@
         '../internals/advance-string-index': 26,
         '../internals/an-object': 28,
         '../internals/fix-regexp-well-known-symbol-logic': 70,
-        '../internals/regexp-exec-abstract': 128,
-        '../internals/require-object-coercible': 132,
-        '../internals/to-integer': 154,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156
+        '../internals/regexp-exec-abstract': 129,
+        '../internals/require-object-coercible': 133,
+        '../internals/to-integer': 155,
+        '../internals/to-length': 156,
+        '../internals/to-object': 157
       }
     ],
-    220: [
+    223: [
       function (_dereq_, module, exports) {
         'use strict';
         var fixRegExpWellKnownSymbolLogic = _dereq_('../internals/fix-regexp-well-known-symbol-logic');
@@ -25787,12 +26098,12 @@
       {
         '../internals/an-object': 28,
         '../internals/fix-regexp-well-known-symbol-logic': 70,
-        '../internals/regexp-exec-abstract': 128,
-        '../internals/require-object-coercible': 132,
-        '../internals/same-value': 133
+        '../internals/regexp-exec-abstract': 129,
+        '../internals/require-object-coercible': 133,
+        '../internals/same-value': 134
       }
     ],
-    221: [
+    224: [
       function (_dereq_, module, exports) {
         'use strict';
         var fixRegExpWellKnownSymbolLogic = _dereq_('../internals/fix-regexp-well-known-symbol-logic');
@@ -25920,14 +26231,14 @@
         '../internals/fails': 69,
         '../internals/fix-regexp-well-known-symbol-logic': 70,
         '../internals/is-regexp': 95,
-        '../internals/regexp-exec': 129,
-        '../internals/regexp-exec-abstract': 128,
-        '../internals/require-object-coercible': 132,
-        '../internals/species-constructor': 140,
-        '../internals/to-length': 155
+        '../internals/regexp-exec': 130,
+        '../internals/regexp-exec-abstract': 129,
+        '../internals/require-object-coercible': 133,
+        '../internals/species-constructor': 141,
+        '../internals/to-length': 156
       }
     ],
-    222: [
+    225: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -25967,11 +26278,11 @@
         '../internals/is-pure': 94,
         '../internals/not-a-regexp': 106,
         '../internals/object-get-own-property-descriptor': 112,
-        '../internals/require-object-coercible': 132,
-        '../internals/to-length': 155
+        '../internals/require-object-coercible': 133,
+        '../internals/to-length': 156
       }
     ],
-    223: [
+    226: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -25992,10 +26303,10 @@
       {
         '../internals/create-html': 54,
         '../internals/export': 68,
-        '../internals/string-html-forced': 141
+        '../internals/string-html-forced': 142
       }
     ],
-    224: [
+    227: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -26015,11 +26326,11 @@
       },
       {
         '../internals/export': 68,
-        '../internals/string-trim': 148,
-        '../internals/string-trim-forced': 147
+        '../internals/string-trim': 149,
+        '../internals/string-trim-forced': 148
       }
     ],
-    225: [
+    228: [
       function (_dereq_, module, exports) {
         // `Symbol.prototype.description` getter
         // https://tc39.github.io/ecma262/#sec-symbol.prototype.description
@@ -26078,7 +26389,7 @@
         '../internals/object-define-property': 111
       }
     ],
-    226: [
+    229: [
       function (_dereq_, module, exports) {
         var defineWellKnownSymbol = _dereq_('../internals/define-well-known-symbol');
         // `Symbol.iterator` well-known symbol
@@ -26089,7 +26400,7 @@
         '../internals/define-well-known-symbol': 60
       }
     ],
-    227: [
+    230: [
       function (_dereq_, module, exports) {
         'use strict';
         var $ = _dereq_('../internals/export');
@@ -26455,20 +26766,20 @@
         '../internals/object-get-own-property-symbols': 115,
         '../internals/object-keys': 118,
         '../internals/object-property-is-enumerable': 119,
-        '../internals/redefine': 127,
-        '../internals/set-to-string-tag': 136,
-        '../internals/shared': 139,
-        '../internals/shared-key': 137,
-        '../internals/to-indexed-object': 153,
-        '../internals/to-object': 156,
-        '../internals/to-primitive': 159,
-        '../internals/uid': 164,
-        '../internals/use-symbol-as-uid': 165,
-        '../internals/well-known-symbol': 167,
-        '../internals/well-known-symbol-wrapped': 166
+        '../internals/redefine': 128,
+        '../internals/set-to-string-tag': 137,
+        '../internals/shared': 140,
+        '../internals/shared-key': 138,
+        '../internals/to-indexed-object': 154,
+        '../internals/to-object': 157,
+        '../internals/to-primitive': 160,
+        '../internals/uid': 165,
+        '../internals/use-symbol-as-uid': 166,
+        '../internals/well-known-symbol': 168,
+        '../internals/well-known-symbol-wrapped': 167
       }
     ],
-    228: [
+    231: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26486,7 +26797,7 @@
         '../internals/array-copy-within': 32
       }
     ],
-    229: [
+    232: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26504,7 +26815,7 @@
         '../internals/array-iteration': 37
       }
     ],
-    230: [
+    233: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26523,7 +26834,7 @@
         '../internals/array-fill': 33
       }
     ],
-    231: [
+    234: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26547,10 +26858,10 @@
       {
         '../internals/array-buffer-view-core': 30,
         '../internals/array-iteration': 37,
-        '../internals/species-constructor': 140
+        '../internals/species-constructor': 141
       }
     ],
-    232: [
+    235: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26568,7 +26879,7 @@
         '../internals/array-iteration': 37
       }
     ],
-    233: [
+    236: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26586,7 +26897,7 @@
         '../internals/array-iteration': 37
       }
     ],
-    234: [
+    237: [
       function (_dereq_, module, exports) {
         var createTypedArrayConstructor = _dereq_('../internals/typed-array-constructor');
         // `Float32Array` constructor
@@ -26598,10 +26909,10 @@
         });
       },
       {
-        '../internals/typed-array-constructor': 161
+        '../internals/typed-array-constructor': 162
       }
     ],
-    235: [
+    238: [
       function (_dereq_, module, exports) {
         var createTypedArrayConstructor = _dereq_('../internals/typed-array-constructor');
         // `Float64Array` constructor
@@ -26613,10 +26924,10 @@
         });
       },
       {
-        '../internals/typed-array-constructor': 161
+        '../internals/typed-array-constructor': 162
       }
     ],
-    236: [
+    239: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26634,7 +26945,7 @@
         '../internals/array-iteration': 37
       }
     ],
-    237: [
+    240: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26652,7 +26963,7 @@
         '../internals/array-includes': 36
       }
     ],
-    238: [
+    241: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26670,7 +26981,7 @@
         '../internals/array-includes': 36
       }
     ],
-    239: [
+    242: [
       function (_dereq_, module, exports) {
         var createTypedArrayConstructor = _dereq_('../internals/typed-array-constructor');
         // `Int16Array` constructor
@@ -26682,10 +26993,10 @@
         });
       },
       {
-        '../internals/typed-array-constructor': 161
+        '../internals/typed-array-constructor': 162
       }
     ],
-    240: [
+    243: [
       function (_dereq_, module, exports) {
         var createTypedArrayConstructor = _dereq_('../internals/typed-array-constructor');
         // `Int32Array` constructor
@@ -26697,10 +27008,10 @@
         });
       },
       {
-        '../internals/typed-array-constructor': 161
+        '../internals/typed-array-constructor': 162
       }
     ],
-    241: [
+    244: [
       function (_dereq_, module, exports) {
         'use strict';
         var global = _dereq_('../internals/global');
@@ -26739,11 +27050,11 @@
       {
         '../internals/array-buffer-view-core': 30,
         '../internals/global': 78,
-        '../internals/well-known-symbol': 167,
-        '../modules/es.array.iterator': 182
+        '../internals/well-known-symbol': 168,
+        '../modules/es.array.iterator': 183
       }
     ],
-    242: [
+    245: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26762,7 +27073,7 @@
         '../internals/array-buffer-view-core': 30
       }
     ],
-    243: [
+    246: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26781,7 +27092,7 @@
         '../internals/array-last-index-of': 38
       }
     ],
-    244: [
+    247: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26801,10 +27112,10 @@
       {
         '../internals/array-buffer-view-core': 30,
         '../internals/array-iteration': 37,
-        '../internals/species-constructor': 140
+        '../internals/species-constructor': 141
       }
     ],
-    245: [
+    248: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26822,7 +27133,7 @@
         '../internals/array-reduce': 42
       }
     ],
-    246: [
+    249: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26840,7 +27151,7 @@
         '../internals/array-reduce': 42
       }
     ],
-    247: [
+    250: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26867,7 +27178,7 @@
         '../internals/array-buffer-view-core': 30
       }
     ],
-    248: [
+    251: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26898,12 +27209,12 @@
       {
         '../internals/array-buffer-view-core': 30,
         '../internals/fails': 69,
-        '../internals/to-length': 155,
-        '../internals/to-object': 156,
-        '../internals/to-offset': 157
+        '../internals/to-length': 156,
+        '../internals/to-object': 157,
+        '../internals/to-offset': 158
       }
     ],
-    249: [
+    252: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26933,10 +27244,10 @@
       {
         '../internals/array-buffer-view-core': 30,
         '../internals/fails': 69,
-        '../internals/species-constructor': 140
+        '../internals/species-constructor': 141
       }
     ],
-    250: [
+    253: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26954,7 +27265,7 @@
         '../internals/array-iteration': 37
       }
     ],
-    251: [
+    254: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26972,7 +27283,7 @@
         '../internals/array-buffer-view-core': 30
       }
     ],
-    252: [
+    255: [
       function (_dereq_, module, exports) {
         'use strict';
         var ArrayBufferViewCore = _dereq_('../internals/array-buffer-view-core');
@@ -26992,12 +27303,12 @@
       },
       {
         '../internals/array-buffer-view-core': 30,
-        '../internals/species-constructor': 140,
-        '../internals/to-absolute-index': 151,
-        '../internals/to-length': 155
+        '../internals/species-constructor': 141,
+        '../internals/to-absolute-index': 152,
+        '../internals/to-length': 156
       }
     ],
-    253: [
+    256: [
       function (_dereq_, module, exports) {
         'use strict';
         var global = _dereq_('../internals/global');
@@ -27034,7 +27345,7 @@
         '../internals/global': 78
       }
     ],
-    254: [
+    257: [
       function (_dereq_, module, exports) {
         'use strict';
         var exportTypedArrayMethod = _dereq_('../internals/array-buffer-view-core').exportTypedArrayMethod;
@@ -27066,7 +27377,7 @@
         '../internals/global': 78
       }
     ],
-    255: [
+    258: [
       function (_dereq_, module, exports) {
         var createTypedArrayConstructor = _dereq_('../internals/typed-array-constructor');
         // `Uint16Array` constructor
@@ -27078,10 +27389,10 @@
         });
       },
       {
-        '../internals/typed-array-constructor': 161
+        '../internals/typed-array-constructor': 162
       }
     ],
-    256: [
+    259: [
       function (_dereq_, module, exports) {
         var createTypedArrayConstructor = _dereq_('../internals/typed-array-constructor');
         // `Uint32Array` constructor
@@ -27093,10 +27404,10 @@
         });
       },
       {
-        '../internals/typed-array-constructor': 161
+        '../internals/typed-array-constructor': 162
       }
     ],
-    257: [
+    260: [
       function (_dereq_, module, exports) {
         var createTypedArrayConstructor = _dereq_('../internals/typed-array-constructor');
         // `Uint8Array` constructor
@@ -27108,10 +27419,10 @@
         });
       },
       {
-        '../internals/typed-array-constructor': 161
+        '../internals/typed-array-constructor': 162
       }
     ],
-    258: [
+    261: [
       function (_dereq_, module, exports) {
         var createTypedArrayConstructor = _dereq_('../internals/typed-array-constructor');
         // `Uint8ClampedArray` constructor
@@ -27123,10 +27434,10 @@
         }, true);
       },
       {
-        '../internals/typed-array-constructor': 161
+        '../internals/typed-array-constructor': 162
       }
     ],
-    259: [
+    262: [
       function (_dereq_, module, exports) {
         'use strict';
         var global = _dereq_('../internals/global');
@@ -27203,10 +27514,10 @@
         '../internals/internal-state': 89,
         '../internals/is-object': 93,
         '../internals/native-weak-map': 104,
-        '../internals/redefine-all': 126
+        '../internals/redefine-all': 127
       }
     ],
-    260: [
+    263: [
       function (_dereq_, module, exports) {
         var global = _dereq_('../internals/global');
         var DOMIterables = _dereq_('../internals/dom-iterables');
@@ -27230,7 +27541,7 @@
         '../internals/global': 78
       }
     ],
-    261: [
+    264: [
       function (_dereq_, module, exports) {
         var global = _dereq_('../internals/global');
         var DOMIterables = _dereq_('../internals/dom-iterables');
@@ -27268,11 +27579,11 @@
         '../internals/create-non-enumerable-property': 56,
         '../internals/dom-iterables': 63,
         '../internals/global': 78,
-        '../internals/well-known-symbol': 167,
-        '../modules/es.array.iterator': 182
+        '../internals/well-known-symbol': 168,
+        '../modules/es.array.iterator': 183
       }
     ],
-    262: [
+    265: [
       function (_dereq_, module, exports) {
         'use strict';
         // TODO: in core-js@4, move /modules/ dependencies to public entries for better optimization by tools like `preset-env`
@@ -27659,14 +27970,14 @@
         '../internals/is-object': 93,
         '../internals/native-url': 103,
         '../internals/object-create': 109,
-        '../internals/redefine': 127,
-        '../internals/redefine-all': 126,
-        '../internals/set-to-string-tag': 136,
-        '../internals/well-known-symbol': 167,
-        '../modules/es.array.iterator': 182
+        '../internals/redefine': 128,
+        '../internals/redefine-all': 127,
+        '../internals/set-to-string-tag': 137,
+        '../internals/well-known-symbol': 168,
+        '../modules/es.array.iterator': 183
       }
     ],
-    263: [
+    266: [
       function (_dereq_, module, exports) {
         'use strict';
         // TODO: in core-js@4, move /modules/ dependencies to public entries for better optimization by tools like `preset-env`
@@ -28699,15 +29010,15 @@
         '../internals/native-url': 103,
         '../internals/object-assign': 108,
         '../internals/object-define-properties': 110,
-        '../internals/redefine': 127,
-        '../internals/set-to-string-tag': 136,
-        '../internals/string-multibyte': 142,
-        '../internals/string-punycode-to-ascii': 145,
-        '../modules/es.string.iterator': 215,
-        '../modules/web.url-search-params': 262
+        '../internals/redefine': 128,
+        '../internals/set-to-string-tag': 137,
+        '../internals/string-multibyte': 143,
+        '../internals/string-punycode-to-ascii': 146,
+        '../modules/es.string.iterator': 218,
+        '../modules/web.url-search-params': 265
       }
     ],
-    264: [
+    267: [
       function (_dereq_, module, exports) {
         // This file can be required in Browserify and Node.js for automatic polyfill
         // To use it:  require('es6-promise/auto');
@@ -28715,10 +29026,10 @@
         module.exports = _dereq_('./').polyfill();
       },
       {
-        './': 265
+        './': 268
       }
     ],
-    265: [
+    268: [
       function (_dereq_, module, exports) {
         (function (process, global) {
           /*!
@@ -29780,10 +30091,10 @@
         })
       },
       {
-        '_process': 278
+        '_process': 281
       }
     ],
-    266: [
+    269: [
       function (_dereq_, module, exports) {
         (function (global, factory) {
           if (typeof define === 'function' && define.amd) {
@@ -29896,7 +30207,7 @@
       {
       }
     ],
-    267: [
+    270: [
       function (_dereq_, module, exports) {
         /* FileSaver.js
  * A saveAs() FileSaver implementation.
@@ -30073,7 +30384,7 @@
       {
       }
     ],
-    268: [
+    271: [
       function (_dereq_, module, exports) {
         var __defProp = Object.defineProperty;
         var __markAsModule = target=>__defProp(target, '__esModule', {
@@ -30907,7 +31218,7 @@
       {
       }
     ],
-    269: [
+    272: [
       function (_dereq_, module, exports) {
         'use strict';
         function _interopDefault(ex) {
@@ -31207,11 +31518,11 @@
         module.exports = Browser;
       },
       {
-        '@babel/runtime/helpers/classCallCheck': 270,
-        '@babel/runtime/helpers/createClass': 271
+        '@babel/runtime/helpers/classCallCheck': 273,
+        '@babel/runtime/helpers/createClass': 274
       }
     ],
-    270: [
+    273: [
       function (_dereq_, module, exports) {
         arguments[4][5][0].apply(exports, arguments)
       },
@@ -31219,7 +31530,7 @@
         'dup': 5
       }
     ],
-    271: [
+    274: [
       function (_dereq_, module, exports) {
         arguments[4][6][0].apply(exports, arguments)
       },
@@ -31227,7 +31538,7 @@
         'dup': 6
       }
     ],
-    272: [
+    275: [
       function (_dereq_, module, exports) {
         'use strict';
         function _interopDefault(ex) {
@@ -33721,7 +34032,7 @@
         '@babel/runtime/helpers/typeof': 19
       }
     ],
-    273: [
+    276: [
       function (_dereq_, module, exports) {
         exports.read = function (buffer, offset, isLE, mLen, nBytes) {
           var e,
@@ -33807,7 +34118,7 @@
       {
       }
     ],
-    274: [
+    277: [
       function (_dereq_, module, exports) {
         /*
 
@@ -34968,7 +35279,7 @@
       {
       }
     ],
-    275: [
+    278: [
       function (_dereq_, module, exports) {
         // (c) Dean McNamee <dean@gmail.com>, 2013.
         //
@@ -35717,7 +36028,7 @@
       {
       }
     ],
-    276: [
+    279: [
       function (_dereq_, module, exports) {
         (function (Buffer) {
           /**
@@ -48672,16 +48983,16 @@
             /*****************************
     Mathematical Considerations
   ******************************
-  	fv ... refers to freedom vector
+    fv ... refers to freedom vector
   pv ... refers to projection vector
   rp ... refers to reference point
   p  ... refers to to point being operated on
   d  ... refers to distance
-  	SETRELATIVE:
+    SETRELATIVE:
   ============
-  	case freedom vector == x-axis:
+    case freedom vector == x-axis:
   ------------------------------
-  	                        (pv)
+                            (pv)
                        .-'
                 rpd .-'
                  .-*
@@ -48694,16 +49005,16 @@
                           '
               p *----------*-------------- (fv)
                             pm
-  	  rpdx = rpx + d * pv.x
+      rpdx = rpx + d * pv.x
     rpdy = rpy + d * pv.y
-  	  equation of line b
-  	   y - rpdy = pvns * (x- rpdx)
-  	   y = p.y
-  	   x = rpdx + ( p.y - rpdy ) / pvns
+      equation of line b
+       y - rpdy = pvns * (x- rpdx)
+       y = p.y
+       x = rpdx + ( p.y - rpdy ) / pvns
   
   case freedom vector == y-axis:
   ------------------------------
-  	    * pm
+        * pm
       |\
       | \
       |  \
@@ -48722,15 +49033,15 @@
       |        .-'
       *     *-'  d
       p     rp
-  	  rpdx = rpx + d * pv.x
+      rpdx = rpx + d * pv.x
     rpdy = rpy + d * pv.y
-  	  equation of line b:
+      equation of line b:
              pvns ... normal slope to pv
-  	   y - rpdy = pvns * (x - rpdx)
-  	   x = p.x
-  	   y = rpdy +  pvns * (p.x - rpdx)
+       y - rpdy = pvns * (x - rpdx)
+       x = p.x
+       y = rpdy +  pvns * (p.x - rpdx)
   
-  	generic case:
+    generic case:
   -------------
   
                                 .'(fv)
@@ -48749,41 +49060,41 @@
            ...---'''   d
      *--'''
     rp
-  	    rpdx = rpx + d * pv.x
+        rpdx = rpx + d * pv.x
       rpdy = rpy + d * pv.y
-  	 equation of line b:
+     equation of line b:
       pvns... normal slope to pv
-  	    y - rpdy = pvns * (x - rpdx)
-  	 equation of freedom vector line:
+        y - rpdy = pvns * (x - rpdx)
+     equation of freedom vector line:
       fvs ... slope of freedom vector (=fy/fx)
-  	    y - py = fvs * (x - px)
+        y - py = fvs * (x - px)
   
     on pm both equations are true for same x/y
-  	    y - rpdy = pvns * (x - rpdx)
-  	    y - py = fvs * (x - px)
-  	  form to y and set equal:
-  	    pvns * (x - rpdx) + rpdy = fvs * (x - px) + py
-  	  expand:
-  	    pvns * x - pvns * rpdx + rpdy = fvs * x - fvs * px + py
-  	  switch:
-  	    fvs * x - fvs * px + py = pvns * x - pvns * rpdx + rpdy
-  	  solve for x:
-  	    fvs * x - pvns * x = fvs * px - pvns * rpdx - py + rpdy
+        y - rpdy = pvns * (x - rpdx)
+        y - py = fvs * (x - px)
+      form to y and set equal:
+        pvns * (x - rpdx) + rpdy = fvs * (x - px) + py
+      expand:
+        pvns * x - pvns * rpdx + rpdy = fvs * x - fvs * px + py
+      switch:
+        fvs * x - fvs * px + py = pvns * x - pvns * rpdx + rpdy
+      solve for x:
+        fvs * x - pvns * x = fvs * px - pvns * rpdx - py + rpdy
   
-  	          fvs * px - pvns * rpdx + rpdy - py
+              fvs * px - pvns * rpdx + rpdy - py
       x =  -----------------------------------
                    fvs - pvns
-  	  and:
-  	    y = fvs * (x - px) + py
+      and:
+        y = fvs * (x - px) + py
   
-  	INTERPOLATE:
+    INTERPOLATE:
   ============
-  	Examples of point interpolation.
-  	The weight of the movement of the reference point gets bigger
+    Examples of point interpolation.
+    The weight of the movement of the reference point gets bigger
   the further the other reference point is away, thus the safest
   option (that is avoiding 0/0 divisions) is to weight the
   original distance of the other point by the sum of both distances.
-  	If the sum of both distances is 0, then move the point by the
+    If the sum of both distances is 0, then move the point by the
   arithmetic average of the movement of both reference points.
   
   
@@ -48805,7 +49116,7 @@
   
   -------
   
-  	           (+10)
+               (+10)
       rp1o *-------->*rp1
            .         .                      (-10)
            .         .              rp2 *<---------* rpo2
@@ -48831,7 +49142,7 @@
   
                                  (+10)
                             po *-------->* p
-  	-------
+    -------
   
              (+10)
       rp1o *-------->*rp1
@@ -48842,7 +49153,7 @@
                                           (+25)
                             po *----------------------->* p
   
-  	vim: set ts=4 sw=4 expandtab:
+    vim: set ts=4 sw=4 expandtab:
   *****/
             // The Font object
             // This code is based on Array.from implementation for strings in https://github.com/mathiasbynens/Array.from
@@ -50229,7 +50540,7 @@
         'fs': 21
       }
     ],
-    277: [
+    280: [
       function (_dereq_, module, exports) {
         (function (process) {
           // .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
@@ -50496,10 +50807,10 @@
         }).call(this, _dereq_('_process'))
       },
       {
-        '_process': 278
+        '_process': 281
       }
     ],
-    278: [
+    281: [
       function (_dereq_, module, exports) {
         // shim for using process in browser
         var process = module.exports = {
@@ -50683,7 +50994,7 @@
       {
       }
     ],
-    279: [
+    282: [
       function (_dereq_, module, exports) {
         /**
  * Copyright (c) 2014-present, Facebook, Inc.
@@ -51309,7 +51620,7 @@
       {
       }
     ],
-    280: [
+    283: [
       function (_dereq_, module, exports) {
         (function (self) {
           'use strict';
@@ -51752,7 +52063,7 @@
       {
       }
     ],
-    281: [
+    284: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.function.name');
@@ -52464,10 +52775,10 @@
             }
           }
           return colortext;
-        }        //gets rgba and returs a color name
+        }        //gets rgba and returns a color name
 
         _main.default.prototype._rgbColorName = function (arg) {
-          //conversts rgba to hsb
+          //converts rgba to hsb
           var hsb = _color_conversion.default._rgbaToHSBA(arg);
           //stores hsb in global variable
           originalHSB = hsb;
@@ -52480,16 +52791,16 @@
         exports.default = _default;
       },
       {
-        '../color/color_conversion': 287,
-        '../core/main': 303,
-        'core-js/modules/es.function.name': 191,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.split': 221
+        '../color/color_conversion': 290,
+        '../core/main': 306,
+        'core-js/modules/es.function.name': 192,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.split': 224
       }
     ],
-    282: [
+    285: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.concat');
@@ -52538,7 +52849,7 @@
  * visible to screen readers. This is the default mode.
  *
  * Read
- * <a href="/learn/accessible-labels.html">Writing accessible canvas descriptions</a>
+ * <a href="https://p5js.org/tutorials/writing-accessible-canvas-descriptions/">Writing accessible canvas descriptions</a>
  * to learn more about making sketches accessible.
  *
  * @method describe
@@ -52688,7 +52999,7 @@
  * mode.
  *
  * Read
- * <a href="/learn/accessible-labels.html">Writing accessible canvas descriptions</a>
+ * <a href="https://p5js.org/tutorials/writing-accessible-canvas-descriptions/">Writing accessible canvas descriptions</a>
  * to learn more about making sketches accessible.
  *
  * @method describeElement
@@ -52956,14 +53267,14 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.string.ends-with': 213,
-        'core-js/modules/es.string.replace': 219
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.string.ends-with': 216,
+        'core-js/modules/es.string.replace': 222
       }
     ],
-    283: [
+    286: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.concat');
@@ -52994,7 +53305,15 @@
         //updates gridOutput
 
         _main.default.prototype._updateGridOutput = function (idT) {
-          //if html structure is not there yet
+          // Check if the current rendering mode is WEBGL
+          if (this._renderer && this._renderer instanceof _main.default.RendererGL) {
+            if (!this._didOutputGridWebGLMessage) {
+              this._didOutputGridWebGLMessage = true;
+              console.error('gridOutput() does not yet work in WebGL mode.');
+            }
+            return;
+          }          //if html structure is not there yet
+
           if (!this.dummyDOM.querySelector('#'.concat(idT, '_summary'))) {
             return;
           }
@@ -53037,17 +53356,20 @@
                 fill = '<a href="#'.concat(idT, 'shape').concat(shapeNumber, '">').concat(ingredients[x][y].color, ' ').concat(x, '</a>');
               } else {
                 fill = '<a href="#'.concat(idT, 'shape').concat(shapeNumber, '">').concat(ingredients[x][y].color, ' ').concat(x, ' midpoint</a>');
-              }              //if empty cell of location of shape is undefined
+              }              // Check if shape is in canvas, skip if not
 
-              if (!cells[ingredients[x][y].loc.locY][ingredients[x][y].loc.locX]) {
-                //fill it with shape info
-                cells[ingredients[x][y].loc.locY][ingredients[x][y].loc.locX] = fill;
-                //if a shape is already in that location
-              } else {
-                //add it
-                cells[ingredients[x][y].loc.locY][ingredients[x][y].loc.locX] = cells[ingredients[x][y].loc.locY][ingredients[x][y].loc.locX] + '  ' + fill;
+              if (ingredients[x][y].loc.locY < cells.length && ingredients[x][y].loc.locX < cells[ingredients[x][y].loc.locY].length) {
+                //if empty cell of location of shape is undefined
+                if (!cells[ingredients[x][y].loc.locY][ingredients[x][y].loc.locX]) {
+                  //fill it with shape info
+                  cells[ingredients[x][y].loc.locY][ingredients[x][y].loc.locX] = fill;
+                  //if a shape is already in that location
+                } else {
+                  //add it
+                  cells[ingredients[x][y].loc.locY][ingredients[x][y].loc.locX] = cells[ingredients[x][y].loc.locY][ingredients[x][y].loc.locX] + '  ' + fill;
+                }
+                shapeNumber++;
               }
-              shapeNumber++;
             }
           }          //make table based on array
 
@@ -53079,7 +53401,7 @@
           var shapeDetails = '';
           var shapes = '';
           var totalShapes = 0;
-          //goes trhough every shape type in ingredients
+          //goes through every shape type in ingredients
           for (var x in ingredients) {
             var shapeNum = 0;
             for (var y in ingredients[x]) {
@@ -53116,14 +53438,14 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.string.iterator': 215
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.string.iterator': 218
       }
     ],
-    284: [
+    287: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -53203,8 +53525,17 @@
  * mode.
  *
  * Read
- * <a href="/learn/accessible-labels.html">Writing accessible canvas descriptions</a>
+ * <a href="https://p5js.org/tutorials/writing-accessible-canvas-descriptions/">Writing accessible canvas descriptions</a>
  * to learn more about making sketches accessible.
+ *
+ * `textOutput()` generates descriptions in English only. Text drawn with
+ * <a href="#/p5/text">text()</a> is not described. Shapes created with
+ * <a href="#/p5/beginShape">beginShape()</a> are not described. WEBGL mode
+ * and 3D shapes are not supported.
+ *
+ * Use <a href="#/p5/describe">describe()</a> and
+ * <a href="#/p5/describeElement">describeElement()</a> for more control
+ * over canvas descriptions.
  *
  * @method textOutput
  * @param  {Constant} [display] either FALLBACK or LABEL.
@@ -53251,6 +53582,10 @@
  *
  * <div>
  * <code>
+ * function setup() {
+ *   createCanvas(100, 100);
+ * }
+ *
  * function draw() {
  *   // Add the text description.
  *   textOutput();
@@ -53271,6 +53606,10 @@
  *
  * <div>
  * <code>
+ * function setup() {
+ *   createCanvas(100, 100);
+ * }
+ *
  * function draw() {
  *   // Add the text description and
  *   // display it for debugging.
@@ -53337,8 +53676,17 @@
  * mode.
  *
  * Read
- * <a href="/learn/accessible-labels.html">Writing accessible canvas descriptions</a>
+ * <a href="https://p5js.org/tutorials/writing-accessible-canvas-descriptions/">Writing accessible canvas descriptions</a>
  * to learn more about making sketches accessible.
+ *
+ * `gridOutput()` generates descriptions in English only. Text drawn with
+ * <a href="#/p5/text">text()</a> is not described. Shapes created with
+ * <a href="#/p5/beginShape">beginShape()</a> are not described. WEBGL mode
+ * and 3D shapes are not supported.
+ *
+ * Use <a href="#/p5/describe">describe()</a> and
+ * <a href="#/p5/describeElement">describeElement()</a> for more control
+ * over canvas descriptions.
  *
  * @method gridOutput
  * @param  {Constant} [display] either FALLBACK or LABEL.
@@ -53385,6 +53733,10 @@
  *
  * <div>
  * <code>
+ * function setup() {
+ *   createCanvas(100, 100);
+ * }
+ *
  * function draw() {
  *   // Add the grid description.
  *   gridOutput();
@@ -53405,6 +53757,10 @@
  *
  * <div>
  * <code>
+ * function setup() {
+ *   createCanvas(100, 100);
+ * }
+ *
  * function draw() {
  *   // Add the grid description and
  *   // display it for debugging.
@@ -53608,7 +53964,7 @@
           if (f === 'line') {
             //make color stroke
             include.color = this.ingredients.colors.stroke;
-            //get lenght
+            //get length
             include.length = Math.round(this.dist(args[0], args[1], args[2], args[3]));
             //get position of end points
             var p1 = this._getPos(args[0], [
@@ -53645,7 +54001,7 @@
               include
             ];
             //if other shapes of this type have been created
-          } else if (this.ingredients.shapes[f] !== [include]) {
+          } else {
             //for every shape of this type
             for (var y in this.ingredients.shapes[f]) {
               //compare it with current shape and if it already exists make add false
@@ -53721,14 +54077,13 @@
         function _canvasLocator(args, canvasWidth, canvasHeight) {
           var noRows = 10;
           var noCols = 10;
-          var locX = Math.floor(args[0] / canvasWidth * noRows);
-          var locY = Math.floor(args[1] / canvasHeight * noCols);
-          if (locX === noRows) {
-            locX = locX - 1;
-          }
-          if (locY === noCols) {
-            locY = locY - 1;
-          }
+          var x = args[0];
+          var y = args[1];
+          var locX = Math.floor(x / canvasWidth * noRows);
+          var locY = Math.floor(y / canvasHeight * noCols);
+          // clamp out of bounds values
+          locX = Math.min(Math.max(locX, 0), noRows - 1);
+          locY = Math.min(Math.max(locY, 0), noCols - 1);
           return {
             locX: locX,
             locY: locY
@@ -53802,23 +54157,23 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.fill': 173,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.number.to-fixed': 198,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.fill': 174,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.number.to-fixed': 200,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    285: [
+    288: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.concat');
@@ -53843,7 +54198,15 @@
         //updates textOutput
 
         _main.default.prototype._updateTextOutput = function (idT) {
-          //if html structure is not there yet
+          // Check if the current rendering mode is WEBGL
+          if (this._renderer && this._renderer instanceof _main.default.RendererGL) {
+            if (!this._didOutputTextWebGLMessage) {
+              this._didOutputTextWebGLMessage = true;
+              console.error('textOutput() does not yet work in WebGL mode.');
+            }
+            return;
+          }          //if html structure is not there yet
+
           if (!this.dummyDOM.querySelector('#'.concat(idT, '_summary'))) {
             return;
           }
@@ -53885,7 +54248,7 @@
         function _shapeDetails(idT, ingredients) {
           var shapeDetails = '';
           var shapeNumber = 0;
-          //goes trhough every shape type in ingredients
+          //goes through every shape type in ingredients
           for (var x in ingredients) {
             //and for every shape
             for (var y in ingredients[x]) {
@@ -53910,7 +54273,7 @@
         function _shapeList(idT, ingredients) {
           var shapeList = '';
           var shapeNumber = 0;
-          //goes trhough every shape type in ingredients
+          //goes through every shape type in ingredients
           for (var x in ingredients) {
             for (var y in ingredients[x]) {
               //it creates a line in a list
@@ -53937,11 +54300,11 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171
       }
     ],
-    286: [
+    289: [
       function (_dereq_, module, exports) {
         'use strict';
         var _main = _interopRequireDefault(_dereq_('./core/main'));
@@ -54014,6 +54377,7 @@
         _dereq_('./webgl/p5.DataArray');
         _dereq_('./webgl/p5.Geometry');
         _dereq_('./webgl/p5.Matrix');
+        _dereq_('./webgl/p5.Quat');
         _dereq_('./webgl/p5.RendererGL.Immediate');
         _dereq_('./webgl/p5.RendererGL');
         _dereq_('./webgl/p5.RendererGL.Retained');
@@ -54045,88 +54409,89 @@
         module.exports = _main.default;
       },
       {
-        './accessibility/color_namer': 281,
-        './accessibility/describe': 282,
-        './accessibility/gridOutput': 283,
-        './accessibility/outputs': 284,
-        './accessibility/textOutput': 285,
-        './color/color_conversion': 287,
-        './color/creating_reading': 288,
-        './color/p5.Color': 289,
-        './color/setting': 290,
-        './core/constants': 291,
-        './core/environment': 292,
-        './core/friendly_errors/fes_core': 294,
-        './core/friendly_errors/file_errors': 295,
-        './core/friendly_errors/sketch_reader': 296,
-        './core/friendly_errors/stacktrace': 297,
-        './core/friendly_errors/validate_params': 298,
-        './core/helpers': 299,
-        './core/init': 300,
-        './core/legacy': 302,
-        './core/main': 303,
-        './core/p5.Element': 304,
-        './core/p5.Graphics': 305,
-        './core/p5.Renderer': 306,
-        './core/p5.Renderer2D': 307,
-        './core/preload': 308,
-        './core/rendering': 309,
-        './core/shape/2d_primitives': 310,
-        './core/shape/attributes': 311,
-        './core/shape/curves': 312,
-        './core/shape/vertex': 313,
-        './core/shim': 314,
-        './core/structure': 315,
-        './core/transform': 316,
-        './data/local_storage.js': 317,
-        './data/p5.TypedDict': 318,
-        './dom/dom': 319,
-        './events/acceleration': 320,
-        './events/keyboard': 321,
-        './events/mouse': 322,
-        './events/touch': 323,
-        './image/filters': 324,
-        './image/image': 325,
-        './image/loading_displaying': 326,
-        './image/p5.Image': 327,
-        './image/pixels': 328,
-        './io/files': 329,
-        './io/p5.Table': 330,
-        './io/p5.TableRow': 331,
-        './io/p5.XML': 332,
-        './math/calculation': 333,
-        './math/math': 334,
-        './math/noise': 335,
-        './math/p5.Vector': 336,
-        './math/random': 337,
-        './math/trigonometry': 338,
-        './typography/attributes': 339,
-        './typography/loading_displaying': 340,
-        './typography/p5.Font': 341,
-        './utilities/array_functions': 342,
-        './utilities/conversion': 343,
-        './utilities/string_functions': 344,
-        './utilities/time_date': 345,
-        './webgl/3d_primitives': 346,
-        './webgl/interaction': 348,
-        './webgl/light': 349,
-        './webgl/loading': 350,
-        './webgl/material': 351,
-        './webgl/p5.Camera': 352,
-        './webgl/p5.DataArray': 353,
-        './webgl/p5.Framebuffer': 354,
-        './webgl/p5.Geometry': 355,
-        './webgl/p5.Matrix': 356,
-        './webgl/p5.RenderBuffer': 357,
-        './webgl/p5.RendererGL': 360,
-        './webgl/p5.RendererGL.Immediate': 358,
-        './webgl/p5.RendererGL.Retained': 359,
-        './webgl/p5.Shader': 361,
-        './webgl/p5.Texture': 362,
-        './webgl/text': 363
+        './accessibility/color_namer': 284,
+        './accessibility/describe': 285,
+        './accessibility/gridOutput': 286,
+        './accessibility/outputs': 287,
+        './accessibility/textOutput': 288,
+        './color/color_conversion': 290,
+        './color/creating_reading': 291,
+        './color/p5.Color': 292,
+        './color/setting': 293,
+        './core/constants': 294,
+        './core/environment': 295,
+        './core/friendly_errors/fes_core': 297,
+        './core/friendly_errors/file_errors': 298,
+        './core/friendly_errors/sketch_reader': 299,
+        './core/friendly_errors/stacktrace': 300,
+        './core/friendly_errors/validate_params': 301,
+        './core/helpers': 302,
+        './core/init': 303,
+        './core/legacy': 305,
+        './core/main': 306,
+        './core/p5.Element': 307,
+        './core/p5.Graphics': 308,
+        './core/p5.Renderer': 309,
+        './core/p5.Renderer2D': 310,
+        './core/preload': 311,
+        './core/rendering': 312,
+        './core/shape/2d_primitives': 313,
+        './core/shape/attributes': 314,
+        './core/shape/curves': 315,
+        './core/shape/vertex': 316,
+        './core/shim': 317,
+        './core/structure': 318,
+        './core/transform': 319,
+        './data/local_storage.js': 320,
+        './data/p5.TypedDict': 321,
+        './dom/dom': 322,
+        './events/acceleration': 323,
+        './events/keyboard': 324,
+        './events/mouse': 325,
+        './events/touch': 326,
+        './image/filters': 327,
+        './image/image': 328,
+        './image/loading_displaying': 329,
+        './image/p5.Image': 330,
+        './image/pixels': 331,
+        './io/files': 332,
+        './io/p5.Table': 333,
+        './io/p5.TableRow': 334,
+        './io/p5.XML': 335,
+        './math/calculation': 336,
+        './math/math': 337,
+        './math/noise': 338,
+        './math/p5.Vector': 339,
+        './math/random': 340,
+        './math/trigonometry': 341,
+        './typography/attributes': 342,
+        './typography/loading_displaying': 343,
+        './typography/p5.Font': 344,
+        './utilities/array_functions': 345,
+        './utilities/conversion': 346,
+        './utilities/string_functions': 347,
+        './utilities/time_date': 348,
+        './webgl/3d_primitives': 349,
+        './webgl/interaction': 351,
+        './webgl/light': 352,
+        './webgl/loading': 353,
+        './webgl/material': 354,
+        './webgl/p5.Camera': 355,
+        './webgl/p5.DataArray': 356,
+        './webgl/p5.Framebuffer': 357,
+        './webgl/p5.Geometry': 358,
+        './webgl/p5.Matrix': 359,
+        './webgl/p5.Quat': 360,
+        './webgl/p5.RenderBuffer': 361,
+        './webgl/p5.RendererGL': 364,
+        './webgl/p5.RendererGL.Immediate': 362,
+        './webgl/p5.RendererGL.Retained': 363,
+        './webgl/p5.Shader': 365,
+        './webgl/p5.Texture': 366,
+        './webgl/text': 367
       }
     ],
-    287: [
+    290: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -54417,10 +54782,10 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303
+        '../core/main': 306
       }
     ],
-    288: [
+    291: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -55454,15 +55819,15 @@
  * values. 0 is equal to the first color, 0.1 is very near the first color,
  * 0.5 is halfway between the two colors, and so on. Negative numbers are set
  * to 0. Numbers greater than 1 are set to 1. This differs from the behavior of
- * <a href="#/lerp">lerp</a>. It's necessary because numbers outside of the
+ * <a href="#/p5/lerp">lerp</a>. It's necessary because numbers outside of the
  * interval [0, 1] will produce strange and unexpected colors.
  *
  * The way that colors are interpolated depends on the current
- * <a href="#/colorMode">colorMode()</a>.
+ * <a href="#/p5/colorMode">colorMode()</a>.
  *
  * @method lerpColor
- * @param  {p5.Color} c1  interpolate from this color.
- * @param  {p5.Color} c2  interpolate to this color.
+ * @param  {p5.Color} c1  interpolate from this color (any value created by the color() function).
+ * @param  {p5.Color} c2  interpolate to this color (any value created by the color() function).
  * @param  {Number}   amt number between 0 and 1.
  * @return {p5.Color}     interpolated color.
  *
@@ -55508,6 +55873,12 @@
  */
         _main.default.prototype.lerpColor = function (c1, c2, amt) {
           _main.default._validateParameters('lerpColor', arguments);
+          if (!(c1 instanceof _main.default.Color)) {
+            c1 = color(c1);
+          }
+          if (!(c2 instanceof _main.default.Color)) {
+            c2 = color(c2);
+          }
           var mode = this._colorMode;
           var maxes = this._colorMaxes;
           var l0,
@@ -55572,6 +55943,53 @@
           l2 *= maxes[mode][2];
           l3 *= maxes[mode][3];
           return this.color(l0, l1, l2, l3);
+        };
+        /**
+ * Blends multiple colors to find a color between them.
+ *
+ * The `amt` parameter specifies the amount to interpolate between the color
+ * stops which are colors at each `amt` value "location" with `amt` values
+ * that are between 2 color stops interpolating between them based on its relative
+ * distance to both.
+ *
+ * The way that colors are interpolated depends on the current
+ * <a href="#/colorMode">colorMode()</a>.
+ *
+ * @method paletteLerp
+ * @param  {[p5.Color, Number][]} colors_stops color stops to interpolate from
+ * @param  {Number} amt number to use to interpolate relative to color stops
+ * @return {p5.Color} interpolated color.
+ *
+ * @example
+ * <div>
+ * <code>
+ * function setup() {
+ *   createCanvas(400, 400);
+ * }
+ *
+ * function draw() {
+ *   // The background goes from white to red to green to blue fill
+ *   background(paletteLerp([
+ *     ['white', 0],
+ *     ['red', 0.05],
+ *     ['green', 0.25],
+ *     ['blue', 1]
+ *   ], millis() / 10000 % 1));
+ * }
+ * </code>
+ * </div>
+ */
+        _main.default.prototype.paletteLerp = function (color_stops, amt) {
+          var first_color_stop = color_stops[0];
+          if (amt < first_color_stop[1]) return this.color(first_color_stop[0]);
+          for (var i = 1; i < color_stops.length; i++) {
+            var color_stop = color_stops[i];
+            if (amt < color_stop[1]) {
+              var prev_color_stop = color_stops[i - 1];
+              return this.lerpColor(this.color(prev_color_stop[0]), this.color(color_stop[0]), (amt - prev_color_stop[1]) / (color_stop[1] - prev_color_stop[1]));
+            }
+          }
+          return this.color(color_stops[color_stops.length - 1][0]);
         };
         /**
  * Gets the lightness value of a color.
@@ -56032,25 +56450,25 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/friendly_errors/fes_core': 294,
-        '../core/friendly_errors/file_errors': 295,
-        '../core/friendly_errors/validate_params': 298,
-        '../core/main': 303,
-        './p5.Color': 289,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/friendly_errors/fes_core': 297,
+        '../core/friendly_errors/file_errors': 298,
+        '../core/friendly_errors/validate_params': 301,
+        '../core/main': 306,
+        './p5.Color': 292,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    289: [
+    292: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -56499,6 +56917,7 @@
    * 'rgb%' 'hsb%' 'hsl%' 'rgba%' 'hsba%' and 'hsla%' format as percentages.
    * @return {String} the formatted string.
    *
+   * @example
    * <div>
    * <code>
    * function setup() {
@@ -56718,7 +57137,6 @@
      * @method setAlpha
      * @param {Number} alpha the new alpha value.
      *
-     * @example
      * @example
      * <div>
      * <code>
@@ -57104,30 +57522,30 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        './color_conversion': 287,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.constructor': 209,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.includes': 214,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.trim': 224,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        './color_conversion': 290,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.constructor': 212,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.includes': 217,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.trim': 227,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    290: [
+    293: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -57654,6 +58072,11 @@
  * in RGB values. Calling `background(255, 204, 0)` sets the background a bright
  * yellow color.
  *
+ * The version of `background()` with four parameters interprets them as RGBA,
+ * HSBA, or HSLA colors, depending on the current
+ * <a href="#/p5/colorMode">colorMode()</a>. The last parameter sets the alpha
+ * (transparency) value.
+ *
  * @method background
  * @param {p5.Color} color  any value created by the <a href="#/p5/color">color()</a> function
  * @chainable
@@ -57693,6 +58116,19 @@
  *   background(255, 204, 0);
  *
  *   describe('A canvas with a yellow background.');
+ * }
+ * </code>
+ * </div>
+ *
+ * <div>
+ * <code>
+ * function setup() {
+ *   createCanvas(100, 100);
+ *
+ *   // R, G, B, and Alpha values.
+ *   background(255, 0, 0, 128);
+ *
+ *   describe('A canvas with a semi-transparent red background.');
  * }
  * </code>
  * </div>
@@ -58196,11 +58632,15 @@
  * <a href="#/p5/colorMode">colorMode()</a>. The default color space is RGB,
  * with each value in the range from 0 to 255.
  *
+ * The version of `fill()` with four parameters interprets them as `RGBA`, `HSBA`,
+ * or `HSLA` colors, depending on the current <a href="#/p5/colorMode">colorMode()</a>. The last parameter
+ * sets the alpha (transparency) value.
+ *
  * @method fill
  * @param  {Number}        v1      red value if color mode is RGB or hue value if color mode is HSB.
  * @param  {Number}        v2      green value if color mode is RGB or saturation value if color mode is HSB.
  * @param  {Number}        v3      blue value if color mode is RGB or brightness value if color mode is HSB.
- * @param  {Number}        [alpha]
+ * @param  {Number}        [alpha] alpha value, controls transparency (0 - transparent, 255 - opaque).
  * @chainable
  * @example
  * <div>
@@ -58231,6 +58671,22 @@
  *   square(20, 20, 60);
  *
  *   describe('A yellow square with a black outline.');
+ * }
+ * </code>
+ * </div>
+ *
+ * <div>
+ * <code>
+ * function setup() {
+ *   createCanvas(100, 100);
+ *
+ *   background(200);
+ *
+ *   // R, G, B, and Alpha values.
+ *   fill(255, 0, 0, 128);
+ *   square(20, 20, 60);
+ *
+ *   describe('A semi-transparent red square with a black outline.');
  * }
  * </code>
  * </div>
@@ -58530,7 +58986,7 @@
  * Sets the color used to draw points, lines, and the outlines of shapes.
  *
  * Calling `stroke(255, 165, 0)` or `stroke('orange')` means all shapes drawn
- * after calling `stroke()` will be filled with the color orange. The way
+ * after calling `stroke()` will be outlined with the color orange. The way
  * these parameters are interpreted may be changed with the
  * <a href="#/p5/colorMode">colorMode()</a> function.
  *
@@ -58554,7 +59010,7 @@
  * @param  {Number}        v1      red value if color mode is RGB or hue value if color mode is HSB.
  * @param  {Number}        v2      green value if color mode is RGB or saturation value if color mode is HSB.
  * @param  {Number}        v3      blue value if color mode is RGB or brightness value if color mode is HSB.
- * @param  {Number}        [alpha]
+ * @param  {Number}        [alpha] alpha value, controls transparency (0 - transparent, 255 - opaque).
  * @chainable
  *
  * @example
@@ -58907,22 +59363,22 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        './p5.Color': 289,
-        'core-js/modules/es.array.fill': 173,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        './p5.Color': 292,
+        'core-js/modules/es.array.fill': 174,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    291: [
+    294: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -58941,7 +59397,7 @@
  * @property {String} VERSION
  * @final
  */
-        var VERSION = '1.9.4';
+        var VERSION = '1.11.11';
         // GRAPHICS RENDERER
         /**
  * The default, two-dimensional renderer.
@@ -58953,19 +59409,19 @@
         /**
  * One of the two render modes in p5.js, used for computationally intensive tasks like 3D rendering and shaders.
  *
- * `WEBGL` differs from the default <a href="/reference/#/p5/P2D">`P2D`</a> renderer in the following ways:
+ * `WEBGL` differs from the default <a href="/reference/p5/P2D">`P2D`</a> renderer in the following ways:
  *
- * - **Coordinate System** - When drawing in `WEBGL` mode, the origin point (0,0,0) is located at the center of the screen, not the top-left corner. See <a href="https://p5js.org/learn/getting-started-in-webgl-coords-and-transform.html">the learn page about coordinates and transformations</a>.
- * - **3D Shapes** - `WEBGL` mode can be used to draw 3-dimensional shapes like <a href="/reference/#/p5/box">box()</a>, <a href="/reference/#/p5/sphere">sphere()</a>, <a href="/reference/#/p5/cone">cone()</a>, and <a href="/#Shape3D%20Primitives">more</a>. See <a href="https://p5js.org/learn/getting-started-in-webgl-custom-geometry.html">the learn page about custom geometry</a> to make more complex objects.
+ * - **Coordinate System** - When drawing in `WEBGL` mode, the origin point (0,0,0) is located at the center of the screen, not the top-left corner. See <a href="https://p5js.org/tutorials/coordinates-and-transformations/">the tutorial page about coordinates and transformations</a>.
+ * - **3D Shapes** - `WEBGL` mode can be used to draw 3-dimensional shapes like <a href="#/p5/box">box()</a>, <a href="#/p5/sphere">sphere()</a>, <a href="#/p5/cone">cone()</a>, and <a href="https://p5js.org/reference/#3D%20Primitives">more</a>. See <a href="https://p5js.org/tutorials/custom-geometry/">the tutorial page about custom geometry</a> to make more complex objects.
  * - **Shape Detail** - When drawing in `WEBGL` mode, you can specify how smooth curves should be drawn by using a `detail` parameter. See <a href="https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#3d-primitives-shapes">the wiki section about shapes</a> for a more information and an example.
  * - **Textures** - A texture is like a skin that wraps onto a shape. See <a href="https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#textures">the wiki section about textures</a> for examples of mapping images onto surfaces with textures.
- * - **Materials and Lighting** - `WEBGL` offers different types of lights like <a href="/reference/#/p5/ambientLight">ambientLight()</a> to place around a scene. Materials like <a href="/reference/#/p5/specularMaterial">specularMaterial()</a> reflect the lighting to convey shape and depth. See <a href="https://p5js.org/learn/getting-started-in-webgl-appearance.html">the learn page for styling and appearance</a> to experiment with different combinations.
- * - **Camera** - The viewport of a `WEBGL` sketch can be adjusted by changing camera attributes. See <a href="https://p5js.org/learn/getting-started-in-webgl-appearance.html#camera">the learn page section about cameras</a> for an explanation of camera controls.
- * - **Text** - `WEBGL` requires opentype/truetype font files to be preloaded using <a href="/reference/#/p5/loadFont">loadFont()</a>. See <a href="https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#text">the wiki section about text</a> for details, along with a workaround.
- * - **Shaders** - Shaders are hardware accelerated programs that can be used for a variety of effects and graphics. See the <a href="https://p5js.org/learn/getting-started-in-webgl-shaders.html">introduction to shaders</a> to get started with shaders in p5.js.
+ * - **Materials and Lighting** - `WEBGL` offers different types of lights like <a href="#/p5/ambientLight">ambientLight()</a> to place around a scene. Materials like <a href="#/p5/specularMaterial">specularMaterial()</a> reflect the lighting to convey shape and depth. See <a href="https://p5js.org/tutorials/lights-camera-materials/">the tutorial page for styling and appearance</a> to experiment with different combinations.
+ * - **Camera** - The viewport of a `WEBGL` sketch can be adjusted by changing camera attributes. See <a href="https://p5js.org/tutorials/lights-camera-materials#camera-and-view">the tutorial page section about cameras</a> for an explanation of camera controls.
+ * - **Text** - `WEBGL` requires opentype/truetype font files to be preloaded using <a href="#/p5/loadFont">loadFont()</a>. See <a href="https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#text">the wiki section about text</a> for details, along with a workaround.
+ * - **Shaders** - Shaders are hardware accelerated programs that can be used for a variety of effects and graphics. See the <a href="https://p5js.org/tutorials/intro-to-shaders/">introduction to shaders</a> to get started with shaders in p5.js.
  * - **Graphics Acceleration** - `WEBGL` mode uses the graphics card instead of the CPU, so it may help boost the performance of your sketch (example: drawing more shapes on the screen at once).
  *
- * To learn more about WEBGL mode, check out <a href="https://p5js.org/learn/#:~:text=Getting%20Started%20in%20WebGL">all the interactive WEBGL tutorials</a> in the "Learn" section of this website, or read the wiki article <a href="https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5">"Getting started with WebGL in p5"</a>.
+ * To learn more about WEBGL mode, check out <a href="https://p5js.org/tutorials/#webgl">all the interactive WEBGL tutorials</a> in the "Tutorials" section of this website, or read the wiki article <a href="https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5">"Getting started with WebGL in p5"</a>.
  *
  * @property {String} WEBGL
  * @final
@@ -59775,7 +60231,7 @@
         /**
  * AUTO allows us to automatically set the width or height of an element (but not both),
  * based on the current height and width of the element. Only one parameter can
- * be passed to the <a href="/reference/#/p5.Element/size">size</a> function as AUTO, at a time.
+ * be passed to the <a href="/reference/p5.Element/size">size</a> function as AUTO, at a time.
  *
  * @property {String} AUTO
  * @final
@@ -60252,7 +60708,7 @@
       {
       }
     ],
-    292: [
+    295: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -60387,8 +60843,8 @@
  * @method print
  * @param {Any} contents content to print to the console.
  * @example
- * <div>
- * <code class="norender">
+ * <div class="norender">
+ * <code>
  * function setup() {
  *   // Prints "hello, world" to the console.
  *   print('hello, world');
@@ -60396,8 +60852,8 @@
  * </code>
  * </div>
  *
- * <div>
- * <code class="norender">
+ * <div class="norender">
+ * <code>
  * function setup() {
  *   let name = 'ada';
  *   // Prints "hello, ada" to the console.
@@ -61013,7 +61469,7 @@
  * @alt
  * This example does not render anything.
  */
-        _main.default.prototype.windowWidth = getWindowWidth();
+        _main.default.prototype.windowWidth = 0;
         /**
  * A `Number` variable that stores the height of the browser's viewport.
  *
@@ -61040,7 +61496,7 @@
  * @alt
  * This example does not render anything.
  */
-        _main.default.prototype.windowHeight = getWindowHeight();
+        _main.default.prototype.windowHeight = 0;
         /**
  * A function that's called when the browser window is resized.
  *
@@ -61053,7 +61509,7 @@
  * can be used for debugging or other purposes.
  *
  * @method windowResized
- * @param {UIEvent} [event] optional resize Event.
+ * @param {Event} [event] optional resize Event.
  * @example
  * <div class="norender">
  * <code>
@@ -61123,6 +61579,15 @@
         function getWindowHeight() {
           return window.innerHeight || document.documentElement && document.documentElement.clientHeight || document.body && document.body.clientHeight || 0;
         }        /**
+ * Called upon each p5 instantiation instead of module import due to the
+ * possibility of the window being resized when no sketch is active.
+ */
+
+        _main.default.prototype._updateWindowSize = function () {
+          this._setProperty('windowWidth', getWindowWidth());
+          this._setProperty('windowHeight', getWindowHeight());
+        };
+        /**
  * A `Number` variable that stores the width of the canvas in pixels.
  *
  * `width`'s default value is 100. Calling
@@ -61189,7 +61654,6 @@
  * @property {Number} width
  * @readOnly
  */
-
         _main.default.prototype.width = 0;
         /**
  * A `Number` variable that stores the height of the canvas in pixels.
@@ -61464,7 +61928,7 @@
  *   textWrap(CHAR);
  *   text(url, 0, 40, 100);
  *
- *   describe('The URL "https://p5js.org/reference/#/p5/getURL" written in black on a gray background.');
+ *   describe('The URL "https://p5js.org/reference/p5/getURL" written in black on a gray background.');
  * }
  * </code>
  * </div>
@@ -61514,7 +61978,7 @@
  * in an `Object`.
  *
  * For example, calling `getURLParams()` in a sketch hosted at the URL
- * `http://p5js.org?year=2014&month=May&day=15` returns
+ * `https://p5js.org?year=2014&month=May&day=15` returns
  * `{ year: 2014, month: 'May', day: 15 }`.
  *
  * @method getURLParams
@@ -61561,27 +62025,27 @@
         exports.default = _default;
       },
       {
-        './constants': 291,
-        './main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.filter': 174,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.string.includes': 214,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.search': 220,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        './constants': 294,
+        './main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.filter': 175,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.string.includes': 217,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.search': 223,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    293: [
+    296: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -61721,7 +62185,7 @@
       {
       }
     ],
-    294: [
+    297: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -61973,7 +62437,7 @@
               var referenceSection = methodParts.length > 1 ? ''.concat(methodParts[0], '.').concat(methodParts[1]) : 'p5';
               var funcName = methodParts.length === 1 ? func : methodParts.slice(2).join('/');
               //Whenever func having p5.[Class] is encountered, we need to have the error link as mentioned below else different link
-              funcName.startsWith('p5.') ? msgWithReference = ''.concat(message, ' (http://p5js.org/reference/#/').concat(referenceSection, '.').concat(funcName, ')') : msgWithReference = ''.concat(message, ' (http://p5js.org/reference/#/').concat(referenceSection, '/').concat(funcName, ')');
+              funcName.startsWith('p5.') ? msgWithReference = ''.concat(message, ' (https://p5js.org/reference/').concat(referenceSection, '.').concat(funcName, ')') : msgWithReference = ''.concat(message, ' (https://p5js.org/reference/').concat(referenceSection, '/').concat(funcName, ')');
             }
             return msgWithReference;
           };
@@ -62540,7 +63004,7 @@
                         }                        // if the flow gets this far, this is likely not a misspelling
                         // of a p5 property/function
 
-                        var _url5 = 'https://p5js.org/examples/data-variable-scope.html';
+                        var _url5 = 'https://p5js.org/tutorials/variables-and-change/';
                         _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.reference.notDefined', {
                           url: _url5,
                           symbol: _errSym,
@@ -62806,40 +63270,40 @@
         exports.default = _default;
       },
       {
-        '../constants': 291,
-        '../internationalization': 301,
-        '../main': 303,
-        './browser_errors': 293,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.filter': 174,
-        'core-js/modules/es.array.for-each': 178,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.array.some': 187,
-        'core-js/modules/es.function.name': 191,
-        'core-js/modules/es.object.assign': 199,
-        'core-js/modules/es.object.get-own-property-names': 202,
-        'core-js/modules/es.object.keys': 204,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.constructor': 209,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.match': 216,
-        'core-js/modules/es.string.replace': 219,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.string.starts-with': 222,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.for-each': 260,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../constants': 294,
+        '../internationalization': 304,
+        '../main': 306,
+        './browser_errors': 296,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.filter': 175,
+        'core-js/modules/es.array.for-each': 179,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.array.some': 188,
+        'core-js/modules/es.function.name': 192,
+        'core-js/modules/es.object.assign': 201,
+        'core-js/modules/es.object.get-own-property-names': 205,
+        'core-js/modules/es.object.keys': 207,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.constructor': 212,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.match': 219,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.string.starts-with': 225,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.for-each': 263,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    295: [
+    298: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -62952,11 +63416,11 @@
         exports.default = _default;
       },
       {
-        '../internationalization': 301,
-        '../main': 303
+        '../internationalization': 304,
+        '../main': 306
       }
     ],
-    296: [
+    299: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -63160,7 +63624,7 @@
               //if the element in variableArray is a  p5.js constant then the below condidion
               //will be true, hence a match is found
               if (constants[variableArray[i]] !== undefined) {
-                var url = 'https://p5js.org/reference/#/p5/'.concat(variableArray[i]);
+                var url = 'https://p5js.org/reference/p5/'.concat(variableArray[i]);
                 //display the FES message if a match is found
                 _main.default._friendlyError((0, _internationalization.translator) ('fes.sketchReaderErrors.reservedConst', {
                   url: url,
@@ -63189,7 +63653,7 @@
                 for (; j < keyArray.length; j++) {
                   if (p5Constructors[keyArray[j]].prototype[variableArray[_i2]] !== undefined) {
                     //if a p5.js function is used ie it is in the funcs array
-                    var _url = 'https://p5js.org/reference/#/p5/'.concat(variableArray[_i2]);
+                    var _url = 'https://p5js.org/reference/p5/'.concat(variableArray[_i2]);
                     _main.default._friendlyError((0, _internationalization.translator) ('fes.sketchReaderErrors.reservedFunc', {
                       url: _url,
                       symbol: variableArray[_i2]
@@ -63276,7 +63740,7 @@
           };
           /**
    * Converts code written by the user to an array
-   * every element of which is a seperate line of code.
+   * every element of which is a separate line of code.
    *
    * @method codeToLines
    * @private
@@ -63352,7 +63816,7 @@
               //then report.
 
               if (constants[tempArray[i]] !== element) {
-                var url = 'https://p5js.org/reference/#/p5/'.concat(tempArray[i]);
+                var url = 'https://p5js.org/reference/p5/'.concat(tempArray[i]);
                 _main.default._friendlyError((0, _internationalization.translator) ('fes.sketchReaderErrors.reservedConst', {
                   url: url,
                   symbol: tempArray[i]
@@ -63404,7 +63868,7 @@
                   if (p5Constructors[keyArray[k]].prototype[functionArray[_i5]] === undefined);
                    else {
                     if (p5Constructors[keyArray[k]].prototype[functionArray[_i5]] !== element) {
-                      var _url2 = 'https://p5js.org/reference/#/p5/'.concat(functionArray[_i5]);
+                      var _url2 = 'https://p5js.org/reference/p5/'.concat(functionArray[_i5]);
                       _main.default._friendlyError((0, _internationalization.translator) ('fes.sketchReaderErrors.reservedFunc', {
                         url: _url2,
                         symbol: functionArray[_i5]
@@ -63427,7 +63891,7 @@
           var fesCodeReader = function fesCodeReader() {
             //moveAhead will determine if a match is found outside
             //the setup and draw function. If a match is found then
-            //to prevent further potential reporting we will exit immidiately
+            //to prevent further potential reporting we will exit immediately
             var moveAhead = globalConstFuncCheck();
             if (moveAhead) return;
             var code = '';
@@ -63448,44 +63912,44 @@
             codeToLines(code);
           };
           _main.default._fesCodeReader = fesCodeReader;
-          window.addEventListener('load', _main.default._fesCodeReader);
+          window.addEventListener('p5Ready', _main.default._fesCodeReader);
         }
         var _default = _main.default;
         exports.default = _default;
       },
       {
-        '../constants': 291,
-        '../internationalization': 301,
-        '../main': 303,
-        'core-js/modules/es.array.filter': 174,
-        'core-js/modules/es.array.for-each': 178,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.keys': 204,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.constructor': 209,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.includes': 214,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.match': 216,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.string.trim': 224,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.for-each': 260,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../constants': 294,
+        '../internationalization': 304,
+        '../main': 306,
+        'core-js/modules/es.array.filter': 175,
+        'core-js/modules/es.array.for-each': 179,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.keys': 207,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.constructor': 212,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.includes': 217,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.match': 219,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.string.trim': 227,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.for-each': 263,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    297: [
+    300: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.filter');
@@ -63583,7 +64047,7 @@
                   line = line.replace(/eval code/g, 'eval').replace(/(\(eval at [^()]*)|(\),.*$)/g, '');
                 }
                 var sanitizedLine = line.replace(/^\s+/, '').replace(/\(eval code/g, '(');
-                // capture and preseve the parenthesized location "(/foo/my bar.js:12:87)" in
+                // capture and preserve the parenthesized location "(/foo/my bar.js:12:87)" in
                 // case it has spaces in it, as the string is split on \s+ later on
                 var location = sanitizedLine.match(/ (\((.+):(\d+):(\d+)\)$)/);
                 // remove the parenthesized location from the line, if it was matched
@@ -63714,19 +64178,19 @@
         exports.default = _default;
       },
       {
-        '../main': 303,
-        'core-js/modules/es.array.filter': 174,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.string.match': 216,
-        'core-js/modules/es.string.replace': 219,
-        'core-js/modules/es.string.split': 221
+        '../main': 306,
+        'core-js/modules/es.array.filter': 175,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.string.match': 219,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.string.split': 224
       }
     ],
-    298: [
+    301: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -64705,41 +65169,41 @@
       },
       {
         '../../../docs/parameterData.json': 1,
-        '../constants': 291,
-        '../internationalization': 301,
-        '../main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.for-each': 178,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.array.last-index-of': 184,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.function.name': 191,
-        'core-js/modules/es.map': 192,
-        'core-js/modules/es.number.constructor': 196,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.get-prototype-of': 203,
-        'core-js/modules/es.object.keys': 204,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.reflect.construct': 207,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.set': 212,
-        'core-js/modules/es.string.includes': 214,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.for-each': 260,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../constants': 294,
+        '../internationalization': 304,
+        '../main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.for-each': 179,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.array.last-index-of': 185,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.function.name': 192,
+        'core-js/modules/es.map': 193,
+        'core-js/modules/es.number.constructor': 197,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.get-prototype-of': 206,
+        'core-js/modules/es.object.keys': 207,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.reflect.construct': 210,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.set': 215,
+        'core-js/modules/es.string.includes': 217,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.for-each': 263,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    299: [
+    302: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -64823,37 +65287,59 @@
         }        /**
  * @requires constants
  */
+        /*
+  This function normalizes the first four arguments given to rect, ellipse and arc
+  according to the mode.
+  It returns a 'bounding box' object containing the coordinates of the upper left corner (x, y),
+  and width and height (w, h). The returned width and height are always positive.
+*/
 
         function modeAdjust(a, b, c, d, mode) {
+          var bbox;
           if (mode === constants.CORNER) {
-            return {
+            // CORNER mode already corresponds to a bounding box (top-left corner, width, height).
+            // For negative widhts or heights, the absolute value is used.
+            bbox = {
               x: a,
               y: b,
-              w: c,
-              h: d
+              w: Math.abs(c),
+              h: Math.abs(d)
             };
           } else if (mode === constants.CORNERS) {
-            return {
-              x: a,
-              y: b,
-              w: c - a,
-              h: d - b
+            // CORNERS mode uses two opposite corners, in any configuration.
+            // Make sure to get the top left corner by using the minimum of the x and y coordniates.
+            bbox = {
+              x: Math.min(a, c),
+              y: Math.min(b, d),
+              w: Math.abs(c - a),
+              h: Math.abs(d - b)
             };
           } else if (mode === constants.RADIUS) {
-            return {
+            // RADIUS mode uses the center point and half the width and height.
+            // c (half width) and d (half height) could be negative, so use the absolute value
+            // in calculating the top left corner (x, y).
+            c = Math.abs(c);
+            d = Math.abs(d);
+            bbox = {
               x: a - c,
               y: b - d,
               w: 2 * c,
               h: 2 * d
             };
           } else if (mode === constants.CENTER) {
-            return {
+            // CENTER mode uses the center point, width and height.
+            // c (width) and d (height) could be negative, so use the absolute value
+            // in calculating the top-left corner (x, y).
+            c = Math.abs(c);
+            d = Math.abs(d);
+            bbox = {
               x: a - c * 0.5,
               y: b - d * 0.5,
               w: c,
               h: d
             };
           }
+          return bbox;
         }
         var _default = {
           modeAdjust: modeAdjust
@@ -64861,19 +65347,19 @@
         exports.default = _default;
       },
       {
-        './constants': 291,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        './constants': 294,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    300: [
+    303: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.iterator');
@@ -64915,6 +65401,8 @@
             return;
           }
           if (!window.mocha) {
+            var p5ReadyEvent = new Event('p5Ready');
+            window.dispatchEvent(p5ReadyEvent);
             // If there is a setup or draw function on the window
             // then instantiate p5 in "global" mode
             if ((window.setup && typeof window.setup === 'function' || window.draw && typeof window.draw === 'function') && !_main.default.instance) {
@@ -64941,16 +65429,16 @@
         waitingForTranslator]).then(_globalInit);
       },
       {
-        '../core/main': 303,
-        './internationalization': 301,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.promise': 206,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/main': 306,
+        './internationalization': 304,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.promise': 209,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    301: [
+    304: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.includes');
@@ -64963,6 +65451,7 @@
         _dereq_('core-js/modules/es.regexp.exec');
         _dereq_('core-js/modules/es.string.includes');
         _dereq_('core-js/modules/es.string.iterator');
+        _dereq_('core-js/modules/es.string.replace');
         _dereq_('core-js/modules/es.string.split');
         _dereq_('core-js/modules/web.dom-collections.iterator');
         _dereq_('core-js/modules/es.array.includes');
@@ -64975,6 +65464,7 @@
         _dereq_('core-js/modules/es.regexp.exec');
         _dereq_('core-js/modules/es.string.includes');
         _dereq_('core-js/modules/es.string.iterator');
+        _dereq_('core-js/modules/es.string.replace');
         _dereq_('core-js/modules/es.string.split');
         _dereq_('core-js/modules/web.dom-collections.iterator');
         Object.defineProperty(exports, '__esModule', {
@@ -64983,6 +65473,7 @@
         exports.setTranslatorLanguage = exports.currentTranslatorLanguage = exports.availableTranslatorLanguages = exports.initialize = exports.translator = void 0;
         var _i18next = _interopRequireDefault(_dereq_('i18next'));
         var _i18nextBrowserLanguagedetector = _interopRequireDefault(_dereq_('i18next-browser-languagedetector'));
+        var _constants = _dereq_('./constants');
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
           default:
@@ -65162,7 +65653,9 @@
             },
             backend: {
               fallback: 'en',
-              loadPath: 'https://cdn.jsdelivr.net/npm/p5/translations/{{lng}}/{{ns}}.json'
+              // ensure that the FES internationalization strings are loaded
+              // from the latest patch of the current minor version of p5.js
+              loadPath: 'https://cdn.jsdelivr.net/npm/p5@'.concat(_constants.VERSION.replace(/^(\d+\.\d+)\.\d+.*$/, '$1'), '/translations/{{lng}}/{{ns}}.json')
             },
             partialBundledLanguages: true,
             resources: fallbackResources
@@ -65204,25 +65697,27 @@
         exports.setTranslatorLanguage = setTranslatorLanguage;
       },
       {
-        '../../translations': 365,
+        '../../translations': 369,
         '../../translations/dev': undefined,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.object.keys': 204,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.promise': 206,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.string.includes': 214,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/web.dom-collections.iterator': 261,
-        'i18next': 272,
-        'i18next-browser-languagedetector': 269
+        './constants': 294,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.object.keys': 207,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.promise': 209,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.string.includes': 217,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/web.dom-collections.iterator': 264,
+        'i18next': 275,
+        'i18next-browser-languagedetector': 272
       }
     ],
-    302: [
+    305: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -65261,10 +65756,10 @@
         exports.default = _default;
       },
       {
-        './main': 303
+        './main': 306
       }
     ],
-    303: [
+    306: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -65420,6 +65915,7 @@
             //////////////////////////////////////////////
             // PUBLIC p5 PROPERTIES AND METHODS
             //////////////////////////////////////////////
+            this._isGlobal = !sketch;
             /**
      * A function that's called once to load assets before the sketch runs.
      *
@@ -65665,7 +66161,6 @@
             this._glAttributes = null;
             this._requestAnimId = 0;
             this._preloadCount = 0;
-            this._isGlobal = false;
             this._loop = true;
             this._startListener = null;
             this._initializeInstanceVariables();
@@ -65915,8 +66410,8 @@
               }
               _this.callRegisteredHooksFor('afterSetup');
             };
-            this._draw = function () {
-              var now = window.performance.now();
+            this._draw = function (requestAnimationFrameTimestamp) {
+              var now = requestAnimationFrameTimestamp || window.performance.now();
               var time_since_last = now - _this._lastTargetFrameTime;
               var target_time_between_frames = 1000 / _this._targetFrameRate;
               // only draw if we really need to; don't overextend the browser.
@@ -66076,19 +66571,10 @@
                 p5.instance = null;
               }
             };
-            // call any registered init functions
-            this._registeredMethods.init.forEach(function (f) {
-              if (typeof f !== 'undefined') {
-                f.call(this);
-              }
-            }, this);
-            // Set up promise preloads
-            this._setupPromisePreloads();
             var friendlyBindGlobal = this._createFriendlyGlobalFunctionBinder();
             // If the user has created a global setup or draw function,
             // assume "global" mode and make everything global (i.e. on the window)
-            if (!sketch) {
-              this._isGlobal = true;
+            if (this._isGlobal) {
               p5.instance = this;
               // Loop through methods on the prototype and attach them to the window
               for (var p in p5.prototype) {
@@ -66120,8 +66606,14 @@
               // Run a check to see if the user has misspelled 'setup', 'draw', etc
               // detects capitalization mistakes only ( Setup, SETUP, MouseClicked, etc)
               p5._checkForUserDefinedFunctions(this);
-            }            // Bind events to window (not using container div bc key events don't work)
+            }            // ensure correct reporting of window dimensions
 
+            this._updateWindowSize();
+            // call any registered init functions
+            this.callRegisteredHooksFor('init');
+            // Set up promise preloads
+            this._setupPromisePreloads();
+            // Bind events to window (not using container div bc key events don't work)
             for (var e in this._events) {
               var f = this['_on'.concat(e)];
               if (f) {
@@ -66282,7 +66774,9 @@
                             value: newValue,
                             writable: true
                           });
-                          log('You just changed the value of "'.concat(prop, '", which was a p5 function. This could cause problems later if you\'re not careful.'));
+                          if (!p5.disableFriendlyErrors) {
+                            log('You just changed the value of "'.concat(prop, '", which was a p5 function. This could cause problems later if you\'re not careful.'));
+                          }
                         }
                       });
                     } catch (e) {
@@ -66371,25 +66865,25 @@
         exports.default = _default;
       },
       {
-        './constants': 291,
-        './shim': 314,
-        'core-js/modules/es.array.for-each': 178,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.array.splice': 188,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.get-own-property-names': 202,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.for-each': 260,
-        'core-js/modules/web.dom-collections.iterator': 261
+        './constants': 294,
+        './shim': 317,
+        'core-js/modules/es.array.for-each': 179,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.array.splice': 189,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.get-own-property-names': 205,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.for-each': 263,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    304: [
+    307: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -67488,10 +67982,10 @@
         exports.default = _default;
       },
       {
-        './main': 303
+        './main': 306
       }
     ],
-    305: [
+    308: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -68040,8 +68534,6 @@
     * function doubleClicked() {
     *   // Remove the p5.Graphics object from the web page.
     *   pg.remove();
-    *
-    *   // Delete the p5.Graphics object from CPU memory.
     *   pg = undefined;
     * }
     * </code>
@@ -68062,6 +68554,9 @@
                 for (var elt_ev in this._events) {
                   this.elt.removeEventListener(elt_ev, this._events[elt_ev]);
                 }
+                this._renderer = undefined;
+                this.canvas = undefined;
+                this.elt = undefined;
               }              /**
      * Creates a new <a href="#/p5.Framebuffer">p5.Framebuffer</a> object with
      * the same WebGL context as the graphics buffer.
@@ -68319,25 +68814,25 @@
         exports.default = _default;
       },
       {
-        './constants': 291,
-        './main': 303,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.splice': 188,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.get-prototype-of': 203,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.reflect.construct': 207,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        './constants': 294,
+        './main': 306,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.splice': 189,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.get-prototype-of': 206,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.reflect.construct': 210,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    306: [
+    309: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -69042,29 +69537,29 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        './main': 303,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.number.constructor': 196,
-        'core-js/modules/es.object.assign': 199,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.get-prototype-of': 203,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.reflect.construct': 207,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.replace': 219,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.string.trim': 224,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        './main': 306,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.number.constructor': 197,
+        'core-js/modules/es.object.assign': 201,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.get-prototype-of': 206,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.reflect.construct': 210,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.string.trim': 227,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    307: [
+    310: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -69072,12 +69567,10 @@
         _dereq_('core-js/modules/es.symbol.iterator');
         _dereq_('core-js/modules/es.array.concat');
         _dereq_('core-js/modules/es.array.fill');
-        _dereq_('core-js/modules/es.array.for-each');
         _dereq_('core-js/modules/es.array.iterator');
         _dereq_('core-js/modules/es.array.join');
         _dereq_('core-js/modules/es.array.slice');
         _dereq_('core-js/modules/es.function.name');
-        _dereq_('core-js/modules/es.number.to-fixed');
         _dereq_('core-js/modules/es.object.get-own-property-descriptor');
         _dereq_('core-js/modules/es.object.get-prototype-of');
         _dereq_('core-js/modules/es.object.to-string');
@@ -69114,11 +69607,9 @@
         }
         _dereq_('core-js/modules/es.array.concat');
         _dereq_('core-js/modules/es.array.fill');
-        _dereq_('core-js/modules/es.array.for-each');
         _dereq_('core-js/modules/es.array.join');
         _dereq_('core-js/modules/es.array.slice');
         _dereq_('core-js/modules/es.function.name');
-        _dereq_('core-js/modules/es.number.to-fixed');
         _dereq_('core-js/modules/es.object.get-prototype-of');
         _dereq_('core-js/modules/es.object.to-string');
         _dereq_('core-js/modules/es.regexp.exec');
@@ -69726,45 +70217,11 @@
                 if (this.gifProperties) {
                   this.gifProperties.frames[this.gifProperties.displayIndex].image = pixelsState.imageData;
                 }
-                this.drawingContext.putImageData(pixelsState.imageData, x, y, 0, 0, w, h);
+                this.drawingContext.putImageData(pixelsState.imageData, 0, 0, x, y, w, h);
               } //////////////////////////////////////////////
               // SHAPE | 2D Primitives
               //////////////////////////////////////////////
-              /**
-    * Generate a cubic Bezier representing an arc on the unit circle of total
-    * angle `size` radians, beginning `start` radians above the x-axis. Up to
-    * four of these curves are combined to make a full arc.
-    *
-    * See ecridge.com/bezier.pdf for an explanation of the method.
-    */
-
-            },
-            {
-              key: '_acuteArcToBezier',
-              value: function _acuteArcToBezier(start, size) {
-                // Evaluate constants.
-                var alpha = size / 2,
-                cos_alpha = Math.cos(alpha),
-                sin_alpha = Math.sin(alpha),
-                cot_alpha = 1 / Math.tan(alpha),
-                // This is how far the arc needs to be rotated.
-                phi = start + alpha,
-                cos_phi = Math.cos(phi),
-                sin_phi = Math.sin(phi),
-                lambda = (4 - cos_alpha) / 3,
-                mu = sin_alpha + (cos_alpha - lambda) * cot_alpha;
-                // Return rotated waypoints.
-                return {
-                  ax: Math.cos(start).toFixed(7),
-                  ay: Math.sin(start).toFixed(7),
-                  bx: (lambda * cos_phi + mu * sin_phi).toFixed(7),
-                  by: (lambda * sin_phi - mu * cos_phi).toFixed(7),
-                  cx: (lambda * cos_phi - mu * sin_phi).toFixed(7),
-                  cy: (lambda * sin_phi + mu * cos_phi).toFixed(7),
-                  dx: Math.cos(start + size).toFixed(7),
-                  dy: Math.sin(start + size).toFixed(7)
-                };
-              }              /*
+              /*
     * This function requires that:
     *
     *   0 <= start < TWO_PI
@@ -69777,52 +70234,33 @@
               key: 'arc',
               value: function arc(x, y, w, h, start, stop, mode) {
                 var ctx = this.drawingContext;
-                var rx = w / 2;
-                var ry = h / 2;
-                var epsilon = 0.00001; // Smallest visible angle on displays up to 4K.
-                var arcToDraw = 0;
-                var curves = [
-                ];
-                x += rx;
-                y += ry;
-                // Create curves
-                while (stop - start >= epsilon) {
-                  arcToDraw = Math.min(stop - start, constants.HALF_PI);
-                  curves.push(this._acuteArcToBezier(start, arcToDraw));
-                  start += arcToDraw;
-                }                // Fill curves
-
+                var centerX = x + w / 2,
+                centerY = y + h / 2,
+                radiusX = w / 2,
+                radiusY = h / 2;
+                // Determines whether to add a line to the center, which should be done
+                // when the mode is PIE or default; as well as when the start and end
+                // angles do not form a full circle.
+                var createPieSlice = !(mode === constants.CHORD || mode === constants.OPEN || (stop - start) % constants.TWO_PI === 0);
+                // Fill
                 if (this._doFill) {
                   if (!this._clipping) ctx.beginPath();
-                  curves.forEach(function (curve, index) {
-                    if (index === 0) {
-                      ctx.moveTo(x + curve.ax * rx, y + curve.ay * ry);
-                    }                    /* eslint-disable indent */
-
-                    ctx.bezierCurveTo(x + curve.bx * rx, y + curve.by * ry, x + curve.cx * rx, y + curve.cy * ry, x + curve.dx * rx, y + curve.dy * ry);
-                    /* eslint-enable indent */
-                  });
-                  if (mode === constants.PIE || mode == null) {
-                    ctx.lineTo(x, y);
-                  }
+                  ctx.ellipse(centerX, centerY, radiusX, radiusY, 0, start, stop);
+                  if (createPieSlice) ctx.lineTo(centerX, centerY);
                   ctx.closePath();
                   if (!this._clipping) ctx.fill();
-                }                // Stroke curves
+                }                // Stroke
 
                 if (this._doStroke) {
                   if (!this._clipping) ctx.beginPath();
-                  curves.forEach(function (curve, index) {
-                    if (index === 0) {
-                      ctx.moveTo(x + curve.ax * rx, y + curve.ay * ry);
-                    }                    /* eslint-disable indent */
-
-                    ctx.bezierCurveTo(x + curve.bx * rx, y + curve.by * ry, x + curve.cx * rx, y + curve.cy * ry, x + curve.dx * rx, y + curve.dy * ry);
-                    /* eslint-enable indent */
-                  });
-                  if (mode === constants.PIE) {
-                    ctx.lineTo(x, y);
-                    ctx.closePath();
-                  } else if (mode === constants.CHORD) {
+                  ctx.ellipse(centerX, centerY, radiusX, radiusY, 0, start, stop);
+                  if (mode === constants.PIE && createPieSlice) {
+                    // In PIE mode, stroke is added to the center and back to path,
+                    // unless the pie forms a complete ellipse (see: createPieSlice)
+                    ctx.lineTo(centerX, centerY);
+                  }
+                  if (mode === constants.PIE || mode === constants.CHORD) {
+                    // Stroke connects back to path begin for both PIE and CHORD
                     ctx.closePath();
                   }
                   if (!this._clipping) ctx.stroke();
@@ -69855,6 +70293,7 @@
                 radiusY = h / 2;
                 if (!this._clipping) ctx.beginPath();
                 ctx.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, 2 * Math.PI);
+                ctx.closePath();
                 if (!this._clipping && doFill) {
                   ctx.fill();
                 }
@@ -70000,15 +70439,13 @@
                   }
                   if (absH < 2 * bl) {
                     bl = hh;
-                  }                  // Draw shape
-
-                  if (!this._clipping) ctx.beginPath();
-                  ctx.moveTo(x + tl, y);
-                  ctx.arcTo(x + w, y, x + w, y + h, tr);
-                  ctx.arcTo(x + w, y + h, x, y + h, br);
-                  ctx.arcTo(x, y + h, x, y, bl);
-                  ctx.arcTo(x, y, x + w, y, tl);
-                  ctx.closePath();
+                  }
+                  ctx.roundRect(x, y, w, h, [
+                    tl,
+                    tr,
+                    br,
+                    bl
+                  ]);
                 }
                 if (!this._clipping && this._doFill) {
                   ctx.fill();
@@ -70273,6 +70710,7 @@
                       }
                     }
                     this._doFillStrokeClose(closeShape);
+                    this.drawingContext.closePath();
                   }
                 }
                 isCurve = false;
@@ -70564,33 +71002,31 @@
         exports.default = _default;
       },
       {
-        './constants': 291,
-        './main': 303,
-        './p5.Renderer': 306,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.fill': 173,
-        'core-js/modules/es.array.for-each': 178,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.function.name': 191,
-        'core-js/modules/es.number.to-fixed': 198,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.get-prototype-of': 203,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.reflect.construct': 207,
-        'core-js/modules/es.reflect.get': 208,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        './constants': 294,
+        './main': 306,
+        './p5.Renderer': 309,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.fill': 174,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.function.name': 192,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.get-prototype-of': 206,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.reflect.construct': 210,
+        'core-js/modules/es.reflect.get': 211,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    308: [
+    311: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -70765,19 +71201,19 @@
         };
       },
       {
-        './main': 303,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.assign': 199,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.promise': 206,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.iterator': 261
+        './main': 306,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.assign': 201,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.promise': 209,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    309: [
+    312: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -70917,7 +71353,7 @@
  *
  * @method createCanvas
  * @param  {Number} [width] width of the canvas. Defaults to 100.
- * @param  {Number} [height] width of the canvas. Defaults to 100.
+ * @param  {Number} [height] height of the canvas. Defaults to 100.
  * @param  {Constant} [renderer] either P2D or WEBGL. Defaults to `P2D`.
  * @param  {HTMLCanvasElement} [canvas] existing canvas element that should be used for the sketch.
  * @return {p5.Renderer} new `p5.Renderer` that holds the canvas.
@@ -70928,7 +71364,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Draw a diagonal line.
  *   line(0, 0, width, height);
@@ -70943,7 +71379,7 @@
  * function setup() {
  *   createCanvas(100, 50);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Draw a diagonal line.
  *   line(0, 0, width, height);
@@ -70960,7 +71396,7 @@
  * function setup() {
  *   createCanvas(100, 100, WEBGL);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Draw a diagonal line.
  *   line(-width / 2, -height / 2, width / 2, height / 2);
@@ -70979,7 +71415,7 @@
  *   // Position the canvas.
  *   cnv.position(10, 20);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Draw a diagonal line.
  *   line(0, 0, width, height);
@@ -71133,7 +71569,7 @@
  * }
  *
  * function draw() {
- *   background(200);
+ *   background(180);
  *
  *   // Draw a circle at the center of the canvas.
  *   circle(width / 2, height / 2, 20);
@@ -71157,7 +71593,7 @@
  * }
  *
  * function draw() {
- *   background(200);
+ *   background(180);
  *
  *   // Draw a circle at the center of the canvas.
  *   circle(width / 2, height / 2, 20);
@@ -71282,7 +71718,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Create the p5.Graphics object.
  *   pg = createGraphics(50, 50);
@@ -71312,7 +71748,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Create the p5.Graphics object in WebGL mode.
  *   pg = createGraphics(50, 50, WEBGL);
@@ -71530,7 +71966,7 @@
  *   createCanvas(100, 100, WEBGL);
  *
  *   // Create the p5.Framebuffer objects.
- *   prev = createFramebuffer({ format: FLOAT });
+ *   previous = createFramebuffer({ format: FLOAT });
  *   current = createFramebuffer({ format: FLOAT });
  *
  *   describe(
@@ -71539,9 +71975,9 @@
  * }
  *
  * function draw() {
- *   // Set the previous p5.Framebuffer to the
+ *   // Swap the previous p5.Framebuffer and the
  *   // current one so it can be used as a texture.
- *   previous = current;
+ *   [previous, current] = [current, previous];
  *
  *   // Start drawing to the current p5.Framebuffer.
  *   current.begin();
@@ -71635,7 +72071,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Use the default blend mode.
  *   blendMode(BLEND);
@@ -71643,15 +72079,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A blue line and a red line form an X on a gray background.');
+ *   describe('A Sky Blue line and a Deep Rose line form an X on a gray background.');
  * }
  * </code>
  * </div>
@@ -71661,7 +72097,33 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
+ *
+ *   // Set the blend mode.
+ *   blendMode(HARD_LIGHT);
+ *
+ *   // Style the lines.
+ *   strokeWeight(30);
+ *
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
+ *   line(25, 25, 75, 75);
+ *
+ *   // Draw the second line.
+ *   stroke('#d41159');
+ *   line(75, 25, 25, 75);
+ *
+ *   describe('An ocean blue line and a hot pink line form an X on a gray background. The area where they overlap is Magenta purple.');
+ * }
+ * </code>
+ * </div>
+ *
+ * <div>
+ * <code>
+ * function setup() {
+ *   createCanvas(100, 100);
+ *
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(ADD);
@@ -71669,15 +72131,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is faint magenta.');
+ *   describe('An icy blue line and a light lavender line form an X on a gray background. The area where they overlap is white.');
  * }
  * </code>
  * </div>
@@ -71687,7 +72149,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(DARKEST);
@@ -71695,15 +72157,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A blue line and a red line form an X on a gray background. The area where they overlap is black.');
+ *   describe('A steel blue line and a cranberry line form an X on a gray background. The area where they overlap is deep purple.');
  * }
  * </code>
  * </div>
@@ -71713,7 +72175,33 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
+ *
+ *   // Set the blend mode.
+ *   blendMode(BURN);
+ *
+ *   // Style the lines.
+ *   strokeWeight(30);
+ *
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
+ *   line(25, 25, 75, 75);
+ *
+ *   // Draw the second line.
+ *   stroke('#d41159');
+ *   line(75, 25, 25, 75);
+ *
+ *   describe('A cobalt blue line and a burgundy line form an X on a gray background. The area where they overlap is black.');
+ * }
+ * </code>
+ * </div>
+ *
+ * <div>
+ * <code>
+ * function setup() {
+ *   createCanvas(100, 100);
+ *
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(LIGHTEST);
@@ -71721,15 +72209,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is faint magenta.');
+ *   describe('A pale lavender line and a soft beige line form an X on a gray background. The area where they overlap is pale lilac.');
  * }
  * </code>
  * </div>
@@ -71739,7 +72227,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(EXCLUSION);
@@ -71747,15 +72235,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A yellow line and a cyan line form an X on a gray background. The area where they overlap is green.');
+ *   describe('An earthy brown line and a muted sage line form an X on a gray background. The area where they overlap is sage green.');
  * }
  * </code>
  * </div>
@@ -71765,7 +72253,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(MULTIPLY);
@@ -71773,15 +72261,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A blue line and a red line form an X on a gray background. The area where they overlap is black.');
+ *   describe('A slate blue line and a plum line form an X on a gray background. The area where they overlap is dark Indigo.');
  * }
  * </code>
  * </div>
@@ -71791,7 +72279,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(SCREEN);
@@ -71799,15 +72287,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is faint magenta.');
+ *   describe('A baby blue line and a peach pink line form an X on a gray background. The area where they overlap is misty lilac.');
  * }
  * </code>
  * </div>
@@ -71817,7 +72305,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(REPLACE);
@@ -71825,15 +72313,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A diagonal red line.');
+ *   describe('A diagonal deep rose line.');
  * }
  * </code>
  * </div>
@@ -71843,7 +72331,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(REMOVE);
@@ -71851,12 +72339,12 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
  *   describe('The silhouette of an X is missing from a gray background.');
@@ -71869,7 +72357,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(DIFFERENCE);
@@ -71877,15 +72365,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A yellow line and a cyan line form an X on a gray background. The area where they overlap is green.');
+ *   describe('A light burgundy line and a forest green line form an X on a gray background. The area where they overlap is dark cocoa.');
  * }
  * </code>
  * </div>
@@ -71895,7 +72383,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(OVERLAY);
@@ -71903,15 +72391,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is bright magenta.');
+ *   describe('A cornflower blue line and a light rose line form an X on a gray background. The area where they overlap is violet.');
  * }
  * </code>
  * </div>
@@ -71921,33 +72409,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
- *
- *   // Set the blend mode.
- *   blendMode(HARD_LIGHT);
- *
- *   // Style the lines.
- *   strokeWeight(30);
- *
- *   // Draw the blue line.
- *   stroke('blue');
- *   line(25, 25, 75, 75);
- *
- *   // Draw the red line.
- *   stroke('red');
- *   line(75, 25, 25, 75);
- *
- *   describe('A blue line and a red line form an X on a gray background.');
- * }
- * </code>
- * </div>
- *
- * <div>
- * <code>
- * function setup() {
- *   createCanvas(100, 100);
- *
- *   background(200);
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(SOFT_LIGHT);
@@ -71955,15 +72417,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is violet.');
+ *   describe('A pale sky line and a rose blush line form an X on a gray background. The area where they overlap is lavender.');
  * }
  * </code>
  * </div>
@@ -71973,7 +72435,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Set the blend mode.
  *   blendMode(DODGE);
@@ -71981,15 +72443,15 @@
  *   // Style the lines.
  *   strokeWeight(30);
  *
- *   // Draw the blue line.
- *   stroke('blue');
+ *   // Draw the first line.
+ *   stroke('#1a85ff');
  *   line(25, 25, 75, 75);
  *
- *   // Draw the red line.
- *   stroke('red');
+ *   // Draw the second line.
+ *   stroke('#d41159');
  *   line(75, 25, 25, 75);
  *
- *   describe('A faint blue line and a faint red line form an X on a gray background. The area where they overlap is faint violet.');
+ *   describe('An aqua blue line and a light pink line form an X on a gray background. The area where they overlap is white.');
  * }
  * </code>
  * </div>
@@ -71997,51 +72459,27 @@
  * <div>
  * <code>
  * function setup() {
- *   createCanvas(100, 100);
+ *   // Create a canvas with WEBGL mode.
+ *   createCanvas(100, 100, WEBGL);
  *
- *   background(200);
+ *   // Set the background color.
+ *   background(180);
  *
- *   // Set the blend mode.
- *   blendMode(BURN);
- *
- *   // Style the lines.
- *   strokeWeight(30);
- *
- *   // Draw the blue line.
- *   stroke('blue');
- *   line(25, 25, 75, 75);
- *
- *   // Draw the red line.
- *   stroke('red');
- *   line(75, 25, 25, 75);
- *
- *   describe('A blue line and a red line form an X on a gray background. The area where they overlap is black.');
- * }
- * </code>
- * </div>
- *
- * <div>
- * <code>
- * function setup() {
- *   createCanvas(100, 100);
- *
- *   background(200);
- *
- *   // Set the blend mode.
+ *   // Set the blend mode to SUBTRACT.
  *   blendMode(SUBTRACT);
  *
  *   // Style the lines.
  *   strokeWeight(30);
  *
  *   // Draw the blue line.
- *   stroke('blue');
- *   line(25, 25, 75, 75);
+ *   stroke('#1a85ff');
+ *   line(-25, -25, 25, 25);
  *
  *   // Draw the red line.
- *   stroke('red');
- *   line(75, 25, 25, 75);
+ *   stroke('#d41159');
+ *   line(25, -25, -25, 25);
  *
- *   describe('A yellow line and a turquoise line form an X on a gray background. The area where they overlap is green.');
+ *   describe('A burnt orange and a sea green line form an X on a gray background. The area where they overlap is forest green.');
  * }
  * </code>
  * </div>
@@ -72073,7 +72511,7 @@
  * function setup() {
  *   createCanvas(100, 100);
  *
- *   background(200);
+ *   background(180);
  *
  *   // Style the circle using shadows.
  *   drawingContext.shadowOffsetX = 5;
@@ -72116,24 +72554,24 @@
         exports.default = _default;
       },
       {
-        '../webgl/p5.RendererGL': 360,
-        './constants': 291,
-        './main': 303,
-        './p5.Graphics': 305,
-        './p5.Renderer2D': 307,
-        'core-js/modules/es.array.filter': 174,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../webgl/p5.RendererGL': 364,
+        './constants': 294,
+        './main': 306,
+        './p5.Graphics': 308,
+        './p5.Renderer2D': 310,
+        'core-js/modules/es.array.filter': 175,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    310: [
+    313: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -72335,7 +72773,9 @@
  *
  * The fifth and sixth parameters, `start` and `stop`, set the angles
  * between which to draw the arc. Arcs are always drawn clockwise from
- * `start` to `stop`. Angles are always given in radians.
+ * `start` to `stop`. The fifth and sixth parameters, start and stop, set the
+ * angles between which to draw the arc. By default, angles are given in radians, but if angleMode
+ * (DEGREES) is set, the function interprets the values in degrees.
  *
  * The seventh parameter, `mode`, is optional. It determines the arc's fill
  * style. The fill modes are a semi-circle (`OPEN`), a closed semi-circle
@@ -72548,9 +72988,6 @@
           }
           start = this._toRadians(start);
           stop = this._toRadians(stop);
-          // p5 supports negative width and heights for ellipses
-          w = Math.abs(w);
-          h = Math.abs(h);
           var vals = _helpers.default.modeAdjust(x, y, w, h, this._renderer._ellipseMode);
           var angles = this._normalizeArcAngles(start, stop, vals.w, vals.h, true);
           if (angles.correspondToSamePoint) {
@@ -72701,12 +73138,11 @@
         /**
  * Draws a circle.
  *
- * A circle is a round shape defined by the `x`, `y`, and `d`
- * parameters. `x` and `y` set the location of its center. `d` sets its
- * width and height (diameter). Every point on the circle's edge is the
- * same distance, `d`, from its center. See
- * <a href="#/p5/ellipseMode">ellipseMode()</a> for other ways to set
- * its position.
+ * A circle is a round shape defined by the `x`, `y`, and `d` parameters.
+ * `x` and `y` set the location of its center. `d` sets its width and height (diameter).
+ * Every point on the circle's edge is the same distance, `0.5 * d`, from its center.
+ * `0.5 * d` (half the diameter) is the circle's radius.
+ * See <a href="#/p5/ellipseMode">ellipseMode()</a> for other ways to set its position.
  *
  * @method circle
  * @param  {Number} x  x-coordinate of the center of the circle.
@@ -72759,16 +73195,10 @@
           // visible, exit immediately
           if (!this._renderer._doStroke && !this._renderer._doFill) {
             return this;
-          }          // p5 supports negative width and heights for rects
+          }          // Duplicate 3rd argument if only 3 given.
 
-          if (w < 0) {
-            w = Math.abs(w);
-          }
           if (typeof h === 'undefined') {
-            // Duplicate 3rd argument if only 3 given.
             h = w;
-          } else if (h < 0) {
-            h = Math.abs(h);
           }
           var vals = _helpers.default.modeAdjust(x, y, w, h, this._renderer._ellipseMode);
           this._renderer.ellipse([vals.x,
@@ -72952,7 +73382,7 @@
  * can't be filled, so the <a href="#/p5/fill">fill()</a> function won't
  * affect the point's color.
  *
- * The version of `point()` with one parameter allows the point's location to
+ * The version of `point()` with two parameters allows the point's location to
  * be set with its x- and y-coordinates, as in `point(10, 20)`.
  *
  * The version of `point()` with three parameters allows the point to be drawn
@@ -73145,7 +73575,7 @@
  *
  * The thirteenth and fourteenth parameters are optional. In WebGL mode, they
  * set the number of segments used to draw the quadrilateral in the x- and
- * y-directions. They're both 25 by default.
+ * y-directions. They're both 2 by default.
  *
  * @method quad
  * @param {Number} x1 the x-coordinate of the first point.
@@ -73549,6 +73979,14 @@
               arguments[3] = arguments[2];
             }
             var vals = _helpers.default.modeAdjust(arguments[0], arguments[1], arguments[2], arguments[3], this._renderer._rectMode);
+            // For the default rectMode (CORNER), restore a possible negative width/height
+            // removed by modeAdjust(). This results in flipped/mirrored rendering,
+            // which is especially noticable when using WEGBL rendering and texture().
+            // Note that this behavior only applies to rect(), NOT to ellipse() and arc().
+            if (this._renderer._rectMode === constants.CORNER) {
+              vals.w = arguments[2];
+              vals.h = arguments[3];
+            }
             var args = [
               vals.x,
               vals.y,
@@ -73657,27 +74095,27 @@
         exports.default = _default;
       },
       {
-        '../constants': 291,
-        '../friendly_errors/fes_core': 294,
-        '../friendly_errors/file_errors': 295,
-        '../friendly_errors/validate_params': 298,
-        '../helpers': 299,
-        '../main': 303,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../constants': 294,
+        '../friendly_errors/fes_core': 297,
+        '../friendly_errors/file_errors': 298,
+        '../friendly_errors/validate_params': 301,
+        '../helpers': 302,
+        '../main': 306,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    311: [
+    314: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -74126,11 +74564,12 @@
  * </div>
  */
         _main.default.prototype.smooth = function () {
-          this.setAttributes('antialias', true);
           if (!this._renderer.isP3D) {
             if ('imageSmoothingEnabled' in this.drawingContext) {
               this.drawingContext.imageSmoothingEnabled = true;
             }
+          } else {
+            this.setAttributes('antialias', true);
           }
           return this;
         };
@@ -74341,20 +74780,20 @@
         exports.default = _default;
       },
       {
-        '../constants': 291,
-        '../main': 303,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../constants': 294,
+        '../main': 306,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    312: [
+    315: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -74708,10 +75147,10 @@
  * between them.
  *
  * @method bezierPoint
- * @param {Number} a coordinate of first control point.
- * @param {Number} b coordinate of first anchor point.
- * @param {Number} c coordinate of second anchor point.
- * @param {Number} d coordinate of second control point.
+ * @param {Number} a coordinate of first anchor point.
+ * @param {Number} b coordinate of first control point.
+ * @param {Number} c coordinate of second control point.
+ * @param {Number} d coordinate of second anchor point.
  * @param {Number} t amount to interpolate between 0 and 1.
  * @return {Number} coordinate of the point on the curve.
  *
@@ -75296,10 +75735,10 @@
  * between them.
  *
  * @method curvePoint
- * @param {Number} a coordinate of first anchor point.
- * @param {Number} b coordinate of first control point.
- * @param {Number} c coordinate of second control point.
- * @param {Number} d coordinate of second anchor point.
+ * @param {Number} a coordinate of first control point.
+ * @param {Number} b coordinate of first anchor point.
+ * @param {Number} c coordinate of second anchor point.
+ * @param {Number} d coordinate of second control point.
  * @param {Number} t amount to interpolate between 0 and 1.
  * @return {Number} coordinate of a point on the curve.
  *
@@ -75515,13 +75954,13 @@
         exports.default = _default;
       },
       {
-        '../friendly_errors/fes_core': 294,
-        '../friendly_errors/file_errors': 295,
-        '../friendly_errors/validate_params': 298,
-        '../main': 303
+        '../friendly_errors/fes_core': 297,
+        '../friendly_errors/file_errors': 298,
+        '../friendly_errors/validate_params': 301,
+        '../main': 306
       }
     ],
-    313: [
+    316: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -76450,7 +76889,7 @@
  * <a href="#/p5/beginShape">beginShape()</a> and
  * <a href="#/p5/endShape">endShape()</a> in order to draw a curve:
  *
- * <code>
+ * ```js
  * beginShape();
  *
  * // Add the first control point.
@@ -76464,14 +76903,14 @@
  * curveVertex(32, 91);
  *
  * endShape();
- * </code>
+ * ```
  *
  * The code snippet above would only draw the curve between the anchor points,
  * similar to the <a href="#/p5/curve">curve()</a> function. The segments
  * between the control and anchor points can be drawn by calling
  * `curveVertex()` with the coordinates of the control points:
  *
- * <code>
+ * ```js
  * beginShape();
  *
  * // Add the first control point and draw a segment to it.
@@ -76489,7 +76928,7 @@
  * // curveVertex(32, 91);
  *
  * endShape();
- * </code>
+ * ```
  *
  * The first two parameters, `x` and `y`, set the vertex’s location. For
  * example, calling `curveVertex(10, 10)` adds a point to the curve at
@@ -76945,7 +77384,7 @@
           return this;
         };
         /**
- * Begins adding vertices to a custom shape.
+ * Stops adding vertices to a custom shape.
  *
  * The <a href="#/p5/beginShape">beginShape()</a> and `endShape()` functions
  * allow for creating custom shapes in 2D or 3D.
@@ -76962,7 +77401,7 @@
  * The `count` parameter tells WebGL mode how many copies to draw. For
  * example, calling `endShape(CLOSE, 400)` after drawing a custom shape will
  * make it efficient to draw 400 copies. This feature requires
- * <a href="https://p5js.org/learn/getting-started-in-webgl-shaders.html" target="_blank">writing a custom shader</a>.
+ * <a href="https://p5js.org/tutorials/intro-to-shaders/" target="_blank">writing a custom shader</a>.
  *
  * After calling <a href="#/p5/beginShape">beginShape()</a>, shapes can be
  * built by calling <a href="#/p5/vertex">vertex()</a>,
@@ -77013,6 +77452,37 @@
  *
  *   describe(
  *     'Two sets of black lines drawn on a gray background. The three lines on the left form a right triangle. The two lines on the right form a right angle.'
+ *   );
+ * }
+ * </code>
+ * </div>
+ *
+ * <div>
+ * <code>
+ * function setup() {
+ *   createCanvas(200, 100);
+ *
+ *   background(240);
+ *
+ *   noFill();
+ *   stroke(0);
+ *
+ *   // Open shape (left)
+ *   beginShape();
+ *   vertex(20, 20);
+ *   vertex(80, 20);
+ *   vertex(80, 80);
+ *   endShape();  // Not closed
+ *
+ *   // Closed shape (right)
+ *   beginShape();
+ *   vertex(120, 20);
+ *   vertex(180, 20);
+ *   vertex(180, 80);
+ *   endShape(CLOSE);  // Closed
+ *
+ *   describe(
+ *     'Two right-angled shapes on a light gray background. The left shape is open with three lines. The right shape is closed, forming a triangle.'
  *   );
  * }
  * </code>
@@ -77672,7 +78142,7 @@
  * `normal()` will affect all following vertices until `normal()` is called
  * again:
  *
- * <code>
+ * ```js
  * beginShape();
  *
  * // Set the vertex normal.
@@ -77695,7 +78165,7 @@
  * vertex(-30, 30, 0);
  *
  * endShape();
- * </code>
+ * ```
  *
  * @method normal
  * @param  {p5.Vector} vector vertex normal as a <a href="#/p5.Vector">p5.Vector</a> object.
@@ -77836,28 +78306,28 @@
         exports.default = _default;
       },
       {
-        '../constants': 291,
-        '../main': 303,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../constants': 294,
+        '../main': 306,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    314: [
+    317: [
       function (_dereq_, module, exports) {
         'use strict';
       },
       {
       }
     ],
-    315: [
+    318: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.object.assign');
@@ -79015,11 +79485,11 @@
         exports.default = _default;
       },
       {
-        './main': 303,
-        'core-js/modules/es.object.assign': 199
+        './main': 306,
+        'core-js/modules/es.object.assign': 201
       }
     ],
-    316: [
+    319: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -80283,7 +80753,7 @@
  * function draw() {
  *   background(200);
  *
- *   // Shear the coordinate system along the x-axis.
+ *   // Shear the coordinate system along the y-axis.
  *   shearY(QUARTER_PI);
  *
  *   // Draw the square.
@@ -80306,7 +80776,7 @@
  * function draw() {
  *   background(200);
  *
- *   // Shear the coordinate system along the x-axis.
+ *   // Shear the coordinate system along the y-axis.
  *   shearY(45);
  *
  *   // Draw the square.
@@ -80510,44 +80980,44 @@
         exports.default = _default;
       },
       {
-        './main': 303,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-prototype-of': 203,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.typed-array.copy-within': 228,
-        'core-js/modules/es.typed-array.every': 229,
-        'core-js/modules/es.typed-array.fill': 230,
-        'core-js/modules/es.typed-array.filter': 231,
-        'core-js/modules/es.typed-array.find': 233,
-        'core-js/modules/es.typed-array.find-index': 232,
-        'core-js/modules/es.typed-array.for-each': 236,
-        'core-js/modules/es.typed-array.includes': 237,
-        'core-js/modules/es.typed-array.index-of': 238,
-        'core-js/modules/es.typed-array.iterator': 241,
-        'core-js/modules/es.typed-array.join': 242,
-        'core-js/modules/es.typed-array.last-index-of': 243,
-        'core-js/modules/es.typed-array.map': 244,
-        'core-js/modules/es.typed-array.reduce': 246,
-        'core-js/modules/es.typed-array.reduce-right': 245,
-        'core-js/modules/es.typed-array.reverse': 247,
-        'core-js/modules/es.typed-array.set': 248,
-        'core-js/modules/es.typed-array.slice': 249,
-        'core-js/modules/es.typed-array.some': 250,
-        'core-js/modules/es.typed-array.sort': 251,
-        'core-js/modules/es.typed-array.subarray': 252,
-        'core-js/modules/es.typed-array.to-locale-string': 253,
-        'core-js/modules/es.typed-array.to-string': 254,
-        'core-js/modules/es.typed-array.uint8-array': 257,
-        'core-js/modules/web.dom-collections.iterator': 261
+        './main': 306,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-prototype-of': 206,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.typed-array.copy-within': 231,
+        'core-js/modules/es.typed-array.every': 232,
+        'core-js/modules/es.typed-array.fill': 233,
+        'core-js/modules/es.typed-array.filter': 234,
+        'core-js/modules/es.typed-array.find': 236,
+        'core-js/modules/es.typed-array.find-index': 235,
+        'core-js/modules/es.typed-array.for-each': 239,
+        'core-js/modules/es.typed-array.includes': 240,
+        'core-js/modules/es.typed-array.index-of': 241,
+        'core-js/modules/es.typed-array.iterator': 244,
+        'core-js/modules/es.typed-array.join': 245,
+        'core-js/modules/es.typed-array.last-index-of': 246,
+        'core-js/modules/es.typed-array.map': 247,
+        'core-js/modules/es.typed-array.reduce': 249,
+        'core-js/modules/es.typed-array.reduce-right': 248,
+        'core-js/modules/es.typed-array.reverse': 250,
+        'core-js/modules/es.typed-array.set': 251,
+        'core-js/modules/es.typed-array.slice': 252,
+        'core-js/modules/es.typed-array.some': 253,
+        'core-js/modules/es.typed-array.sort': 254,
+        'core-js/modules/es.typed-array.subarray': 255,
+        'core-js/modules/es.typed-array.to-locale-string': 256,
+        'core-js/modules/es.typed-array.to-string': 257,
+        'core-js/modules/es.typed-array.uint8-array': 260,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    317: [
+    320: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -81072,25 +81542,25 @@
         };
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.for-each': 178,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.keys': 204,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.ends-with': 213,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.replace': 219,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.for-each': 260,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/main': 306,
+        'core-js/modules/es.array.for-each': 179,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.keys': 207,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.ends-with': 216,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.for-each': 263,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    318: [
+    321: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -81934,22 +82404,22 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-prototype-of': 203,
-        'core-js/modules/es.object.keys': 204,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.reflect.construct': 207,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-prototype-of': 206,
+        'core-js/modules/es.object.keys': 207,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.reflect.construct': 210,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    319: [
+    322: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -82361,7 +82831,7 @@
             return this.createSelect(new _main.default.Element(elt, this));
           } else if (children.length > 0 && children.every(function (c) {
             return c.tagName === 'INPUT' || c.tagName === 'LABEL';
-          })) {
+          }) && (elt.tagName === 'DIV' || elt.tagName === 'SPAN')) {
             return this.createRadio(new _main.default.Element(elt, this));
           } else {
             return new _main.default.Element(elt, this);
@@ -82653,7 +83123,7 @@
           return addElement(elt, this);
         };
         /**
- * Creates a `&lt;p&gt;&lt;/p&gt;` element.
+ * Creates a paragraph element.
  *
  * `&lt;p&gt;&lt;/p&gt;` elements are commonly used for paragraph-length text.
  *
@@ -82863,7 +83333,7 @@
  *   background(200);
  *
  *   // Create an anchor element that links to p5js.org.
- *   let a = createA('http://p5js.org/', 'p5*js');
+ *   let a = createA('https://p5js.org/', 'p5*js');
  *   a.position(25, 35);
  *
  *   describe('The text "p5*js" written at the center of a gray square.');
@@ -82878,7 +83348,7 @@
  *
  *   // Create an anchor tag that links to p5js.org.
  *   // Open the link in a new tab.
- *   let a = createA('http://p5js.org/', 'p5*js', '_blank');
+ *   let a = createA('https://p5js.org/', 'p5*js', '_blank');
  *   a.position(25, 35);
  *
  *   describe('The text "p5*js" written at the center of a gray square.');
@@ -83557,18 +84027,18 @@
  *
  * The parameter is optional. If a string is passed, as in
  * `let myRadio = createSelect('food')`, then each radio option will
- * have `"food"` as its `name` parameter: `&lt;input name="food"&gt;&lt;/input&gt;`.
+ * have `"food"` as its `name` parameter: `&lt;input name="food"&gt;`.
  * If an existing `&lt;div&gt;&lt;/div&gt;` or `&lt;span&gt;&lt;/span&gt;`
  * element is passed, as in `let myRadio = createSelect(container)`, it will
  * become the radio button's parent element.
  *
  * Radio buttons extend the <a href="#/p5.Element">p5.Element</a> class with a few
  * helpful methods for managing options:
- * - `myRadio.option(value, [label])` adds an option to the menu. The first paremeter, `value`, is a string that sets the option's value and label. The second parameter, `label`, is optional. If provided, it sets the label displayed for the `value`. If an option with `value` already exists, its label is changed and its value is returned.
+ * - `myRadio.option(value, [label])` adds an option to the menu. The first parameter, `value`, is a string that sets the option's value and label. The second parameter, `label`, is optional. If provided, it sets the label displayed for the `value`. If an option with `value` already exists, its label is changed and its value is returned.
  * - `myRadio.value()` returns the currently-selected option's value.
  * - `myRadio.selected()` returns the currently-selected option.
  * - `myRadio.selected(value)` selects the given option and returns it as an <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement" target="_blank">`HTMLInputElement`</a>.
- * - `myRadio.disable(shouldDisable)` enables the entire radio button if `true` is passed and disables it if `false` is passed.
+ * - `myRadio.disable(shouldDisable)` Disables the radio button if `true` is passed, and enables it if `false` is passed.
  *
  * @method createRadio
  * @param  {Object} [containerElement] container HTML Element, either a `&lt;div&gt;&lt;/div&gt;`
@@ -83578,6 +84048,18 @@
  * @example
  * <div>
  * <code>
+ * let style = document.createElement('style');
+ * style.innerHTML = `
+ * .p5-radio label {
+ *    display: flex;
+ *    align-items: center;
+ *  }
+ *  .p5-radio input {
+ *    margin-right: 5px;
+ *  }
+ *  `;
+ * document.head.appendChild(style);
+ *
  * let myRadio;
  *
  * function setup() {
@@ -83587,6 +84069,7 @@
  *   // in the top-left corner.
  *   myRadio = createRadio();
  *   myRadio.position(0, 0);
+ *   myRadio.class('p5-radio');
  *   myRadio.size(60);
  *
  *   // Add a few color options.
@@ -83653,6 +84136,7 @@
  *   // in the top-left corner.
  *   myRadio = createRadio();
  *   myRadio.position(0, 0);
+ *   myRadio.class('p5-radio');
  *   myRadio.size(50);
  *
  *   // Add a few color options.
@@ -83695,6 +84179,8 @@
  * @method createRadio
  * @return {p5.Element} new <a href="#/p5.Element">p5.Element</a> object.
  */
+        //counter for unique names on radio button
+        var counter = 0;
         _main.default.prototype.createRadio = function () {
           // Creates a div, adds each option as an individual input inside it.
           // If already given with a containerEl, will search for all input[radio]
@@ -83718,8 +84204,9 @@
             radioElement = document.createElement('div');
             self = addElement(radioElement, this);
             this.elt = radioElement;
-          }
-          self._name = name || 'radioOption';
+          }          // Generate a unique name for each radio group if not provided
+
+          self._name = name || 'radioOption_'.concat(counter++);
           // setup member functions
           var isRadioInput = function isRadioInput(el) {
             return el instanceof HTMLInputElement && el.type === 'radio';
@@ -84230,7 +84717,7 @@
  *     let y = i * 20;
  *
  *     // Draw the image.
- *     image(img, 0, y, 100, 100);
+ *     image(images[i], 0, y, 100, 100);
  *   }
  *
  *   describe('A gray square with a file input beneath it. If the user selects multiple image files to load, they are displayed on the square.');
@@ -84306,8 +84793,7 @@
               var sourceEl = document.createElement('source');
               sourceEl.setAttribute('src', mediaSource);
               elt.appendChild(sourceEl);
-            }            // If callback is provided, attach to element
-
+            }
           } catch (err) {
             _didIteratorError9 = true;
             _iteratorError9 = err;
@@ -84321,13 +84807,6 @@
                 throw _iteratorError9;
               }
             }
-          }
-          if (typeof callback === 'function') {
-            var callbackHandler = function callbackHandler() {
-              callback();
-              elt.removeEventListener('canplaythrough', callbackHandler);
-            };
-            elt.addEventListener('canplaythrough', callbackHandler);
           }
           var mediaEl = addElement(elt, pInst, true);
           mediaEl.loadedmetadata = false;
@@ -84344,6 +84823,14 @@
             }
             mediaEl.loadedmetadata = true;
           });
+          // If callback is provided, attach to element
+          if (typeof callback === 'function') {
+            var callbackHandler = function callbackHandler() {
+              callback(mediaEl);
+              elt.removeEventListener('canplaythrough', callbackHandler);
+            };
+            elt.addEventListener('canplaythrough', callbackHandler);
+          }
           return mediaEl;
         }        /**
  * Creates a `&lt;video&gt;` element for simple audio/video playback.
@@ -85200,8 +85687,8 @@
  * @returns {Object} object of form `{ x: 0, y: 0 }` containing the element's position.
  *
  * @example
- * <div>
- * <code class='norender'>
+ * <div class='norender'>
+ * <code>
  * function setup() {
  *   let cnv = createCanvas(100, 100);
  *
@@ -85216,8 +85703,8 @@
  * </code>
  * </div>
  *
- * <div>
- * <code class='norender'>
+ * <div class='norender'>
+ * <code>
  * function setup() {
  *   let cnv = createCanvas(100, 100);
  *
@@ -88065,37 +88552,37 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.every': 172,
-        'core-js/modules/es.array.filter': 174,
-        'core-js/modules/es.array.for-each': 178,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.array.splice': 188,
-        'core-js/modules/es.function.name': 191,
-        'core-js/modules/es.object.assign': 199,
-        'core-js/modules/es.object.get-prototype-of': 203,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.promise': 206,
-        'core-js/modules/es.reflect.construct': 207,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.replace': 219,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.string.trim': 224,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.for-each': 260,
-        'core-js/modules/web.dom-collections.iterator': 261,
-        'core-js/modules/web.url': 263
+        '../core/main': 306,
+        'core-js/modules/es.array.every': 173,
+        'core-js/modules/es.array.filter': 175,
+        'core-js/modules/es.array.for-each': 179,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.array.splice': 189,
+        'core-js/modules/es.function.name': 192,
+        'core-js/modules/es.object.assign': 201,
+        'core-js/modules/es.object.get-prototype-of': 206,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.promise': 209,
+        'core-js/modules/es.reflect.construct': 210,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.string.trim': 227,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.for-each': 263,
+        'core-js/modules/web.dom-collections.iterator': 264,
+        'core-js/modules/web.url': 266
       }
     ],
-    320: [
+    323: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -88584,7 +89071,7 @@
         /**
  * The <a href="#/p5/deviceMoved">deviceMoved()</a> function is called when the device is moved by more than
  * the threshold value along X, Y or Z axis. The default threshold is set to 0.5.
- * The threshold value can be changed using <a href="https://p5js.org/reference/#/p5/setMoveThreshold">setMoveThreshold()</a>.
+ * The threshold value can be changed using <a href="#/p5/setMoveThreshold">setMoveThreshold()</a>.
  *
  * @method deviceMoved
  * @example
@@ -88671,7 +89158,7 @@
  * The <a href="#/p5/deviceShaken">deviceShaken()</a> function is called when the device total acceleration
  * changes of accelerationX and accelerationY values is more than
  * the threshold value. The default threshold is set to 30.
- * The threshold value can be changed using <a href="https://p5js.org/reference/#/p5/setShakeThreshold">setShakeThreshold()</a>.
+ * The threshold value can be changed using <a href="#/p5/setShakeThreshold">setShakeThreshold()</a>.
  *
  * @method deviceShaken
  * @example
@@ -88805,12 +89292,18 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303
+        '../core/main': 306
       }
     ],
-    321: [
+    324: [
       function (_dereq_, module, exports) {
         'use strict';
+        _dereq_('core-js/modules/es.array.for-each');
+        _dereq_('core-js/modules/es.string.repeat');
+        _dereq_('core-js/modules/web.dom-collections.for-each');
+        _dereq_('core-js/modules/es.array.for-each');
+        _dereq_('core-js/modules/es.string.repeat');
+        _dereq_('core-js/modules/web.dom-collections.for-each');
         Object.defineProperty(exports, '__esModule', {
           value: true
         });
@@ -89008,20 +89501,20 @@
  * been typed. For example, the following conditional checks whether the enter
  * key has been typed:
  *
- * <code>
+ * ```js
  * if (keyCode === 13) {
  *   // Code to run if the enter key was pressed.
  * }
- * </code>
+ * ```
  *
  * The same code can be written more clearly using the system variable `ENTER`
  * which has a value of 13:
  *
- * <code>
+ * ```js
  * if (keyCode === ENTER) {
  *   // Code to run if the enter key was pressed.
  * }
- * </code>
+ * ```
  *
  * The system variables `BACKSPACE`, `DELETE`, `ENTER`, `RETURN`, `TAB`,
  * `ESCAPE`, `SHIFT`, `CONTROL`, `OPTION`, `ALT`, `UP_ARROW`, `DOWN_ARROW`,
@@ -89105,17 +89598,17 @@
  * Declaring the function `keyPressed()` sets a code block to run once
  * automatically when the user presses any key:
  *
- * <code>
+ * ```js
  * function keyPressed() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The <a href="#/p5/key">key</a> and <a href="#/p5/keyCode">keyCode</a>
  * variables will be updated with the most recently typed value when
  * `keyPressed()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function keyPressed() {
  *   if (key === 'c') {
  *     // Code to run.
@@ -89125,18 +89618,18 @@
  *     // Code to run.
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, `event`, is optional. `keyPressed()` is always passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent" target="_blank">KeyboardEvent</a>
  * object with properties that describe the key press event:
  *
- * <code>
+ * ```js
  * function keyPressed(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * Browsers may have default behaviors attached to various key events. For
  * example, some browsers may jump to the bottom of a web page when the
@@ -89259,15 +89752,25 @@
  * </div>
  */
         _main.default.prototype._onkeydown = function (e) {
-          if (this._downKeys[e.which]) {
-            // prevent multiple firings
+          // Ignore repeated key events when holding down a key
+          if (e.repeat) {
+            this._setProperty('isKeyRepeated', true);
             return;
           }
+          this._setProperty('isKeyRepeated', false);
           this._setProperty('isKeyPressed', true);
           this._setProperty('keyIsPressed', true);
           this._setProperty('keyCode', e.which);
           this._downKeys[e.which] = true;
           this._setProperty('key', e.key || String.fromCharCode(e.which) || e.which);
+          // Track keys pressed with meta key
+          if (e.metaKey) {
+            if (!this._metaKeys) {
+              this._metaKeys = [
+              ];
+            }
+            this._metaKeys.push(e.which);
+          }
           var context = this._isGlobal ? window : this;
           if (typeof context.keyPressed === 'function' && !e.charCode) {
             var executeDefault = context.keyPressed(e);
@@ -89282,17 +89785,17 @@
  * Declaring the function `keyReleased()` sets a code block to run once
  * automatically when the user releases any key:
  *
- * <code>
+ * ```js
  * function keyReleased() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The <a href="#/p5/key">key</a> and <a href="#/p5/keyCode">keyCode</a>
  * variables will be updated with the most recently released value when
  * `keyReleased()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function keyReleased() {
  *   if (key === 'c') {
  *     // Code to run.
@@ -89302,18 +89805,18 @@
  *     // Code to run.
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, `event`, is optional. `keyReleased()` is always passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent" target="_blank">KeyboardEvent</a>
  * object with properties that describe the key press event:
  *
- * <code>
+ * ```js
  * function keyReleased(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * Browsers may have default behaviors attached to various key events. To
  * prevent any default behavior for this event, add `return false;` to the end
@@ -89433,14 +89936,22 @@
  * </div>
  */
         _main.default.prototype._onkeyup = function (e) {
+          var _this = this;
+          this._setProperty('isKeyPressed', false);
+          this._setProperty('keyIsPressed', false);
+          this._setProperty('_lastKeyCodePressed', this._keyCode);
           this._downKeys[e.which] = false;
-          if (!this._areDownKeys()) {
-            this._setProperty('isKeyPressed', false);
-            this._setProperty('keyIsPressed', false);
+          if (e.key === 'Meta') {
+            // Meta key codes
+            // When meta key is released, clear all keys pressed with it
+            if (this._metaKeys) {
+              this._metaKeys.forEach(function (key) {
+                _this._downKeys[key] = false;
+              });
+              this._metaKeys = [
+              ];
+            }
           }
-          this._setProperty('_lastKeyCodeTyped', null);
-          this._setProperty('key', e.key || String.fromCharCode(e.which) || e.which);
-          this._setProperty('keyCode', e.which);
           var context = this._isGlobal ? window : this;
           if (typeof context.keyReleased === 'function') {
             var executeDefault = context.keyReleased(e);
@@ -89457,17 +89968,17 @@
  * as `a` or 1. Modifier keys such as `SHIFT`, `CONTROL`, and the arrow keys
  * will be ignored:
  *
- * <code>
+ * ```js
  * function keyTyped() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The <a href="#/p5/key">key</a> and <a href="#/p5/keyCode">keyCode</a>
  * variables will be updated with the most recently released value when
  * `keyTyped()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function keyTyped() {
  *   // Check for the "c" character using key.
  *   if (key === 'c') {
@@ -89479,18 +89990,18 @@
  *     // Code to run.
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, `event`, is optional. `keyTyped()` is always passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent" target="_blank">KeyboardEvent</a>
  * object with properties that describe the key press event:
  *
- * <code>
+ * ```js
  * function keyReleased(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * Note: Use the <a href="#/p5/keyPressed">keyPressed()</a> function and
  * <a href="#/p5/keyCode">keyCode</a> system variable to respond to modifier
@@ -89580,7 +90091,7 @@
  * </div>
  */
         _main.default.prototype._onkeypress = function (e) {
-          if (e.which === this._lastKeyCodeTyped) {
+          if (e.which === this._lastKeyCodeTyped && this.isKeyRepeated) {
             // prevent multiple firings
             return;
           }
@@ -89611,11 +90122,11 @@
  * For example, `keyIsDown()` can be used to check if both `LEFT_ARROW` and
  * `UP_ARROW` are pressed:
  *
- * <code>
+ * ```js
  * if (keyIsDown(LEFT_ARROW) && keyIsDown(UP_ARROW)) {
  *   // Move diagonally.
  * }
- * </code>
+ * ```
  *
  * `keyIsDown()` can check for key presses using
  * <a href="#/p5/keyCode">keyCode</a> values, as in `keyIsDown(37)` or
@@ -89740,10 +90251,13 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303
+        '../core/main': 306,
+        'core-js/modules/es.array.for-each': 179,
+        'core-js/modules/es.string.repeat': 221,
+        'core-js/modules/web.dom-collections.for-each': 263
       }
     ],
-    322: [
+    325: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -89848,6 +90362,11 @@
  *
  * Note: `movedX` continues updating even when
  * <a href="#/p5/requestPointerLock">requestPointerLock()</a> is active.
+ * But keep in mind that during an active pointer lock, mouseX and pmouseX
+ * are locked, so `movedX` is based on
+ * <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/movementX">the MouseEvent's movementX value</a>
+ * (which may behave differently in different browsers when the user
+ * is zoomed in or out).
  *
  * @property {Number} movedX
  * @readOnly
@@ -89893,6 +90412,11 @@
  *
  * Note: `movedY` continues updating even when
  * <a href="#/p5/requestPointerLock">requestPointerLock()</a> is active.
+ * But keep in mind that during an active pointer lock, mouseX and pmouseX
+ * are locked, so `movedX` is based on
+ * <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/movementX">the MouseEvent's movementX value</a>
+ * (which may behave differently in different browsers when the user
+ * is zoomed in or out).
  *
  * @property {Number} movedY
  * @readOnly
@@ -89937,13 +90461,9 @@
         /**
  * A `Number` system variable that tracks the mouse's horizontal position.
  *
- * In 2D mode, `mouseX` keeps track of the mouse's position relative to the
+ * `mouseX` keeps track of the mouse's position relative to the
  * top-left corner of the canvas. For example, if the mouse is 50 pixels from
  * the left edge of the canvas, then `mouseX` will be 50.
- *
- * In WebGL mode, `mouseX` keeps track of the mouse's position relative to the
- * center of the canvas. For example, if the mouse is 50 pixels to the right
- * of the canvas' center, then `mouseX` will be 50.
  *
  * If touch is used instead of the mouse, then `mouseX` will hold the
  * x-coordinate of the most recent touch point.
@@ -90047,13 +90567,9 @@
         /**
  * A `Number` system variable that tracks the mouse's vertical position.
  *
- * In 2D mode, `mouseY` keeps track of the mouse's position relative to the
+ * `mouseY` keeps track of the mouse's position relative to the
  * top-left corner of the canvas. For example, if the mouse is 50 pixels from
  * the top edge of the canvas, then `mouseY` will be 50.
- *
- * In WebGL mode, `mouseY` keeps track of the mouse's position relative to the
- * center of the canvas. For example, if the mouse is 50 pixels below the
- * canvas' center, then `mouseY` will be 50.
  *
  * If touch is used instead of the mouse, then `mouseY` will hold the
  * y-coordinate of the most recent touch point.
@@ -90074,7 +90590,7 @@
  *   background(200);
  *
  *   // Draw a horizontal line that follows the mouse's y-coordinate.
- *   line(0, mouseY, 0, mouseY);
+ *   line(0, mouseY, 100, mouseY);
  * }
  * </code>
  * </div>
@@ -90158,15 +90674,11 @@
  * A `Number` system variable that tracks the mouse's previous horizontal
  * position.
  *
- * In 2D mode, `pmouseX` keeps track of the mouse's position relative to the
+ * `pmouseX` keeps track of the mouse's position relative to the
  * top-left corner of the canvas. Its value is
  * <a href="#/p5/mouseX">mouseX</a> from the previous frame. For example, if
  * the mouse was 50 pixels from the left edge of the canvas during the last
  * frame, then `pmouseX` will be 50.
- *
- * In WebGL mode, `pmouseX` keeps track of the mouse's position relative to the
- * center of the canvas. For example, if the mouse was 50 pixels to the right
- * of the canvas' center during the last frame, then `pmouseX` will be 50.
  *
  * If touch is used instead of the mouse, then `pmouseX` will hold the
  * x-coordinate of the last touch point.
@@ -90226,15 +90738,11 @@
  * A `Number` system variable that tracks the mouse's previous vertical
  * position.
  *
- * In 2D mode, `pmouseY` keeps track of the mouse's position relative to the
+ * `pmouseY` keeps track of the mouse's position relative to the
  * top-left corner of the canvas. Its value is
  * <a href="#/p5/mouseY">mouseY</a> from the previous frame. For example, if
  * the mouse was 50 pixels from the top edge of the canvas during the last
  * frame, then `pmouseY` will be 50.
- *
- * In WebGL mode, `pmouseY` keeps track of the mouse's position relative to the
- * center of the canvas. For example, if the mouse was 50 pixels below the
- * canvas' center during the last frame, then `pmouseY` will be 50.
  *
  * If touch is used instead of the mouse, then `pmouseY` will hold the
  * y-coordinate of the last touch point.
@@ -90638,15 +91146,30 @@
         _main.default.prototype._updateNextMouseCoords = function (e) {
           if (this._curElement !== null && (!e.touches || e.touches.length > 0)) {
             var mousePos = getMousePos(this._curElement.elt, this.width, this.height, e);
-            this._setProperty('movedX', e.movementX);
-            this._setProperty('movedY', e.movementY);
             this._setProperty('mouseX', mousePos.x);
             this._setProperty('mouseY', mousePos.y);
             this._setProperty('winMouseX', mousePos.winX);
             this._setProperty('winMouseY', mousePos.winY);
+            if (document.pointerLockElement === null) {
+              // https://developer.mozilla.org/en-US/docs/Web/API/Document/pointerLockElement
+              // "The pointerLockElement ... is null if lock is pending, pointer is unlocked,
+              // or the target is in another document."
+              // In this case, we use mouseX/Y and pmouseX/Y to calculate the distance,
+              // which allows movedX/Y to look consistent at different zoom levels across
+              // browsers.
+              var deltaX = this.mouseX - this.pmouseX;
+              var deltaY = this.mouseY - this.pmouseY;
+              this._setProperty('movedX', deltaX);
+              this._setProperty('movedY', deltaY);
+            } else {
+              // Because mouseX/Y and pmouseX/Y are locked, the elements movementX/Y
+              // is used for movedX/Y - this may behave differently on different
+              // browsers at different zoom levels.
+              this._setProperty('movedX', e.movementX);
+              this._setProperty('movedY', e.movementY);
+            }
           }
           if (!this._hasMouseInteracted) {
-            // For first draw, make previous and next equal
             this._updateMouseCoords();
             this._setProperty('_hasMouseInteracted', true);
           }
@@ -90694,17 +91217,17 @@
  * automatically when the user moves the mouse without clicking any mouse
  * buttons:
  *
- * <code>
+ * ```js
  * function mouseMoved() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The mouse system variables, such as <a href="#/p5/mouseX">mouseX</a> and
  * <a href="#/p5/mouseY">mouseY</a>, will be updated with their most recent
  * value when `mouseMoved()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function mouseMoved() {
  *   if (mouseX < 50) {
  *     // Code to run if the mouse is on the left.
@@ -90714,18 +91237,18 @@
  *     // Code to run if the mouse is near the bottom.
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, `event`, is optional. `mouseMoved()` is always passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent" target="_blank">MouseEvent</a>
  * object with properties that describe the mouse move event:
  *
- * <code>
+ * ```js
  * function mouseMoved(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * Browsers may have default behaviors attached to various mouse events. For
  * example, some browsers highlight text when the user moves the mouse while
@@ -90778,17 +91301,17 @@
  * Declaring the function `mouseDragged()` sets a code block to run
  * automatically when the user clicks and drags the mouse:
  *
- * <code>
+ * ```js
  * function mouseDragged() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The mouse system variables, such as <a href="#/p5/mouseX">mouseX</a> and
  * <a href="#/p5/mouseY">mouseY</a>, will be updated with their most recent
  * value when `mouseDragged()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function mouseDragged() {
  *   if (mouseX < 50) {
  *     // Code to run if the mouse is on the left.
@@ -90798,18 +91321,18 @@
  *     // Code to run if the mouse is near the bottom.
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, `event`, is optional. `mouseDragged()` is always passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent" target="_blank">MouseEvent</a>
  * object with properties that describe the mouse drag event:
  *
- * <code>
+ * ```js
  * function mouseDragged(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * On touchscreen devices, `mouseDragged()` will run when a user moves a touch
  * point if <a href="#/p5/touchMoved">touchMoved()</a> isn’t declared. If
@@ -90893,17 +91416,17 @@
  * Declaring the function `mousePressed()` sets a code block to run
  * automatically when the user presses a mouse button:
  *
- * <code>
+ * ```js
  * function mousePressed() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The mouse system variables, such as <a href="#/p5/mouseX">mouseX</a> and
  * <a href="#/p5/mouseY">mouseY</a>, will be updated with their most recent
  * value when `mousePressed()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function mousePressed() {
  *   if (mouseX < 50) {
  *     // Code to run if the mouse is on the left.
@@ -90913,18 +91436,18 @@
  *     // Code to run if the mouse is near the bottom.
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, `event`, is optional. `mousePressed()` is always passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent" target="_blank">MouseEvent</a>
  * object with properties that describe the mouse press event:
  *
- * <code>
+ * ```js
  * function mousePressed(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * On touchscreen devices, `mousePressed()` will run when a user’s touch
  * begins if <a href="#/p5/touchStarted">touchStarted()</a> isn’t declared. If
@@ -91062,17 +91585,17 @@
  * automatically when the user releases a mouse button after having pressed
  * it:
  *
- * <code>
+ * ```js
  * function mouseReleased() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The mouse system variables, such as <a href="#/p5/mouseX">mouseX</a> and
  * <a href="#/p5/mouseY">mouseY</a>, will be updated with their most recent
  * value when `mouseReleased()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function mouseReleased() {
  *   if (mouseX < 50) {
  *     // Code to run if the mouse is on the left.
@@ -91082,18 +91605,18 @@
  *     // Code to run if the mouse is near the bottom.
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, `event`, is optional. `mouseReleased()` is always passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent" target="_blank">MouseEvent</a>
  * object with properties that describe the mouse release event:
  *
- * <code>
+ * ```js
  * function mouseReleased(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * On touchscreen devices, `mouseReleased()` will run when a user’s touch
  * ends if <a href="#/p5/touchEnded">touchEnded()</a> isn’t declared. If
@@ -91231,17 +91754,17 @@
  * automatically when the user releases a mouse button after having pressed
  * it:
  *
- * <code>
+ * ```js
  * function mouseClicked() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The mouse system variables, such as <a href="#/p5/mouseX">mouseX</a> and
  * <a href="#/p5/mouseY">mouseY</a>, will be updated with their most recent
  * value when `mouseClicked()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function mouseClicked() {
  *   if (mouseX < 50) {
  *     // Code to run if the mouse is on the left.
@@ -91251,18 +91774,18 @@
  *     // Code to run if the mouse is near the bottom.
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, `event`, is optional. `mouseClicked()` is always passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent" target="_blank">MouseEvent</a>
  * object with properties that describe the mouse click event:
  *
- * <code>
+ * ```js
  * function mouseClicked(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * On touchscreen devices, `mouseClicked()` will run when a user’s touch
  * ends if <a href="#/p5/touchEnded">touchEnded()</a> isn’t declared. If
@@ -91386,17 +91909,17 @@
  * automatically when the user presses and releases the mouse button twice
  * quickly:
  *
- * <code>
+ * ```js
  * function doubleClicked() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The mouse system variables, such as <a href="#/p5/mouseX">mouseX</a> and
  * <a href="#/p5/mouseY">mouseY</a>, will be updated with their most recent
  * value when `doubleClicked()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function doubleClicked() {
  *   if (mouseX < 50) {
  *     // Code to run if the mouse is on the left.
@@ -91406,18 +91929,18 @@
  *     // Code to run if the mouse is near the bottom.
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, `event`, is optional. `doubleClicked()` is always passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent" target="_blank">MouseEvent</a>
  * object with properties that describe the double-click event:
  *
- * <code>
+ * ```js
  * function doubleClicked(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * On touchscreen devices, code placed in `doubleClicked()` will run after two
  * touches that occur within a short time.
@@ -91528,17 +92051,17 @@
  * Declaring the function `mouseWheel()` sets a code block to run
  * automatically when the user scrolls with the mouse wheel:
  *
- * <code>
+ * ```js
  * function mouseWheel() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The mouse system variables, such as <a href="#/p5/mouseX">mouseX</a> and
  * <a href="#/p5/mouseY">mouseY</a>, will be updated with their most recent
  * value when `mouseWheel()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function mouseWheel() {
  *   if (mouseX < 50) {
  *     // Code to run if the mouse is on the left.
@@ -91548,18 +92071,18 @@
  *     // Code to run if the mouse is near the bottom.
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, `event`, is optional. `mouseWheel()` is always passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent" target="_blank">MouseEvent</a>
  * object with properties that describe the mouse scroll event:
  *
- * <code>
+ * ```js
  * function mouseWheel(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * The `event` object has many properties including `delta`, a `Number`
  * containing the distance that the user scrolled. For example, `event.delta`
@@ -91595,7 +92118,7 @@
  *   background(200);
  *
  *   // Draw the circle
- *   circle(circleSize, 50, 50);
+ *   circle(50, 50, circleSize);
  * }
  *
  * // Increment circleSize when the user scrolls the mouse wheel.
@@ -91782,20 +92305,20 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    323: [
+    326: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -91821,7 +92344,7 @@
  * screen, a new touch point is tracked and added to the array. Touch points
  * are `Objects` with the following properties:
  *
- * <code>
+ * ```js
  * // Iterate over the touches array.
  * for (let touch of touches) {
  *   // x-coordinate relative to the top-left
@@ -91843,7 +92366,7 @@
  *   // ID number
  *   console.log(touch.id);
  * }
- * </code>
+ * ```
  *
  * @property {Object[]} touches
  * @readOnly
@@ -91929,16 +92452,16 @@
  * Declaring a function called `touchStarted()` sets a code block to run
  * automatically each time the user begins touching a touchscreen device:
  *
- * <code>
+ * ```js
  * function touchStarted() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The <a href="#/p5/touches">touches</a> array will be updated with the most
  * recent touch points when `touchStarted()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function touchStarted() {
  *   // Paint over the background.
  *   background(200);
@@ -91948,18 +92471,18 @@
  *     circle(touch.x, touch.y, 40);
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, event, is optional. `touchStarted()` will be passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent" target="_blank">TouchEvent</a>
  * object with properties that describe the touch event:
  *
- * <code>
+ * ```js
  * function touchStarted(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * On touchscreen devices, <a href="#/p5/mousePressed">mousePressed()</a> will
  * run when a user’s touch starts if `touchStarted()` isn’t declared. If
@@ -92098,16 +92621,16 @@
  * Declaring the function `touchMoved()` sets a code block to run
  * automatically when the user touches a touchscreen device and moves:
  *
- * <code>
+ * ```js
  * function touchMoved() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The <a href="#/p5/touches">touches</a> array will be updated with the most
  * recent touch points when `touchMoved()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function touchMoved() {
  *   // Paint over the background.
  *   background(200);
@@ -92117,18 +92640,18 @@
  *     circle(touch.x, touch.y, 40);
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, event, is optional. `touchMoved()` will be passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent" target="_blank">TouchEvent</a>
  * object with properties that describe the touch event:
  *
- * <code>
+ * ```js
  * function touchMoved(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * On touchscreen devices, <a href="#/p5/mouseDragged">mouseDragged()</a> will
  * run when the user’s touch points move if `touchMoved()` isn’t declared. If
@@ -92270,16 +92793,16 @@
  * Declaring the function `touchEnded()` sets a code block to run
  * automatically when the user stops touching a touchscreen device:
  *
- * <code>
+ * ```js
  * function touchEnded() {
  *   // Code to run.
  * }
- * </code>
+ * ```
  *
  * The <a href="#/p5/touches">touches</a> array will be updated with the most
  * recent touch points when `touchEnded()` is called by p5.js:
  *
- * <code>
+ * ```js
  * function touchEnded() {
  *   // Paint over the background.
  *   background(200);
@@ -92290,18 +92813,18 @@
  *     circle(touch.x, touch.y, 40);
  *   }
  * }
- * </code>
+ * ```
  *
  * The parameter, event, is optional. `touchEnded()` will be passed a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent" target="_blank">TouchEvent</a>
  * object with properties that describe the touch event:
  *
- * <code>
+ * ```js
  * function touchEnded(event) {
  *   // Code to run that uses the event.
  *   console.log(event);
  * }
- * </code>
+ * ```
  *
  * On touchscreen devices, <a href="#/p5/mouseReleased">mouseReleased()</a> will
  * run when the user’s touch ends if `touchEnded()` isn’t declared. If
@@ -92436,10 +92959,10 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303
+        '../core/main': 306
       }
     ],
-    324: [
+    327: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.iterator');
@@ -93094,36 +93617,36 @@
         exports.default = _default;
       },
       {
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.typed-array.copy-within': 228,
-        'core-js/modules/es.typed-array.every': 229,
-        'core-js/modules/es.typed-array.fill': 230,
-        'core-js/modules/es.typed-array.filter': 231,
-        'core-js/modules/es.typed-array.find': 233,
-        'core-js/modules/es.typed-array.find-index': 232,
-        'core-js/modules/es.typed-array.for-each': 236,
-        'core-js/modules/es.typed-array.includes': 237,
-        'core-js/modules/es.typed-array.index-of': 238,
-        'core-js/modules/es.typed-array.int32-array': 240,
-        'core-js/modules/es.typed-array.iterator': 241,
-        'core-js/modules/es.typed-array.join': 242,
-        'core-js/modules/es.typed-array.last-index-of': 243,
-        'core-js/modules/es.typed-array.map': 244,
-        'core-js/modules/es.typed-array.reduce': 246,
-        'core-js/modules/es.typed-array.reduce-right': 245,
-        'core-js/modules/es.typed-array.reverse': 247,
-        'core-js/modules/es.typed-array.set': 248,
-        'core-js/modules/es.typed-array.slice': 249,
-        'core-js/modules/es.typed-array.some': 250,
-        'core-js/modules/es.typed-array.sort': 251,
-        'core-js/modules/es.typed-array.subarray': 252,
-        'core-js/modules/es.typed-array.to-locale-string': 253,
-        'core-js/modules/es.typed-array.to-string': 254,
-        'core-js/modules/es.typed-array.uint8-array': 257
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.typed-array.copy-within': 231,
+        'core-js/modules/es.typed-array.every': 232,
+        'core-js/modules/es.typed-array.fill': 233,
+        'core-js/modules/es.typed-array.filter': 234,
+        'core-js/modules/es.typed-array.find': 236,
+        'core-js/modules/es.typed-array.find-index': 235,
+        'core-js/modules/es.typed-array.for-each': 239,
+        'core-js/modules/es.typed-array.includes': 240,
+        'core-js/modules/es.typed-array.index-of': 241,
+        'core-js/modules/es.typed-array.int32-array': 243,
+        'core-js/modules/es.typed-array.iterator': 244,
+        'core-js/modules/es.typed-array.join': 245,
+        'core-js/modules/es.typed-array.last-index-of': 246,
+        'core-js/modules/es.typed-array.map': 247,
+        'core-js/modules/es.typed-array.reduce': 249,
+        'core-js/modules/es.typed-array.reduce-right': 248,
+        'core-js/modules/es.typed-array.reverse': 250,
+        'core-js/modules/es.typed-array.set': 251,
+        'core-js/modules/es.typed-array.slice': 252,
+        'core-js/modules/es.typed-array.some': 253,
+        'core-js/modules/es.typed-array.sort': 254,
+        'core-js/modules/es.typed-array.subarray': 255,
+        'core-js/modules/es.typed-array.to-locale-string': 256,
+        'core-js/modules/es.typed-array.to-string': 257,
+        'core-js/modules/es.typed-array.uint8-array': 260
       }
     ],
-    325: [
+    328: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -93400,7 +93923,7 @@
  * format.
  *
  * The second parameter, `extension`, is also optional. It sets the files format.
- * Either `'png'` or `'jpg'` can be used. For example, `saveCanvas('drawing', 'jpg')`
+ * Either `'png'`, `'webp'`, or `'jpg'` can be used. For example, `saveCanvas('drawing', 'jpg')`
  * saves the canvas to a file called `drawing.jpg`.
  *
  * Note: The browser will either save the file immediately or prompt the user
@@ -93410,7 +93933,7 @@
  *  @param  {p5.Framebuffer|p5.Element|HTMLCanvasElement} selectedCanvas   reference to a
  *                                                          specific HTML5 canvas element.
  *  @param  {String} [filename]  file name. Defaults to 'untitled'.
- *  @param  {String} [extension] file extension, either 'jpg' or 'png'. Defaults to 'png'.
+ *  @param  {String} [extension] file extension, either 'png', 'webp', or 'jpg'. Defaults to 'png'.
  *
  *  @example
  * <div class='norender'>
@@ -93548,6 +94071,9 @@
             default:
               //case 'png':
               mimeType = 'image/png';
+              break;
+            case 'webp':
+              mimeType = 'image/webp';
               break;
             case 'jpeg':
             case 'jpg':
@@ -93764,7 +94290,7 @@
  * an object with its file type, file name, and image data as a string. For
  * example, the first saved frame might have the following properties:
  *
- * `{ ext: 'png', filenmame: 'frame0', imageData: 'data:image/octet-stream;base64, abc123' }`.
+ * `{ ext: 'png', filename: 'frame0', imageData: 'data:image/octet-stream;base64, abc123' }`.
  *
  * The first parameter, `filename`, sets the prefix for the file names. For
  * example, setting the prefix to `'frame'` would generate the image files
@@ -93925,56 +94451,56 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.filter': 174,
-        'core-js/modules/es.array.for-each': 178,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.object.keys': 204,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.set': 212,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.replace': 219,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.typed-array.copy-within': 228,
-        'core-js/modules/es.typed-array.every': 229,
-        'core-js/modules/es.typed-array.fill': 230,
-        'core-js/modules/es.typed-array.filter': 231,
-        'core-js/modules/es.typed-array.find': 233,
-        'core-js/modules/es.typed-array.find-index': 232,
-        'core-js/modules/es.typed-array.for-each': 236,
-        'core-js/modules/es.typed-array.includes': 237,
-        'core-js/modules/es.typed-array.index-of': 238,
-        'core-js/modules/es.typed-array.iterator': 241,
-        'core-js/modules/es.typed-array.join': 242,
-        'core-js/modules/es.typed-array.last-index-of': 243,
-        'core-js/modules/es.typed-array.map': 244,
-        'core-js/modules/es.typed-array.reduce': 246,
-        'core-js/modules/es.typed-array.reduce-right': 245,
-        'core-js/modules/es.typed-array.reverse': 247,
-        'core-js/modules/es.typed-array.set': 248,
-        'core-js/modules/es.typed-array.slice': 249,
-        'core-js/modules/es.typed-array.some': 250,
-        'core-js/modules/es.typed-array.sort': 251,
-        'core-js/modules/es.typed-array.subarray': 252,
-        'core-js/modules/es.typed-array.to-locale-string': 253,
-        'core-js/modules/es.typed-array.to-string': 254,
-        'core-js/modules/es.typed-array.uint32-array': 256,
-        'core-js/modules/es.typed-array.uint8-array': 257,
-        'core-js/modules/web.dom-collections.for-each': 260,
-        'core-js/modules/web.dom-collections.iterator': 261,
-        'omggif': 275
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.filter': 175,
+        'core-js/modules/es.array.for-each': 179,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.object.keys': 207,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.set': 215,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.typed-array.copy-within': 231,
+        'core-js/modules/es.typed-array.every': 232,
+        'core-js/modules/es.typed-array.fill': 233,
+        'core-js/modules/es.typed-array.filter': 234,
+        'core-js/modules/es.typed-array.find': 236,
+        'core-js/modules/es.typed-array.find-index': 235,
+        'core-js/modules/es.typed-array.for-each': 239,
+        'core-js/modules/es.typed-array.includes': 240,
+        'core-js/modules/es.typed-array.index-of': 241,
+        'core-js/modules/es.typed-array.iterator': 244,
+        'core-js/modules/es.typed-array.join': 245,
+        'core-js/modules/es.typed-array.last-index-of': 246,
+        'core-js/modules/es.typed-array.map': 247,
+        'core-js/modules/es.typed-array.reduce': 249,
+        'core-js/modules/es.typed-array.reduce-right': 248,
+        'core-js/modules/es.typed-array.reverse': 250,
+        'core-js/modules/es.typed-array.set': 251,
+        'core-js/modules/es.typed-array.slice': 252,
+        'core-js/modules/es.typed-array.some': 253,
+        'core-js/modules/es.typed-array.sort': 254,
+        'core-js/modules/es.typed-array.subarray': 255,
+        'core-js/modules/es.typed-array.to-locale-string': 256,
+        'core-js/modules/es.typed-array.to-string': 257,
+        'core-js/modules/es.typed-array.uint32-array': 259,
+        'core-js/modules/es.typed-array.uint8-array': 260,
+        'core-js/modules/web.dom-collections.for-each': 263,
+        'core-js/modules/web.dom-collections.iterator': 264,
+        'omggif': 278
       }
     ],
-    326: [
+    329: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -95034,7 +95560,7 @@
  * destination rectangle. This may have the effect of zooming into the
  * subsection.
  *
- * The tenth and eleventh paremeters, `xAlign` and `yAlign`, are also
+ * The tenth and eleventh parameters, `xAlign` and `yAlign`, are also
  * optional. They determine how to align the fitted subsection. `xAlign` can
  * be set to either `LEFT`, `RIGHT`, or `CENTER`. `yAlign` can be set to
  * either `TOP`, `BOTTOM`, or `CENTER`. By default, both `xAlign` and `yAlign`
@@ -95561,59 +96087,59 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/friendly_errors/fes_core': 294,
-        '../core/friendly_errors/file_errors': 295,
-        '../core/friendly_errors/validate_params': 298,
-        '../core/helpers': 299,
-        '../core/main': 303,
-        'core-js/modules/es.array.copy-within': 171,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.promise': 206,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.includes': 214,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.typed-array.copy-within': 228,
-        'core-js/modules/es.typed-array.every': 229,
-        'core-js/modules/es.typed-array.fill': 230,
-        'core-js/modules/es.typed-array.filter': 231,
-        'core-js/modules/es.typed-array.find': 233,
-        'core-js/modules/es.typed-array.find-index': 232,
-        'core-js/modules/es.typed-array.for-each': 236,
-        'core-js/modules/es.typed-array.includes': 237,
-        'core-js/modules/es.typed-array.index-of': 238,
-        'core-js/modules/es.typed-array.iterator': 241,
-        'core-js/modules/es.typed-array.join': 242,
-        'core-js/modules/es.typed-array.last-index-of': 243,
-        'core-js/modules/es.typed-array.map': 244,
-        'core-js/modules/es.typed-array.reduce': 246,
-        'core-js/modules/es.typed-array.reduce-right': 245,
-        'core-js/modules/es.typed-array.reverse': 247,
-        'core-js/modules/es.typed-array.set': 248,
-        'core-js/modules/es.typed-array.slice': 249,
-        'core-js/modules/es.typed-array.some': 250,
-        'core-js/modules/es.typed-array.sort': 251,
-        'core-js/modules/es.typed-array.subarray': 252,
-        'core-js/modules/es.typed-array.to-locale-string': 253,
-        'core-js/modules/es.typed-array.to-string': 254,
-        'core-js/modules/es.typed-array.uint8-array': 257,
-        'core-js/modules/es.typed-array.uint8-clamped-array': 258,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261,
-        'gifenc': 268,
-        'omggif': 275,
-        'regenerator-runtime/runtime': 279
+        '../core/constants': 294,
+        '../core/friendly_errors/fes_core': 297,
+        '../core/friendly_errors/file_errors': 298,
+        '../core/friendly_errors/validate_params': 301,
+        '../core/helpers': 302,
+        '../core/main': 306,
+        'core-js/modules/es.array.copy-within': 172,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.promise': 209,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.includes': 217,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.typed-array.copy-within': 231,
+        'core-js/modules/es.typed-array.every': 232,
+        'core-js/modules/es.typed-array.fill': 233,
+        'core-js/modules/es.typed-array.filter': 234,
+        'core-js/modules/es.typed-array.find': 236,
+        'core-js/modules/es.typed-array.find-index': 235,
+        'core-js/modules/es.typed-array.for-each': 239,
+        'core-js/modules/es.typed-array.includes': 240,
+        'core-js/modules/es.typed-array.index-of': 241,
+        'core-js/modules/es.typed-array.iterator': 244,
+        'core-js/modules/es.typed-array.join': 245,
+        'core-js/modules/es.typed-array.last-index-of': 246,
+        'core-js/modules/es.typed-array.map': 247,
+        'core-js/modules/es.typed-array.reduce': 249,
+        'core-js/modules/es.typed-array.reduce-right': 248,
+        'core-js/modules/es.typed-array.reverse': 250,
+        'core-js/modules/es.typed-array.set': 251,
+        'core-js/modules/es.typed-array.slice': 252,
+        'core-js/modules/es.typed-array.some': 253,
+        'core-js/modules/es.typed-array.sort': 254,
+        'core-js/modules/es.typed-array.subarray': 255,
+        'core-js/modules/es.typed-array.to-locale-string': 256,
+        'core-js/modules/es.typed-array.to-string': 257,
+        'core-js/modules/es.typed-array.uint8-array': 260,
+        'core-js/modules/es.typed-array.uint8-clamped-array': 261,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264,
+        'gifenc': 271,
+        'omggif': 278,
+        'regenerator-runtime/runtime': 282
       }
     ],
-    327: [
+    330: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -96471,7 +96997,7 @@
      *   // Display the image.
      *   image(img, 17, 17);
      *
-     *   describe('A square with a horiztonal color gradient from black to white drawn on a gray background.');
+     *   describe('A square with a horizontal color gradient from black to white drawn on a gray background.');
      * }
      * </code>
      * </div>
@@ -97738,18 +98264,18 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        './filters': 324,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/main': 306,
+        './filters': 327,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    328: [
+    331: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.filter');
@@ -98807,7 +99333,7 @@
  *   // Update the canvas.
  *   updatePixels();
  *
- *   describe('A horiztonal color gradient from black to white.');
+ *   describe('A horizontal color gradient from black to white.');
  * }
  * </code>
  * </div>
@@ -98905,13 +99431,13 @@
         exports.default = _default;
       },
       {
-        '../color/p5.Color': 289,
-        '../core/main': 303,
-        './filters': 324,
-        'core-js/modules/es.array.filter': 174
+        '../color/p5.Color': 292,
+        '../core/main': 306,
+        './filters': 327,
+        'core-js/modules/es.array.filter': 175
       }
     ],
-    329: [
+    332: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -99558,7 +100084,7 @@
  *   //and has a header specifying the columns labels
  *   table = loadTable('assets/mammals.csv', 'csv', 'header');
  *   //the file can be remote
- *   //table = loadTable("http://p5js.org/reference/assets/mammals.csv",
+ *   //table = loadTable("https://p5js.org/reference/assets/mammals.csv",
  *   //                  "csv", "header");
  * }
  *
@@ -101444,63 +101970,63 @@
         exports.default = _default;
       },
       {
-        '../core/friendly_errors/fes_core': 294,
-        '../core/friendly_errors/file_errors': 295,
-        '../core/friendly_errors/validate_params': 298,
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.last-index-of': 184,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.array.splice': 188,
-        'core-js/modules/es.function.name': 191,
-        'core-js/modules/es.object.from-entries': 200,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.promise': 206,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.includes': 214,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.replace': 219,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.typed-array.copy-within': 228,
-        'core-js/modules/es.typed-array.every': 229,
-        'core-js/modules/es.typed-array.fill': 230,
-        'core-js/modules/es.typed-array.filter': 231,
-        'core-js/modules/es.typed-array.find': 233,
-        'core-js/modules/es.typed-array.find-index': 232,
-        'core-js/modules/es.typed-array.for-each': 236,
-        'core-js/modules/es.typed-array.includes': 237,
-        'core-js/modules/es.typed-array.index-of': 238,
-        'core-js/modules/es.typed-array.iterator': 241,
-        'core-js/modules/es.typed-array.join': 242,
-        'core-js/modules/es.typed-array.last-index-of': 243,
-        'core-js/modules/es.typed-array.map': 244,
-        'core-js/modules/es.typed-array.reduce': 246,
-        'core-js/modules/es.typed-array.reduce-right': 245,
-        'core-js/modules/es.typed-array.reverse': 247,
-        'core-js/modules/es.typed-array.set': 248,
-        'core-js/modules/es.typed-array.slice': 249,
-        'core-js/modules/es.typed-array.some': 250,
-        'core-js/modules/es.typed-array.sort': 251,
-        'core-js/modules/es.typed-array.subarray': 252,
-        'core-js/modules/es.typed-array.to-locale-string': 253,
-        'core-js/modules/es.typed-array.to-string': 254,
-        'core-js/modules/es.typed-array.uint8-array': 257,
-        'core-js/modules/web.dom-collections.iterator': 261,
-        'core-js/modules/web.url': 263,
-        'es6-promise/auto': 264,
-        'fetch-jsonp': 266,
-        'file-saver': 267,
-        'whatwg-fetch': 280
+        '../core/friendly_errors/fes_core': 297,
+        '../core/friendly_errors/file_errors': 298,
+        '../core/friendly_errors/validate_params': 301,
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.last-index-of': 185,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.array.splice': 189,
+        'core-js/modules/es.function.name': 192,
+        'core-js/modules/es.object.from-entries': 203,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.promise': 209,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.includes': 217,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.typed-array.copy-within': 231,
+        'core-js/modules/es.typed-array.every': 232,
+        'core-js/modules/es.typed-array.fill': 233,
+        'core-js/modules/es.typed-array.filter': 234,
+        'core-js/modules/es.typed-array.find': 236,
+        'core-js/modules/es.typed-array.find-index': 235,
+        'core-js/modules/es.typed-array.for-each': 239,
+        'core-js/modules/es.typed-array.includes': 240,
+        'core-js/modules/es.typed-array.index-of': 241,
+        'core-js/modules/es.typed-array.iterator': 244,
+        'core-js/modules/es.typed-array.join': 245,
+        'core-js/modules/es.typed-array.last-index-of': 246,
+        'core-js/modules/es.typed-array.map': 247,
+        'core-js/modules/es.typed-array.reduce': 249,
+        'core-js/modules/es.typed-array.reduce-right': 248,
+        'core-js/modules/es.typed-array.reverse': 250,
+        'core-js/modules/es.typed-array.set': 251,
+        'core-js/modules/es.typed-array.slice': 252,
+        'core-js/modules/es.typed-array.some': 253,
+        'core-js/modules/es.typed-array.sort': 254,
+        'core-js/modules/es.typed-array.subarray': 255,
+        'core-js/modules/es.typed-array.to-locale-string': 256,
+        'core-js/modules/es.typed-array.to-string': 257,
+        'core-js/modules/es.typed-array.uint8-array': 260,
+        'core-js/modules/web.dom-collections.iterator': 264,
+        'core-js/modules/web.url': 266,
+        'es6-promise/auto': 267,
+        'fetch-jsonp': 269,
+        'file-saver': 270,
+        'whatwg-fetch': 283
       }
     ],
-    330: [
+    333: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.concat');
@@ -102790,7 +103316,7 @@
     *
     * function preload() {
     *   // table is comma separated value "CSV"
-    *   // and has specifiying header for column labels
+    *   // and has specifying header for column labels
     *   table = loadTable('assets/mammals.csv', 'csv', 'header');
     * }
     *
@@ -102901,7 +103427,7 @@
     *
     * function preload() {
     *   // table is comma separated value "CSV"
-    *   // and has specifiying header for column labels
+    *   // and has specifying header for column labels
     *   table = loadTable('assets/mammals.csv', 'csv', 'header');
     * }
     *
@@ -102935,19 +103461,19 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.array.splice': 188,
-        'core-js/modules/es.regexp.constructor': 209,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.match': 216,
-        'core-js/modules/es.string.replace': 219
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.array.splice': 189,
+        'core-js/modules/es.regexp.constructor': 212,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.match': 219,
+        'core-js/modules/es.string.replace': 222
       }
     ],
-    331: [
+    334: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.index-of');
@@ -103346,18 +103872,18 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.from-entries': 200,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/main': 306,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.from-entries': 203,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    332: [
+    335: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -104899,20 +105425,20 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.number.constructor': 196,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.replace': 219,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/main': 306,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.number.constructor': 197,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    333: [
+    336: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -106065,26 +106591,26 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.math.hypot': 193,
-        'core-js/modules/es.number.constructor': 196,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.includes': 214,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/main': 306,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.math.hypot': 194,
+        'core-js/modules/es.number.constructor': 197,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.includes': 217,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    334: [
+    337: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.concat');
@@ -106249,15 +106775,15 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.reflect.construct': 207,
-        'core-js/modules/es.regexp.to-string': 211
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.reflect.construct': 210,
+        'core-js/modules/es.regexp.to-string': 214
       }
     ],
-    335: [
+    338: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -106433,7 +106959,7 @@
  *   let noiseScale = 0.002;
  *
  *   // Iterate from left to right.
- *   for (let x = 0; x < 100; x += 1) {
+ *   for (let x = 0; x < width; x += 1) {
  *     // Scale the input coordinates.
  *     let nx = noiseScale * x;
  *     let nt = noiseScale * frameCount;
@@ -106460,9 +106986,9 @@
  *   let noiseScale = 0.01;
  *
  *   // Iterate from top to bottom.
- *   for (let y = 0; y < 100; y += 1) {
+ *   for (let y = 0; y < height; y += 1) {
  *     // Iterate from left to right.
- *     for (let x = 0; x < 100; x += 1) {
+ *     for (let x = 0; x < width; x += 1) {
  *       // Scale the input coordinates.
  *       let nx = noiseScale * x;
  *       let ny = noiseScale * y;
@@ -106495,7 +107021,7 @@
  *   let noiseScale = 0.009;
  *
  *   // Iterate from top to bottom.
- *   for (let y = 0; y < 100; y += 1) {
+ *   for (let y = 0; y < height; y += 1) {
  *     // Iterate from left to right.
  *     for (let x = 0; x < width; x += 1) {
  *       // Scale the input coordinates.
@@ -106618,9 +107144,9 @@
  *   let noiseScale = 0.02;
  *
  *   // Iterate from top to bottom.
- *   for (let y = 0; y < 100; y += 1) {
+ *   for (let y = 0; y < height; y += 1) {
  *     // Iterate from left to right.
- *     for (let x = 0; x < 50; x += 1) {
+ *     for (let x = 0; x < width / 2; x += 1) {
  *       // Scale the input coordinates.
  *       let nx = noiseScale * x;
  *       let ny = noiseScale * y;
@@ -106742,10 +107268,10 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303
+        '../core/main': 306
       }
     ],
-    336: [
+    339: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -106757,6 +107283,7 @@
         _dereq_('core-js/modules/es.array.some');
         _dereq_('core-js/modules/es.math.sign');
         _dereq_('core-js/modules/es.number.constructor');
+        _dereq_('core-js/modules/es.number.epsilon');
         _dereq_('core-js/modules/es.number.is-finite');
         _dereq_('core-js/modules/es.object.get-own-property-descriptor');
         _dereq_('core-js/modules/es.object.to-string');
@@ -106793,6 +107320,7 @@
         _dereq_('core-js/modules/es.array.some');
         _dereq_('core-js/modules/es.math.sign');
         _dereq_('core-js/modules/es.number.constructor');
+        _dereq_('core-js/modules/es.number.epsilon');
         _dereq_('core-js/modules/es.number.is-finite');
         _dereq_('core-js/modules/es.string.sub');
         Object.defineProperty(exports, '__esModule', {
@@ -107570,7 +108098,7 @@
     *   let p1 = createVector(75, 75);
     *   let p2 = createVector(50, 50);
     *
-    *   // Subtract with modifying the original vectors.
+    *   // Subtract without modifying the original vectors.
     *   let p3 = p5.Vector.sub(p1, p2);
     *
     *   // Draw the points.
@@ -107662,7 +108190,7 @@
     *
     * If only one value is provided, as in `v.mult(2)`, then all the components
     * will be multiplied by 2. If a value isn't provided for a component, it
-    * won't change. For example, `v.mult(4, 5)` multiplies `v.x` by, `v.y` by 5,
+    * won't change. For example, `v.mult(4, 5)` multiplies `v.x` by 4, `v.y` by 5,
     * and `v.z` by 1. Calling `mult()` with no arguments, as in `v.mult()`, has
     * no effect.
     *
@@ -108546,8 +109074,8 @@
     *   // Style the text.
     *   textAlign(CENTER);
     *
-    *   // Display the magnitude.
-    *   let m = floor(v3.mag());
+    *   // Display the magnitude. The same as floor(v3.mag());
+    *   let m = floor(p5.Vector.dist(v1, v2));
     *   text(m, 50, 75);
     * }
     *
@@ -109844,8 +110372,8 @@
             {
               key: 'reflect',
               value: function reflect(surfaceNormal) {
-                surfaceNormal.normalize();
-                return this.sub(surfaceNormal.mult(2 * this.dot(surfaceNormal)));
+                var surfaceNormalCopy = _main.default.Vector.normalize(surfaceNormal);
+                return this.sub(surfaceNormalCopy.mult(2 * this.dot(surfaceNormalCopy)));
               }              /**
     * Returns the vector's components as an array of numbers.
     *
@@ -110045,6 +110573,38 @@
     * </div>
     */
 
+            },
+            {
+              key: 'clampToZero',
+              /**
+    * Replaces the components of a <a href="#/p5.Vector">p5.Vector</a> that are very close to zero with zero.
+    *
+    * In computers, handling numbers with decimals can give slightly imprecise answers due to the way those numbers are represented.
+    * This can make it hard to check if a number is zero, as it may be close but not exactly zero.
+    * This method rounds very close numbers to zero to make those checks easier
+    *
+    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON
+    *
+    * @method clampToZero
+    * @return {p5.Vector} with components very close to zero replaced with zero.
+    * @chainable
+    */
+              value: function clampToZero() {
+                this.x = this._clampToZero(this.x);
+                this.y = this._clampToZero(this.y);
+                this.z = this._clampToZero(this.z);
+                return this;
+              }              /**
+       * Helper function for clampToZero
+     * @private
+     */
+
+            },
+            {
+              key: '_clampToZero',
+              value: function _clampToZero(val) {
+                return Math.abs((val || 0) - 0) <= Number.EPSILON ? 0 : val;
+              }
             }
           ], [
             {
@@ -110831,27 +111391,28 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.every': 172,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.some': 187,
-        'core-js/modules/es.math.sign': 195,
-        'core-js/modules/es.number.constructor': 196,
-        'core-js/modules/es.number.is-finite': 197,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.sub': 223,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.every': 173,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.some': 188,
+        'core-js/modules/es.math.sign': 196,
+        'core-js/modules/es.number.constructor': 197,
+        'core-js/modules/es.number.epsilon': 198,
+        'core-js/modules/es.number.is-finite': 199,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.sub': 226,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    337: [
+    340: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -111120,7 +111681,6 @@
  * @method random
  * @param  {Array} choices   array to choose from.
  * @return {*} random element from the array.
- * @example
  */
         _main.default.prototype.random = function (min, max) {
           _main.default._validateParameters('random', arguments);
@@ -111236,10 +111796,10 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303
+        '../core/main': 306
       }
     ],
-    338: [
+    341: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -111604,10 +112164,12 @@
  *
  * `cos()` is useful for many geometric tasks in creative coding. The values
  * returned oscillate between -1 and 1 as the input angle increases. `cos()`
- * takes into account the current <a href="#/p5/angleMode">angleMode()</a>.
+ * calculates the cosine of an angle, using radians by default, or according to
+ * if <a href="#/p5/angleMode">angleMode()</a> setting (RADIANS or DEGREES).
  *
  * @method cos
- * @param  {Number} angle the angle.
+ * @param  {Number} angle the angle, in radians by default, or according to
+ * if <a href="/reference/p5/angleMode/">angleMode()</a> setting (RADIANS or DEGREES).
  * @return {Number}       cosine of the angle.
  *
  * @example
@@ -111683,10 +112245,12 @@
  *
  * `sin()` is useful for many geometric tasks in creative coding. The values
  * returned oscillate between -1 and 1 as the input angle increases. `sin()`
- * takes into account the current <a href="#/p5/angleMode">angleMode()</a>.
+ * calculates the sine of an angle, using radians by default, or according to
+ * if <a href="#/p5/angleMode">angleMode()</a> setting (RADIANS or DEGREES).
  *
  * @method sin
- * @param  {Number} angle the angle.
+ * @param  {Number} angle the angle, in radians by default, or according to
+ * if <a href="/reference/p5/angleMode/">angleMode()</a> setting (RADIANS or DEGREES).
  * @return {Number}       sine of the angle.
  *
  * @example
@@ -111762,11 +112326,13 @@
  *
  * `tan()` is useful for many geometric tasks in creative coding. The values
  * returned range from -Infinity to Infinity and repeat periodically as the
- * input angle increases. `tan()` takes into account the current
- * <a href="#/p5/angleMode">angleMode()</a>.
+ * input angle increases. `tan()` calculates the tan of an angle, using radians
+ * by default, or according to
+ * if <a href="#/p5/angleMode">angleMode()</a> setting (RADIANS or DEGREES).
  *
  * @method tan
- * @param  {Number} angle the angle.
+ * @param  {Number} angle the angle, in radians by default, or according to
+ * if <a href="/reference/p5/angleMode/">angleMode()</a> setting (RADIANS or DEGREES).
  * @return {Number}       tangent of the angle.
  *
  * @example
@@ -111853,7 +112419,7 @@
  *
  *   background(200);
  *
- *   // Caclulate the angle conversion.
+ *   // Calculate the angle conversion.
  *   let deg = 45;
  *   let rad = radians(deg);
  *
@@ -112142,20 +112708,20 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    339: [
+    342: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.regexp.exec');
@@ -112328,7 +112894,7 @@
  *
  * Note: Font size is measured in pixels.
  *
- * Calling `textSize()` without an arugment returns the current size.
+ * Calling `textSize()` without an argument returns the current size.
  *
  * @method textSize
  * @param {Number} size size of the letters in units of pixels.
@@ -112723,13 +113289,13 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.string.replace': 219,
-        'core-js/modules/es.string.split': 221
+        '../core/main': 306,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.string.split': 224
       }
     ],
-    340: [
+    343: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -113255,30 +113821,30 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/friendly_errors/fes_core': 294,
-        '../core/friendly_errors/file_errors': 295,
-        '../core/friendly_errors/validate_params': 298,
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.last-index-of': 184,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261,
-        'opentype.js': 276
+        '../core/constants': 294,
+        '../core/friendly_errors/fes_core': 297,
+        '../core/friendly_errors/file_errors': 298,
+        '../core/friendly_errors/validate_params': 301,
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.last-index-of': 185,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264,
+        'opentype.js': 279
       }
     ],
-    341: [
+    344: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -113744,6 +114310,8 @@
                 var xOriginal = x;
                 var result = [
                 ];
+                var p = this.parent;
+                var pos;
                 var lines = txt.split(/\r?\n|\r|\n/g);
                 fontSize = fontSize || this.parent._renderer._textSize;
                 function isSpace(i, text, glyphsLine) {
@@ -113755,7 +114323,7 @@
                   var xoff = 0;
                   x = xOriginal;
                   var line = lines[i];
-                  line = line.replace('\t', '  ');
+                  line = line.replace(/\t/g, '  ');
                   var glyphs = this._getGlyphs(line);
                   for (var j = 0; j < glyphs.length; j++) {
                     if (!isSpace(j, line, glyphs)) {
@@ -113766,6 +114334,9 @@
                         var pts = pathToPoints(paths[k], options);
                         for (var l = 0; l < pts.length; l++) {
                           pts[l].x += xoff;
+                          pos = this._handleAlignment(p._renderer, line, pts[l].x, pts[l].y);
+                          pts[l].x = pos.x;
+                          pts[l].y = pos.y;
                           result.push(pts[l]);
                         }
                       }
@@ -113918,7 +114489,7 @@
                   //pos = handleAlignment(p, ctx, line, x, y);
                   pdata = this._getPath(line, x, y, options).commands;
                 }
-                ctx.beginPath();
+                if (!pg._clipping) ctx.beginPath();
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
                 var _iteratorError = undefined;
@@ -114812,30 +115383,30 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.fill': 173,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.array.splice': 188,
-        'core-js/modules/es.function.name': 191,
-        'core-js/modules/es.number.to-fixed': 198,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.replace': 219,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.fill': 174,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.array.splice': 189,
+        'core-js/modules/es.function.name': 192,
+        'core-js/modules/es.number.to-fixed': 200,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    342: [
+    345: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.concat');
@@ -115273,15 +115844,15 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array-buffer.constructor': 169,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.array.splice': 188,
-        'core-js/modules/es.object.to-string': 205
+        '../core/main': 306,
+        'core-js/modules/es.array-buffer.constructor': 170,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.array.splice': 189,
+        'core-js/modules/es.object.to-string': 208
       }
     ],
-    343: [
+    346: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.map');
@@ -116345,15 +116916,15 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.number.constructor': 196,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.repeat': 218
+        '../core/main': 306,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.number.constructor': 197,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.repeat': 221
       }
     ],
-    344: [
+    347: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -116656,6 +117227,9 @@
  * then unused decimal places will be set to 0. For example, calling
  * `nf(123.45, 4, 3)` returns the string `'0123.450'`.
  *
+ * When the number is negative, for example, calling `nf(-123.45, 5, 2)`
+ * returns the string `'-00123.45'`.
+ *
  * @method nf
  * @param {Number|String} num number to format.
  * @param {Integer|String} [left] number of digits to include to the left of
@@ -116681,21 +117255,24 @@
  *
  *   // Display the number as a string.
  *   let formatted = nf(number);
- *   text(formatted, 20, 25);
+ *   text(formatted, 20, 20);
+ *
+ *   let negative = nf(-number, 4, 2);
+ *   text(negative, 20, 40);
  *
  *   // Display the number with four digits
  *   // to the left of the decimal.
  *   let left = nf(number, 4);
- *   text(left, 20, 50);
+ *   text(left, 20, 60);
  *
  *   // Display the number with four digits
  *   // to the left of the decimal and one
  *   // to the right.
  *   let right = nf(number, 4, 1);
- *   text(right, 20, 75);
+ *   text(right, 20, 80);
  *
  *   describe(
- *     'The numbers "123.45", "0123.45", and "0123.5" written on three separate lines. The text is in black on a gray background.'
+ *     'The numbers "123.45", "-0123.45", "0123.45", and "0123.5" written on four separate lines. The text is in black on a gray background.'
  *   );
  * }
  * </code>
@@ -116730,13 +117307,16 @@
           }
         };
         function doNf(num, left, right) {
+          var isNegative = num < 0;
+          num = Math.abs(num);
           var _num$toString$split = num.toString().split('.'),
           _num$toString$split2 = _slicedToArray(_num$toString$split, 2),
           leftPart = _num$toString$split2[0],
           rightPart = _num$toString$split2[1];
           if (typeof right === 'undefined') {
             leftPart = leftPart.padStart(left, '0');
-            return rightPart ? leftPart + '.' + rightPart : leftPart;
+            var result = rightPart ? leftPart + '.' + rightPart : leftPart;
+            return isNegative ? '-' + result : result;
           } else {
             var roundedOff = num.toFixed(right);
             var _roundedOff$toString$ = roundedOff.toString().split('.');
@@ -116744,11 +117324,8 @@
             leftPart = _roundedOff$toString$2[0];
             rightPart = _roundedOff$toString$2[1];
             leftPart = leftPart.padStart(left, '0');
-            if (typeof rightPart === 'undefined') {
-              return leftPart;
-            } else {
-              return leftPart + '.' + rightPart;
-            }
+            var _result = typeof rightPart === 'undefined' ? leftPart : leftPart + '.' + rightPart;
+            return isNegative ? '-' + _result : _result;
           }
         }        /**
  * Converts a `Number` into a `String` with commas to mark units of 1,000.
@@ -117433,34 +118010,34 @@
         exports.default = _default;
       },
       {
-        '../core/friendly_errors/fes_core': 294,
-        '../core/friendly_errors/file_errors': 295,
-        '../core/friendly_errors/validate_params': 298,
-        '../core/main': 303,
-        'core-js/modules/es.array.filter': 174,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.number.to-fixed': 198,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.constructor': 209,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.match': 216,
-        'core-js/modules/es.string.pad-start': 217,
-        'core-js/modules/es.string.replace': 219,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.string.trim': 224,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/friendly_errors/fes_core': 297,
+        '../core/friendly_errors/file_errors': 298,
+        '../core/friendly_errors/validate_params': 301,
+        '../core/main': 306,
+        'core-js/modules/es.array.filter': 175,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.number.to-fixed': 200,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.constructor': 212,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.match': 219,
+        'core-js/modules/es.string.pad-start': 220,
+        'core-js/modules/es.string.replace': 222,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.string.trim': 227,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    345: [
+    348: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -117812,10 +118389,10 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303
+        '../core/main': 306
       }
     ],
-    346: [
+    349: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -120399,7 +120976,7 @@
           // onto the required vector prior to rendering, and moves the
           // origin appropriately.
 
-          var uMVMatrix = this.uMVMatrix.copy();
+          var uModelMatrix = this.uModelMatrix.copy();
           try {
             // triangle orientation.
             var orientation = Math.sign(x1 * y2 - x2 * y1 + x2 * y3 - x3 * y2 + x3 * y1 - x1 * y3);
@@ -120422,11 +120999,11 @@
             y1,
             0,
             1 // the resulting origin
-            ]).mult(this.uMVMatrix);
-            this.uMVMatrix = mult;
+            ]).mult(this.uModelMatrix);
+            this.uModelMatrix = mult;
             this.drawBuffers(gId);
           } finally {
-            this.uMVMatrix = uMVMatrix;
+            this.uModelMatrix = uModelMatrix;
           }
           return this;
         };
@@ -120520,15 +121097,15 @@
             }
             this.createBuffers(gId, arcGeom);
           }
-          var uMVMatrix = this.uMVMatrix.copy();
+          var uModelMatrix = this.uModelMatrix.copy();
           try {
-            this.uMVMatrix.translate([x,
+            this.uModelMatrix.translate([x,
             y,
             0]);
-            this.uMVMatrix.scale(width, height, 1);
+            this.uModelMatrix.scale(width, height, 1);
             this.drawBuffers(gId);
           } finally {
-            this.uMVMatrix = uMVMatrix;
+            this.uModelMatrix = uModelMatrix;
           }
           return this;
         };
@@ -120583,15 +121160,15 @@
             //
             // before rendering, this square is scaled & moved to the required location.
 
-            var uMVMatrix = this.uMVMatrix.copy();
+            var uModelMatrix = this.uModelMatrix.copy();
             try {
-              this.uMVMatrix.translate([x,
+              this.uModelMatrix.translate([x,
               y,
               0]);
-              this.uMVMatrix.scale(width, height, 1);
+              this.uModelMatrix.scale(width, height, 1);
               this.drawBuffers(gId);
             } finally {
-              this.uMVMatrix = uMVMatrix;
+              this.uModelMatrix = uModelMatrix;
             }
           } else {
             // Use Immediate mode to round the rectangle corner,
@@ -120877,7 +121454,7 @@
               ];
               this._lutBezierDetail = this._pInst._curveDetail;
               var step = 1 / this._lutBezierDetail;
-              var start = 0;
+              var start = step;
               var end = 1;
               var j = 0;
               while (start < 1) {
@@ -121065,7 +121642,7 @@
               ];
               this._lutQuadraticDetail = this._pInst._curveDetail;
               var step = 1 / this._lutQuadraticDetail;
-              var start = 0;
+              var start = step;
               var end = 1;
               var j = 0;
               while (start < 1) {
@@ -121234,7 +121811,7 @@
             ];
             this._lutBezierDetail = this._pInst._curveDetail;
             var step = 1 / this._lutBezierDetail;
-            var start = 0;
+            var start = step;
             var end = 1;
             var j = 0;
             while (start < 1) {
@@ -121344,27 +121921,27 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        './p5.Geometry': 355,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.for-each': 178,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.math.hypot': 193,
-        'core-js/modules/es.math.sign': 195,
-        'core-js/modules/es.number.to-fixed': 198,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        './p5.Geometry': 358,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.for-each': 179,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.math.hypot': 194,
+        'core-js/modules/es.math.sign': 196,
+        'core-js/modules/es.number.to-fixed': 200,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    347: [
+    350: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -121508,7 +122085,7 @@
             this.renderer = renderer;
             renderer._pInst.push();
             this.identityMatrix = new _main.default.Matrix();
-            renderer.uMVMatrix = new _main.default.Matrix();
+            renderer.uModelMatrix = new _main.default.Matrix();
             this.geometry = new _main.default.Geometry();
             this.geometry.gid = '_p5_GeometryBuilder_'.concat(GeometryBuilder.nextGeometryId);
             GeometryBuilder.nextGeometryId++;
@@ -121525,7 +122102,7 @@
                 var _this = this;
                 if (!this.hasTransform) return vertices;
                 return vertices.map(function (v) {
-                  return _this.renderer.uMVMatrix.multiplyPoint(v);
+                  return _this.renderer.uModelMatrix.multiplyPoint(v);
                 });
               }              /**
      * @private
@@ -121556,11 +122133,11 @@
                 _this$geometry$vertex,
                 _this$geometry$uvs,
                 _this$geometry$vertex2;
-                this.hasTransform = !this.renderer.uMVMatrix.mat4.every(function (v, i) {
+                this.hasTransform = !this.renderer.uModelMatrix.mat4.every(function (v, i) {
                   return v === _this3.identityMatrix.mat4[i];
                 });
                 if (this.hasTransform) {
-                  this.renderer.uNMatrix.inverseTranspose(this.renderer.uMVMatrix);
+                  this.renderer.uNMatrix.inverseTranspose(this.renderer.uModelMatrix);
                 }
                 var startIdx = this.geometry.vertices.length;
                 (_this$geometry$vertic = this.geometry.vertices).push.apply(_this$geometry$vertic, _toConsumableArray(this.transformVertices(input.vertices)));
@@ -121666,25 +122243,25 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        'core-js/modules/es.array.every': 172,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.object.assign': 199,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        'core-js/modules/es.array.every': 173,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.object.assign': 201,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    348: [
+    351: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -121805,7 +122382,7 @@
  * `orbitControl()` within the <a href="#/p5/draw">draw()</a> function allows
  * the user to change the camera’s position:
  *
- * <code>
+ * ```js
  * function draw() {
  *   background(200);
  *
@@ -121814,7 +122391,7 @@
  *
  *   // Rest of sketch.
  * }
- * </code>
+ * ```
  *
  * Left-clicking and dragging or swipe motion will rotate the camera position
  * about the center of the sketch. Right-clicking and dragging or multi-swipe
@@ -121836,7 +122413,7 @@
  * changing the behaviors set with `options`. The object can have the
  * following properties:
  *
- * <code>
+ * ```js
  * let options = {
  *   // Setting this to false makes mobile interactions smoother by
  *   // preventing accidental interactions with the page while orbiting.
@@ -121850,7 +122427,7 @@
  * };
  *
  * orbitControl(1, 1, 1, options);
- * </code>
+ * ```
  *
  * @method orbitControl
  * @for p5
@@ -122514,7 +123091,7 @@
           return function () {
             this.push();
             this.stroke(this._renderer.curStrokeColor[0] * 255, this._renderer.curStrokeColor[1] * 255, this._renderer.curStrokeColor[2] * 255);
-            this._renderer.uMVMatrix.set(this._renderer._curCamera.cameraMatrix);
+            this._renderer.uModelMatrix.reset();
             // Lines along X axis
             for (var q = 0; q <= numDivs; q++) {
               this.beginShape(this.LINES);
@@ -122556,7 +123133,7 @@
           }
           return function () {
             this.push();
-            this._renderer.uMVMatrix.set(this._renderer._curCamera.cameraMatrix);
+            this._renderer.uModelMatrix.reset();
             // X axis
             this.strokeWeight(2);
             this.stroke(255, 0, 0);
@@ -122583,26 +123160,26 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        'core-js/modules/es.array.for-each': 178,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.splice': 188,
-        'core-js/modules/es.math.hypot': 193,
-        'core-js/modules/es.math.sign': 195,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.for-each': 260,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        'core-js/modules/es.array.for-each': 179,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.splice': 189,
+        'core-js/modules/es.math.hypot': 194,
+        'core-js/modules/es.math.sign': 196,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.for-each': 263,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    349: [
+    352: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.filter');
@@ -123063,7 +123640,8 @@
  * that shines from somewhere offscreen. The light’s direction is set using
  * three `(x, y, z)` values between -1 and 1. For example, setting a light’s
  * direction as `(1, 0, 0)` will light <a href="#/p5.Geometry">p5.Geometry</a>
- * objects from the left since the light faces directly to the right.
+ * objects from the left since the light faces directly to the right. A
+ * maximum of 5 directional lights can be active at once.
  *
  * There are four ways to call `directionalLight()` with parameters to set the
  * light’s color and direction.
@@ -123079,7 +123657,7 @@
  * three parameters, `v1`, `v2`, and `v3`, set the light’s color using the
  * current <a href="#/p5/colorMode">colorMode()</a>. The last parameter,
  * `direction` sets the light’s direction using a
- * <a href="#/p5.Geometry">p5.Geometry</a> object. For example,
+ *  <a href="#/p5.Vector">p5.Vector</a> object. For example,
  * `directionalLight(255, 0, 0, lightDir)` creates a red `(255, 0, 0)` light
  * that shines in the direction the `lightDir` vector points.
  *
@@ -124273,11 +124851,11 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.filter': 174
+        '../core/main': 306,
+        'core-js/modules/es.array.filter': 175
       }
     ],
-    350: [
+    353: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -124426,6 +125004,11 @@
  * `loadModel('assets/model.obj')`. URLs such as
  * `'https://example.com/model.obj'` may be blocked due to browser security.
  *
+ * Note: When loading a `.obj` file that references materials stored in
+ * `.mtl` files, p5.js will attempt to load and apply those materials.
+ * To ensure that the `.obj` file reads the `.mtl` file correctly include the
+ * `.mtl` file alongside it.
+ *
  * The first way to call `loadModel()` has three optional parameters after the
  * file path. The first optional parameter, `successCallback`, is a function
  * to call once the model loads. For example,
@@ -124450,7 +125033,7 @@
  * as in `loadModel('assets/model.obj', options)`. The `options` object can
  * have the following properties:
  *
- * <code>
+ * ```js
  * let options = {
  *   // Enables standardized size scaling during loading if set to true.
  *   normalize: true,
@@ -124473,7 +125056,7 @@
  *
  * // Pass the options object to loadModel().
  * loadModel('assets/model.obj', options);
- * </code>
+ * ```
  *
  * Models can take time to load. Calling `loadModel()` in
  * <a href="#/p5/preload">preload()</a> ensures models load before they're
@@ -124929,12 +125512,13 @@
                         if (flipV) {
                           model.flipV();
                         }
+                        model._makeTriangleEdges();
                         self._decrementPreload();
                         if (typeof successCallback === 'function') {
                           successCallback(model);
                         }
                         return _context.finish(11);
-                      case 18:
+                      case 19:
                       case 'end':
                         return _context.stop();
                     }
@@ -124943,7 +125527,7 @@
                   [0,
                   7,
                   11,
-                  18]
+                  19]
                 ]);
               }));
               return function (_x3) {
@@ -125534,46 +126118,207 @@
           _main.default._validateParameters('model', arguments);
           if (model.vertices.length > 0) {
             if (!this._renderer.geometryInHash(model.gid)) {
-              if (model.edges.length === 0) {
-                model._makeTriangleEdges();
-              }
               model._edgesToVertices();
               this._renderer.createBuffers(model.gid, model);
             }
             this._renderer.drawBuffers(model.gid);
           }
         };
+        /**
+ * Load a 3d model from an OBJ or STL string.
+ *
+ * OBJ and STL files lack a built-in sense of scale, causing models exported from different programs to vary in size.
+ * If your model doesn't display correctly, consider using `loadModel()` with `normalize` set to `true` to standardize its size.
+ * Further adjustments can be made using the `scale()` function.
+ *
+ * Also, the support for colored STL files is not present. STL files with color will be
+ * rendered without color properties.
+ *
+ * * Options can include:
+ * - `modelString`: Specifies the plain text string of either an stl or obj file to be loaded.
+ * - `fileType`: Defines the file extension of the model.
+ * - `normalize`: Enables standardized size scaling during loading if set to true.
+ * - `successCallback`: Callback for post-loading actions with the 3D model object.
+ * - `failureCallback`: Handles errors if model loading fails, receiving an event error.
+ * - `flipU`: Flips the U texture coordinates of the model.
+ * - `flipV`: Flips the V texture coordinates of the model.
+ *
+ *
+ * @method createModel
+ * @param  {String} modelString         String of the object to be loaded
+ * @param  {String} [fileType]          The file extension of the model
+ *                                      (<code>.stl</code>, <code>.obj</code>).
+ * @param  {Boolean} normalize        If true, scale the model to a
+ *                                      standardized size when loading
+ * @param  {function(p5.Geometry)} [successCallback] Function to be called
+ *                                     once the model is loaded. Will be passed
+ *                                     the 3D model object.
+ * @param  {function(Event)} [failureCallback] called with event error if
+ *                                         the model fails to load.
+ * @return {p5.Geometry} the <a href="#/p5.Geometry">p5.Geometry</a> object
+ *
+ * @example
+ * <div>
+ * <code>
+ * const octahedron_model = `
+ * v 0.000000E+00 0.000000E+00 40.0000
+ * v 22.5000 22.5000 0.000000E+00
+ * v 22.5000 -22.5000 0.000000E+00
+ * v -22.5000 -22.5000 0.000000E+00
+ * v -22.5000 22.5000 0.000000E+00
+ * v 0.000000E+00 0.000000E+00 -40.0000
+ * f     1 2 3
+ * f     1 3 4
+ * f     1 4 5
+ * f     1 5 2
+ * f     6 5 4
+ * f     6 4 3
+ * f     6 3 2
+ * f     6 2 5
+ * `;
+ * //draw a spinning octahedron
+ * let octahedron;
+ *
+ * function setup() {
+ *   createCanvas(100, 100, WEBGL);
+ *   octahedron = createModel(octahedron_model, '.obj');
+ *   describe('Vertically rotating 3D octahedron.');
+ * }
+ *
+ * function draw() {
+ *   background(200);
+ *   rotateX(frameCount * 0.01);
+ *   rotateY(frameCount * 0.01);
+ *   model(octahedron);
+ *}
+ * </code>
+ * </div>
+ */
+        /**
+ * @method createModel
+ * @param  {String} modelString
+ * @param  {String} [fileType]
+ * @param  {function(p5.Geometry)} [successCallback]
+ * @param  {function(Event)} [failureCallback]
+ * @return {p5.Geometry} the <a href="#/p5.Geometry">p5.Geometry</a> object
+ */
+        /**
+ * @method createModel
+ * @param  {String} modelString
+ * @param  {String} [fileType]
+ * @param  {Object} [options]
+ * @param  {function(p5.Geometry)} [options.successCallback]
+ * @param  {function(Event)} [options.failureCallback]
+ * @param  {boolean} [options.normalize]
+ * @param  {boolean} [options.flipU]
+ * @param  {boolean} [options.flipV]
+ * @return {p5.Geometry} the <a href="#/p5.Geometry">p5.Geometry</a> object
+ */
+        var modelCounter = 0;
+        _main.default.prototype.createModel = function (modelString) {
+          var fileType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ' ';
+          var options = arguments.length > 2 ? arguments[2] : undefined;
+          _main.default._validateParameters('createModel', arguments);
+          var normalize = false;
+          var successCallback;
+          var failureCallback;
+          var flipU = false;
+          var flipV = false;
+          if (options && _typeof(options) === 'object') {
+            normalize = options.normalize || false;
+            successCallback = options.successCallback;
+            failureCallback = options.failureCallback;
+            flipU = options.flipU || false;
+            flipV = options.flipV || false;
+          } else if (typeof options === 'boolean') {
+            normalize = options;
+            successCallback = arguments[3];
+            failureCallback = arguments[4];
+          } else {
+            successCallback = typeof arguments[2] === 'function' ? arguments[2] : undefined;
+            failureCallback = arguments[3];
+          }
+          var model = new _main.default.Geometry();
+          model.gid = ''.concat(fileType, '|').concat(normalize, '|').concat(modelCounter++);
+          if (fileType.match(/\.stl$/i)) {
+            try {
+              var uint8array = new TextEncoder().encode(modelString);
+              var arrayBuffer = uint8array.buffer;
+              parseSTL(model, arrayBuffer);
+            } catch (error) {
+              if (failureCallback) {
+                failureCallback(error);
+              } else {
+                _main.default._friendlyError('Error during parsing: ' + error.message);
+              }
+              return;
+            }
+          } else if (fileType.match(/\.obj$/i)) {
+            try {
+              var lines = modelString.split('\n');
+              parseObj(model, lines);
+            } catch (error) {
+              if (failureCallback) {
+                failureCallback(error);
+              } else {
+                _main.default._friendlyError('Error during parsing: ' + error.message);
+              }
+              return;
+            }
+          } else {
+            _main.default._friendlyFileLoadError(3, modelString);
+            if (failureCallback) {
+              failureCallback();
+            } else {
+              _main.default._friendlyError('Sorry, the file type is invalid. Only OBJ and STL files are supported.');
+            }
+          }
+          if (normalize) {
+            model.normalize();
+          }
+          if (flipU) {
+            model.flipU();
+          }
+          if (flipV) {
+            model.flipV();
+          }
+          model._makeTriangleEdges();
+          if (typeof successCallback === 'function') {
+            successCallback(model);
+          }
+          return model;
+        };
         var _default = _main.default;
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        './p5.Geometry': 355,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.array.splice': 188,
-        'core-js/modules/es.object.assign': 199,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.promise': 206,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.set': 212,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.match': 216,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.string.trim': 224,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.iterator': 261,
-        'regenerator-runtime/runtime': 279
+        '../core/main': 306,
+        './p5.Geometry': 358,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.array.splice': 189,
+        'core-js/modules/es.object.assign': 201,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.promise': 209,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.set': 215,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.match': 219,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.string.trim': 227,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.iterator': 264,
+        'regenerator-runtime/runtime': 282
       }
     ],
-    351: [
+    354: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -125844,12 +126589,54 @@
  * The second parameter, `fragSrc`, sets the fragment shader. It’s a string
  * that contains the fragment shader program written in GLSL.
  *
+ * A shader can optionally describe *hooks,* which are functions in GLSL that
+ * users may choose to provide to customize the behavior of the shader using the
+ * <a href="#/p5.Shader/modify">`modify()`</a> method of `p5.Shader`. These are added by
+ * describing the hooks in a third parameter, `options`, and referencing the hooks in
+ * your `vertSrc` or `fragSrc`. Hooks for the vertex or fragment shader are described under
+ * the `vertex` and `fragment` keys of `options`. Each one is an object. where each key is
+ * the type and name of a hook function, and each value is a string with the
+ * parameter list and default implementation of the hook. For example, to let users
+ * optionally run code at the start of the vertex shader, the options object could
+ * include:
+ *
+ * ```js
+ * {
+ *   vertex: {
+ *     'void beforeVertex': '() {}'
+ *   }
+ * }
+ * ```
+ *
+ * Then, in your vertex shader source, you can run a hook by calling a function
+ * with the same name prefixed by `HOOK_`. If you want to check if the default
+ * hook has been replaced, maybe to avoid extra overhead, you can check if the
+ * same name prefixed by `AUGMENTED_HOOK_` has been defined:
+ *
+ * ```glsl
+ * void main() {
+ *   // In most cases, just calling the hook is fine:
+ *   HOOK_beforeVertex();
+ *
+ *   // Alternatively, for more efficiency:
+ *   #ifdef AUGMENTED_HOOK_beforeVertex
+ *   HOOK_beforeVertex();
+ *   #endif
+ *
+ *   // Add the rest of your shader code here!
+ * }
+ * ```
+ *
  * Note: Only filter shaders can be used in 2D mode. All shaders can be used
  * in WebGL mode.
  *
  * @method createShader
  * @param {String} vertSrc source code for the vertex shader.
  * @param {String} fragSrc source code for the fragment shader.
+ * @param {Object} [options] An optional object describing how this shader can
+ * be augmented with hooks. It can include:
+ *  - `vertex`: An object describing the available vertex shader hooks.
+ *  - `fragment`: An object describing the available frament shader hooks.
  * @returns {p5.Shader} new shader object created from the
  * vertex and fragment shaders.
  *
@@ -126073,10 +126860,79 @@
  * }
  * </code>
  * </div>
+ *
+ * <div>
+ * <code>
+ * // A shader with hooks.
+ * let myShader;
+ *
+ * // A shader with modified hooks.
+ * let modifiedShader;
+ *
+ * // Create a string with the vertex shader program.
+ * // The vertex shader is called for each vertex.
+ * let vertSrc = `
+ * precision highp float;
+ * uniform mat4 uModelViewMatrix;
+ * uniform mat4 uProjectionMatrix;
+ *
+ * attribute vec3 aPosition;
+ * attribute vec2 aTexCoord;
+ *
+ * void main() {
+ *   vec4 positionVec4 = vec4(aPosition, 1.0);
+ *   gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;
+ * }
+ * `;
+ *
+ * // Create a fragment shader that uses a hook.
+ * let fragSrc = `
+ * precision highp float;
+ * void main() {
+ *   // Let users override the color
+ *   gl_FragColor = HOOK_getColor(vec4(1., 0., 0., 1.));
+ * }
+ * `;
+ *
+ * function setup() {
+ *   createCanvas(50, 50, WEBGL);
+ *
+ *   // Create a shader with hooks
+ *   myShader = createShader(vertSrc, fragSrc, {
+ *     fragment: {
+ *       'vec4 getColor': '(vec4 color) { return color; }'
+ *     }
+ *   });
+ *
+ *   // Make a version of the shader with a hook overridden
+ *   modifiedShader = myShader.modify({
+ *     'vec4 getColor': `(vec4 color) {
+ *       return vec4(0., 0., 1., 1.);
+ *     }`
+ *   });
+ * }
+ *
+ * function draw() {
+ *   noStroke();
+ *
+ *   push();
+ *   shader(myShader);
+ *   translate(-width/3, 0);
+ *   sphere(10);
+ *   pop();
+ *
+ *   push();
+ *   shader(modifiedShader);
+ *   translate(width/3, 0);
+ *   sphere(10);
+ *   pop();
+ * }
+ * </code>
+ * </div>
  */
-        _main.default.prototype.createShader = function (vertSrc, fragSrc) {
+        _main.default.prototype.createShader = function (vertSrc, fragSrc, options) {
           _main.default._validateParameters('createShader', arguments);
-          return new _main.default.Shader(this._renderer, vertSrc, fragSrc);
+          return new _main.default.Shader(this._renderer, vertSrc, fragSrc, options);
         };
         /**
  * Creates a <a href="#/p5.Shader">p5.Shader</a> object to be used with the
@@ -126104,7 +126960,7 @@
  * `vTexCoord` describes where on the canvas the pixel will be drawn.
  *
  * For more info about filters and shaders, see Adam Ferriss' <a href="https://github.com/aferriss/p5jsShaderExamples">repo of shader examples</a>
- * or the <a href="https://p5js.org/learn/getting-started-in-webgl-shaders.html">Introduction to Shaders</a> tutorial.
+ * or the <a href="https://p5js.org/tutorials/intro-to-shaders/">Introduction to Shaders</a> tutorial.
  *
  * @method createFilterShader
  * @param {String} fragSrc source code for the fragment shader.
@@ -126377,7 +127233,746 @@
             this._renderer.userFillShader = s;
             this._renderer._useNormalMaterial = false;
           }
+          s.setDefaultUniforms();
           return this;
+        };
+        /**
+ * Get the default shader used with lights, materials,
+ * and textures.
+ *
+ * You can call <a href="#/p5.Shader/modify">`baseMaterialShader().modify()`</a>
+ * and change any of the following hooks:
+ *
+ * <table>
+ * <tr><th>Hook</th><th>Description</th></tr>
+ * <tr><td>
+ *
+ * `void beforeVertex`
+ *
+ * </td><td>
+ *
+ * Called at the start of the vertex shader.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec3 getLocalPosition`
+ *
+ * </td><td>
+ *
+ * Update the position of vertices before transforms are applied. It takes in `vec3 position` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec3 getWorldPosition`
+ *
+ * </td><td>
+ *
+ * Update the position of vertices after transforms are applied. It takes in `vec3 position` and pust return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec3 getLocalNormal`
+ *
+ * </td><td>
+ *
+ * Update the normal before transforms are applied. It takes in `vec3 normal` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec3 getWorldNormal`
+ *
+ * </td><td>
+ *
+ * Update the normal after transforms are applied. It takes in `vec3 normal` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec2 getUV`
+ *
+ * </td><td>
+ *
+ * Update the texture coordinates. It takes in `vec2 uv` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec4 getVertexColor`
+ *
+ * </td><td>
+ *
+ * Update the color of each vertex. It takes in a `vec4 color` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `void afterVertex`
+ *
+ * </td><td>
+ *
+ * Called at the end of the vertex shader.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `void beforeFragment`
+ *
+ * </td><td>
+ *
+ * Called at the start of the fragment shader.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `Inputs getPixelInputs`
+ *
+ * </td><td>
+ *
+ * Update the per-pixel inputs of the material. It takes in an `Inputs` struct, which includes:
+ * - `vec3 normal`, the direction pointing out of the surface
+ * - `vec2 texCoord`, a vector where `x` and `y` are between 0 and 1 describing the spot on a texture the pixel is mapped to, as a fraction of the texture size
+ * - `vec3 ambientLight`, the ambient light color on the vertex
+ * - `vec4 color`, the base material color of the pixel
+ * - `vec3 ambientMaterial`, the color of the pixel when affected by ambient light
+ * - `vec3 specularMaterial`, the color of the pixel when reflecting specular highlights
+ * - `vec3 emissiveMaterial`, the light color emitted by the pixel
+ * - `float shininess`, a number representing how sharp specular reflections should be, from 1 to infinity
+ * - `float metalness`, a number representing how mirrorlike the material should be, between 0 and 1
+ * The struct can be modified and returned.
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec4 combineColors`
+ *
+ * </td><td>
+ *
+ * Take in a `ColorComponents` struct containing all the different components of light, and combining them into
+ * a single final color. The struct contains:
+ * - `vec3 baseColor`, the base color of the pixel
+ * - `float opacity`, the opacity between 0 and 1 that it should be drawn at
+ * - `vec3 ambientColor`, the color of the pixel when affected by ambient light
+ * - `vec3 specularColor`, the color of the pixel when affected by specular reflections
+ * - `vec3 diffuse`, the amount of diffused light hitting the pixel
+ * - `vec3 ambient`, the amount of ambient light hitting the pixel
+ * - `vec3 specular`, the amount of specular reflection hitting the pixel
+ * - `vec3 emissive`, the amount of light emitted by the pixel
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec4 getFinalColor`
+ *
+ * </td><td>
+ *
+ * Update the final color after mixing. It takes in a `vec4 color` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `void afterFragment`
+ *
+ * </td><td>
+ *
+ * Called at the end of the fragment shader.
+ *
+ * </td></tr>
+ * </table>
+ *
+ * Most of the time, you will need to write your hooks in GLSL ES version 300. If you
+ * are using WebGL 1 instead of 2, write your hooks in GLSL ES 100 instead.
+ *
+ * Call `baseMaterialShader().inspectHooks()` to see all the possible hooks and
+ * their default implementations.
+ *
+ * @method baseMaterialShader
+ * @beta
+ * @returns {p5.Shader} The material shader
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * let myShader;
+ *
+ * function setup() {
+ *   createCanvas(200, 200, WEBGL);
+ *   myShader = baseMaterialShader().modify({
+ *     uniforms: {
+ *       'float time': () => millis()
+ *     },
+ *     'vec3 getWorldPosition': `(vec3 pos) {
+ *       pos.y += 20.0 * sin(time * 0.001 + pos.x * 0.05);
+ *       return pos;
+ *     }`
+ *   });
+ * }
+ *
+ * function draw() {
+ *   background(255);
+ *   shader(myShader);
+ *   lights();
+ *   noStroke();
+ *   fill('red');
+ *   sphere(50);
+ * }
+ * </code>
+ * </div>
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * let myShader;
+ *
+ * function setup() {
+ *   createCanvas(200, 200, WEBGL);
+ *   myShader = baseMaterialShader().modify({
+ *     declarations: 'vec3 myNormal;',
+ *     'Inputs getPixelInputs': `(Inputs inputs) {
+ *       myNormal = inputs.normal;
+ *       return inputs;
+ *     }`,
+ *     'vec4 getFinalColor': `(vec4 color) {
+ *       return mix(
+ *         vec4(1.0, 1.0, 1.0, 1.0),
+ *         color,
+ *         abs(dot(myNormal, vec3(0.0, 0.0, 1.0)))
+ *       );
+ *     }`
+ *   });
+ * }
+ *
+ * function draw() {
+ *   background(255);
+ *   rotateY(millis() * 0.001);
+ *   shader(myShader);
+ *   lights();
+ *   noStroke();
+ *   fill('red');
+ *   torus(30);
+ * }
+ * </code>
+ * </div>
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * let myShader;
+ * let environment;
+ *
+ * function preload() {
+ *   environment = loadImage('assets/outdoor_spheremap.jpg');
+ * }
+ *
+ * function setup() {
+ *   createCanvas(200, 200, WEBGL);
+ *   myShader = baseMaterialShader().modify({
+ *     'Inputs getPixelInputs': `(Inputs inputs) {
+ *       float factor =
+ *         sin(
+ *           inputs.texCoord.x * ${TWO_PI} +
+ *           inputs.texCoord.y * ${TWO_PI}
+ *         ) * 0.4 + 0.5;
+ *       inputs.shininess = mix(1., 100., factor);
+ *       inputs.metalness = factor;
+ *       return inputs;
+ *     }`
+ *   });
+ * }
+ *
+ * function draw() {
+ *   panorama(environment);
+ *   ambientLight(100);
+ *   imageLight(environment);
+ *   rotateY(millis() * 0.001);
+ *   shader(myShader);
+ *   noStroke();
+ *   fill(255);
+ *   specularMaterial(150);
+ *   sphere(50);
+ * }
+ * </code>
+ * </div>
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * let myShader;
+ *
+ * function setup() {
+ *   createCanvas(200, 200, WEBGL);
+ *   myShader = baseMaterialShader().modify({
+ *     'Inputs getPixelInputs': `(Inputs inputs) {
+ *       vec3 newNormal = inputs.normal;
+ *       // Simple bump mapping: adjust the normal based on position
+ *       newNormal.x += 0.2 * sin(
+ *           sin(
+ *             inputs.texCoord.y * ${TWO_PI} * 10.0 +
+ *             inputs.texCoord.x * ${TWO_PI} * 25.0
+ *           )
+ *         );
+ *       newNormal.y += 0.2 * sin(
+ *         sin(
+ *             inputs.texCoord.x * ${TWO_PI} * 10.0 +
+ *             inputs.texCoord.y * ${TWO_PI} * 25.0
+ *           )
+ *       );
+ *       inputs.normal = normalize(newNormal);
+ *       return inputs;
+ *     }`
+ *   });
+ * }
+ *
+ * function draw() {
+ *   background(255);
+ *   shader(myShader);
+ *   ambientLight(150);
+ *   pointLight(
+ *     255, 255, 255,
+ *     100*cos(frameCount*0.04), -50, 100*sin(frameCount*0.04)
+ *   );
+ *   noStroke();
+ *   fill('red');
+ *   shininess(200);
+ *   specularMaterial(255);
+ *   sphere(50);
+ * }
+ * </code>
+ * </div>
+ */
+        _main.default.prototype.baseMaterialShader = function () {
+          this._assert3d('baseMaterialShader');
+          return this._renderer.baseMaterialShader();
+        };
+        /**
+ * Get the shader used by <a href="#/p5/normalMaterial">`normalMaterial()`</a>.
+ *
+ * You can call <a href="#/p5.Shader/modify">`baseNormalShader().modify()`</a>
+ * and change any of the following hooks:
+ *
+ * Hook | Description
+ * -----|------------
+ * `void beforeVertex` | Called at the start of the vertex shader.
+ * `vec3 getLocalPosition` | Update the position of vertices before transforms are applied. It takes in `vec3 position` and must return a modified version.
+ * `vec3 getWorldPosition` | Update the position of vertices after transforms are applied. It takes in `vec3 position` and pust return a modified version.
+ * `vec3 getLocalNormal` | Update the normal before transforms are applied. It takes in `vec3 normal` and must return a modified version.
+ * `vec3 getWorldNormal` | Update the normal after transforms are applied. It takes in `vec3 normal` and must return a modified version.
+ * `vec2 getUV` | Update the texture coordinates. It takes in `vec2 uv` and must return a modified version.
+ * `vec4 getVertexColor` | Update the color of each vertex. It takes in a `vec4 color` and must return a modified version.
+ * `void afterVertex` | Called at the end of the vertex shader.
+ * `void beforeFragment` | Called at the start of the fragment shader.
+ * `vec4 getFinalColor` | Update the final color after mixing. It takes in a `vec4 color` and must return a modified version.
+ * `void afterFragment` | Called at the end of the fragment shader.
+ *
+ * Most of the time, you will need to write your hooks in GLSL ES version 300. If you
+ * are using WebGL 1 instead of 2, write your hooks in GLSL ES 100 instead.
+ *
+ * Call `baseNormalShader().inspectHooks()` to see all the possible hooks and
+ * their default implementations.
+ *
+ * @method baseNormalShader
+ * @beta
+ * @returns {p5.Shader} The `normalMaterial` shader
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * let myShader;
+ *
+ * function setup() {
+ *   createCanvas(200, 200, WEBGL);
+ *   myShader = baseNormalShader().modify({
+ *     uniforms: {
+ *       'float time': () => millis()
+ *     },
+ *     'vec3 getWorldPosition': `(vec3 pos) {
+ *       pos.y += 20. * sin(time * 0.001 + pos.x * 0.05);
+ *       return pos;
+ *     }`
+ *   });
+ * }
+ *
+ * function draw() {
+ *   background(255);
+ *   shader(myShader);
+ *   noStroke();
+ *   sphere(50);
+ * }
+ * </code>
+ * </div>
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * let myShader;
+ *
+ * function setup() {
+ *   createCanvas(200, 200, WEBGL);
+ *   myShader = baseNormalShader().modify({
+ *     'vec3 getWorldNormal': '(vec3 normal) { return abs(normal); }',
+ *     'vec4 getFinalColor': `(vec4 color) {
+ *       // Map the r, g, and b values of the old normal to new colors
+ *       // instead of just red, green, and blue:
+ *       vec3 newColor =
+ *         color.r * vec3(89.0, 240.0, 232.0) / 255.0 +
+ *         color.g * vec3(240.0, 237.0, 89.0) / 255.0 +
+ *         color.b * vec3(205.0, 55.0, 222.0) / 255.0;
+ *       newColor = newColor / (color.r + color.g + color.b);
+ *       return vec4(newColor, 1.0) * color.a;
+ *     }`
+ *   });
+ * }
+ *
+ * function draw() {
+ *   background(255);
+ *   shader(myShader);
+ *   noStroke();
+ *   rotateX(frameCount * 0.01);
+ *   rotateY(frameCount * 0.015);
+ *   box(100);
+ * }
+ * </code>
+ * </div>
+ */
+        _main.default.prototype.baseNormalShader = function () {
+          this._assert3d('baseNormalShader');
+          return this._renderer.baseNormalShader();
+        };
+        /**
+ * Get the shader used when no lights or materials are applied.
+ *
+ * You can call <a href="#/p5.Shader/modify">`baseColorShader().modify()`</a>
+ * and change any of the following hooks:
+ *
+ * Hook | Description
+ * -------|-------------
+ * `void beforeVertex` | Called at the start of the vertex shader.
+ * `vec3 getLocalPosition` | Update the position of vertices before transforms are applied. It takes in `vec3 position` and must return a modified version.
+ * `vec3 getWorldPosition` | Update the position of vertices after transforms are applied. It takes in `vec3 position` and pust return a modified version.
+ * `vec3 getLocalNormal` | Update the normal before transforms are applied. It takes in `vec3 normal` and must return a modified version.
+ * `vec3 getWorldNormal` | Update the normal after transforms are applied. It takes in `vec3 normal` and must return a modified version.
+ * `vec2 getUV` | Update the texture coordinates. It takes in `vec2 uv` and must return a modified version.
+ * `vec4 getVertexColor` | Update the color of each vertex. It takes in a `vec4 color` and must return a modified version.
+ * `void afterVertex` | Called at the end of the vertex shader.
+ * `void beforeFragment` | Called at the start of the fragment shader.
+ * `vec4 getFinalColor` | Update the final color after mixing. It takes in a `vec4 color` and must return a modified version.
+ * `void afterFragment` | Called at the end of the fragment shader.
+ *
+ * Most of the time, you will need to write your hooks in GLSL ES version 300. If you
+ * are using WebGL 1 instead of 2, write your hooks in GLSL ES 100 instead.
+ *
+ * Call `baseColorShader().inspectHooks()` to see all the possible hooks and
+ * their default implementations.
+ *
+ * @method baseColorShader
+ * @beta
+ * @returns {p5.Shader} The color shader
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * let myShader;
+ *
+ * function setup() {
+ *   createCanvas(200, 200, WEBGL);
+ *   myShader = baseColorShader().modify({
+ *     uniforms: {
+ *       'float time': () => millis()
+ *     },
+ *     'vec3 getWorldPosition': `(vec3 pos) {
+ *       pos.y += 20. * sin(time * 0.001 + pos.x * 0.05);
+ *       return pos;
+ *     }`
+ *   });
+ * }
+ *
+ * function draw() {
+ *   background(255);
+ *   shader(myShader);
+ *   noStroke();
+ *   fill('red');
+ *   circle(0, 0, 50);
+ * }
+ * </code>
+ * </div>
+ */
+        _main.default.prototype.baseColorShader = function () {
+          this._assert3d('baseColorShader');
+          return this._renderer.baseColorShader();
+        };
+        /**
+ * Get the shader used when drawing the strokes of shapes.
+ *
+ * You can call <a href="#/p5.Shader/modify">`baseStrokeShader().modify()`</a>
+ * and change any of the following hooks:
+ *
+ * <table>
+ * <tr><th>Hook</th><th>Description</th></tr>
+ * <tr><td>
+ *
+ * `void beforeVertex`
+ *
+ * </td><td>
+ *
+ * Called at the start of the vertex shader.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec3 getLocalPosition`
+ *
+ * </td><td>
+ *
+ * Update the position of vertices before transforms are applied. It takes in `vec3 position` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec3 getWorldPosition`
+ *
+ * </td><td>
+ *
+ * Update the position of vertices after transforms are applied. It takes in `vec3 position` and pust return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `float getStrokeWeight`
+ *
+ * </td><td>
+ *
+ * Update the stroke weight. It takes in `float weight` and pust return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec2 getLineCenter`
+ *
+ * </td><td>
+ *
+ * Update the center of the line. It takes in `vec2 center` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec2 getLinePosition`
+ *
+ * </td><td>
+ *
+ * Update the position of each vertex on the edge of the line. It takes in `vec2 position` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec4 getVertexColor`
+ *
+ * </td><td>
+ *
+ * Update the color of each vertex. It takes in a `vec4 color` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `void afterVertex`
+ *
+ * </td><td>
+ *
+ * Called at the end of the vertex shader.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `void beforeFragment`
+ *
+ * </td><td>
+ *
+ * Called at the start of the fragment shader.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `Inputs getPixelInputs`
+ *
+ * </td><td>
+ *
+ * Update the inputs to the shader. It takes in a struct `Inputs inputs`, which includes:
+ * - `vec4 color`, the color of the stroke
+ * - `vec2 tangent`, the direction of the stroke in screen space
+ * - `vec2 center`, the coordinate of the center of the stroke in screen space p5.js pixels
+ * - `vec2 position`, the coordinate of the current pixel in screen space p5.js pixels
+ * - `float strokeWeight`, the thickness of the stroke in p5.js pixels
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `bool shouldDiscard`
+ *
+ * </td><td>
+ *
+ * Caps and joins are made by discarded pixels in the fragment shader to carve away unwanted areas. Use this to change this logic. It takes in a `bool willDiscard` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `vec4 getFinalColor`
+ *
+ * </td><td>
+ *
+ * Update the final color after mixing. It takes in a `vec4 color` and must return a modified version.
+ *
+ * </td></tr>
+ * <tr><td>
+ *
+ * `void afterFragment`
+ *
+ * </td><td>
+ *
+ * Called at the end of the fragment shader.
+ *
+ * </td></tr>
+ * </table>
+ *
+ * Most of the time, you will need to write your hooks in GLSL ES version 300. If you
+ * are using WebGL 1 instead of 2, write your hooks in GLSL ES 100 instead.
+ *
+ * Call `baseStrokeShader().inspectHooks()` to see all the possible hooks and
+ * their default implementations.
+ *
+ * @method baseStrokeShader
+ * @beta
+ * @returns {p5.Shader} The stroke shader
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * let myShader;
+ *
+ * function setup() {
+ *   createCanvas(200, 200, WEBGL);
+ *   myShader = baseStrokeShader().modify({
+ *     'Inputs getPixelInputs': `(Inputs inputs) {
+ *       float opacity = 1.0 - smoothstep(
+ *         0.0,
+ *         15.0,
+ *         length(inputs.position - inputs.center)
+ *       );
+ *       inputs.color *= opacity;
+ *       return inputs;
+ *     }`
+ *   });
+ * }
+ *
+ * function draw() {
+ *   background(255);
+ *   shader(myShader);
+ *   strokeWeight(30);
+ *   line(
+ *     -width/3,
+ *     sin(millis()*0.001) * height/4,
+ *     width/3,
+ *     sin(millis()*0.001 + 1) * height/4
+ *   );
+ * }
+ * </code>
+ * </div>
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * let myShader;
+ *
+ * function setup() {
+ *   createCanvas(200, 200, WEBGL);
+ *   myShader = baseStrokeShader().modify({
+ *     uniforms: {
+ *       'float time': () => millis()
+ *     },
+ *     declarations: 'vec3 myPosition;',
+ *     'vec3 getWorldPosition': `(vec3 pos) {
+ *       myPosition = pos;
+ *       return pos;
+ *     }`,
+ *     'float getStrokeWeight': `(float w) {
+ *       // Add a somewhat random offset to the weight
+ *       // that varies based on position and time
+ *       float scale = 0.8 + 0.2*sin(10.0 * sin(
+ *         floor(time/250.) +
+ *         myPosition.x*0.01 +
+ *         myPosition.y*0.01
+ *       ));
+ *       return w * scale;
+ *     }`
+ *   });
+ * }
+ *
+ * function draw() {
+ *   background(255);
+ *   shader(myShader);
+ *   myShader.setUniform('time', millis());
+ *   strokeWeight(10);
+ *   beginShape();
+ *   for (let i = 0; i <= 50; i++) {
+ *     let r = map(i, 0, 50, 0, width/3);
+ *     let x = r*cos(i*0.2);
+ *     let y = r*sin(i*0.2);
+ *     vertex(x, y);
+ *   }
+ *   endShape();
+ * }
+ * </code>
+ * </div>
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * let myShader;
+ *
+ * function setup() {
+ *   createCanvas(200, 200, WEBGL);
+ *   myShader = baseStrokeShader().modify({
+ *     'float random': `(vec2 p) {
+ *       vec3 p3  = fract(vec3(p.xyx) * .1031);
+ *       p3 += dot(p3, p3.yzx + 33.33);
+ *       return fract((p3.x + p3.y) * p3.z);
+ *     }`,
+ *     'Inputs getPixelInputs': `(Inputs inputs) {
+ *       // Replace alpha in the color with dithering by
+ *       // randomly setting pixel colors to 0 based on opacity
+ *       float a = inputs.color.a;
+ *       inputs.color.a = 1.0;
+ *       inputs.color *= random(inputs.position.xy) > a ? 0.0 : 1.0;
+ *       return inputs;
+ *     }`
+ *   });
+ * }
+ *
+ * function draw() {
+ *   background(255);
+ *   shader(myShader);
+ *   strokeWeight(10);
+ *   beginShape();
+ *   for (let i = 0; i <= 50; i++) {
+ *     stroke(
+ *       0,
+ *       255
+ *         * map(i, 0, 20, 0, 1, true)
+ *         * map(i, 30, 50, 1, 0, true)
+ *     );
+ *     vertex(
+ *       map(i, 0, 50, -1, 1) * width/3,
+ *       50 * sin(i/10 + frameCount/100)
+ *     );
+ *   }
+ *   endShape();
+ * }
+ * </code>
+ * </div>
+ */
+        _main.default.prototype.baseStrokeShader = function () {
+          this._assert3d('baseStrokeShader');
+          return this._renderer.baseStrokeShader();
         };
         /**
  * Restores the default shaders.
@@ -126667,18 +128262,18 @@
  * to the pixel at coordinates `(u, v)` within an image. For example, the
  * corners of a rectangular image are mapped to the corners of a rectangle by default:
  *
- * <code>
+ * ```js
  * // Apply the image as a texture.
  * texture(img);
  *
  * // Draw the rectangle.
  * rect(0, 0, 30, 50);
- * </code>
+ * ```
  *
  * If the image in the code snippet above has dimensions of 300 x 500 pixels,
  * the same result could be achieved as follows:
  *
- * <code>
+ * ```js
  * // Apply the image as a texture.
  * texture(img);
  *
@@ -126702,7 +128297,7 @@
  * vertex(0, 50, 0, 0, 500);
  *
  * endShape();
- * </code>
+ * ```
  *
  * `textureMode()` changes the coordinate system for uv coordinates.
  *
@@ -126712,7 +128307,7 @@
  * be helpful for using the same code for multiple images of different sizes.
  * For example, the code snippet above could be rewritten as follows:
  *
- * <code>
+ * ```js
  * // Set the texture mode to use normalized coordinates.
  * textureMode(NORMAL);
  *
@@ -126739,7 +128334,7 @@
  * vertex(0, 50, 0, 0, 1);
  *
  * endShape();
- * </code>
+ * ```
  *
  * By default, `mode` is `IMAGE`, which scales uv coordinates to the
  * dimensions of the image. Calling `textureMode(IMAGE)` applies the default.
@@ -126843,18 +128438,18 @@
  * to the pixel at coordinates `(u, v)` within an image. For example, the
  * corners of a rectangular image are mapped to the corners of a rectangle by default:
  *
- * <code>
+ * ```js
  * // Apply the image as a texture.
  * texture(img);
  *
  * // Draw the rectangle.
  * rect(0, 0, 30, 50);
- * </code>
+ * ```
  *
  * If the image in the code snippet above has dimensions of 300 x 500 pixels,
  * the same result could be achieved as follows:
  *
- * <code>
+ * ```js
  * // Apply the image as a texture.
  * texture(img);
  *
@@ -126878,14 +128473,14 @@
  * vertex(0, 50, 0, 0, 500);
  *
  * endShape();
- * </code>
+ * ```
  *
  * `textureWrap()` controls how textures behave when their uv's go beyond the
  * texture. Doing so can produce interesting visual effects such as tiling.
  * For example, the custom shape above could have u-coordinates are greater
  * than the image’s width:
  *
- * <code>
+ * ```js
  * // Apply the image as a texture.
  * texture(img);
  *
@@ -126903,7 +128498,7 @@
  *
  * vertex(0, 50, 0, 0, 500);
  * endShape();
- * </code>
+ * ```
  *
  * The u-coordinates of 600 are greater than the texture image’s width of 300.
  * This creates interesting possibilities.
@@ -127944,7 +129539,7 @@
  * @param  {Number[]} color The currently set color, with values in 0-1 range
  * @param  {Boolean} [hasTransparency] Whether the shape being drawn has other
  * transparency internally, e.g. via vertex colors
- * @return {Number[]]}  Normalized numbers array
+ * @return {Number[]}  Normalized numbers array
  */
         _main.default.RendererGL.prototype._applyColorBlend = function (colors, hasTransparency) {
           var gl = this.GL;
@@ -128033,24 +129628,24 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        './p5.Texture': 362,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.join': 183,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.includes': 214,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        './p5.Texture': 366,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.join': 184,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.includes': 217,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    352: [
+    355: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.slice');
@@ -128835,6 +130430,7 @@
  * `myCamera.move()` moves the camera along its own axes.
  *
  * @class p5.Camera
+ * @constructor
  * @param {rendererGL} rendererGL instance of WebGL renderer
  *
  * @example
@@ -128937,9 +130533,9 @@
             this.projMatrix = new _main.default.Matrix();
             this.yScale = 1;
           }          /**
-  * The camera’s y-coordinate.
+  * The camera’s x-coordinate.
   *
-  * By default, the camera’s y-coordinate is set to 0 in "world" space.
+  * By default, the camera’s x-coordinate is set to 0 in "world" space.
   *
   * @property {Number} eyeX
   * @readonly
@@ -130309,12 +131905,13 @@
             {
               key: 'ortho',
               value: function ortho(left, right, bottom, top, near, far) {
-                if (left === undefined) left = - this._renderer.width / 2;
-                if (right === undefined) right = + this._renderer.width / 2;
-                if (bottom === undefined) bottom = - this._renderer.height / 2;
-                if (top === undefined) top = + this._renderer.height / 2;
+                var source = this.fbo || this._renderer;
+                if (left === undefined) left = - source.width / 2;
+                if (right === undefined) right = + source.width / 2;
+                if (bottom === undefined) bottom = - source.height / 2;
+                if (top === undefined) top = + source.height / 2;
                 if (near === undefined) near = 0;
-                if (far === undefined) far = Math.max(this._renderer.width, this._renderer.height) + 800;
+                if (far === undefined) far = Math.max(source.width, source.height) + 800;
                 this.cameraNear = near;
                 this.cameraFar = far;
                 var w = right - left;
@@ -130489,6 +132086,7 @@
                 centerZ -= this.eyeZ;
                 var rotation = _main.default.Matrix.identity(this._renderer._pInst);
                 rotation.rotate(this._renderer._pInst._toRadians(a), x, y, z);
+                // Apply the rotation matrix to the center vector
                 /* eslint-disable max-len */
                 var rotatedCenter = [
                   centerX * rotation.mat4[0] + centerY * rotation.mat4[4] + centerZ * rotation.mat4[8],
@@ -130496,11 +132094,84 @@
                   centerX * rotation.mat4[2] + centerY * rotation.mat4[6] + centerZ * rotation.mat4[10]
                 ];
                 /* eslint-enable max-len */
-                // add eye position back into center
+                // Translate the rotated center back to world coordinates
                 rotatedCenter[0] += this.eyeX;
                 rotatedCenter[1] += this.eyeY;
                 rotatedCenter[2] += this.eyeZ;
-                this.camera(this.eyeX, this.eyeY, this.eyeZ, rotatedCenter[0], rotatedCenter[1], rotatedCenter[2], this.upX, this.upY, this.upZ);
+                // Rotate the up vector to keep the correct camera orientation
+                /* eslint-disable max-len */
+                var upX = this.upX * rotation.mat4[0] + this.upY * rotation.mat4[4] + this.upZ * rotation.mat4[8];
+                var upY = this.upX * rotation.mat4[1] + this.upY * rotation.mat4[5] + this.upZ * rotation.mat4[9];
+                var upZ = this.upX * rotation.mat4[2] + this.upY * rotation.mat4[6] + this.upZ * rotation.mat4[10];
+                /* eslint-enable max-len */
+                this.camera(this.eyeX, this.eyeY, this.eyeZ, rotatedCenter[0], rotatedCenter[1], rotatedCenter[2], upX, upY, upZ);
+              }              /**
+    * Rotates the camera in a clockwise/counter-clockwise direction.
+    *
+    * Rolling rotates the camera without changing its orientation. The rotation
+    * happens in the camera’s "local" space.
+    *
+    * The parameter, `angle`, is the angle the camera should rotate. Passing a
+    * positive angle, as in `myCamera.roll(0.001)`, rotates the camera in counter-clockwise direction.
+    * Passing a negative angle, as in `myCamera.roll(-0.001)`, rotates the
+    * camera in clockwise direction.
+    *
+    * Note: Angles are interpreted based on the current
+    * <a href="#/p5/angleMode">angleMode()</a>.
+    *
+    * @method roll
+    * @param {Number} angle amount to rotate camera in current
+    * <a href="#/p5/angleMode">angleMode</a> units.
+    * @example
+    * <div>
+    * <code>
+    * let cam;
+    * let delta = 0.01;
+    *
+    * function setup() {
+    *   createCanvas(100, 100, WEBGL);
+    *   normalMaterial();
+    *   // Create a p5.Camera object.
+    *   cam = createCamera();
+    * }
+    *
+    * function draw() {
+    *   background(200);
+    *
+    *   // Roll camera according to angle 'delta'
+    *   cam.roll(delta);
+    *
+    *   translate(0, 0, 0);
+    *   box(20);
+    *   translate(0, 25, 0);
+    *   box(20);
+    *   translate(0, 26, 0);
+    *   box(20);
+    *   translate(0, 27, 0);
+    *   box(20);
+    *   translate(0, 28, 0);
+    *   box(20);
+    *   translate(0,29, 0);
+    *   box(20);
+    *   translate(0, 30, 0);
+    *   box(20);
+    * }
+    * </code>
+    * </div>
+    *
+    * @alt
+    * camera view rotates in counter clockwise direction with vertically stacked boxes in front of it.
+    */
+
+            },
+            {
+              key: 'roll',
+              value: function roll(amount) {
+                var local = this._getLocalAxes();
+                var axisQuaternion = _main.default.Quat.fromAxisAngle(this._renderer._pInst._toRadians(amount), local.z[0], local.z[1], local.z[2]);
+                // const upQuat = new p5.Quat(0, this.upX, this.upY, this.upZ);
+                var newUpVector = axisQuaternion.rotateVector(new _main.default.Vector(this.upX, this.upY, this.upZ));
+                this.camera(this.eyeX, this.eyeY, this.eyeZ, this.centerX, this.centerY, this.centerZ, newUpVector.x, newUpVector.y, newUpVector.z);
               }              /**
     * Rotates the camera left and right.
     *
@@ -130927,7 +132598,7 @@
                 ty,
                 tz]);
                 if (this._isActive()) {
-                  this._renderer.uMVMatrix.set(this.cameraMatrix);
+                  this._renderer.uViewMatrix.set(this.cameraMatrix);
                 }
                 return this;
               }              /**
@@ -131250,7 +132921,8 @@
                   'cameraNear',
                   'cameraFar',
                   'cameraType',
-                  'yScale'
+                  'yScale',
+                  'useLinePerspective'
                 ];
                 for (var _i = 0, _keyNamesOfThePropToC = keyNamesOfThePropToCopy; _i < _keyNamesOfThePropToC.length; _i++) {
                   var keyName = _keyNamesOfThePropToC[_i];
@@ -131258,10 +132930,10 @@
                 }
                 this.cameraMatrix = cam.cameraMatrix.copy();
                 this.projMatrix = cam.projMatrix.copy();
-                // If the target camera is active, update uMVMatrix and uPMatrix.
                 if (this._isActive()) {
-                  this._renderer.uMVMatrix.mat4 = this.cameraMatrix.mat4.slice();
-                  this._renderer.uPMatrix.mat4 = this.projMatrix.mat4.slice();
+                  this._renderer.uModelMatrix.reset();
+                  this._renderer.uViewMatrix.set(this.cameraMatrix);
+                  this._renderer.uPMatrix.set(this.projMatrix);
                 }
               }              /**
     * Sets the camera’s position and orientation to values that are in-between
@@ -131578,6 +133250,7 @@
                 _cam.cameraNear = this.cameraNear;
                 _cam.cameraFar = this.cameraFar;
                 _cam.cameraType = this.cameraType;
+                _cam.useLinePerspective = this.useLinePerspective;
                 _cam.cameraMatrix = this.cameraMatrix.copy();
                 _cam.projMatrix = this.projMatrix.copy();
                 _cam.yScale = this.yScale;
@@ -131856,18 +133529,19 @@
           this._renderer._curCamera = cam;
           // set the projection matrix (which is not normally updated each frame)
           this._renderer.uPMatrix.set(cam.projMatrix);
+          this._renderer.uViewMatrix.set(cam.cameraMatrix);
         };
         var _default = _main.default.Camera;
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.math.hypot': 193,
-        'core-js/modules/es.string.sub': 223
+        '../core/main': 306,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.math.hypot': 194,
+        'core-js/modules/es.string.sub': 226
       }
     ],
-    353: [
+    356: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.iterator');
@@ -132090,38 +133764,38 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.math.log2': 194,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.typed-array.copy-within': 228,
-        'core-js/modules/es.typed-array.every': 229,
-        'core-js/modules/es.typed-array.fill': 230,
-        'core-js/modules/es.typed-array.filter': 231,
-        'core-js/modules/es.typed-array.find': 233,
-        'core-js/modules/es.typed-array.find-index': 232,
-        'core-js/modules/es.typed-array.float32-array': 234,
-        'core-js/modules/es.typed-array.for-each': 236,
-        'core-js/modules/es.typed-array.includes': 237,
-        'core-js/modules/es.typed-array.index-of': 238,
-        'core-js/modules/es.typed-array.iterator': 241,
-        'core-js/modules/es.typed-array.join': 242,
-        'core-js/modules/es.typed-array.last-index-of': 243,
-        'core-js/modules/es.typed-array.map': 244,
-        'core-js/modules/es.typed-array.reduce': 246,
-        'core-js/modules/es.typed-array.reduce-right': 245,
-        'core-js/modules/es.typed-array.reverse': 247,
-        'core-js/modules/es.typed-array.set': 248,
-        'core-js/modules/es.typed-array.slice': 249,
-        'core-js/modules/es.typed-array.some': 250,
-        'core-js/modules/es.typed-array.sort': 251,
-        'core-js/modules/es.typed-array.subarray': 252,
-        'core-js/modules/es.typed-array.to-locale-string': 253,
-        'core-js/modules/es.typed-array.to-string': 254
+        '../core/main': 306,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.math.log2': 195,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.typed-array.copy-within': 231,
+        'core-js/modules/es.typed-array.every': 232,
+        'core-js/modules/es.typed-array.fill': 233,
+        'core-js/modules/es.typed-array.filter': 234,
+        'core-js/modules/es.typed-array.find': 236,
+        'core-js/modules/es.typed-array.find-index': 235,
+        'core-js/modules/es.typed-array.float32-array': 237,
+        'core-js/modules/es.typed-array.for-each': 239,
+        'core-js/modules/es.typed-array.includes': 240,
+        'core-js/modules/es.typed-array.index-of': 241,
+        'core-js/modules/es.typed-array.iterator': 244,
+        'core-js/modules/es.typed-array.join': 245,
+        'core-js/modules/es.typed-array.last-index-of': 246,
+        'core-js/modules/es.typed-array.map': 247,
+        'core-js/modules/es.typed-array.reduce': 249,
+        'core-js/modules/es.typed-array.reduce-right': 248,
+        'core-js/modules/es.typed-array.reverse': 250,
+        'core-js/modules/es.typed-array.set': 251,
+        'core-js/modules/es.typed-array.slice': 252,
+        'core-js/modules/es.typed-array.some': 253,
+        'core-js/modules/es.typed-array.sort': 254,
+        'core-js/modules/es.typed-array.subarray': 255,
+        'core-js/modules/es.typed-array.to-locale-string': 256,
+        'core-js/modules/es.typed-array.to-string': 257
       }
     ],
-    354: [
+    357: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -133496,7 +135170,9 @@
                 // RendererGL.reset() does, but this does not try to clear any buffers;
                 // it only sets the camera.
                 this.target.setCamera(this.defaultCamera);
-                this.target._renderer.uMVMatrix.set(this.target._renderer._curCamera.cameraMatrix);
+                this.target.resetMatrix();
+                this.target._renderer.uViewMatrix.set(this.target._renderer._curCamera.cameraMatrix);
+                this.target._renderer.uModelMatrix.reset();
                 this.target._renderer._applyStencilTestIfClipping();
               }              /**
      * When making a p5.Framebuffer active so that it may be drawn to, this method
@@ -134011,7 +135687,7 @@
  * </div>
  */
         /**
- * An object that stores the framebuffer's dpeth data.
+ * An object that stores the framebuffer's depth data.
  *
  * Each framebuffer uses a
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLTexture" target="_blank">WebGLTexture</a>
@@ -134114,55 +135790,55 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        './p5.RendererGL': 360,
-        './p5.Texture': 362,
-        'core-js/modules/es.array.fill': 173,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.get-prototype-of': 203,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.reflect.construct': 207,
-        'core-js/modules/es.reflect.get': 208,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.includes': 214,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.typed-array.copy-within': 228,
-        'core-js/modules/es.typed-array.every': 229,
-        'core-js/modules/es.typed-array.fill': 230,
-        'core-js/modules/es.typed-array.filter': 231,
-        'core-js/modules/es.typed-array.find': 233,
-        'core-js/modules/es.typed-array.find-index': 232,
-        'core-js/modules/es.typed-array.float32-array': 234,
-        'core-js/modules/es.typed-array.for-each': 236,
-        'core-js/modules/es.typed-array.includes': 237,
-        'core-js/modules/es.typed-array.index-of': 238,
-        'core-js/modules/es.typed-array.iterator': 241,
-        'core-js/modules/es.typed-array.join': 242,
-        'core-js/modules/es.typed-array.last-index-of': 243,
-        'core-js/modules/es.typed-array.map': 244,
-        'core-js/modules/es.typed-array.reduce': 246,
-        'core-js/modules/es.typed-array.reduce-right': 245,
-        'core-js/modules/es.typed-array.reverse': 247,
-        'core-js/modules/es.typed-array.set': 248,
-        'core-js/modules/es.typed-array.slice': 249,
-        'core-js/modules/es.typed-array.some': 250,
-        'core-js/modules/es.typed-array.sort': 251,
-        'core-js/modules/es.typed-array.subarray': 252,
-        'core-js/modules/es.typed-array.to-locale-string': 253,
-        'core-js/modules/es.typed-array.to-string': 254,
-        'core-js/modules/es.typed-array.uint8-array': 257,
-        'core-js/modules/es.typed-array.uint8-clamped-array': 258,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        './p5.RendererGL': 364,
+        './p5.Texture': 366,
+        'core-js/modules/es.array.fill': 174,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.get-prototype-of': 206,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.reflect.construct': 210,
+        'core-js/modules/es.reflect.get': 211,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.includes': 217,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.typed-array.copy-within': 231,
+        'core-js/modules/es.typed-array.every': 232,
+        'core-js/modules/es.typed-array.fill': 233,
+        'core-js/modules/es.typed-array.filter': 234,
+        'core-js/modules/es.typed-array.find': 236,
+        'core-js/modules/es.typed-array.find-index': 235,
+        'core-js/modules/es.typed-array.float32-array': 237,
+        'core-js/modules/es.typed-array.for-each': 239,
+        'core-js/modules/es.typed-array.includes': 240,
+        'core-js/modules/es.typed-array.index-of': 241,
+        'core-js/modules/es.typed-array.iterator': 244,
+        'core-js/modules/es.typed-array.join': 245,
+        'core-js/modules/es.typed-array.last-index-of': 246,
+        'core-js/modules/es.typed-array.map': 247,
+        'core-js/modules/es.typed-array.reduce': 249,
+        'core-js/modules/es.typed-array.reduce-right': 248,
+        'core-js/modules/es.typed-array.reverse': 250,
+        'core-js/modules/es.typed-array.set': 251,
+        'core-js/modules/es.typed-array.slice': 252,
+        'core-js/modules/es.typed-array.some': 253,
+        'core-js/modules/es.typed-array.sort': 254,
+        'core-js/modules/es.typed-array.subarray': 255,
+        'core-js/modules/es.typed-array.to-locale-string': 256,
+        'core-js/modules/es.typed-array.to-string': 257,
+        'core-js/modules/es.typed-array.uint8-array': 260,
+        'core-js/modules/es.typed-array.uint8-clamped-array': 261,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    355: [
+    358: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -134173,11 +135849,14 @@
         _dereq_('core-js/modules/es.array.for-each');
         _dereq_('core-js/modules/es.array.from');
         _dereq_('core-js/modules/es.array.iterator');
+        _dereq_('core-js/modules/es.array.last-index-of');
         _dereq_('core-js/modules/es.array.map');
         _dereq_('core-js/modules/es.array.slice');
         _dereq_('core-js/modules/es.array.unscopables.flat');
+        _dereq_('core-js/modules/es.array-buffer.constructor');
         _dereq_('core-js/modules/es.map');
         _dereq_('core-js/modules/es.number.constructor');
+        _dereq_('core-js/modules/es.object.entries');
         _dereq_('core-js/modules/es.object.get-own-property-descriptor');
         _dereq_('core-js/modules/es.object.to-string');
         _dereq_('core-js/modules/es.regexp.to-string');
@@ -134218,11 +135897,14 @@
         _dereq_('core-js/modules/es.array.flat');
         _dereq_('core-js/modules/es.array.for-each');
         _dereq_('core-js/modules/es.array.iterator');
+        _dereq_('core-js/modules/es.array.last-index-of');
         _dereq_('core-js/modules/es.array.map');
         _dereq_('core-js/modules/es.array.slice');
         _dereq_('core-js/modules/es.array.unscopables.flat');
+        _dereq_('core-js/modules/es.array-buffer.constructor');
         _dereq_('core-js/modules/es.map');
         _dereq_('core-js/modules/es.number.constructor');
+        _dereq_('core-js/modules/es.object.entries');
         _dereq_('core-js/modules/es.object.to-string');
         _dereq_('core-js/modules/es.set');
         _dereq_('core-js/modules/es.string.iterator');
@@ -134298,6 +135980,41 @@
             }
             return arr2;
           }
+        }
+        function _slicedToArray(arr, i) {
+          return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+        }
+        function _nonIterableRest() {
+          throw new TypeError('Invalid attempt to destructure non-iterable instance');
+        }
+        function _iterableToArrayLimit(arr, i) {
+          if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === '[object Arguments]')) {
+            return;
+          }
+          var _arr = [
+          ];
+          var _n = true;
+          var _d = false;
+          var _e = undefined;
+          try {
+            for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+              _arr.push(_s.value);
+              if (i && _arr.length === i) break;
+            }
+          } catch (err) {
+            _d = true;
+            _e = err;
+          } finally {
+            try {
+              if (!_n && _i['return'] != null) _i['return']();
+            } finally {
+              if (_d) throw _e;
+            }
+          }
+          return _arr;
+        }
+        function _arrayWithHoles(arr) {
+          if (Array.isArray(arr)) return arr;
         }
         function _classCallCheck(instance, Constructor) {
           if (!(instance instanceof Constructor)) {
@@ -135240,6 +136957,296 @@
                 ];
                 return this;
               }              /**
+     * The `saveObj()` function exports `p5.Geometry` objects as
+     * 3D models in the Wavefront .obj file format.
+     * This way, you can use the 3D shapes you create in p5.js in other software
+     * for rendering, animation, 3D printing, or more.
+     *
+     * The exported .obj file will include the faces and vertices of the `p5.Geometry`,
+     * as well as its texture coordinates and normals, if it has them.
+     *
+     * @method saveObj
+     * @param {String} [fileName='model.obj'] The name of the file to save the model as.
+     *                                        If not specified, the default file name will be 'model.obj'.
+     * @example
+     * <div>
+     * <code>
+     * let myModel;
+     * let saveBtn;
+     * function setup() {
+     *   createCanvas(200, 200, WEBGL);
+     *   myModel = buildGeometry(() => {
+     *     for (let i = 0; i < 5; i++) {
+     *       push();
+     *       translate(
+     *         random(-75, 75),
+     *         random(-75, 75),
+     *         random(-75, 75)
+     *       );
+     *       sphere(random(5, 50));
+     *       pop();
+     *     }
+     *   });
+     *
+     *   saveBtn = createButton('Save .obj');
+     *   saveBtn.mousePressed(() => myModel.saveObj());
+     *
+     *   describe('A few spheres rotating in space');
+     * }
+     *
+     * function draw() {
+     *   background(0);
+     *   noStroke();
+     *   lights();
+     *   rotateX(millis() * 0.001);
+     *   rotateY(millis() * 0.002);
+     *   model(myModel);
+     * }
+     * </code>
+     * </div>
+     */
+
+            },
+            {
+              key: 'saveObj',
+              value: function saveObj() {
+                var _this = this;
+                var fileName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'model.obj';
+                var objStr = '';
+                // Vertices
+                this.vertices.forEach(function (v) {
+                  objStr += 'v '.concat(v.x, ' ').concat(v.y, ' ').concat(v.z, '\n');
+                });
+                // Texture Coordinates (UVs)
+                if (this.uvs && this.uvs.length > 0) {
+                  for (var i = 0; i < this.uvs.length; i += 2) {
+                    objStr += 'vt '.concat(this.uvs[i], ' ').concat(this.uvs[i + 1], '\n');
+                  }
+                }                // Vertex Normals
+
+                if (this.vertexNormals && this.vertexNormals.length > 0) {
+                  this.vertexNormals.forEach(function (n) {
+                    objStr += 'vn '.concat(n.x, ' ').concat(n.y, ' ').concat(n.z, '\n');
+                  });
+                }                // Faces, obj vertex indices begin with 1 and not 0
+                // texture coordinate (uvs) and vertexNormal indices
+                // are indicated with trailing ints vertex/normal/uv
+                // ex 1/1/1 or 2//2 for vertices without uvs
+
+                this.faces.forEach(function (face) {
+                  var faceStr = 'f';
+                  face.forEach(function (index) {
+                    faceStr += ' ';
+                    faceStr += index + 1;
+                    if (_this.vertexNormals.length > 0 || _this.uvs.length > 0) {
+                      faceStr += '/';
+                      if (_this.uvs.length > 0) {
+                        faceStr += index + 1;
+                      }
+                      faceStr += '/';
+                      if (_this.vertexNormals.length > 0) {
+                        faceStr += index + 1;
+                      }
+                    }
+                  });
+                  objStr += faceStr + '\n';
+                });
+                var blob = new Blob([objStr], {
+                  type: 'text/plain'
+                });
+                _main.default.prototype.downloadFile(blob, fileName, 'obj');
+              }              /**
+     * The `saveStl()` function exports `p5.Geometry` objects as
+     * 3D models in the STL stereolithography file format.
+     * This way, you can use the 3D shapes you create in p5.js in other software
+     * for rendering, animation, 3D printing, or more.
+     *
+     * The exported .stl file will include the faces, vertices, and normals of the `p5.Geometry`.
+     *
+     * By default, this method saves a text-based .stl file. Alternatively, you can save a more compact
+     * but less human-readable binary .stl file by passing `{ binary: true }` as a second parameter.
+     *
+     * @method saveStl
+     * @param {String} [fileName='model.stl'] The name of the file to save the model as.
+     *                                        If not specified, the default file name will be 'model.stl'.
+     * @param {Object} [options] Optional settings. Options can include a boolean `binary` property, which
+     * controls whether or not a binary .stl file is saved. It defaults to false.
+     * @example
+     * <div>
+     * <code>
+     * let myModel;
+     * let saveBtn1;
+     * let saveBtn2;
+     * function setup() {
+     *   createCanvas(200, 200, WEBGL);
+     *   myModel = buildGeometry(() => {
+     *     for (let i = 0; i < 5; i++) {
+     *       push();
+     *       translate(
+     *         random(-75, 75),
+     *         random(-75, 75),
+     *         random(-75, 75)
+     *       );
+     *       sphere(random(5, 50));
+     *       pop();
+     *     }
+     *   });
+     *
+     *   saveBtn1 = createButton('Save .stl');
+     *   saveBtn1.mousePressed(function() {
+     *     myModel.saveStl();
+     *   });
+     *   saveBtn2 = createButton('Save binary .stl');
+     *   saveBtn2.mousePressed(function() {
+     *     myModel.saveStl('model.stl', { binary: true });
+     *   });
+     *
+     *   describe('A few spheres rotating in space');
+     * }
+     *
+     * function draw() {
+     *   background(0);
+     *   noStroke();
+     *   lights();
+     *   rotateX(millis() * 0.001);
+     *   rotateY(millis() * 0.002);
+     *   model(myModel);
+     * }
+     * </code>
+     * </div>
+     */
+
+            },
+            {
+              key: 'saveStl',
+              value: function saveStl() {
+                var fileName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'model.stl';
+                var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+                },
+                _ref$binary = _ref.binary,
+                binary = _ref$binary === void 0 ? false : _ref$binary;
+                var modelOutput;
+                var name = fileName.substring(0, fileName.lastIndexOf('.'));
+                var faceNormals = [
+                ];
+                var _iteratorNormalCompletion = true;
+                var _didIteratorError = false;
+                var _iteratorError = undefined;
+                try {
+                  for (var _iterator = this.faces[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var _f2 = _step.value;
+                    var U = _main.default.Vector.sub(this.vertices[_f2[1]], this.vertices[_f2[0]]);
+                    var V = _main.default.Vector.sub(this.vertices[_f2[2]], this.vertices[_f2[0]]);
+                    var nx = U.y * V.z - U.z * V.y;
+                    var ny = U.z * V.x - U.x * V.z;
+                    var nz = U.x * V.y - U.y * V.x;
+                    faceNormals.push(new _main.default.Vector(nx, ny, nz).normalize());
+                  }
+                } catch (err) {
+                  _didIteratorError = true;
+                  _iteratorError = err;
+                } finally {
+                  try {
+                    if (!_iteratorNormalCompletion && _iterator.return != null) {
+                      _iterator.return();
+                    }
+                  } finally {
+                    if (_didIteratorError) {
+                      throw _iteratorError;
+                    }
+                  }
+                }
+                if (binary) {
+                  var offset = 80;
+                  var bufferLength = this.faces.length * 2 + this.faces.length * 3 * 4 * 4 + 80 + 4;
+                  var arrayBuffer = new ArrayBuffer(bufferLength);
+                  modelOutput = new DataView(arrayBuffer);
+                  modelOutput.setUint32(offset, this.faces.length, true);
+                  offset += 4;
+                  for (var _i = 0, _Object$entries = Object.entries(this.faces); _i < _Object$entries.length; _i++) {
+                    var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                    key = _Object$entries$_i[0],
+                    f = _Object$entries$_i[1];
+                    var norm = faceNormals[key];
+                    modelOutput.setFloat32(offset, norm.x, true);
+                    offset += 4;
+                    modelOutput.setFloat32(offset, norm.y, true);
+                    offset += 4;
+                    modelOutput.setFloat32(offset, norm.z, true);
+                    offset += 4;
+                    var _iteratorNormalCompletion2 = true;
+                    var _didIteratorError2 = false;
+                    var _iteratorError2 = undefined;
+                    try {
+                      for (var _iterator2 = f[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                        var vertexIndex = _step2.value;
+                        var vert = this.vertices[vertexIndex];
+                        modelOutput.setFloat32(offset, vert.x, true);
+                        offset += 4;
+                        modelOutput.setFloat32(offset, vert.y, true);
+                        offset += 4;
+                        modelOutput.setFloat32(offset, vert.z, true);
+                        offset += 4;
+                      }
+                    } catch (err) {
+                      _didIteratorError2 = true;
+                      _iteratorError2 = err;
+                    } finally {
+                      try {
+                        if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+                          _iterator2.return();
+                        }
+                      } finally {
+                        if (_didIteratorError2) {
+                          throw _iteratorError2;
+                        }
+                      }
+                    }
+                    modelOutput.setUint16(offset, 0, true);
+                    offset += 2;
+                  }
+                } else {
+                  modelOutput = 'solid ' + name + '\n';
+                  for (var _i2 = 0, _Object$entries2 = Object.entries(this.faces); _i2 < _Object$entries2.length; _i2++) {
+                    var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+                    _key = _Object$entries2$_i[0],
+                    _f = _Object$entries2$_i[1];
+                    var _norm = faceNormals[_key];
+                    modelOutput += ' facet norm ' + _norm.x + ' ' + _norm.y + ' ' + _norm.z + '\n';
+                    modelOutput += '  outer loop' + '\n';
+                    var _iteratorNormalCompletion3 = true;
+                    var _didIteratorError3 = false;
+                    var _iteratorError3 = undefined;
+                    try {
+                      for (var _iterator3 = _f[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                        var _vertexIndex = _step3.value;
+                        var _vert = this.vertices[_vertexIndex];
+                        modelOutput += '   vertex ' + _vert.x + ' ' + _vert.y + ' ' + _vert.z + '\n';
+                      }
+                    } catch (err) {
+                      _didIteratorError3 = true;
+                      _iteratorError3 = err;
+                    } finally {
+                      try {
+                        if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
+                          _iterator3.return();
+                        }
+                      } finally {
+                        if (_didIteratorError3) {
+                          throw _iteratorError3;
+                        }
+                      }
+                    }
+                    modelOutput += '  endloop' + '\n';
+                    modelOutput += ' endfacet' + '\n';
+                  }
+                  modelOutput += 'endsolid ' + name + '\n';
+                }
+                var blob = new Blob([modelOutput], {
+                  type: 'text/plain'
+                });
+                _main.default.prototype.downloadFile(blob, fileName, 'stl');
+              }              /**
     * Flips the geometry’s texture u-coordinates.
     *
     * In order for <a href="#/p5/texture">texture()</a> to work, the geometry
@@ -135366,8 +137373,8 @@
     * console.log(myGeometry.uvs);
     *
     * // Notice the swaps:
-    * // Left vertices: [0, 0] <--> [1, 0]
-    * // Right vertices: [1, 0] <--> [1, 1]
+    * // Left vertices: [0, 0] &lt;--&gt; [1, 0]
+    * // Right vertices: [1, 0] &lt;--&gt; [1, 1]
     * ```
     *
     * @method flipV
@@ -135923,12 +137930,12 @@
             {
               key: 'computeNormals',
               value: function computeNormals() {
-                var _this = this;
+                var _this2 = this;
                 var shadingType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : constants.FLAT;
-                var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+                var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
                 },
-                _ref$roundToPrecision = _ref.roundToPrecision,
-                roundToPrecision = _ref$roundToPrecision === void 0 ? 3 : _ref$roundToPrecision;
+                _ref2$roundToPrecisio = _ref2.roundToPrecision,
+                roundToPrecision = _ref2$roundToPrecisio === void 0 ? 3 : _ref2$roundToPrecisio;
                 var vertexNormals = this.vertexNormals;
                 var vertices = this.vertices;
                 var faces = this.faces;
@@ -135959,8 +137966,8 @@
                     for (var fv = 0; fv < 3; ++fv) {
                       var originalVertexIndex = face[fv];
                       var originalVertex = vertices[originalVertexIndex];
-                      var _key = getKey(originalVertex);
-                      face[fv] = vertexIndices[_key];
+                      var _key2 = getKey(originalVertex);
+                      face[fv] = vertexIndices[_key2];
                     }
                   });
                   // update edge indices to use the deduplicated vertex indices
@@ -135968,8 +137975,8 @@
                     for (var ev = 0; ev < 2; ++ev) {
                       var originalVertexIndex = edge[ev];
                       var originalVertex = vertices[originalVertexIndex];
-                      var _key2 = getKey(originalVertex);
-                      edge[ev] = vertexIndices[_key2];
+                      var _key3 = getKey(originalVertex);
+                      edge[ev] = vertexIndices[_key3];
                     }
                   });
                   // update the deduplicated vertices
@@ -135983,7 +137990,7 @@
                 // of each of its vertices
 
                 faces.forEach(function (face, f) {
-                  var faceNormal = _this._getFaceNormal(f);
+                  var faceNormal = _this2._getFaceNormal(f);
                   // all three vertices get the normal added
                   for (var fv = 0; fv < 3; ++fv) {
                     var vertexIndex = face[fv];
@@ -136030,17 +138037,17 @@
                   sum.add(this.vertexNormals[i]);
                 }
                 sum = _main.default.Vector.div(sum, this.detailX);
-                for (var _i = 0; _i < this.detailX; _i++) {
-                  this.vertexNormals[_i] = sum;
+                for (var _i3 = 0; _i3 < this.detailX; _i3++) {
+                  this.vertexNormals[_i3] = sum;
                 }                //average the south pole
 
                 sum = new _main.default.Vector(0, 0, 0);
-                for (var _i2 = this.vertices.length - 1; _i2 > this.vertices.length - 1 - this.detailX; _i2--) {
-                  sum.add(this.vertexNormals[_i2]);
+                for (var _i4 = this.vertices.length - 1; _i4 > this.vertices.length - 1 - this.detailX; _i4--) {
+                  sum.add(this.vertexNormals[_i4]);
                 }
                 sum = _main.default.Vector.div(sum, this.detailX);
-                for (var _i3 = this.vertices.length - 1; _i3 > this.vertices.length - 1 - this.detailX; _i3--) {
-                  this.vertexNormals[_i3] = sum;
+                for (var _i5 = this.vertices.length - 1; _i5 > this.vertices.length - 1 - this.detailX; _i5--) {
+                  this.vertexNormals[_i5] = sum;
                 }
                 return this;
               }              /**
@@ -136095,6 +138102,12 @@
                   var currEdge = this.edges[i];
                   var begin = this.vertices[currEdge[0]];
                   var end = this.vertices[currEdge[1]];
+                  var prevColor = this.vertexStrokeColors.length > 0 && prevEdge ? this.vertexStrokeColors.slice(prevEdge[1] * 4, (prevEdge[1] + 1) * 4) : [
+                    0,
+                    0,
+                    0,
+                    0
+                  ];
                   var fromColor = this.vertexStrokeColors.length > 0 ? this.vertexStrokeColors.slice(currEdge[0] * 4, (currEdge[0] + 1) * 4) : [
                     0,
                     0,
@@ -136145,7 +138158,7 @@
                     if (lastValidDir && !connected.has(prevEdge[1])) {
                       var _existingCap = potentialCaps.get(prevEdge[1]);
                       if (_existingCap) {
-                        this._addJoin(this.vertices[prevEdge[1]], lastValidDir, _existingCap.dir.copy().mult( - 1), fromColor);
+                        this._addJoin(this.vertices[prevEdge[1]], lastValidDir, _existingCap.dir.copy().mult( - 1), prevColor);
                         potentialCaps.delete(prevEdge[1]);
                         connected.add(prevEdge[1]);
                       } else {
@@ -136153,7 +138166,7 @@
                         potentialCaps.set(prevEdge[1], {
                           point: this.vertices[prevEdge[1]],
                           dir: lastValidDir,
-                          color: fromColor
+                          color: prevColor
                         });
                       }
                       lastValidDir = undefined;
@@ -136177,28 +138190,28 @@
                     lastValidDir = dir;
                   }
                 }
-                var _iteratorNormalCompletion = true;
-                var _didIteratorError = false;
-                var _iteratorError = undefined;
+                var _iteratorNormalCompletion4 = true;
+                var _didIteratorError4 = false;
+                var _iteratorError4 = undefined;
                 try {
-                  for (var _iterator = potentialCaps.values() [Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                    var _step$value = _step.value,
-                    point = _step$value.point,
-                    _dir = _step$value.dir,
-                    color = _step$value.color;
+                  for (var _iterator4 = potentialCaps.values() [Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+                    var _step4$value = _step4.value,
+                    point = _step4$value.point,
+                    _dir = _step4$value.dir,
+                    color = _step4$value.color;
                     this._addCap(point, _dir, color);
                   }
                 } catch (err) {
-                  _didIteratorError = true;
-                  _iteratorError = err;
+                  _didIteratorError4 = true;
+                  _iteratorError4 = err;
                 } finally {
                   try {
-                    if (!_iteratorNormalCompletion && _iterator.return != null) {
-                      _iterator.return();
+                    if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
+                      _iterator4.return();
                     }
                   } finally {
-                    if (_didIteratorError) {
-                      throw _iteratorError;
+                    if (_didIteratorError4) {
+                      throw _iteratorError4;
                     }
                   }
                 }
@@ -136230,11 +138243,11 @@
                 var b = end.array();
                 var dirArr = dir.array();
                 this.lineSides.push(1, 1, - 1, 1, - 1, - 1);
-                for (var _i4 = 0, _arr = [
+                for (var _i6 = 0, _arr2 = [
                   this.lineTangentsIn,
                   this.lineTangentsOut
-                ]; _i4 < _arr.length; _i4++) {
-                  var tangents = _arr[_i4];
+                ]; _i6 < _arr2.length; _i6++) {
+                  var tangents = _arr2[_i6];
                   for (var i = 0; i < 6; i++) {
                     tangents.push.apply(tangents, _toConsumableArray(dirArr));
                   }
@@ -136399,9 +138412,9 @@
                   var dist = _main.default.Vector.sub(maxPosition, minPosition);
                   var longestDist = Math.max(Math.max(dist.x, dist.y), dist.z);
                   var scale = 200 / longestDist;
-                  for (var _i5 = 0; _i5 < this.vertices.length; _i5++) {
-                    this.vertices[_i5].sub(center);
-                    this.vertices[_i5].mult(scale);
+                  for (var _i7 = 0; _i7 < this.vertices.length; _i7++) {
+                    this.vertices[_i7].sub(center);
+                    this.vertices[_i7].mult(scale);
                   }
                 }
                 return this;
@@ -136414,33 +138427,36 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.flat': 177,
-        'core-js/modules/es.array.for-each': 178,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.array.unscopables.flat': 190,
-        'core-js/modules/es.map': 192,
-        'core-js/modules/es.number.constructor': 196,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.set': 212,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.sub': 223,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.for-each': 260,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        'core-js/modules/es.array-buffer.constructor': 170,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.flat': 178,
+        'core-js/modules/es.array.for-each': 179,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.last-index-of': 185,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.array.unscopables.flat': 191,
+        'core-js/modules/es.map': 193,
+        'core-js/modules/es.number.constructor': 197,
+        'core-js/modules/es.object.entries': 202,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.set': 215,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.sub': 226,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.for-each': 263,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    356: [
+    359: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.iterator');
@@ -136591,25 +138607,59 @@
               1]);
             }
             return this;
-          }          /**
-  * Replace the entire contents of a 4x4 matrix.
-  * If providing an array or a p5.Matrix, the values will be copied without
-  * referencing the source object.
-  * Can also provide 16 numbers as individual arguments.
-  *
-  * @method set
-  * @param {p5.Matrix|Float32Array|Number[]} [inMatrix] the input p5.Matrix or
-  *                                     an Array of length 16
-  * @chainable
-  */
-          /**
-  * @method set
-  * @param {Number[]} elements 16 numbers passed by value to avoid
-  *                                     array copying.
-  * @chainable
-  */
-
+          }
           _createClass(_class, [
+            {
+              key: 'reset',
+              value: function reset() {
+                if (this.mat3) {
+                  this.mat3.set([1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1]);
+                } else if (this.mat4) {
+                  this.mat4.set([1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1]);
+                }
+                return this;
+              }              /**
+    * Replace the entire contents of a 4x4 matrix.
+    * If providing an array or a p5.Matrix, the values will be copied without
+    * referencing the source object.
+    * Can also provide 16 numbers as individual arguments.
+    *
+    * @method set
+    * @param {p5.Matrix|Float32Array|Number[]} [inMatrix] the input p5.Matrix or
+    *                                     an Array of length 16
+    * @chainable
+    */
+              /**
+    * @method set
+    * @param {Number[]} elements 16 numbers passed by value to avoid
+    *                                     array copying.
+    * @chainable
+    */
+
+            },
             {
               key: 'set',
               value: function set(inMatrix) {
@@ -137590,36 +139640,172 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.typed-array.copy-within': 228,
-        'core-js/modules/es.typed-array.every': 229,
-        'core-js/modules/es.typed-array.fill': 230,
-        'core-js/modules/es.typed-array.filter': 231,
-        'core-js/modules/es.typed-array.find': 233,
-        'core-js/modules/es.typed-array.find-index': 232,
-        'core-js/modules/es.typed-array.float32-array': 234,
-        'core-js/modules/es.typed-array.for-each': 236,
-        'core-js/modules/es.typed-array.includes': 237,
-        'core-js/modules/es.typed-array.index-of': 238,
-        'core-js/modules/es.typed-array.iterator': 241,
-        'core-js/modules/es.typed-array.join': 242,
-        'core-js/modules/es.typed-array.last-index-of': 243,
-        'core-js/modules/es.typed-array.map': 244,
-        'core-js/modules/es.typed-array.reduce': 246,
-        'core-js/modules/es.typed-array.reduce-right': 245,
-        'core-js/modules/es.typed-array.reverse': 247,
-        'core-js/modules/es.typed-array.set': 248,
-        'core-js/modules/es.typed-array.slice': 249,
-        'core-js/modules/es.typed-array.some': 250,
-        'core-js/modules/es.typed-array.sort': 251,
-        'core-js/modules/es.typed-array.subarray': 252,
-        'core-js/modules/es.typed-array.to-locale-string': 253,
-        'core-js/modules/es.typed-array.to-string': 254
+        '../core/main': 306,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.typed-array.copy-within': 231,
+        'core-js/modules/es.typed-array.every': 232,
+        'core-js/modules/es.typed-array.fill': 233,
+        'core-js/modules/es.typed-array.filter': 234,
+        'core-js/modules/es.typed-array.find': 236,
+        'core-js/modules/es.typed-array.find-index': 235,
+        'core-js/modules/es.typed-array.float32-array': 237,
+        'core-js/modules/es.typed-array.for-each': 239,
+        'core-js/modules/es.typed-array.includes': 240,
+        'core-js/modules/es.typed-array.index-of': 241,
+        'core-js/modules/es.typed-array.iterator': 244,
+        'core-js/modules/es.typed-array.join': 245,
+        'core-js/modules/es.typed-array.last-index-of': 246,
+        'core-js/modules/es.typed-array.map': 247,
+        'core-js/modules/es.typed-array.reduce': 249,
+        'core-js/modules/es.typed-array.reduce-right': 248,
+        'core-js/modules/es.typed-array.reverse': 250,
+        'core-js/modules/es.typed-array.set': 251,
+        'core-js/modules/es.typed-array.slice': 252,
+        'core-js/modules/es.typed-array.some': 253,
+        'core-js/modules/es.typed-array.sort': 254,
+        'core-js/modules/es.typed-array.subarray': 255,
+        'core-js/modules/es.typed-array.to-locale-string': 256,
+        'core-js/modules/es.typed-array.to-string': 257
       }
     ],
-    357: [
+    360: [
+      function (_dereq_, module, exports) {
+        'use strict';
+        Object.defineProperty(exports, '__esModule', {
+          value: true
+        });
+        exports.default = void 0;
+        var _main = _interopRequireDefault(_dereq_('../core/main'));
+        function _interopRequireDefault(obj) {
+          return obj && obj.__esModule ? obj : {
+          default:
+            obj
+          };
+        }
+        function _classCallCheck(instance, Constructor) {
+          if (!(instance instanceof Constructor)) {
+            throw new TypeError('Cannot call a class as a function');
+          }
+        }
+        function _defineProperties(target, props) {
+          for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];
+            descriptor.enumerable = descriptor.enumerable || false;
+            descriptor.configurable = true;
+            if ('value' in descriptor) descriptor.writable = true;
+            Object.defineProperty(target, descriptor.key, descriptor);
+          }
+        }
+        function _createClass(Constructor, protoProps, staticProps) {
+          if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+          if (staticProps) _defineProperties(Constructor, staticProps);
+          return Constructor;
+        } /**
+   * @module Math
+   * @submodule Quaternion
+   */
+        /**
+ * A class to describe a Quaternion
+ * for vector rotations in the p5js webgl renderer.
+ * Please refer the following link for details on the implementation
+ * https://danceswithcode.net/engineeringnotes/quaternions/quaternions.html
+ * @class p5.Quat
+ * @constructor
+ * @param {Number} [w] Scalar part of the quaternion
+ * @param {Number} [x] x component of imaginary part of quaternion
+ * @param {Number} [y] y component of imaginary part of quaternion
+ * @param {Number} [z] z component of imaginary part of quaternion
+ * @private
+ */
+
+        _main.default.Quat = /*#__PURE__*/ function () {
+          function _class(w, x, y, z) {
+            _classCallCheck(this, _class);
+            this.w = w;
+            this.vec = new _main.default.Vector(x, y, z);
+          }          /**
+     * Returns a Quaternion for the
+     * axis angle representation of the rotation
+     *
+     * @method fromAxisAngle
+     * @param {Number} [angle] Angle with which the points needs to be rotated
+     * @param {Number} [x] x component of the axis vector
+     * @param {Number} [y] y component of the axis vector
+     * @param {Number} [z] z component of the axis vector
+     * @chainable
+    */
+
+          _createClass(_class, [
+            {
+              key: 'conjugate',
+              value: function conjugate() {
+                return new _main.default.Quat(this.w, - this.vec.x, - this.vec.y, - this.vec.z);
+              }              /**
+       * Multiplies a quaternion with other quaternion.
+       * @method mult
+       * @param  {p5.Quat} [quat] quaternion to multiply with the quaternion calling the method.
+       * @chainable
+       */
+
+            },
+            {
+              key: 'multiply',
+              value: function multiply(quat) {
+                /* eslint-disable max-len */
+                return new _main.default.Quat(this.w * quat.w - this.vec.x * quat.vec.x - this.vec.y * quat.vec.y - this.vec.z - quat.vec.z, this.w * quat.vec.x + this.vec.x * quat.w + this.vec.y * quat.vec.z - this.vec.z * quat.vec.y, this.w * quat.vec.y - this.vec.x * quat.vec.z + this.vec.y * quat.w + this.vec.z * quat.vec.x, this.w * quat.vec.z + this.vec.x * quat.vec.y - this.vec.y * quat.vec.x + this.vec.z * quat.w);
+                /* eslint-enable max-len */
+              }              /**
+     * This is similar to quaternion multiplication
+     * but when multipying vector with quaternion
+     * the multiplication can be simplified to the below formula.
+     * This was taken from the below stackexchange link
+     * https://gamedev.stackexchange.com/questions/28395/rotating-vector3-by-a-quaternion/50545#50545
+     * @param {p5.Vector} [p] vector to rotate on the axis quaternion
+     */
+
+            },
+            {
+              key: 'rotateVector',
+              value: function rotateVector(p) {
+                return new _main.default.Vector.mult(p, this.w * this.w - this.vec.dot(this.vec)).add(_main.default.Vector.mult(this.vec, 2 * p.dot(this.vec))).add(_main.default.Vector.mult(this.vec, 2 * this.w).cross(p)).clampToZero();
+              }              /**
+       * Rotates the Quaternion by the quaternion passed
+       * which contains the axis of roation and angle of rotation
+       *
+       * @method rotateBy
+       * @param {p5.Quat} [axesQuat] axis quaternion which contains
+       *  the axis of rotation and angle of rotation
+       * @chainable
+       */
+
+            },
+            {
+              key: 'rotateBy',
+              value: function rotateBy(axesQuat) {
+                return axesQuat.multiply(this).multiply(axesQuat.conjugate()).vec.clampToZero();
+              }
+            }
+          ], [
+            {
+              key: 'fromAxisAngle',
+              value: function fromAxisAngle(angle, x, y, z) {
+                var w = Math.cos(angle / 2);
+                var vec = new _main.default.Vector(x, y, z).normalize().mult(Math.sin(angle / 2));
+                return new _main.default.Quat(w, vec.x, vec.y, vec.z);
+              }
+            }
+          ]);
+          return _class;
+        }();
+        var _default = _main.default.Quat;
+        exports.default = _default;
+      },
+      {
+        '../core/main': 306
+      }
+    ],
+    361: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.array.map');
@@ -137731,11 +139917,11 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.map': 185
+        '../core/main': 306,
+        'core-js/modules/es.array.map': 186
       }
     ],
-    358: [
+    362: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -138033,7 +140219,7 @@
           // this can optimize performance by skipping the step of breaking it into triangles
 
           if (this.immediateMode.geometry.vertices.length === 3 && this.immediateMode.shapeMode === constants.TESS) {
-            this.immediateMode.shapeMode === constants.TRIANGLES;
+            this.immediateMode.shapeMode = constants.TRIANGLES;
           }
           this.isProcessingVertices = true;
           this._processVertices.apply(this, arguments);
@@ -138108,7 +140294,7 @@
  * Called from _processVertices(). This function calculates the stroke vertices for custom shapes and
  * tesselates shapes when applicable.
  * @private
- * @returns  {Array[Number]} indices for custom shape vertices indicating edges.
+ * @returns  {Number[]} indices for custom shape vertices indicating edges.
  */
         _main.default.RendererGL.prototype._calculateEdges = function (shapeMode, verts, shouldClose) {
           var res = [
@@ -138374,29 +140560,29 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        './p5.RenderBuffer': 357,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.fill': 173,
-        'core-js/modules/es.array.find-index': 175,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.map': 192,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        './p5.RenderBuffer': 361,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.fill': 174,
+        'core-js/modules/es.array.find-index': 176,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.map': 193,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    359: [
+    363: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -138763,12 +140949,12 @@
  * @param {Number} scaleZ  the amount to scale in the Z direction
  */
         _main.default.RendererGL.prototype.drawBuffersScaled = function (gId, scaleX, scaleY, scaleZ) {
-          var uMVMatrix = this.uMVMatrix.copy();
+          var originalModelMatrix = this.uModelMatrix.copy();
           try {
-            this.uMVMatrix.scale(scaleX, scaleY, scaleZ);
+            this.uModelMatrix.scale(scaleX, scaleY, scaleZ);
             this.drawBuffers(gId);
           } finally {
-            this.uMVMatrix = uMVMatrix;
+            this.uModelMatrix = originalModelMatrix;
           }
         };
         _main.default.RendererGL.prototype._drawArrays = function (drawMode, gId) {
@@ -138808,51 +140994,51 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        './p5.RenderBuffer': 357,
-        './p5.RendererGL': 360,
-        'core-js/modules/es.array.fill': 173,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.some': 187,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.keys': 204,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.typed-array.copy-within': 228,
-        'core-js/modules/es.typed-array.every': 229,
-        'core-js/modules/es.typed-array.fill': 230,
-        'core-js/modules/es.typed-array.filter': 231,
-        'core-js/modules/es.typed-array.find': 233,
-        'core-js/modules/es.typed-array.find-index': 232,
-        'core-js/modules/es.typed-array.float32-array': 234,
-        'core-js/modules/es.typed-array.for-each': 236,
-        'core-js/modules/es.typed-array.includes': 237,
-        'core-js/modules/es.typed-array.index-of': 238,
-        'core-js/modules/es.typed-array.iterator': 241,
-        'core-js/modules/es.typed-array.join': 242,
-        'core-js/modules/es.typed-array.last-index-of': 243,
-        'core-js/modules/es.typed-array.map': 244,
-        'core-js/modules/es.typed-array.reduce': 246,
-        'core-js/modules/es.typed-array.reduce-right': 245,
-        'core-js/modules/es.typed-array.reverse': 247,
-        'core-js/modules/es.typed-array.set': 248,
-        'core-js/modules/es.typed-array.slice': 249,
-        'core-js/modules/es.typed-array.some': 250,
-        'core-js/modules/es.typed-array.sort': 251,
-        'core-js/modules/es.typed-array.subarray': 252,
-        'core-js/modules/es.typed-array.to-locale-string': 253,
-        'core-js/modules/es.typed-array.to-string': 254,
-        'core-js/modules/es.typed-array.uint16-array': 255,
-        'core-js/modules/es.typed-array.uint32-array': 256,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        './p5.RenderBuffer': 361,
+        './p5.RendererGL': 364,
+        'core-js/modules/es.array.fill': 174,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.some': 188,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.keys': 207,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.typed-array.copy-within': 231,
+        'core-js/modules/es.typed-array.every': 232,
+        'core-js/modules/es.typed-array.fill': 233,
+        'core-js/modules/es.typed-array.filter': 234,
+        'core-js/modules/es.typed-array.find': 236,
+        'core-js/modules/es.typed-array.find-index': 235,
+        'core-js/modules/es.typed-array.float32-array': 237,
+        'core-js/modules/es.typed-array.for-each': 239,
+        'core-js/modules/es.typed-array.includes': 240,
+        'core-js/modules/es.typed-array.index-of': 241,
+        'core-js/modules/es.typed-array.iterator': 244,
+        'core-js/modules/es.typed-array.join': 245,
+        'core-js/modules/es.typed-array.last-index-of': 246,
+        'core-js/modules/es.typed-array.map': 247,
+        'core-js/modules/es.typed-array.reduce': 249,
+        'core-js/modules/es.typed-array.reduce-right': 248,
+        'core-js/modules/es.typed-array.reverse': 250,
+        'core-js/modules/es.typed-array.set': 251,
+        'core-js/modules/es.typed-array.slice': 252,
+        'core-js/modules/es.typed-array.some': 253,
+        'core-js/modules/es.typed-array.sort': 254,
+        'core-js/modules/es.typed-array.subarray': 255,
+        'core-js/modules/es.typed-array.to-locale-string': 256,
+        'core-js/modules/es.typed-array.to-string': 257,
+        'core-js/modules/es.typed-array.uint16-array': 258,
+        'core-js/modules/es.typed-array.uint32-array': 259,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    360: [
+    364: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -139213,26 +141399,26 @@
         defineStrokeJoinEnum('ROUND', 0);
         defineStrokeJoinEnum('MITER', 1);
         defineStrokeJoinEnum('BEVEL', 2);
-        var lightingShader = '#define PI 3.141592\n\nprecision highp float;\nprecision highp int;\n\nuniform mat4 uViewMatrix;\n\nuniform bool uUseLighting;\n\nuniform int uAmbientLightCount;\nuniform vec3 uAmbientColor[5];\nuniform mat3 uCameraRotation;\nuniform int uDirectionalLightCount;\nuniform vec3 uLightingDirection[5];\nuniform vec3 uDirectionalDiffuseColors[5];\nuniform vec3 uDirectionalSpecularColors[5];\n\nuniform int uPointLightCount;\nuniform vec3 uPointLightLocation[5];\nuniform vec3 uPointLightDiffuseColors[5];\t\nuniform vec3 uPointLightSpecularColors[5];\n\nuniform int uSpotLightCount;\nuniform float uSpotLightAngle[5];\nuniform float uSpotLightConc[5];\nuniform vec3 uSpotLightDiffuseColors[5];\nuniform vec3 uSpotLightSpecularColors[5];\nuniform vec3 uSpotLightLocation[5];\nuniform vec3 uSpotLightDirection[5];\n\nuniform bool uSpecular;\nuniform float uShininess;\nuniform float metallic;\n\nuniform float uConstantAttenuation;\nuniform float uLinearAttenuation;\nuniform float uQuadraticAttenuation;\n\n// setting from  _setImageLightUniforms()\n// boolean to initiate the calculateImageDiffuse and calculateImageSpecular\nuniform bool uUseImageLight;\n// texture for use in calculateImageDiffuse\nuniform sampler2D environmentMapDiffused;\n// texture for use in calculateImageSpecular\nuniform sampler2D environmentMapSpecular;\n// roughness for use in calculateImageSpecular\nuniform float levelOfDetail;\n\nconst float specularFactor = 2.0;\nconst float diffuseFactor = 0.73;\n\nstruct LightResult {\n  float specular;\n  float diffuse;\n};\n\nfloat _phongSpecular(\n  vec3 lightDirection,\n  vec3 viewDirection,\n  vec3 surfaceNormal,\n  float shininess) {\n\n  vec3 R = reflect(lightDirection, surfaceNormal);\n  return pow(max(0.0, dot(R, viewDirection)), shininess);\n}\n\nfloat _lambertDiffuse(vec3 lightDirection, vec3 surfaceNormal) {\n  return max(0.0, dot(-lightDirection, surfaceNormal));\n}\n\nLightResult _light(vec3 viewDirection, vec3 normal, vec3 lightVector) {\n\n  vec3 lightDir = normalize(lightVector);\n\n  //compute our diffuse & specular terms\n  LightResult lr;\n  float specularIntensity = mix(1.0, 0.4, metallic);\n  float diffuseIntensity = mix(1.0, 0.1, metallic);\n  if (uSpecular)\n    lr.specular = (_phongSpecular(lightDir, viewDirection, normal, uShininess)) * specularIntensity;\n    lr.diffuse = _lambertDiffuse(lightDir, normal) * diffuseIntensity;\n  return lr;\n}\n\n// converts the range of "value" from [min1 to max1] to [min2 to max2]\nfloat map(float value, float min1, float max1, float min2, float max2) {\n  return min2 + (value - min1) * (max2 - min2) / (max1 - min1);\n}\n\nvec2 mapTextureToNormal( vec3 v ){\n  // x = r sin(phi) cos(theta)   \n  // y = r cos(phi)  \n  // z = r sin(phi) sin(theta)\n  float phi = acos( v.y );\n  // if phi is 0, then there are no x, z components\n  float theta = 0.0;\n  // else \n  theta = acos(v.x / sin(phi));\n  float sinTheta = v.z / sin(phi);\n  if (sinTheta < 0.0) {\n    // Turn it into -theta, but in the 0-2PI range\n    theta = 2.0 * PI - theta;\n  }\n  theta = theta / (2.0 * 3.14159);\n  phi = phi / 3.14159 ;\n  \n  vec2 angles = vec2( fract(theta + 0.25), 1.0 - phi );\n  return angles;\n}\n\n\nvec3 calculateImageDiffuse( vec3 vNormal, vec3 vViewPosition ){\n  // make 2 seperate builds \n  vec3 worldCameraPosition =  vec3(0.0, 0.0, 0.0);  // hardcoded world camera position\n  vec3 worldNormal = normalize(vNormal * uCameraRotation);\n  vec2 newTexCoor = mapTextureToNormal( worldNormal );\n  vec4 texture = TEXTURE( environmentMapDiffused, newTexCoor );\n  // this is to make the darker sections more dark\n  // png and jpg usually flatten the brightness so it is to reverse that\n  return mix(smoothstep(vec3(0.0), vec3(1.0), texture.xyz), vec3(0.0), metallic);\n}\n\nvec3 calculateImageSpecular( vec3 vNormal, vec3 vViewPosition ){\n  vec3 worldCameraPosition =  vec3(0.0, 0.0, 0.0);\n  vec3 worldNormal = normalize(vNormal);\n  vec3 lightDirection = normalize( vViewPosition - worldCameraPosition );\n  vec3 R = reflect(lightDirection, worldNormal) * uCameraRotation;\n  vec2 newTexCoor = mapTextureToNormal( R );\n#ifdef WEBGL2\n  vec4 outColor = textureLod(environmentMapSpecular, newTexCoor, levelOfDetail);\n#else\n  vec4 outColor = TEXTURE(environmentMapSpecular, newTexCoor);\n#endif\n  // this is to make the darker sections more dark\n  // png and jpg usually flatten the brightness so it is to reverse that\n  return mix(\n    pow(outColor.xyz, vec3(10)),\n    pow(outColor.xyz, vec3(1.2)),\n    metallic \n  );\n}\n\nvoid totalLight(\n  vec3 modelPosition,\n  vec3 normal,\n  out vec3 totalDiffuse,\n  out vec3 totalSpecular\n) {\n\n  totalSpecular = vec3(0.0);\n\n  if (!uUseLighting) {\n    totalDiffuse = vec3(1.0);\n    return;\n  }\n\n  totalDiffuse = vec3(0.0);\n\n  vec3 viewDirection = normalize(-modelPosition);\n\n  for (int j = 0; j < 5; j++) {\n    if (j < uDirectionalLightCount) {\n      vec3 lightVector = (uViewMatrix * vec4(uLightingDirection[j], 0.0)).xyz;\n      vec3 lightColor = uDirectionalDiffuseColors[j];\n      vec3 specularColor = uDirectionalSpecularColors[j];\n      LightResult result = _light(viewDirection, normal, lightVector);\n      totalDiffuse += result.diffuse * lightColor;\n      totalSpecular += result.specular * lightColor * specularColor;\n    }\n\n    if (j < uPointLightCount) {\n      vec3 lightPosition = (uViewMatrix * vec4(uPointLightLocation[j], 1.0)).xyz;\n      vec3 lightVector = modelPosition - lightPosition;\n      //calculate attenuation\n      float lightDistance = length(lightVector);\n      float lightFalloff = 1.0 / (uConstantAttenuation + lightDistance * uLinearAttenuation + (lightDistance * lightDistance) * uQuadraticAttenuation);\n      vec3 lightColor = lightFalloff * uPointLightDiffuseColors[j];\n      vec3 specularColor = lightFalloff * uPointLightSpecularColors[j];\n\n      LightResult result = _light(viewDirection, normal, lightVector);\n      totalDiffuse += result.diffuse * lightColor;\n      totalSpecular += result.specular * lightColor * specularColor;\n    }\n\n    if(j < uSpotLightCount) {\n      vec3 lightPosition = (uViewMatrix * vec4(uSpotLightLocation[j], 1.0)).xyz;\n      vec3 lightVector = modelPosition - lightPosition;\n    \n      float lightDistance = length(lightVector);\n      float lightFalloff = 1.0 / (uConstantAttenuation + lightDistance * uLinearAttenuation + (lightDistance * lightDistance) * uQuadraticAttenuation);\n\n      vec3 lightDirection = (uViewMatrix * vec4(uSpotLightDirection[j], 0.0)).xyz;\n      float spotDot = dot(normalize(lightVector), normalize(lightDirection));\n      float spotFalloff;\n      if(spotDot < uSpotLightAngle[j]) {\n        spotFalloff = 0.0;\n      }\n      else {\n        spotFalloff = pow(spotDot, uSpotLightConc[j]);\n      }\n      lightFalloff *= spotFalloff;\n\n      vec3 lightColor = uSpotLightDiffuseColors[j];\n      vec3 specularColor = uSpotLightSpecularColors[j];\n     \n      LightResult result = _light(viewDirection, normal, lightVector);\n      \n      totalDiffuse += result.diffuse * lightColor * lightFalloff;\n      totalSpecular += result.specular * lightColor * specularColor * lightFalloff;\n    }\n  }\n\n  if( uUseImageLight ){\n    totalDiffuse += calculateImageDiffuse(normal, modelPosition);\n    totalSpecular += calculateImageSpecular(normal, modelPosition);\n  }\n\n  totalDiffuse *= diffuseFactor;\n  totalSpecular *= specularFactor;\n}\n';
+        var lightingShader = '#define PI 3.141592\n\nprecision highp float;\nprecision highp int;\n\nuniform mat4 uViewMatrix;\n\nuniform bool uUseLighting;\n\nuniform int uAmbientLightCount;\nuniform vec3 uAmbientColor[5];\nuniform mat3 uCameraRotation;\nuniform int uDirectionalLightCount;\nuniform vec3 uLightingDirection[5];\nuniform vec3 uDirectionalDiffuseColors[5];\nuniform vec3 uDirectionalSpecularColors[5];\n\nuniform int uPointLightCount;\nuniform vec3 uPointLightLocation[5];\nuniform vec3 uPointLightDiffuseColors[5];\t\nuniform vec3 uPointLightSpecularColors[5];\n\nuniform int uSpotLightCount;\nuniform float uSpotLightAngle[5];\nuniform float uSpotLightConc[5];\nuniform vec3 uSpotLightDiffuseColors[5];\nuniform vec3 uSpotLightSpecularColors[5];\nuniform vec3 uSpotLightLocation[5];\nuniform vec3 uSpotLightDirection[5];\n\nuniform bool uSpecular;\nuniform float uShininess;\nuniform float uMetallic;\n\nuniform float uConstantAttenuation;\nuniform float uLinearAttenuation;\nuniform float uQuadraticAttenuation;\n\n// setting from  _setImageLightUniforms()\n// boolean to initiate the calculateImageDiffuse and calculateImageSpecular\nuniform bool uUseImageLight;\n// texture for use in calculateImageDiffuse\nuniform sampler2D environmentMapDiffused;\n// texture for use in calculateImageSpecular\nuniform sampler2D environmentMapSpecular;\n\nconst float specularFactor = 2.0;\nconst float diffuseFactor = 0.73;\n\nstruct LightResult {\n  float specular;\n  float diffuse;\n};\n\nfloat _phongSpecular(\n  vec3 lightDirection,\n  vec3 viewDirection,\n  vec3 surfaceNormal,\n  float shininess) {\n\n  vec3 R = reflect(lightDirection, surfaceNormal);\n  return pow(max(0.0, dot(R, viewDirection)), shininess);\n}\n\nfloat _lambertDiffuse(vec3 lightDirection, vec3 surfaceNormal) {\n  return max(0.0, dot(-lightDirection, surfaceNormal));\n}\n\nLightResult _light(vec3 viewDirection, vec3 normal, vec3 lightVector, float shininess, float metallic) {\n\n  vec3 lightDir = normalize(lightVector);\n\n  //compute our diffuse & specular terms\n  LightResult lr;\n  float specularIntensity = mix(1.0, 0.4, metallic);\n  float diffuseIntensity = mix(1.0, 0.1, metallic);\n  if (uSpecular)\n    lr.specular = (_phongSpecular(lightDir, viewDirection, normal, shininess)) * specularIntensity;\n    lr.diffuse = _lambertDiffuse(lightDir, normal) * diffuseIntensity;\n  return lr;\n}\n\n// converts the range of "value" from [min1 to max1] to [min2 to max2]\nfloat map(float value, float min1, float max1, float min2, float max2) {\n  return min2 + (value - min1) * (max2 - min2) / (max1 - min1);\n}\n\nvec2 mapTextureToNormal( vec3 v ){\n  // x = r sin(phi) cos(theta)   \n  // y = r cos(phi)  \n  // z = r sin(phi) sin(theta)\n  float phi = acos( v.y );\n  // if phi is 0, then there are no x, z components\n  float theta = 0.0;\n  // else \n  theta = acos(v.x / sin(phi));\n  float sinTheta = v.z / sin(phi);\n  if (sinTheta < 0.0) {\n    // Turn it into -theta, but in the 0-2PI range\n    theta = 2.0 * PI - theta;\n  }\n  theta = theta / (2.0 * 3.14159);\n  phi = phi / 3.14159 ;\n  \n  vec2 angles = vec2( fract(theta + 0.25), 1.0 - phi );\n  return angles;\n}\n\n\nvec3 calculateImageDiffuse(vec3 vNormal, vec3 vViewPosition, float metallic){\n  // make 2 separate builds \n  vec3 worldCameraPosition =  vec3(0.0, 0.0, 0.0);  // hardcoded world camera position\n  vec3 worldNormal = normalize(vNormal * uCameraRotation);\n  vec2 newTexCoor = mapTextureToNormal( worldNormal );\n  vec4 texture = TEXTURE( environmentMapDiffused, newTexCoor );\n  // this is to make the darker sections more dark\n  // png and jpg usually flatten the brightness so it is to reverse that\n  return mix(smoothstep(vec3(0.0), vec3(1.0), texture.xyz), vec3(0.0), metallic);\n}\n\nvec3 calculateImageSpecular(vec3 vNormal, vec3 vViewPosition, float shininess, float metallic){\n  vec3 worldCameraPosition =  vec3(0.0, 0.0, 0.0);\n  vec3 worldNormal = normalize(vNormal);\n  vec3 lightDirection = normalize( vViewPosition - worldCameraPosition );\n  vec3 R = reflect(lightDirection, worldNormal) * uCameraRotation;\n  vec2 newTexCoor = mapTextureToNormal( R );\n#ifdef WEBGL2\n  // In p5js the range of shininess is >= 1,\n  // Therefore roughness range will be ([0,1]*8)*20 or [0, 160]\n  // The factor of 8 is because currently the getSpecularTexture\n  // only calculated 8 different levels of roughness\n  // The factor of 20 is just to spread up this range so that,\n  // [1, max] of shininess is converted to [0,160] of roughness\n  float roughness = 20. / shininess;\n  vec4 outColor = textureLod(environmentMapSpecular, newTexCoor, roughness * 8.);\n#else\n  vec4 outColor = TEXTURE(environmentMapSpecular, newTexCoor);\n#endif\n  // this is to make the darker sections more dark\n  // png and jpg usually flatten the brightness so it is to reverse that\n  return mix(\n    pow(outColor.xyz, vec3(10)),\n    pow(outColor.xyz, vec3(1.2)),\n    metallic \n  );\n}\n\nvoid totalLight(\n  vec3 modelPosition,\n  vec3 normal,\n  float shininess,\n  float metallic,\n  out vec3 totalDiffuse,\n  out vec3 totalSpecular\n) {\n\n  totalSpecular = vec3(0.0);\n\n  if (!uUseLighting) {\n    totalDiffuse = vec3(1.0);\n    return;\n  }\n\n  totalDiffuse = vec3(0.0);\n\n  vec3 viewDirection = normalize(-modelPosition);\n\n  for (int j = 0; j < 5; j++) {\n    if (j < uDirectionalLightCount) {\n      vec3 lightVector = (uViewMatrix * vec4(uLightingDirection[j], 0.0)).xyz;\n      vec3 lightColor = uDirectionalDiffuseColors[j];\n      vec3 specularColor = uDirectionalSpecularColors[j];\n      LightResult result = _light(viewDirection, normal, lightVector, shininess, metallic);\n      totalDiffuse += result.diffuse * lightColor;\n      totalSpecular += result.specular * lightColor * specularColor;\n    }\n\n    if (j < uPointLightCount) {\n      vec3 lightPosition = (uViewMatrix * vec4(uPointLightLocation[j], 1.0)).xyz;\n      vec3 lightVector = modelPosition - lightPosition;\n      //calculate attenuation\n      float lightDistance = length(lightVector);\n      float lightFalloff = 1.0 / (uConstantAttenuation + lightDistance * uLinearAttenuation + (lightDistance * lightDistance) * uQuadraticAttenuation);\n      vec3 lightColor = lightFalloff * uPointLightDiffuseColors[j];\n      vec3 specularColor = lightFalloff * uPointLightSpecularColors[j];\n\n      LightResult result = _light(viewDirection, normal, lightVector, shininess, metallic);\n      totalDiffuse += result.diffuse * lightColor;\n      totalSpecular += result.specular * lightColor * specularColor;\n    }\n\n    if(j < uSpotLightCount) {\n      vec3 lightPosition = (uViewMatrix * vec4(uSpotLightLocation[j], 1.0)).xyz;\n      vec3 lightVector = modelPosition - lightPosition;\n    \n      float lightDistance = length(lightVector);\n      float lightFalloff = 1.0 / (uConstantAttenuation + lightDistance * uLinearAttenuation + (lightDistance * lightDistance) * uQuadraticAttenuation);\n\n      vec3 lightDirection = (uViewMatrix * vec4(uSpotLightDirection[j], 0.0)).xyz;\n      float spotDot = dot(normalize(lightVector), normalize(lightDirection));\n      float spotFalloff;\n      if(spotDot < uSpotLightAngle[j]) {\n        spotFalloff = 0.0;\n      }\n      else {\n        spotFalloff = pow(spotDot, uSpotLightConc[j]);\n      }\n      lightFalloff *= spotFalloff;\n\n      vec3 lightColor = uSpotLightDiffuseColors[j];\n      vec3 specularColor = uSpotLightSpecularColors[j];\n     \n      LightResult result = _light(viewDirection, normal, lightVector, shininess, metallic);\n      \n      totalDiffuse += result.diffuse * lightColor * lightFalloff;\n      totalSpecular += result.specular * lightColor * specularColor * lightFalloff;\n    }\n  }\n\n  if( uUseImageLight ){\n    totalDiffuse += calculateImageDiffuse(normal, modelPosition, metallic);\n    totalSpecular += calculateImageSpecular(normal, modelPosition, shininess, metallic);\n  }\n\n  totalDiffuse *= diffuseFactor;\n  totalSpecular *= specularFactor;\n}\n';
         var webgl2CompatibilityShader = '#ifdef WEBGL2\n\n#define IN in\n#define OUT out\n\n#ifdef FRAGMENT_SHADER\nout vec4 outColor;\n#define OUT_COLOR outColor\n#endif\n#define TEXTURE texture\n\n#else\n\n#ifdef FRAGMENT_SHADER\n#define IN varying\n#else\n#define IN attribute\n#endif\n#define OUT varying\n#define TEXTURE texture2D\n\n#ifdef FRAGMENT_SHADER\n#define OUT_COLOR gl_FragColor\n#endif\n\n#endif\n';
         var defaultShaders = {
-          sphereMappingFrag: '#define PI 3.141592\n\nprecision highp float;\n  \nuniform sampler2D uSampler;\nuniform mat3 uNewNormalMatrix;\nuniform float uFovY;\nuniform float uAspect;\n\nvarying vec2 vTexCoord;\n  \nvoid main() {\n    float uFovX = uFovY * uAspect; \n    vec4 newTexColor = texture2D(uSampler, vTexCoord);\n    float angleY = mix(uFovY/2.0,  -uFovY/2.0, vTexCoord.y);\n    float angleX = mix(uFovX/2.0, -uFovX/2.0, vTexCoord.x);\n    vec3 rotatedNormal = vec3( angleX, angleY, 1.0 );\n    rotatedNormal = uNewNormalMatrix * normalize(rotatedNormal);\n    vec2 suv;\n    suv.y = 0.5 + 0.5 * (-rotatedNormal.y);\n    suv.x = atan(rotatedNormal.z, rotatedNormal.x) / (2.0 * PI) + 0.5;\n    newTexColor = texture2D(uSampler, suv.xy);\n    gl_FragColor = newTexColor;\n}\n',
+          sphereMappingFrag: '#define PI 3.141592\n\nprecision highp float;\n  \nuniform sampler2D uSampler;\nuniform mat3 uNewNormalMatrix;\nuniform float uFovY;\nuniform float uAspect;\n\nvarying vec2 vTexCoord;\n  \nvoid main() {\n    float uFovX = uFovY * uAspect; \n    vec4 newTexColor = texture2D(uSampler, vTexCoord);\n    float angleY = mix(uFovY/2.0,  -uFovY/2.0, vTexCoord.y);\n    float angleX = mix(uFovX/2.0, -uFovX/2.0, vTexCoord.x);\n    vec3 rotatedNormal = vec3( angleX, angleY, 1.0 );\n    rotatedNormal = uNewNormalMatrix * normalize(rotatedNormal);\n    float temp = rotatedNormal.z;\n    rotatedNormal.z = rotatedNormal.x;\n    rotatedNormal.x = -temp;\n    vec2 suv;\n    suv.y = 0.5 + 0.5 * (-rotatedNormal.y);\n    suv.x = atan(rotatedNormal.z, rotatedNormal.x) / (2.0 * PI) + 0.5;\n    newTexColor = texture2D(uSampler, suv.xy);\n    gl_FragColor = newTexColor;\n}\n',
           immediateVert: 'IN vec3 aPosition;\nIN vec4 aVertexColor;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform float uResolution;\nuniform float uPointSize;\n\nOUT vec4 vColor;\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vColor = aVertexColor;\n  gl_PointSize = uPointSize;\n}\n',
           vertexColorVert: 'IN vec3 aPosition;\nIN vec4 aVertexColor;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\n\nOUT vec4 vColor;\n\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vColor = aVertexColor;\n}\n',
           vertexColorFrag: 'IN vec4 vColor;\nvoid main(void) {\n  OUT_COLOR = vec4(vColor.rgb, 1.) * vColor.a;\n}\n',
-          normalVert: 'IN vec3 aPosition;\nIN vec3 aNormal;\nIN vec2 aTexCoord;\nIN vec4 aVertexColor;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\n\nuniform vec4 uMaterialColor;\nuniform bool uUseVertexColor;\n\nOUT vec3 vVertexNormal;\nOUT highp vec2 vVertTexCoord;\nOUT vec4 vColor;\n\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vVertexNormal = normalize(vec3( uNormalMatrix * aNormal ));\n  vVertTexCoord = aTexCoord;\n  vColor = (uUseVertexColor ? aVertexColor : uMaterialColor);\n}\n',
-          normalFrag: 'IN vec3 vVertexNormal;\nvoid main(void) {\n  OUT_COLOR = vec4(vVertexNormal, 1.0);\n}\n',
-          basicFrag: 'IN vec4 vColor;\nvoid main(void) {\n  OUT_COLOR = vec4(vColor.rgb, 1.) * vColor.a;\n}\n',
+          normalVert: 'IN vec3 aPosition;\nIN vec3 aNormal;\nIN vec2 aTexCoord;\nIN vec4 aVertexColor;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\n\nuniform vec4 uMaterialColor;\nuniform bool uUseVertexColor;\n\nOUT vec3 vVertexNormal;\nOUT highp vec2 vVertTexCoord;\nOUT vec4 vColor;\n\nvoid main(void) {\n  HOOK_beforeVertex();\n  vec4 positionVec4 = vec4(HOOK_getWorldPosition(\n    (uModelViewMatrix * vec4(HOOK_getLocalPosition(aPosition), 1.0)).xyz\n  ), 1.);\n\n  gl_Position = uProjectionMatrix * positionVec4;\n\n  vVertexNormal = HOOK_getWorldNormal(normalize(uNormalMatrix * HOOK_getLocalNormal(aNormal)));\n  vVertTexCoord = HOOK_getUV(aTexCoord);\n  vColor = HOOK_getVertexColor(uUseVertexColor ? aVertexColor : uMaterialColor);\n  HOOK_afterVertex();\n}\n',
+          normalFrag: 'IN vec3 vVertexNormal;\nvoid main(void) {\n  HOOK_beforeFragment();\n  OUT_COLOR = HOOK_getFinalColor(vec4(vVertexNormal, 1.0));\n  HOOK_afterFragment();\n}\n',
+          basicFrag: 'IN vec4 vColor;\nvoid main(void) {\n  HOOK_beforeFragment();\n  OUT_COLOR = HOOK_getFinalColor(vec4(vColor.rgb, 1.) * vColor.a);\n  HOOK_afterFragment();\n}\n',
           lightVert: lightingShader + '// include lighting.glgl\n\nIN vec3 aPosition;\nIN vec3 aNormal;\nIN vec2 aTexCoord;\nIN vec4 aVertexColor;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\n\nuniform bool uUseVertexColor;\nuniform vec4 uMaterialColor;\n\nOUT highp vec2 vVertTexCoord;\nOUT vec3 vDiffuseColor;\nOUT vec3 vSpecularColor;\nOUT vec4 vColor;\n\nvoid main(void) {\n\n  vec4 viewModelPosition = uModelViewMatrix * vec4(aPosition, 1.0);\n  gl_Position = uProjectionMatrix * viewModelPosition;\n\n  vec3 vertexNormal = normalize(uNormalMatrix * aNormal);\n  vVertTexCoord = aTexCoord;\n\n  totalLight(viewModelPosition.xyz, vertexNormal, vDiffuseColor, vSpecularColor);\n\n  for (int i = 0; i < 8; i++) {\n    if (i < uAmbientLightCount) {\n      vDiffuseColor += uAmbientColor[i];\n    }\n  }\n  \n  vColor = (uUseVertexColor ? aVertexColor : uMaterialColor);\n}\n',
           lightTextureFrag: 'uniform vec4 uTint;\nuniform sampler2D uSampler;\nuniform bool isTexture;\nuniform bool uEmissive;\n\nIN highp vec2 vVertTexCoord;\nIN vec3 vDiffuseColor;\nIN vec3 vSpecularColor;\nIN vec4 vColor;\n\nvoid main(void) {\n  if(uEmissive && !isTexture) {\n    OUT_COLOR = vColor;\n  }\n  else {\n    vec4 baseColor = isTexture\n      // Textures come in with premultiplied alpha. To apply tint and still have\n      // premultiplied alpha output, we need to multiply the RGB channels by the\n      // tint RGB, and all channels by the tint alpha.\n      ? TEXTURE(uSampler, vVertTexCoord) * vec4(uTint.rgb/255., 1.) * (uTint.a/255.)\n      // Colors come in with unmultiplied alpha, so we need to multiply the RGB\n      // channels by alpha to convert it to premultiplied alpha.\n      : vec4(vColor.rgb * vColor.a, vColor.a);\n    OUT_COLOR = vec4(baseColor.rgb * vDiffuseColor + vSpecularColor, baseColor.a);\n  }\n}\n',
-          phongVert: 'precision highp int;\n\nIN vec3 aPosition;\nIN vec3 aNormal;\nIN vec2 aTexCoord;\nIN vec4 aVertexColor;\n\nuniform vec3 uAmbientColor[5];\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\nuniform int uAmbientLightCount;\n\nuniform bool uUseVertexColor;\nuniform vec4 uMaterialColor;\n\nOUT vec3 vNormal;\nOUT vec2 vTexCoord;\nOUT vec3 vViewPosition;\nOUT vec3 vAmbientColor;\nOUT vec4 vColor;\n\nvoid main(void) {\n\n  vec4 viewModelPosition = uModelViewMatrix * vec4(aPosition, 1.0);\n\n  // Pass varyings to fragment shader\n  vViewPosition = viewModelPosition.xyz;\n  gl_Position = uProjectionMatrix * viewModelPosition;  \n\n  vNormal = uNormalMatrix * aNormal;\n  vTexCoord = aTexCoord;\n\n  // TODO: this should be a uniform\n  vAmbientColor = vec3(0.0);\n  for (int i = 0; i < 5; i++) {\n    if (i < uAmbientLightCount) {\n      vAmbientColor += uAmbientColor[i];\n    }\n  }\n  \n  vColor = (uUseVertexColor ? aVertexColor : uMaterialColor);\n}\n',
-          phongFrag: lightingShader + '// include lighting.glsl\nprecision highp int;\n\nuniform bool uHasSetAmbient;\nuniform vec4 uSpecularMatColor;\nuniform vec4 uAmbientMatColor;\nuniform vec4 uEmissiveMatColor;\n\nuniform vec4 uTint;\nuniform sampler2D uSampler;\nuniform bool isTexture;\n\nIN vec3 vNormal;\nIN vec2 vTexCoord;\nIN vec3 vViewPosition;\nIN vec3 vAmbientColor;\nIN vec4 vColor;\n\nvoid main(void) {\n\n  vec3 diffuse;\n  vec3 specular;\n  totalLight(vViewPosition, normalize(vNormal), diffuse, specular);\n\n  // Calculating final color as result of all lights (plus emissive term).\n\n  vec4 baseColor = isTexture\n    // Textures come in with premultiplied alpha. To apply tint and still have\n    // premultiplied alpha output, we need to multiply the RGB channels by the\n    // tint RGB, and all channels by the tint alpha.\n    ? TEXTURE(uSampler, vTexCoord) * vec4(uTint.rgb/255., 1.) * (uTint.a/255.)\n    // Colors come in with unmultiplied alpha, so we need to multiply the RGB\n    // channels by alpha to convert it to premultiplied alpha.\n    : vec4(vColor.rgb * vColor.a, vColor.a);\n  OUT_COLOR = vec4(diffuse * baseColor.rgb + \n                    vAmbientColor * (\n                      uHasSetAmbient ? uAmbientMatColor.rgb : baseColor.rgb\n                    ) + \n                    specular * uSpecularMatColor.rgb + \n                    uEmissiveMatColor.rgb, baseColor.a);\n}\n',
+          phongVert: 'precision highp int;\n\nIN vec3 aPosition;\nIN vec3 aNormal;\nIN vec2 aTexCoord;\nIN vec4 aVertexColor;\n\nuniform vec3 uAmbientColor[5];\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\nuniform int uAmbientLightCount;\n\nuniform bool uUseVertexColor;\nuniform vec4 uMaterialColor;\n\nOUT vec3 vNormal;\nOUT vec2 vTexCoord;\nOUT vec3 vViewPosition;\nOUT vec3 vAmbientColor;\nOUT vec4 vColor;\n\nvoid main(void) {\n  HOOK_beforeVertex();\n  vec4 viewModelPosition = vec4(HOOK_getWorldPosition(\n    (uModelViewMatrix * vec4(HOOK_getLocalPosition(aPosition), 1.0)).xyz\n  ), 1.);\n\n  // Pass varyings to fragment shader\n  vViewPosition = viewModelPosition.xyz;\n  gl_Position = uProjectionMatrix * viewModelPosition;  \n\n  vNormal = HOOK_getWorldNormal(uNormalMatrix * HOOK_getLocalNormal(aNormal));\n  vTexCoord = HOOK_getUV(aTexCoord);\n\n  // TODO: this should be a uniform\n  vAmbientColor = vec3(0.0);\n  for (int i = 0; i < 5; i++) {\n    if (i < uAmbientLightCount) {\n      vAmbientColor += uAmbientColor[i];\n    }\n  }\n  \n  vColor = HOOK_getVertexColor((uUseVertexColor ? aVertexColor : uMaterialColor));\n  HOOK_afterVertex();\n}\n',
+          phongFrag: lightingShader + '// include lighting.glsl\nprecision highp int;\n\nuniform bool uHasSetAmbient;\nuniform vec4 uSpecularMatColor;\nuniform vec4 uAmbientMatColor;\nuniform vec4 uEmissiveMatColor;\n\nuniform vec4 uTint;\nuniform sampler2D uSampler;\nuniform bool isTexture;\n\nIN vec3 vNormal;\nIN vec2 vTexCoord;\nIN vec3 vViewPosition;\nIN vec3 vAmbientColor;\nIN vec4 vColor;\n\nstruct ColorComponents {\n  vec3 baseColor;\n  float opacity;\n  vec3 ambientColor;\n  vec3 specularColor;\n  vec3 diffuse;\n  vec3 ambient;\n  vec3 specular;\n  vec3 emissive;\n};\n\nstruct Inputs {\n  vec3 normal;\n  vec2 texCoord;\n  vec3 ambientLight;\n  vec3 ambientMaterial;\n  vec3 specularMaterial;\n  vec3 emissiveMaterial;\n  vec4 color;\n  float shininess;\n  float metalness;\n};\n\nvoid main(void) {\n  HOOK_beforeFragment();\n\n  Inputs inputs;\n  inputs.normal = normalize(vNormal);\n  inputs.texCoord = vTexCoord;\n  inputs.ambientLight = vAmbientColor;\n  inputs.color = isTexture\n      // Textures come in with premultiplied alpha. To apply tint and still have\n      // premultiplied alpha output, we need to multiply the RGB channels by the\n      // tint RGB, and all channels by the tint alpha.\n      ? TEXTURE(uSampler, vTexCoord) * vec4(uTint.rgb/255., 1.) * (uTint.a/255.)\n      // Colors come in with unmultiplied alpha, so we need to multiply the RGB\n      // channels by alpha to convert it to premultiplied alpha.\n      : vec4(vColor.rgb * vColor.a, vColor.a);\n  inputs.shininess = uShininess;\n  inputs.metalness = uMetallic;\n  inputs.ambientMaterial = uHasSetAmbient ? uAmbientMatColor.rgb : inputs.color.rgb;\n  inputs.specularMaterial = uSpecularMatColor.rgb;\n  inputs.emissiveMaterial = uEmissiveMatColor.rgb;\n  inputs = HOOK_getPixelInputs(inputs);\n\n  vec3 diffuse;\n  vec3 specular;\n  totalLight(vViewPosition, inputs.normal, inputs.shininess, inputs.metalness, diffuse, specular);\n\n  // Calculating final color as result of all lights (plus emissive term).\n\n  vec2 texCoord = inputs.texCoord;\n  vec4 baseColor = inputs.color;\n  ColorComponents c;\n  c.opacity = baseColor.a;\n  c.baseColor = baseColor.rgb;\n  c.ambientColor = inputs.ambientMaterial;\n  c.specularColor = inputs.specularMaterial;\n  c.diffuse = diffuse;\n  c.ambient = inputs.ambientLight;\n  c.specular = specular;\n  c.emissive = inputs.emissiveMaterial;\n  OUT_COLOR = HOOK_getFinalColor(HOOK_combineColors(c));\n  HOOK_afterFragment();\n}\n',
           fontVert: 'IN vec3 aPosition;\nIN vec2 aTexCoord;\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\n\nuniform vec4 uGlyphRect;\nuniform float uGlyphOffset;\n\nOUT vec2 vTexCoord;\nOUT float w;\n\nvoid main() {\n  vec4 positionVec4 = vec4(aPosition, 1.0);\n\n  // scale by the size of the glyph\'s rectangle\n  positionVec4.xy *= uGlyphRect.zw - uGlyphRect.xy;\n\n  // Expand glyph bounding boxes by 1px on each side to give a bit of room\n  // for antialiasing\n  vec3 newOrigin = (uModelViewMatrix * vec4(0., 0., 0., 1.)).xyz;\n  vec3 newDX = (uModelViewMatrix * vec4(1., 0., 0., 1.)).xyz;\n  vec3 newDY = (uModelViewMatrix * vec4(0., 1., 0., 1.)).xyz;\n  vec2 pixelScale = vec2(\n    1. / length(newOrigin - newDX),\n    1. / length(newOrigin - newDY)\n  );\n  vec2 offset = pixelScale * normalize(aTexCoord - vec2(0.5, 0.5)) * vec2(1., -1.);\n  vec2 textureOffset = offset * (1. / vec2(\n    uGlyphRect.z - uGlyphRect.x,\n    uGlyphRect.w - uGlyphRect.y\n  ));\n\n  // move to the corner of the glyph\n  positionVec4.xy += uGlyphRect.xy;\n\n  // move to the letter\'s line offset\n  positionVec4.x += uGlyphOffset;\n\n  positionVec4.xy += offset;\n  \n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vTexCoord = aTexCoord + textureOffset;\n  w = gl_Position.w;\n}\n',
           fontFrag: '#ifndef WEBGL2\n#extension GL_OES_standard_derivatives : enable\n#endif\n\n#if 0\n  // simulate integer math using floats\n\t#define int float\n\t#define ivec2 vec2\n\t#define INT(x) float(x)\n\n\tint ifloor(float v) { return floor(v); }\n\tivec2 ifloor(vec2 v) { return floor(v); }\n\n#else\n  // use native integer math\n\tprecision highp int;\n\t#define INT(x) x\n\n\tint ifloor(float v) { return int(v); }\n\tint ifloor(int v) { return v; }\n\tivec2 ifloor(vec2 v) { return ivec2(v); }\n\n#endif\n\nuniform sampler2D uSamplerStrokes;\nuniform sampler2D uSamplerRowStrokes;\nuniform sampler2D uSamplerRows;\nuniform sampler2D uSamplerColStrokes;\nuniform sampler2D uSamplerCols;\n\nuniform ivec2 uStrokeImageSize;\nuniform ivec2 uCellsImageSize;\nuniform ivec2 uGridImageSize;\n\nuniform ivec2 uGridOffset;\nuniform ivec2 uGridSize;\nuniform vec4 uMaterialColor;\n\nIN vec2 vTexCoord;\n\n// some helper functions\nint ROUND(float v) { return ifloor(v + 0.5); }\nivec2 ROUND(vec2 v) { return ifloor(v + 0.5); }\nfloat saturate(float v) { return clamp(v, 0.0, 1.0); }\nvec2 saturate(vec2 v) { return clamp(v, 0.0, 1.0); }\n\nint mul(float v1, int v2) {\n  return ifloor(v1 * float(v2));\n}\n\nivec2 mul(vec2 v1, ivec2 v2) {\n  return ifloor(v1 * vec2(v2) + 0.5);\n}\n\n// unpack a 16-bit integer from a float vec2\nint getInt16(vec2 v) {\n  ivec2 iv = ROUND(v * 255.0);\n  return iv.x * INT(128) + iv.y;\n}\n\nvec2 pixelScale;\nvec2 coverage = vec2(0.0);\nvec2 weight = vec2(0.5);\nconst float minDistance = 1.0/8192.0;\nconst float hardness = 1.05; // amount of antialias\n\n// the maximum number of curves in a glyph\nconst int N = INT(250);\n\n// retrieves an indexed pixel from a sampler\nvec4 getTexel(sampler2D sampler, int pos, ivec2 size) {\n  int width = size.x;\n  int y = ifloor(pos / width);\n  int x = pos - y * width;  // pos % width\n\n  return TEXTURE(sampler, (vec2(x, y) + 0.5) / vec2(size));\n}\n\nvoid calulateCrossings(vec2 p0, vec2 p1, vec2 p2, out vec2 C1, out vec2 C2) {\n\n  // get the coefficients of the quadratic in t\n  vec2 a = p0 - p1 * 2.0 + p2;\n  vec2 b = p0 - p1;\n  vec2 c = p0 - vTexCoord;\n\n  // found out which values of \'t\' it crosses the axes\n  vec2 surd = sqrt(max(vec2(0.0), b * b - a * c));\n  vec2 t1 = ((b - surd) / a).yx;\n  vec2 t2 = ((b + surd) / a).yx;\n\n  // approximate straight lines to avoid rounding errors\n  if (abs(a.y) < 0.001)\n    t1.x = t2.x = c.y / (2.0 * b.y);\n\n  if (abs(a.x) < 0.001)\n    t1.y = t2.y = c.x / (2.0 * b.x);\n\n  // plug into quadratic formula to find the corrdinates of the crossings\n  C1 = ((a * t1 - b * 2.0) * t1 + c) * pixelScale;\n  C2 = ((a * t2 - b * 2.0) * t2 + c) * pixelScale;\n}\n\nvoid coverageX(vec2 p0, vec2 p1, vec2 p2) {\n\n  vec2 C1, C2;\n  calulateCrossings(p0, p1, p2, C1, C2);\n\n  // determine on which side of the x-axis the points lie\n  bool y0 = p0.y > vTexCoord.y;\n  bool y1 = p1.y > vTexCoord.y;\n  bool y2 = p2.y > vTexCoord.y;\n\n  // could web be under the curve (after t1)?\n  if (y1 ? !y2 : y0) {\n    // add the coverage for t1\n    coverage.x += saturate(C1.x + 0.5);\n    // calculate the anti-aliasing for t1\n    weight.x = min(weight.x, abs(C1.x));\n  }\n\n  // are we outside the curve (after t2)?\n  if (y1 ? !y0 : y2) {\n    // subtract the coverage for t2\n    coverage.x -= saturate(C2.x + 0.5);\n    // calculate the anti-aliasing for t2\n    weight.x = min(weight.x, abs(C2.x));\n  }\n}\n\n// this is essentially the same as coverageX, but with the axes swapped\nvoid coverageY(vec2 p0, vec2 p1, vec2 p2) {\n\n  vec2 C1, C2;\n  calulateCrossings(p0, p1, p2, C1, C2);\n\n  bool x0 = p0.x > vTexCoord.x;\n  bool x1 = p1.x > vTexCoord.x;\n  bool x2 = p2.x > vTexCoord.x;\n\n  if (x1 ? !x2 : x0) {\n    coverage.y -= saturate(C1.y + 0.5);\n    weight.y = min(weight.y, abs(C1.y));\n  }\n\n  if (x1 ? !x0 : x2) {\n    coverage.y += saturate(C2.y + 0.5);\n    weight.y = min(weight.y, abs(C2.y));\n  }\n}\n\nvoid main() {\n\n  // calculate the pixel scale based on screen-coordinates\n  pixelScale = hardness / fwidth(vTexCoord);\n\n  // which grid cell is this pixel in?\n  ivec2 gridCoord = ifloor(vTexCoord * vec2(uGridSize));\n\n  // intersect curves in this row\n  {\n    // the index into the row info bitmap\n    int rowIndex = gridCoord.y + uGridOffset.y;\n    // fetch the info texel\n    vec4 rowInfo = getTexel(uSamplerRows, rowIndex, uGridImageSize);\n    // unpack the rowInfo\n    int rowStrokeIndex = getInt16(rowInfo.xy);\n    int rowStrokeCount = getInt16(rowInfo.zw);\n\n    for (int iRowStroke = INT(0); iRowStroke < N; iRowStroke++) {\n      if (iRowStroke >= rowStrokeCount)\n        break;\n\n      // each stroke is made up of 3 points: the start and control point\n      // and the start of the next curve.\n      // fetch the indices of this pair of strokes:\n      vec4 strokeIndices = getTexel(uSamplerRowStrokes, rowStrokeIndex++, uCellsImageSize);\n\n      // unpack the stroke index\n      int strokePos = getInt16(strokeIndices.xy);\n\n      // fetch the two strokes\n      vec4 stroke0 = getTexel(uSamplerStrokes, strokePos + INT(0), uStrokeImageSize);\n      vec4 stroke1 = getTexel(uSamplerStrokes, strokePos + INT(1), uStrokeImageSize);\n\n      // calculate the coverage\n      coverageX(stroke0.xy, stroke0.zw, stroke1.xy);\n    }\n  }\n\n  // intersect curves in this column\n  {\n    int colIndex = gridCoord.x + uGridOffset.x;\n    vec4 colInfo = getTexel(uSamplerCols, colIndex, uGridImageSize);\n    int colStrokeIndex = getInt16(colInfo.xy);\n    int colStrokeCount = getInt16(colInfo.zw);\n    \n    for (int iColStroke = INT(0); iColStroke < N; iColStroke++) {\n      if (iColStroke >= colStrokeCount)\n        break;\n\n      vec4 strokeIndices = getTexel(uSamplerColStrokes, colStrokeIndex++, uCellsImageSize);\n\n      int strokePos = getInt16(strokeIndices.xy);\n      vec4 stroke0 = getTexel(uSamplerStrokes, strokePos + INT(0), uStrokeImageSize);\n      vec4 stroke1 = getTexel(uSamplerStrokes, strokePos + INT(1), uStrokeImageSize);\n      coverageY(stroke0.xy, stroke0.zw, stroke1.xy);\n    }\n  }\n\n  weight = saturate(1.0 - weight * 2.0);\n  float distance = max(weight.x + weight.y, minDistance); // manhattan approx.\n  float antialias = abs(dot(coverage, weight) / distance);\n  float cover = min(abs(coverage.x), abs(coverage.y));\n  OUT_COLOR = vec4(uMaterialColor.rgb, 1.) * uMaterialColor.a;\n  OUT_COLOR *= saturate(max(antialias, cover));\n}\n',
-          lineVert: lineDefs + '/*\n  Part of the Processing project - http://processing.org\n  Copyright (c) 2012-15 The Processing Foundation\n  Copyright (c) 2004-12 Ben Fry and Casey Reas\n  Copyright (c) 2001-04 Massachusetts Institute of Technology\n  This library is free software; you can redistribute it and/or\n  modify it under the terms of the GNU Lesser General Public\n  License as published by the Free Software Foundation, version 2.1.\n  This library is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n  Lesser General Public License for more details.\n  You should have received a copy of the GNU Lesser General\n  Public License along with this library; if not, write to the\n  Free Software Foundation, Inc., 59 Temple Place, Suite 330,\n  Boston, MA  02111-1307  USA\n*/\n\n#define PROCESSING_LINE_SHADER\n\nprecision mediump int;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform float uStrokeWeight;\n\nuniform bool uUseLineColor;\nuniform vec4 uMaterialColor;\n\nuniform vec4 uViewport;\nuniform int uPerspective;\nuniform int uStrokeJoin;\n\nIN vec4 aPosition;\nIN vec3 aTangentIn;\nIN vec3 aTangentOut;\nIN float aSide;\nIN vec4 aVertexColor;\n\nOUT vec4 vColor;\nOUT vec2 vTangent;\nOUT vec2 vCenter;\nOUT vec2 vPosition;\nOUT float vMaxDist;\nOUT float vCap;\nOUT float vJoin;\n\nvec2 lineIntersection(vec2 aPoint, vec2 aDir, vec2 bPoint, vec2 bDir) {\n  // Rotate and translate so a starts at the origin and goes out to the right\n  bPoint -= aPoint;\n  vec2 rotatedBFrom = vec2(\n    bPoint.x*aDir.x + bPoint.y*aDir.y,\n    bPoint.y*aDir.x - bPoint.x*aDir.y\n  );\n  vec2 bTo = bPoint + bDir;\n  vec2 rotatedBTo = vec2(\n    bTo.x*aDir.x + bTo.y*aDir.y,\n    bTo.y*aDir.x - bTo.x*aDir.y\n  );\n  float intersectionDistance =\n    rotatedBTo.x + (rotatedBFrom.x - rotatedBTo.x) * rotatedBTo.y /\n    (rotatedBTo.y - rotatedBFrom.y);\n  return aPoint + aDir * intersectionDistance;\n}\n\nvoid main() {\n  // Caps have one of either the in or out tangent set to 0\n  vCap = (aTangentIn == vec3(0.)) != (aTangentOut == (vec3(0.)))\n    ? 1. : 0.;\n\n  // Joins have two unique, defined tangents\n  vJoin = (\n    aTangentIn != vec3(0.) &&\n    aTangentOut != vec3(0.) &&\n    aTangentIn != aTangentOut\n  ) ? 1. : 0.;\n\n  vec4 posp = uModelViewMatrix * aPosition;\n  vec4 posqIn = uModelViewMatrix * (aPosition + vec4(aTangentIn, 0));\n  vec4 posqOut = uModelViewMatrix * (aPosition + vec4(aTangentOut, 0));\n\n  float facingCamera = pow(\n    // The word space tangent\'s z value is 0 if it\'s facing the camera\n    abs(normalize(posqIn-posp).z),\n\n    // Using pow() here to ramp `facingCamera` up from 0 to 1 really quickly\n    // so most lines get scaled and don\'t get clipped\n    0.25\n  );\n\n  // using a scale <1 moves the lines towards the camera\n  // in order to prevent popping effects due to half of\n  // the line disappearing behind the geometry faces.\n  float scale = mix(1., 0.995, facingCamera);\n\n  // Moving vertices slightly toward the camera\n  // to avoid depth-fighting with the fill triangles.\n  // Discussed here:\n  // http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=showflat&Number=252848  \n  posp.xyz = posp.xyz * scale;\n  posqIn.xyz = posqIn.xyz * scale;\n  posqOut.xyz = posqOut.xyz * scale;\n\n  vec4 p = uProjectionMatrix * posp;\n  vec4 qIn = uProjectionMatrix * posqIn;\n  vec4 qOut = uProjectionMatrix * posqOut;\n  vCenter = p.xy;\n\n  // formula to convert from clip space (range -1..1) to screen space (range 0..[width or height])\n  // screen_p = (p.xy/p.w + <1,1>) * 0.5 * uViewport.zw\n\n  // prevent division by W by transforming the tangent formula (div by 0 causes\n  // the line to disappear, see https://github.com/processing/processing/issues/5183)\n  // t = screen_q - screen_p\n  //\n  // tangent is normalized and we don\'t care which aDirection it points to (+-)\n  // t = +- normalize( screen_q - screen_p )\n  // t = +- normalize( (q.xy/q.w+<1,1>)*0.5*uViewport.zw - (p.xy/p.w+<1,1>)*0.5*uViewport.zw )\n  //\n  // extract common factor, <1,1> - <1,1> cancels out\n  // t = +- normalize( (q.xy/q.w - p.xy/p.w) * 0.5 * uViewport.zw )\n  //\n  // convert to common divisor\n  // t = +- normalize( ((q.xy*p.w - p.xy*q.w) / (p.w*q.w)) * 0.5 * uViewport.zw )\n  //\n  // remove the common scalar divisor/factor, not needed due to normalize and +-\n  // (keep uViewport - can\'t remove because it has different components for x and y\n  //  and corrects for aspect ratio, see https://github.com/processing/processing/issues/5181)\n  // t = +- normalize( (q.xy*p.w - p.xy*q.w) * uViewport.zw )\n\n  vec2 tangentIn = normalize((qIn.xy*p.w - p.xy*qIn.w) * uViewport.zw);\n  vec2 tangentOut = normalize((qOut.xy*p.w - p.xy*qOut.w) * uViewport.zw);\n\n  vec2 curPerspScale;\n  if(uPerspective == 1) {\n    // Perspective ---\n    // convert from world to clip by multiplying with projection scaling factor\n    // to get the right thickness (see https://github.com/processing/processing/issues/5182)\n\n    // The y value of the projection matrix may be flipped if rendering to a Framebuffer.\n    // Multiplying again by its sign here negates the flip to get just the scale.\n    curPerspScale = (uProjectionMatrix * vec4(1, sign(uProjectionMatrix[1][1]), 0, 0)).xy;\n  } else {\n    // No Perspective ---\n    // multiply by W (to cancel out division by W later in the pipeline) and\n    // convert from screen to clip (derived from clip to screen above)\n    curPerspScale = p.w / (0.5 * uViewport.zw);\n  }\n\n  vec2 offset;\n  if (vJoin == 1.) {\n    vTangent = normalize(tangentIn + tangentOut);\n    vec2 normalIn = vec2(-tangentIn.y, tangentIn.x);\n    vec2 normalOut = vec2(-tangentOut.y, tangentOut.x);\n    float side = sign(aSide);\n    float sideEnum = abs(aSide);\n\n    // We generate vertices for joins on either side of the centerline, but\n    // the "elbow" side is the only one needing a join. By not setting the\n    // offset for the other side, all its vertices will end up in the same\n    // spot and not render, effectively discarding it.\n    if (sign(dot(tangentOut, vec2(-tangentIn.y, tangentIn.x))) != side) {\n      // Side enums:\n      //   1: the side going into the join\n      //   2: the middle of the join\n      //   3: the side going out of the join\n      if (sideEnum == 2.) {\n        // Calculate the position + tangent on either side of the join, and\n        // find where the lines intersect to find the elbow of the join\n        vec2 c = (posp.xy/posp.w + vec2(1.,1.)) * 0.5 * uViewport.zw;\n        vec2 intersection = lineIntersection(\n          c + (side * normalIn * uStrokeWeight / 2.),\n          tangentIn,\n          c + (side * normalOut * uStrokeWeight / 2.),\n          tangentOut\n        );\n        offset = (intersection - c);\n\n        // When lines are thick and the angle of the join approaches 180, the\n        // elbow might be really far from the center. We\'ll apply a limit to\n        // the magnitude to avoid lines going across the whole screen when this\n        // happens.\n        float mag = length(offset);\n        float maxMag = 3. * uStrokeWeight;\n        if (mag > maxMag) {\n          offset *= maxMag / mag;\n        }\n      } else if (sideEnum == 1.) {\n        offset = side * normalIn * uStrokeWeight / 2.;\n      } else if (sideEnum == 3.) {\n        offset = side * normalOut * uStrokeWeight / 2.;\n      }\n    }\n    if (uStrokeJoin == STROKE_JOIN_BEVEL) {\n      vec2 avgNormal = vec2(-vTangent.y, vTangent.x);\n      vMaxDist = abs(dot(avgNormal, normalIn * uStrokeWeight / 2.));\n    } else {\n      vMaxDist = uStrokeWeight / 2.;\n    }\n  } else {\n    vec2 tangent = aTangentIn == vec3(0.) ? tangentOut : tangentIn;\n    vTangent = tangent;\n    vec2 normal = vec2(-tangent.y, tangent.x);\n\n    float normalOffset = sign(aSide);\n    // Caps will have side values of -2 or 2 on the edge of the cap that\n    // extends out from the line\n    float tangentOffset = abs(aSide) - 1.;\n    offset = (normal * normalOffset + tangent * tangentOffset) *\n      uStrokeWeight * 0.5;\n    vMaxDist = uStrokeWeight / 2.;\n  }\n  vPosition = vCenter + offset;\n\n  gl_Position.xy = p.xy + offset.xy * curPerspScale;\n  gl_Position.zw = p.zw;\n  \n  vColor = (uUseLineColor ? aVertexColor : uMaterialColor);\n}\n',
-          lineFrag: lineDefs + 'precision mediump int;\n\nuniform vec4 uMaterialColor;\nuniform int uStrokeCap;\nuniform int uStrokeJoin;\nuniform float uStrokeWeight;\n\nIN vec4 vColor;\nIN vec2 vTangent;\nIN vec2 vCenter;\nIN vec2 vPosition;\nIN float vMaxDist;\nIN float vCap;\nIN float vJoin;\n\nfloat distSquared(vec2 a, vec2 b) {\n  vec2 aToB = b - a;\n  return dot(aToB, aToB);\n}\n\nvoid main() {\n  if (vCap > 0.) {\n    if (\n      uStrokeCap == STROKE_CAP_ROUND &&\n      distSquared(vPosition, vCenter) > uStrokeWeight * uStrokeWeight * 0.25\n    ) {\n      discard;\n    } else if (\n      uStrokeCap == STROKE_CAP_SQUARE &&\n      dot(vPosition - vCenter, vTangent) > 0.\n    ) {\n      discard;\n    }\n    // Use full area for PROJECT\n  } else if (vJoin > 0.) {\n    if (\n      uStrokeJoin == STROKE_JOIN_ROUND &&\n      distSquared(vPosition, vCenter) > uStrokeWeight * uStrokeWeight * 0.25\n    ) {\n      discard;\n    } else if (uStrokeJoin == STROKE_JOIN_BEVEL) {\n      vec2 normal = vec2(-vTangent.y, vTangent.x);\n      if (abs(dot(vPosition - vCenter, normal)) > vMaxDist) {\n        discard;\n      }\n    }\n    // Use full area for MITER\n  }\n  OUT_COLOR = vec4(vColor.rgb, 1.) * vColor.a;\n}\n',
-          pointVert: 'IN vec3 aPosition;\nuniform float uPointSize;\nOUT float vStrokeWeight;\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nvoid main() {\n\tvec4 positionVec4 =  vec4(aPosition, 1.0);\n\tgl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n\tgl_PointSize = uPointSize;\n\tvStrokeWeight = uPointSize;\n}\n',
-          pointFrag: 'precision mediump int;\nuniform vec4 uMaterialColor;\nIN float vStrokeWeight;\n\nvoid main(){\n  float mask = 0.0;\n\n  // make a circular mask using the gl_PointCoord (goes from 0 - 1 on a point)\n  // might be able to get a nicer edge on big strokeweights with smoothstep but slightly less performant\n\n  mask = step(0.98, length(gl_PointCoord * 2.0 - 1.0));\n\n  // if strokeWeight is 1 or less lets just draw a square\n  // this prevents weird artifacting from carving circles when our points are really small\n  // if strokeWeight is larger than 1, we just use it as is\n\n  mask = mix(0.0, mask, clamp(floor(vStrokeWeight - 0.5),0.0,1.0));\n\n  // throw away the borders of the mask\n  // otherwise we get weird alpha blending issues\n\n  if(mask > 0.98){\n    discard;\n  }\n\n  OUT_COLOR = vec4(uMaterialColor.rgb, 1.) * uMaterialColor.a;\n}\n',
+          lineVert: lineDefs + '/*\n  Part of the Processing project - http://processing.org\n  Copyright (c) 2012-15 The Processing Foundation\n  Copyright (c) 2004-12 Ben Fry and Casey Reas\n  Copyright (c) 2001-04 Massachusetts Institute of Technology\n  This library is free software; you can redistribute it and/or\n  modify it under the terms of the GNU Lesser General Public\n  License as published by the Free Software Foundation, version 2.1.\n  This library is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n  Lesser General Public License for more details.\n  You should have received a copy of the GNU Lesser General\n  Public License along with this library; if not, write to the\n  Free Software Foundation, Inc., 59 Temple Place, Suite 330,\n  Boston, MA  02111-1307  USA\n*/\n\n#define PROCESSING_LINE_SHADER\n\nprecision highp int;\nprecision highp float;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform float uStrokeWeight;\n\nuniform bool uUseLineColor;\nuniform vec4 uMaterialColor;\n\nuniform vec4 uViewport;\nuniform int uPerspective;\nuniform int uStrokeJoin;\n\nIN vec4 aPosition;\nIN vec3 aTangentIn;\nIN vec3 aTangentOut;\nIN float aSide;\nIN vec4 aVertexColor;\n\nOUT vec4 vColor;\nOUT vec2 vTangent;\nOUT vec2 vCenter;\nOUT vec2 vPosition;\nOUT float vMaxDist;\nOUT float vCap;\nOUT float vJoin;\nOUT float vStrokeWeight;\n\nvec2 lineIntersection(vec2 aPoint, vec2 aDir, vec2 bPoint, vec2 bDir) {\n  // Rotate and translate so a starts at the origin and goes out to the right\n  bPoint -= aPoint;\n  vec2 rotatedBFrom = vec2(\n    bPoint.x*aDir.x + bPoint.y*aDir.y,\n    bPoint.y*aDir.x - bPoint.x*aDir.y\n  );\n  vec2 bTo = bPoint + bDir;\n  vec2 rotatedBTo = vec2(\n    bTo.x*aDir.x + bTo.y*aDir.y,\n    bTo.y*aDir.x - bTo.x*aDir.y\n  );\n  float intersectionDistance =\n    rotatedBTo.x + (rotatedBFrom.x - rotatedBTo.x) * rotatedBTo.y /\n    (rotatedBTo.y - rotatedBFrom.y);\n  return aPoint + aDir * intersectionDistance;\n}\n\nvoid main() {\n  HOOK_beforeVertex();\n  // Caps have one of either the in or out tangent set to 0\n  vCap = (aTangentIn == vec3(0.)) != (aTangentOut == (vec3(0.)))\n    ? 1. : 0.;\n\n  // Joins have two unique, defined tangents\n  vJoin = (\n    aTangentIn != vec3(0.) &&\n    aTangentOut != vec3(0.) &&\n    aTangentIn != aTangentOut\n  ) ? 1. : 0.;\n\n  vec4 localPosition = vec4(HOOK_getLocalPosition(aPosition.xyz), 1.);\n  vec4 posp = vec4(HOOK_getWorldPosition((uModelViewMatrix * localPosition).xyz), 1.);\n  vec4 posqIn = posp + uModelViewMatrix * vec4(aTangentIn, 0);\n  vec4 posqOut = posp + uModelViewMatrix * vec4(aTangentOut, 0);\n  float strokeWeight = HOOK_getStrokeWeight(uStrokeWeight);\n  vStrokeWeight = strokeWeight;\n\n  float facingCamera = pow(\n    // The word space tangent\'s z value is 0 if it\'s facing the camera\n    abs(normalize(posqIn-posp).z),\n\n    // Using pow() here to ramp `facingCamera` up from 0 to 1 really quickly\n    // so most lines get scaled and don\'t get clipped\n    0.25\n  );\n\n  // Moving vertices slightly toward the camera\n  // to avoid depth-fighting with the fill triangles.\n  // A mix of scaling and offsetting is used based on distance\n  // Discussion here:\n  // https://github.com/processing/p5.js/issues/7200 \n\n  // using a scale <1 moves the lines towards nearby camera\n  // in order to prevent popping effects due to half of\n  // the line disappearing behind the geometry faces.\n  float zDistance = -posp.z; \n  float distanceFactor = smoothstep(0.0, 800.0, zDistance); \n  \n  // Discussed here:\n  // http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=showflat&Number=252848  \n  float scale = mix(1., 0.995, facingCamera);\n  float dynamicScale = mix(scale, 1.0, distanceFactor); // Closer = more scale, farther = less\n\n  posp.xyz = posp.xyz * dynamicScale;\n  posqIn.xyz = posqIn.xyz * dynamicScale;\n  posqOut.xyz = posqOut.xyz * dynamicScale;\n\n  // Moving vertices slightly toward camera when far away \n  // https://github.com/processing/p5.js/issues/6956 \n  float zOffset = mix(0., -1., facingCamera);\n  float dynamicZAdjustment = mix(0.0, zOffset, distanceFactor); // Closer = less zAdjustment, farther = more\n\n  posp.z -= dynamicZAdjustment;\n  posqIn.z -= dynamicZAdjustment;\n  posqOut.z -= dynamicZAdjustment;\n  \n  vec4 p = uProjectionMatrix * posp;\n  vec4 qIn = uProjectionMatrix * posqIn;\n  vec4 qOut = uProjectionMatrix * posqOut;\n  vCenter = HOOK_getLineCenter(p.xy);\n\n  // formula to convert from clip space (range -1..1) to screen space (range 0..[width or height])\n  // screen_p = (p.xy/p.w + <1,1>) * 0.5 * uViewport.zw\n\n  // prevent division by W by transforming the tangent formula (div by 0 causes\n  // the line to disappear, see https://github.com/processing/processing/issues/5183)\n  // t = screen_q - screen_p\n  //\n  // tangent is normalized and we don\'t care which aDirection it points to (+-)\n  // t = +- normalize( screen_q - screen_p )\n  // t = +- normalize( (q.xy/q.w+<1,1>)*0.5*uViewport.zw - (p.xy/p.w+<1,1>)*0.5*uViewport.zw )\n  //\n  // extract common factor, <1,1> - <1,1> cancels out\n  // t = +- normalize( (q.xy/q.w - p.xy/p.w) * 0.5 * uViewport.zw )\n  //\n  // convert to common divisor\n  // t = +- normalize( ((q.xy*p.w - p.xy*q.w) / (p.w*q.w)) * 0.5 * uViewport.zw )\n  //\n  // remove the common scalar divisor/factor, not needed due to normalize and +-\n  // (keep uViewport - can\'t remove because it has different components for x and y\n  //  and corrects for aspect ratio, see https://github.com/processing/processing/issues/5181)\n  // t = +- normalize( (q.xy*p.w - p.xy*q.w) * uViewport.zw )\n\n  vec2 tangentIn = normalize((qIn.xy*p.w - p.xy*qIn.w) * uViewport.zw);\n  vec2 tangentOut = normalize((qOut.xy*p.w - p.xy*qOut.w) * uViewport.zw);\n\n  vec2 curPerspScale;\n  if(uPerspective == 1) {\n    // Perspective ---\n    // convert from world to clip by multiplying with projection scaling factor\n    // to get the right thickness (see https://github.com/processing/processing/issues/5182)\n\n    // The y value of the projection matrix may be flipped if rendering to a Framebuffer.\n    // Multiplying again by its sign here negates the flip to get just the scale.\n    curPerspScale = (uProjectionMatrix * vec4(1, sign(uProjectionMatrix[1][1]), 0, 0)).xy;\n  } else {\n    // No Perspective ---\n    // multiply by W (to cancel out division by W later in the pipeline) and\n    // convert from screen to clip (derived from clip to screen above)\n    curPerspScale = p.w / (0.5 * uViewport.zw);\n  }\n\n  vec2 offset;\n  if (vJoin == 1.) {\n    vTangent = normalize(tangentIn + tangentOut);\n    vec2 normalIn = vec2(-tangentIn.y, tangentIn.x);\n    vec2 normalOut = vec2(-tangentOut.y, tangentOut.x);\n    float side = sign(aSide);\n    float sideEnum = abs(aSide);\n\n    // We generate vertices for joins on either side of the centerline, but\n    // the "elbow" side is the only one needing a join. By not setting the\n    // offset for the other side, all its vertices will end up in the same\n    // spot and not render, effectively discarding it.\n    if (sign(dot(tangentOut, vec2(-tangentIn.y, tangentIn.x))) != side) {\n      // Side enums:\n      //   1: the side going into the join\n      //   2: the middle of the join\n      //   3: the side going out of the join\n      if (sideEnum == 2.) {\n        // Calculate the position + tangent on either side of the join, and\n        // find where the lines intersect to find the elbow of the join\n        vec2 c = (posp.xy/posp.w + vec2(1.,1.)) * 0.5 * uViewport.zw;\n        vec2 intersection = lineIntersection(\n          c + (side * normalIn * strokeWeight / 2.),\n          tangentIn,\n          c + (side * normalOut * strokeWeight / 2.),\n          tangentOut\n        );\n        offset = (intersection - c);\n\n        // When lines are thick and the angle of the join approaches 180, the\n        // elbow might be really far from the center. We\'ll apply a limit to\n        // the magnitude to avoid lines going across the whole screen when this\n        // happens.\n        float mag = length(offset);\n        float maxMag = 3. * strokeWeight;\n        if (mag > maxMag) {\n          offset *= maxMag / mag;\n        }\n      } else if (sideEnum == 1.) {\n        offset = side * normalIn * strokeWeight / 2.;\n      } else if (sideEnum == 3.) {\n        offset = side * normalOut * strokeWeight / 2.;\n      }\n    }\n    if (uStrokeJoin == STROKE_JOIN_BEVEL) {\n      vec2 avgNormal = vec2(-vTangent.y, vTangent.x);\n      vMaxDist = abs(dot(avgNormal, normalIn * strokeWeight / 2.));\n    } else {\n      vMaxDist = strokeWeight / 2.;\n    }\n  } else {\n    vec2 tangent = aTangentIn == vec3(0.) ? tangentOut : tangentIn;\n    vTangent = tangent;\n    vec2 normal = vec2(-tangent.y, tangent.x);\n\n    float normalOffset = sign(aSide);\n    // Caps will have side values of -2 or 2 on the edge of the cap that\n    // extends out from the line\n    float tangentOffset = abs(aSide) - 1.;\n    offset = (normal * normalOffset + tangent * tangentOffset) *\n      strokeWeight * 0.5;\n    vMaxDist = strokeWeight / 2.;\n  }\n  vPosition = HOOK_getLinePosition(vCenter + offset);\n\n  gl_Position.xy = p.xy + offset.xy * curPerspScale;\n  gl_Position.zw = p.zw;\n  \n  vColor = HOOK_getVertexColor(uUseLineColor ? aVertexColor : uMaterialColor);\n  HOOK_afterVertex();\n}\n',
+          lineFrag: lineDefs + 'precision highp int;\nprecision highp float;\n\nuniform vec4 uMaterialColor;\nuniform int uStrokeCap;\nuniform int uStrokeJoin;\n\nIN vec4 vColor;\nIN vec2 vTangent;\nIN vec2 vCenter;\nIN vec2 vPosition;\nIN float vStrokeWeight;\nIN float vMaxDist;\nIN float vCap;\nIN float vJoin;\n\nfloat distSquared(vec2 a, vec2 b) {\n  vec2 aToB = b - a;\n  return dot(aToB, aToB);\n}\n\nstruct Inputs {\n  vec4 color;\n  vec2 tangent;\n  vec2 center;\n  vec2 position;\n  float strokeWeight;\n};\n\nvoid main() {\n  HOOK_beforeFragment();\n\n  Inputs inputs;\n  inputs.color = vColor;\n  inputs.tangent = vTangent;\n  inputs.center = vCenter;\n  inputs.position = vPosition;\n  inputs.strokeWeight = vStrokeWeight;\n  inputs = HOOK_getPixelInputs(inputs);\n\n  if (vCap > 0.) {\n    if (\n      uStrokeCap == STROKE_CAP_ROUND &&\n      HOOK_shouldDiscard(distSquared(inputs.position, inputs.center) > inputs.strokeWeight * inputs.strokeWeight * 0.25)\n    ) {\n      discard;\n    } else if (\n      uStrokeCap == STROKE_CAP_SQUARE &&\n      HOOK_shouldDiscard(dot(inputs.position - inputs.center, inputs.tangent) > 0.)\n    ) {\n      discard;\n    // Use full area for PROJECT\n    } else if (HOOK_shouldDiscard(false)) {\n      discard;\n    }\n  } else if (vJoin > 0.) {\n    if (\n      uStrokeJoin == STROKE_JOIN_ROUND &&\n      HOOK_shouldDiscard(distSquared(inputs.position, inputs.center) > inputs.strokeWeight * inputs.strokeWeight * 0.25)\n    ) {\n      discard;\n    } else if (uStrokeJoin == STROKE_JOIN_BEVEL) {\n      vec2 normal = vec2(-inputs.tangent.y, inputs.tangent.x);\n      if (HOOK_shouldDiscard(abs(dot(inputs.position - inputs.center, normal)) > vMaxDist)) {\n        discard;\n      }\n    // Use full area for MITER\n    } else if (HOOK_shouldDiscard(false)) {\n      discard;\n    }\n  }\n  OUT_COLOR = HOOK_getFinalColor(vec4(inputs.color.rgb, 1.) * inputs.color.a);\n  HOOK_afterFragment();\n}\n',
+          pointVert: 'IN vec3 aPosition;\nuniform float uPointSize;\nOUT float vStrokeWeight;\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\n\nvoid main() {\n  HOOK_beforeVertex();\n  vec4 viewModelPosition = vec4(HOOK_getWorldPosition(\n    (uModelViewMatrix * vec4(HOOK_getLocalPosition(aPosition), 1.0)).xyz\n  ), 1.);\n  gl_Position = uProjectionMatrix * viewModelPosition;  \n\n  float pointSize = HOOK_getPointSize(uPointSize);\n\n\tgl_PointSize = pointSize;\n\tvStrokeWeight = pointSize;\n  HOOK_afterVertex();\n}\n',
+          pointFrag: 'precision mediump int;\nuniform vec4 uMaterialColor;\nIN float vStrokeWeight;\n\nvoid main(){\n  HOOK_beforeFragment();\n  float mask = 0.0;\n\n  // make a circular mask using the gl_PointCoord (goes from 0 - 1 on a point)\n  // might be able to get a nicer edge on big strokeweights with smoothstep but slightly less performant\n\n  mask = step(0.98, length(gl_PointCoord * 2.0 - 1.0));\n\n  // if strokeWeight is 1 or less lets just draw a square\n  // this prevents weird artifacting from carving circles when our points are really small\n  // if strokeWeight is larger than 1, we just use it as is\n\n  mask = mix(0.0, mask, clamp(floor(vStrokeWeight - 0.5),0.0,1.0));\n\n  // throw away the borders of the mask\n  // otherwise we get weird alpha blending issues\n\n  if(HOOK_shouldDiscard(mask > 0.98)){\n    discard;\n  }\n\n  OUT_COLOR = HOOK_getFinalColor(vec4(uMaterialColor.rgb, 1.) * uMaterialColor.a);\n  HOOK_afterFragment();\n}\n',
           imageLightVert: 'precision highp float;\nattribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nvarying vec3 localPos;\nvarying vec3 vWorldNormal;\nvarying vec3 vWorldPosition;\nvarying vec2 vTexCoord;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\n\nvoid main() {\n  // Multiply the position by the matrix.\n  vec4 viewModelPosition = uModelViewMatrix * vec4(aPosition, 1.0);\n  gl_Position = uProjectionMatrix * viewModelPosition;  \n  \n  // orient the normals and pass to the fragment shader\n  vWorldNormal = uNormalMatrix * aNormal;\n  \n  // send the view position to the fragment shader\n  vWorldPosition = (uModelViewMatrix * vec4(aPosition, 1.0)).xyz;\n  \n  localPos = vWorldPosition;\n  vTexCoord = aTexCoord;\n}\n\n\n/*\nin the vertex shader we\'ll compute the world position and world oriented normal of the vertices and pass those to the fragment shader as varyings.\n*/\n',
           imageLightDiffusedFrag: 'precision highp float;\nvarying vec3 localPos;\n\n// the HDR cubemap converted (can be from an equirectangular environment map.)\nuniform sampler2D environmentMap;\nvarying vec2 vTexCoord;\n\nconst float PI = 3.14159265359;\n\nvec2 nTOE( vec3 v ){\n  // x = r sin(phi) cos(theta)   \n  // y = r cos(phi)  \n  // z = r sin(phi) sin(theta)\n  float phi = acos( v.y );\n  // if phi is 0, then there are no x, z components\n  float theta = 0.0;\n  // else \n  theta = acos(v.x / sin(phi));\n  float sinTheta = v.z / sin(phi);\n  if (sinTheta < 0.0) {\n    // Turn it into -theta, but in the 0-2PI range\n    theta = 2.0 * PI - theta;\n  }\n  theta = theta / (2.0 * 3.14159);\n  phi = phi / 3.14159 ;\n  \n  vec2 angles = vec2( phi, theta );\n  return angles;\n}\n\nfloat random(vec2 p) {\n  vec3 p3  = fract(vec3(p.xyx) * .1031);\n  p3 += dot(p3, p3.yzx + 33.33);\n  return fract((p3.x + p3.y) * p3.z);\n}\n\nvoid main()\n{   \t \n\t// the sample direction equals the hemisphere\'s orientation\n  float phi = vTexCoord.x * 2.0 * PI;\n  float theta = vTexCoord.y * PI;\n  float x = sin(theta) * cos(phi);\n  float y = sin(theta) * sin(phi);\n  float z = cos(theta);\n  vec3 normal = vec3( x, y, z);\n\n\t// Discretely sampling the hemisphere given the integral\'s\n  // spherical coordinates translates to the following fragment code:\n\tvec3 irradiance = vec3(0.0);  \n\tvec3 up\t= vec3(0.0, 1.0, 0.0);\n\tvec3 right = normalize(cross(up, normal));\n\tup = normalize(cross(normal, right));\n\n\t//  We specify a fixed sampleDelta delta value to traverse\n  // the hemisphere; decreasing or increasing the sample delta\n  // will increase or decrease the accuracy respectively.\n\tconst float sampleDelta = 0.100;\n\tfloat nrSamples = 0.0;\n  float randomOffset = random(gl_FragCoord.xy) * sampleDelta;\n\tfor(float rawPhi = 0.0; rawPhi < 2.0 * PI; rawPhi += sampleDelta)\n\t{\n    float phi = rawPhi + randomOffset;\n    for(float rawTheta = 0.0; rawTheta < ( 0.5 ) * PI; rawTheta += sampleDelta)\n    {\n      float theta = rawTheta + randomOffset;\n      // spherical to cartesian (in tangent space) // tangent space to world // add each sample result to irradiance\n      float x = sin(theta) * cos(phi);\n      float y = sin(theta) * sin(phi);\n      float z = cos(theta);\n      vec3 tangentSample = vec3( x, y, z);\n      \n      vec3 sampleVec = tangentSample.x * right + tangentSample.y * up + tangentSample.z * normal;\n        irradiance += (texture2D(environmentMap, nTOE(sampleVec)).xyz) * cos(theta) * sin(theta);\n      nrSamples++;\n    }\n\t}\n\t// divide by the total number of samples taken, giving us the average sampled irradiance.\n\tirradiance = PI * irradiance * (1.0 / float(nrSamples )) ;\n  \n \n\tgl_FragColor = vec4(irradiance, 1.0);\n}',
           imageLightSpecularFrag: 'precision highp float;\r\nvarying vec3 localPos;\r\nvarying vec2 vTexCoord;\r\n\r\n// our texture\r\nuniform sampler2D environmentMap;\r\nuniform float roughness;\r\n\r\nconst float PI = 3.14159265359;\r\n\r\nfloat VanDerCorput(int bits);\r\nvec2 HammersleyNoBitOps(int i, int N);\r\nvec3 ImportanceSampleGGX(vec2 Xi, vec3 N, float roughness);\r\n\r\n\r\nvec2 nTOE( vec3 v ){\r\n  // x = r sin(phi) cos(theta)   \r\n  // y = r cos(phi)  \r\n  // z = r sin(phi) sin(theta)\r\n  float phi = acos( v.y );\r\n  // if phi is 0, then there are no x, z components\r\n  float theta = 0.0;\r\n  // else \r\n  theta = acos(v.x / sin(phi));\r\n  float sinTheta = v.z / sin(phi);\r\n  if (sinTheta < 0.0) {\r\n    // Turn it into -theta, but in the 0-2PI range\r\n    theta = 2.0 * PI - theta;\r\n  }\r\n  theta = theta / (2.0 * 3.14159);\r\n  phi = phi / 3.14159 ;\r\n  \r\n  vec2 angles = vec2( phi, theta );\r\n  return angles;\r\n}\r\n\r\n\r\nvoid main(){\r\n  const int SAMPLE_COUNT = 400; // 4096\r\n  int lowRoughnessLimit = int(pow(2.0,(roughness+0.1)*20.0));\r\n  float totalWeight = 0.0;\r\n  vec3 prefilteredColor = vec3(0.0);\r\n  float phi = vTexCoord.x * 2.0 * PI;\r\n  float theta = vTexCoord.y * PI;\r\n  float x = sin(theta) * cos(phi);\r\n  float y = sin(theta) * sin(phi);\r\n  float z = cos(theta);\r\n  vec3 N = vec3(x,y,z);\r\n  vec3 V = N;\r\n  for (int i = 0; i < SAMPLE_COUNT; ++i)\r\n  {\r\n    // break at smaller sample numbers for low roughness levels\r\n    if(i == lowRoughnessLimit)\r\n    {\r\n      break;\r\n    }\r\n    vec2 Xi = HammersleyNoBitOps(i, SAMPLE_COUNT);\r\n    vec3 H = ImportanceSampleGGX(Xi, N, roughness);\r\n    vec3 L = normalize(2.0 * dot(V, H) * H - V);\r\n\r\n    float NdotL = max(dot(N, L), 0.0);\r\n    if (NdotL > 0.0)\r\n    {\r\n      prefilteredColor += texture2D(environmentMap, nTOE(L)).xyz * NdotL;\r\n      totalWeight += NdotL;\r\n    }\r\n  }\r\n  prefilteredColor = prefilteredColor / totalWeight;\r\n\r\n  gl_FragColor = vec4(prefilteredColor, 1.0);\r\n}\r\n\r\nvec3 ImportanceSampleGGX(vec2 Xi, vec3 N, float roughness){\r\n  float a = roughness * roughness;\r\n\r\n  float phi = 2.0 * PI * Xi.x;\r\n  float cosTheta = sqrt((1.0 - Xi.y) / (1.0 + (a * a - 1.0) * Xi.y));\r\n  float sinTheta = sqrt(1.0 - cosTheta * cosTheta);\r\n  // from spherical coordinates to cartesian coordinates\r\n  vec3 H;\r\n  H.x = cos(phi) * sinTheta;\r\n  H.y = sin(phi) * sinTheta;\r\n  H.z = cosTheta;\r\n\r\n  // from tangent-space vector to world-space sample vector\r\n  vec3 up = abs(N.z) < 0.999 ? vec3(0.0, 0.0, 1.0) : vec3(1.0, 0.0, 0.0);\r\n  vec3 tangent = normalize(cross(up, N));\r\n  vec3 bitangent = cross(N, tangent);\r\n\r\n  vec3 sampleVec = tangent * H.x + bitangent * H.y + N * H.z;\r\n  return normalize(sampleVec);\r\n}\r\n\r\n\r\nfloat VanDerCorput(int n, int base)\r\n{\r\n#ifdef WEBGL2\r\n\r\n    uint bits = uint(n);\r\n    bits = (bits << 16u) | (bits >> 16u);\r\n    bits = ((bits & 0x55555555u) << 1u) | ((bits & 0xAAAAAAAAu) >> 1u);\r\n    bits = ((bits & 0x33333333u) << 2u) | ((bits & 0xCCCCCCCCu) >> 2u);\r\n    bits = ((bits & 0x0F0F0F0Fu) << 4u) | ((bits & 0xF0F0F0F0u) >> 4u);\r\n    bits = ((bits & 0x00FF00FFu) << 8u) | ((bits & 0xFF00FF00u) >> 8u);\r\n    return float(bits) * 2.3283064365386963e-10; // / 0x100000000\r\n\r\n#else\r\n\r\n  float invBase = 1.0 / float(base);\r\n  float denom = 1.0;\r\n  float result = 0.0;\r\n\r\n\r\n  for (int i = 0; i < 32; ++i)\r\n  {\r\n        if (n > 0)\r\n        {\r\n        denom = mod(float(n), 2.0);\r\n        result += denom * invBase;\r\n        invBase = invBase / 2.0;\r\n        n = int(float(n) / 2.0);\r\n        }\r\n  }\r\n\r\n\r\n  return result;\r\n\r\n#endif\r\n}\r\n\r\nvec2 HammersleyNoBitOps(int i, int N)\r\n{\r\n  return vec2(float(i) / float(N), VanDerCorput(i, 2));\r\n}\r\n'
@@ -139654,6 +141840,8 @@
     * model view, projection, & normal
     * matrices
     */
+            _this.uModelMatrix = new _main.default.Matrix();
+            _this.uViewMatrix = new _main.default.Matrix();
             _this.uMVMatrix = new _main.default.Matrix();
             _this.uPMatrix = new _main.default.Matrix();
             _this.uNMatrix = new _main.default.Matrix('mat3');
@@ -139999,7 +142187,8 @@
               value: function _update() {
                 // reset model view and apply initial camera transform
                 // (containing only look at info; no projection).
-                this.uMVMatrix.set(this._curCamera.cameraMatrix);
+                this.uModelMatrix.reset();
+                this.uViewMatrix.set(this._curCamera.cameraMatrix);
                 // reset light data for new frame.
                 this.ambientLightColors.length = 0;
                 this.specularColors = [
@@ -140639,9 +142828,9 @@
               key: 'applyMatrix',
               value: function applyMatrix(a, b, c, d, e, f) {
                 if (arguments.length === 16) {
-                  _main.default.Matrix.prototype.apply.apply(this.uMVMatrix, arguments);
+                  _main.default.Matrix.prototype.apply.apply(this.uModelMatrix, arguments);
                 } else {
-                  this.uMVMatrix.apply([a,
+                  this.uModelMatrix.apply([a,
                   b,
                   0,
                   0,
@@ -140677,7 +142866,7 @@
                   y = x.y;
                   x = x.x;
                 }
-                this.uMVMatrix.translate([x,
+                this.uModelMatrix.translate([x,
                 y,
                 z]);
                 return this;
@@ -140694,7 +142883,7 @@
             {
               key: 'scale',
               value: function scale(x, y, z) {
-                this.uMVMatrix.scale(x, y, z);
+                this.uModelMatrix.scale(x, y, z);
                 return this;
               }
             },
@@ -140704,7 +142893,7 @@
                 if (typeof axis === 'undefined') {
                   return this.rotateZ(rad);
                 }
-                _main.default.Matrix.prototype.rotate.apply(this.uMVMatrix, arguments);
+                _main.default.Matrix.prototype.rotate.apply(this.uModelMatrix, arguments);
                 return this;
               }
             },
@@ -140736,7 +142925,8 @@
                 var style = _main.default.Renderer.prototype.push.apply(this);
                 // add webgl-specific style properties
                 var properties = style.properties;
-                properties.uMVMatrix = this.uMVMatrix.copy();
+                properties.uModelMatrix = this.uModelMatrix.copy();
+                properties.uViewMatrix = this.uViewMatrix.copy();
                 properties.uPMatrix = this.uPMatrix.copy();
                 properties._curCamera = this._curCamera;
                 // make a copy of the current camera for the push state
@@ -140782,6 +142972,7 @@
                 properties.curBlendMode = this.curBlendMode;
                 // So that the activeImageLight gets reset in push/pop
                 properties.activeImageLight = this.activeImageLight;
+                properties.textureMode = this.textureMode;
                 return style;
               }
             },
@@ -140818,7 +143009,8 @@
             {
               key: 'resetMatrix',
               value: function resetMatrix() {
-                this.uMVMatrix.set(this._curCamera.cameraMatrix);
+                this.uModelMatrix.reset();
+                this.uViewMatrix.set(this._curCamera.cameraMatrix);
                 return this;
               } //////////////////////////////////////////////
               // SHADER
@@ -140853,7 +143045,7 @@
                 if (!this.sphereMapping) {
                   this.sphereMapping = this._pInst.createFilterShader(sphereMapping);
                 }
-                this.uNMatrix.inverseTranspose(this.uMVMatrix);
+                this.uNMatrix.inverseTranspose(this.uViewMatrix);
                 this.uNMatrix.invert3x3(this.uNMatrix);
                 this.sphereMapping.setUniform('uFovY', this._curCamera.cameraFOV);
                 this.sphereMapping.setUniform('uAspect', this._curCamera.aspectRatio);
@@ -140932,11 +143124,38 @@
               }
             },
             {
+              key: 'baseMaterialShader',
+              value: function baseMaterialShader() {
+                if (!this._pInst._glAttributes.perPixelLighting) {
+                  throw new Error('The material shader does not support hooks without perPixelLighting. Try turning it back on.');
+                }
+                return this._getLightShader();
+              }
+            },
+            {
               key: '_getLightShader',
               value: function _getLightShader() {
                 if (!this._defaultLightShader) {
                   if (this._pInst._glAttributes.perPixelLighting) {
-                    this._defaultLightShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'highp') + defaultShaders.phongVert, this._webGL2CompatibilityPrefix('frag', 'highp') + defaultShaders.phongFrag);
+                    this._defaultLightShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'highp') + defaultShaders.phongVert, this._webGL2CompatibilityPrefix('frag', 'highp') + defaultShaders.phongFrag, {
+                      vertex: {
+                        'void beforeVertex': '() {}',
+                        'vec3 getLocalPosition': '(vec3 position) { return position; }',
+                        'vec3 getWorldPosition': '(vec3 position) { return position; }',
+                        'vec3 getLocalNormal': '(vec3 normal) { return normal; }',
+                        'vec3 getWorldNormal': '(vec3 normal) { return normal; }',
+                        'vec2 getUV': '(vec2 uv) { return uv; }',
+                        'vec4 getVertexColor': '(vec4 color) { return color; }',
+                        'void afterVertex': '() {}'
+                      },
+                      fragment: {
+                        'void beforeFragment': '() {}',
+                        'Inputs getPixelInputs': '(Inputs inputs) { return inputs; }',
+                        'vec4 combineColors': '(ColorComponents components) {\n                vec4 color = vec4(0.);\n                color.rgb += components.diffuse * components.baseColor;\n                color.rgb += components.ambient * components.ambientColor;\n                color.rgb += components.specular * components.specularColor;\n                color.rgb += components.emissive;\n                color.a = components.opacity;\n                return color;\n              }',
+                        'vec4 getFinalColor': '(vec4 color) { return color; }',
+                        'void afterFragment': '() {}'
+                      }
+                    });
                   } else {
                     this._defaultLightShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'highp') + defaultShaders.lightVert, this._webGL2CompatibilityPrefix('frag', 'highp') + defaultShaders.lightTextureFrag);
                   }
@@ -140954,37 +143173,149 @@
               }
             },
             {
+              key: 'baseNormalShader',
+              value: function baseNormalShader() {
+                return this._getNormalShader();
+              }
+            },
+            {
               key: '_getNormalShader',
               value: function _getNormalShader() {
                 if (!this._defaultNormalShader) {
-                  this._defaultNormalShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'mediump') + defaultShaders.normalVert, this._webGL2CompatibilityPrefix('frag', 'mediump') + defaultShaders.normalFrag);
+                  this._defaultNormalShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'mediump') + defaultShaders.normalVert, this._webGL2CompatibilityPrefix('frag', 'mediump') + defaultShaders.normalFrag, {
+                    vertex: {
+                      'void beforeVertex': '() {}',
+                      'vec3 getLocalPosition': '(vec3 position) { return position; }',
+                      'vec3 getWorldPosition': '(vec3 position) { return position; }',
+                      'vec3 getLocalNormal': '(vec3 normal) { return normal; }',
+                      'vec3 getWorldNormal': '(vec3 normal) { return normal; }',
+                      'vec2 getUV': '(vec2 uv) { return uv; }',
+                      'vec4 getVertexColor': '(vec4 color) { return color; }',
+                      'void afterVertex': '() {}'
+                    },
+                    fragment: {
+                      'void beforeFragment': '() {}',
+                      'vec4 getFinalColor': '(vec4 color) { return color; }',
+                      'void afterFragment': '() {}'
+                    }
+                  });
                 }
                 return this._defaultNormalShader;
+              }
+            },
+            {
+              key: 'baseColorShader',
+              value: function baseColorShader() {
+                return this._getColorShader();
               }
             },
             {
               key: '_getColorShader',
               value: function _getColorShader() {
                 if (!this._defaultColorShader) {
-                  this._defaultColorShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'mediump') + defaultShaders.normalVert, this._webGL2CompatibilityPrefix('frag', 'mediump') + defaultShaders.basicFrag);
+                  this._defaultColorShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'mediump') + defaultShaders.normalVert, this._webGL2CompatibilityPrefix('frag', 'mediump') + defaultShaders.basicFrag, {
+                    vertex: {
+                      'void beforeVertex': '() {}',
+                      'vec3 getLocalPosition': '(vec3 position) { return position; }',
+                      'vec3 getWorldPosition': '(vec3 position) { return position; }',
+                      'vec3 getLocalNormal': '(vec3 normal) { return normal; }',
+                      'vec3 getWorldNormal': '(vec3 normal) { return normal; }',
+                      'vec2 getUV': '(vec2 uv) { return uv; }',
+                      'vec4 getVertexColor': '(vec4 color) { return color; }',
+                      'void afterVertex': '() {}'
+                    },
+                    fragment: {
+                      'void beforeFragment': '() {}',
+                      'vec4 getFinalColor': '(vec4 color) { return color; }',
+                      'void afterFragment': '() {}'
+                    }
+                  });
                 }
                 return this._defaultColorShader;
+              }              /**
+     * TODO(dave): un-private this when there is a way to actually override the
+     * shader used for points
+     *
+     * Get the shader used when drawing points with <a href="#/p5/point">`point()`</a>.
+     *
+     * You can call <a href="#/p5.Shader/modify">`pointShader().modify()`</a>
+     * and change any of the following hooks:
+     * - `void beforeVertex`: Called at the start of the vertex shader.
+     * - `vec3 getLocalPosition`: Update the position of vertices before transforms are applied. It takes in `vec3 position` and must return a modified version.
+     * - `vec3 getWorldPosition`: Update the position of vertices after transforms are applied. It takes in `vec3 position` and pust return a modified version.
+     * - `float getPointSize`: Update the size of the point. It takes in `float size` and must return a modified version.
+     * - `void afterVertex`: Called at the end of the vertex shader.
+     * - `void beforeFragment`: Called at the start of the fragment shader.
+     * - `bool shouldDiscard`: Points are drawn inside a square, with the corners discarded in the fragment shader to create a circle. Use this to change this logic. It takes in a `bool willDiscard` and must return a modified version.
+     * - `vec4 getFinalColor`: Update the final color after mixing. It takes in a `vec4 color` and must return a modified version.
+     * - `void afterFragment`: Called at the end of the fragment shader.
+     *
+     * Call `pointShader().inspectHooks()` to see all the possible hooks and
+     * their default implementations.
+     *
+     * @returns {p5.Shader} The `point()` shader
+     * @private()
+     */
+
+            },
+            {
+              key: 'pointShader',
+              value: function pointShader() {
+                return this._getPointShader();
               }
             },
             {
               key: '_getPointShader',
               value: function _getPointShader() {
                 if (!this._defaultPointShader) {
-                  this._defaultPointShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'mediump') + defaultShaders.pointVert, this._webGL2CompatibilityPrefix('frag', 'mediump') + defaultShaders.pointFrag);
+                  this._defaultPointShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'mediump') + defaultShaders.pointVert, this._webGL2CompatibilityPrefix('frag', 'mediump') + defaultShaders.pointFrag, {
+                    vertex: {
+                      'void beforeVertex': '() {}',
+                      'vec3 getLocalPosition': '(vec3 position) { return position; }',
+                      'vec3 getWorldPosition': '(vec3 position) { return position; }',
+                      'float getPointSize': '(float size) { return size; }',
+                      'void afterVertex': '() {}'
+                    },
+                    fragment: {
+                      'void beforeFragment': '() {}',
+                      'vec4 getFinalColor': '(vec4 color) { return color; }',
+                      'bool shouldDiscard': '(bool outside) { return outside; }',
+                      'void afterFragment': '() {}'
+                    }
+                  });
                 }
                 return this._defaultPointShader;
+              }
+            },
+            {
+              key: 'baseStrokeShader',
+              value: function baseStrokeShader() {
+                return this._getLineShader();
               }
             },
             {
               key: '_getLineShader',
               value: function _getLineShader() {
                 if (!this._defaultLineShader) {
-                  this._defaultLineShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'mediump') + defaultShaders.lineVert, this._webGL2CompatibilityPrefix('frag', 'mediump') + defaultShaders.lineFrag);
+                  this._defaultLineShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'mediump') + defaultShaders.lineVert, this._webGL2CompatibilityPrefix('frag', 'mediump') + defaultShaders.lineFrag, {
+                    vertex: {
+                      'void beforeVertex': '() {}',
+                      'vec3 getLocalPosition': '(vec3 position) { return position; }',
+                      'vec3 getWorldPosition': '(vec3 position) { return position; }',
+                      'float getStrokeWeight': '(float weight) { return weight; }',
+                      'vec2 getLineCenter': '(vec2 center) { return center; }',
+                      'vec2 getLinePosition': '(vec2 position) { return position; }',
+                      'vec4 getVertexColor': '(vec4 color) { return color; }',
+                      'void afterVertex': '() {}'
+                    },
+                    fragment: {
+                      'void beforeFragment': '() {}',
+                      'Inputs getPixelInputs': '(Inputs inputs) { return inputs; }',
+                      'vec4 getFinalColor': '(vec4 color) { return color; }',
+                      'bool shouldDiscard': '(bool outside) { return outside; }',
+                      'void afterFragment': '() {}'
+                    }
+                  });
                 }
                 return this._defaultLineShader;
               }
@@ -140996,7 +143327,7 @@
                   if (this.webglVersion === constants.WEBGL) {
                     this.GL.getExtension('OES_standard_derivatives');
                   }
-                  this._defaultFontShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'mediump') + defaultShaders.fontVert, this._webGL2CompatibilityPrefix('frag', 'mediump') + defaultShaders.fontFrag);
+                  this._defaultFontShader = new _main.default.Shader(this, this._webGL2CompatibilityPrefix('vert', 'highp') + defaultShaders.fontVert, this._webGL2CompatibilityPrefix('frag', 'highp') + defaultShaders.fontFrag);
                 }
                 return this._defaultFontShader;
               }
@@ -141173,14 +143504,14 @@
             },
             {
               key: '_setStrokeUniforms',
-              value: function _setStrokeUniforms(strokeShader) {
-                strokeShader.bindShader();
+              value: function _setStrokeUniforms(baseStrokeShader) {
+                baseStrokeShader.bindShader();
                 // set the uniform values
-                strokeShader.setUniform('uUseLineColor', this._useLineColor);
-                strokeShader.setUniform('uMaterialColor', this.curStrokeColor);
-                strokeShader.setUniform('uStrokeWeight', this.curStrokeWeight);
-                strokeShader.setUniform('uStrokeCap', STROKE_CAP_ENUM[this.curStrokeCap]);
-                strokeShader.setUniform('uStrokeJoin', STROKE_JOIN_ENUM[this.curStrokeJoin]);
+                baseStrokeShader.setUniform('uUseLineColor', this._useLineColor);
+                baseStrokeShader.setUniform('uMaterialColor', this.curStrokeColor);
+                baseStrokeShader.setUniform('uStrokeWeight', this.curStrokeWeight);
+                baseStrokeShader.setUniform('uStrokeCap', STROKE_CAP_ENUM[this.curStrokeCap]);
+                baseStrokeShader.setUniform('uStrokeJoin', STROKE_JOIN_ENUM[this.curStrokeJoin]);
               }
             },
             {
@@ -141209,7 +143540,7 @@
                 fillShader.setUniform('uSpecular', this._useSpecularMaterial);
                 fillShader.setUniform('uEmissive', this._useEmissiveMaterial);
                 fillShader.setUniform('uShininess', this._useShininess);
-                fillShader.setUniform('metallic', this._useMetalness);
+                fillShader.setUniform('uMetallic', this._useMetalness);
                 this._setImageLightUniforms(fillShader);
                 fillShader.setUniform('uUseLighting', this._enableLighting);
                 var pointLightCount = this.pointLightDiffuseColors.length / 3;
@@ -141260,14 +143591,6 @@
                   var diffusedLight = this.getDiffusedTexture(this.activeImageLight);
                   shader.setUniform('environmentMapDiffused', diffusedLight);
                   var specularLight = this.getSpecularTexture(this.activeImageLight);
-                  // In p5js the range of shininess is >= 1,
-                  // Therefore roughness range will be ([0,1]*8)*20 or [0, 160]
-                  // The factor of 8 is because currently the getSpecularTexture
-                  // only calculated 8 different levels of roughness
-                  // The factor of 20 is just to spread up this range so that,
-                  // [1, max] of shininess is converted to [0,160] of roughness
-                  var roughness = 20 / this._useShininess;
-                  shader.setUniform('levelOfDetail', roughness * 8);
                   shader.setUniform('environmentMapSpecular', specularLight);
                 }
               }
@@ -141549,7 +143872,7 @@
  * ensures that p5 is using a 3d renderer. throws an error if not.
  */
         _main.default.prototype._assert3d = function (name) {
-          if (!this._renderer.isP3D) throw new Error(''.concat(name, '() is only supported in WEBGL mode. If you\'d like to use 3D graphics and WebGL, see  https://p5js.org/examples/form-3d-primitives.html for more information.'));
+          if (!this._renderer.isP3D) throw new Error(''.concat(name, '() is only supported in WEBGL mode. If you\'d like to use 3D graphics and WebGL, see https://p5js.org/examples/3d-geometries/ for more information.'));
         };
         // function to initialize GLU Tesselator
         _main.default.RendererGL.prototype.tessyVertexSize = 12;
@@ -141557,104 +143880,113 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        '../core/p5.Renderer': 306,
-        './GeometryBuilder': 347,
-        './p5.Camera': 352,
-        './p5.Framebuffer': 354,
-        './p5.Matrix': 356,
-        './p5.Shader': 361,
-        './p5.Texture': 362,
-        'core-js/modules/es.array.concat': 170,
-        'core-js/modules/es.array.copy-within': 171,
-        'core-js/modules/es.array.every': 172,
-        'core-js/modules/es.array.fill': 173,
-        'core-js/modules/es.array.flat': 177,
-        'core-js/modules/es.array.flat-map': 176,
-        'core-js/modules/es.array.from': 179,
-        'core-js/modules/es.array.includes': 180,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.map': 185,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.array.some': 187,
-        'core-js/modules/es.array.unscopables.flat': 190,
-        'core-js/modules/es.array.unscopables.flat-map': 189,
-        'core-js/modules/es.map': 192,
-        'core-js/modules/es.object.assign': 199,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.get-prototype-of': 203,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.reflect.construct': 207,
-        'core-js/modules/es.reflect.get': 208,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.set': 212,
-        'core-js/modules/es.string.includes': 214,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.typed-array.copy-within': 228,
-        'core-js/modules/es.typed-array.every': 229,
-        'core-js/modules/es.typed-array.fill': 230,
-        'core-js/modules/es.typed-array.filter': 231,
-        'core-js/modules/es.typed-array.find': 233,
-        'core-js/modules/es.typed-array.find-index': 232,
-        'core-js/modules/es.typed-array.float32-array': 234,
-        'core-js/modules/es.typed-array.float64-array': 235,
-        'core-js/modules/es.typed-array.for-each': 236,
-        'core-js/modules/es.typed-array.includes': 237,
-        'core-js/modules/es.typed-array.index-of': 238,
-        'core-js/modules/es.typed-array.int16-array': 239,
-        'core-js/modules/es.typed-array.iterator': 241,
-        'core-js/modules/es.typed-array.join': 242,
-        'core-js/modules/es.typed-array.last-index-of': 243,
-        'core-js/modules/es.typed-array.map': 244,
-        'core-js/modules/es.typed-array.reduce': 246,
-        'core-js/modules/es.typed-array.reduce-right': 245,
-        'core-js/modules/es.typed-array.reverse': 247,
-        'core-js/modules/es.typed-array.set': 248,
-        'core-js/modules/es.typed-array.slice': 249,
-        'core-js/modules/es.typed-array.some': 250,
-        'core-js/modules/es.typed-array.sort': 251,
-        'core-js/modules/es.typed-array.subarray': 252,
-        'core-js/modules/es.typed-array.to-locale-string': 253,
-        'core-js/modules/es.typed-array.to-string': 254,
-        'core-js/modules/es.typed-array.uint16-array': 255,
-        'core-js/modules/es.typed-array.uint32-array': 256,
-        'core-js/modules/es.typed-array.uint8-array': 257,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261,
-        'libtess': 274,
-        'path': 277
+        '../core/constants': 294,
+        '../core/main': 306,
+        '../core/p5.Renderer': 309,
+        './GeometryBuilder': 350,
+        './p5.Camera': 355,
+        './p5.Framebuffer': 357,
+        './p5.Matrix': 359,
+        './p5.Shader': 365,
+        './p5.Texture': 366,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.copy-within': 172,
+        'core-js/modules/es.array.every': 173,
+        'core-js/modules/es.array.fill': 174,
+        'core-js/modules/es.array.flat': 178,
+        'core-js/modules/es.array.flat-map': 177,
+        'core-js/modules/es.array.from': 180,
+        'core-js/modules/es.array.includes': 181,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.map': 186,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.array.some': 188,
+        'core-js/modules/es.array.unscopables.flat': 191,
+        'core-js/modules/es.array.unscopables.flat-map': 190,
+        'core-js/modules/es.map': 193,
+        'core-js/modules/es.object.assign': 201,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.get-prototype-of': 206,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.reflect.construct': 210,
+        'core-js/modules/es.reflect.get': 211,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.set': 215,
+        'core-js/modules/es.string.includes': 217,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.typed-array.copy-within': 231,
+        'core-js/modules/es.typed-array.every': 232,
+        'core-js/modules/es.typed-array.fill': 233,
+        'core-js/modules/es.typed-array.filter': 234,
+        'core-js/modules/es.typed-array.find': 236,
+        'core-js/modules/es.typed-array.find-index': 235,
+        'core-js/modules/es.typed-array.float32-array': 237,
+        'core-js/modules/es.typed-array.float64-array': 238,
+        'core-js/modules/es.typed-array.for-each': 239,
+        'core-js/modules/es.typed-array.includes': 240,
+        'core-js/modules/es.typed-array.index-of': 241,
+        'core-js/modules/es.typed-array.int16-array': 242,
+        'core-js/modules/es.typed-array.iterator': 244,
+        'core-js/modules/es.typed-array.join': 245,
+        'core-js/modules/es.typed-array.last-index-of': 246,
+        'core-js/modules/es.typed-array.map': 247,
+        'core-js/modules/es.typed-array.reduce': 249,
+        'core-js/modules/es.typed-array.reduce-right': 248,
+        'core-js/modules/es.typed-array.reverse': 250,
+        'core-js/modules/es.typed-array.set': 251,
+        'core-js/modules/es.typed-array.slice': 252,
+        'core-js/modules/es.typed-array.some': 253,
+        'core-js/modules/es.typed-array.sort': 254,
+        'core-js/modules/es.typed-array.subarray': 255,
+        'core-js/modules/es.typed-array.to-locale-string': 256,
+        'core-js/modules/es.typed-array.to-string': 257,
+        'core-js/modules/es.typed-array.uint16-array': 258,
+        'core-js/modules/es.typed-array.uint32-array': 259,
+        'core-js/modules/es.typed-array.uint8-array': 260,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264,
+        'libtess': 277,
+        'path': 280
       }
     ],
-    361: [
+    365: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
         _dereq_('core-js/modules/es.symbol.description');
         _dereq_('core-js/modules/es.symbol.iterator');
+        _dereq_('core-js/modules/es.array.concat');
         _dereq_('core-js/modules/es.array.index-of');
         _dereq_('core-js/modules/es.array.iterator');
         _dereq_('core-js/modules/es.array.slice');
         _dereq_('core-js/modules/es.array.some');
         _dereq_('core-js/modules/es.function.name');
+        _dereq_('core-js/modules/es.object.assign');
         _dereq_('core-js/modules/es.object.keys');
         _dereq_('core-js/modules/es.object.to-string');
+        _dereq_('core-js/modules/es.regexp.exec');
+        _dereq_('core-js/modules/es.regexp.to-string');
         _dereq_('core-js/modules/es.string.iterator');
+        _dereq_('core-js/modules/es.string.split');
         _dereq_('core-js/modules/web.dom-collections.iterator');
         _dereq_('core-js/modules/es.symbol');
         _dereq_('core-js/modules/es.symbol.description');
         _dereq_('core-js/modules/es.symbol.iterator');
+        _dereq_('core-js/modules/es.array.concat');
         _dereq_('core-js/modules/es.array.index-of');
         _dereq_('core-js/modules/es.array.iterator');
         _dereq_('core-js/modules/es.array.slice');
         _dereq_('core-js/modules/es.array.some');
         _dereq_('core-js/modules/es.function.name');
+        _dereq_('core-js/modules/es.object.assign');
         _dereq_('core-js/modules/es.object.keys');
         _dereq_('core-js/modules/es.object.to-string');
+        _dereq_('core-js/modules/es.regexp.exec');
         _dereq_('core-js/modules/es.string.iterator');
+        _dereq_('core-js/modules/es.string.split');
         _dereq_('core-js/modules/web.dom-collections.iterator');
         Object.defineProperty(exports, '__esModule', {
           value: true
@@ -141666,6 +143998,41 @@
           default:
             obj
           };
+        }
+        function _slicedToArray(arr, i) {
+          return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+        }
+        function _nonIterableRest() {
+          throw new TypeError('Invalid attempt to destructure non-iterable instance');
+        }
+        function _iterableToArrayLimit(arr, i) {
+          if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === '[object Arguments]')) {
+            return;
+          }
+          var _arr = [
+          ];
+          var _n = true;
+          var _d = false;
+          var _e = undefined;
+          try {
+            for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+              _arr.push(_s.value);
+              if (i && _arr.length === i) break;
+            }
+          } catch (err) {
+            _d = true;
+            _e = err;
+          } finally {
+            try {
+              if (!_n && _i['return'] != null) _i['return']();
+            } finally {
+              if (_d) throw _e;
+            }
+          }
+          return _arr;
+        }
+        function _arrayWithHoles(arr) {
+          if (Array.isArray(arr)) return arr;
         }
         function _classCallCheck(instance, Constructor) {
           if (!(instance instanceof Constructor)) {
@@ -141708,6 +144075,32 @@
  * created, it can be used with the <a href="#/p5/shader">shader()</a>
  * function, as in `shader(myShader)`.
  *
+ * A shader can optionally describe *hooks,* which are functions in GLSL that
+ * users may choose to provide to customize the behavior of the shader. For the
+ * vertex or the fragment shader, users can pass in an object where each key is
+ * the type and name of a hook function, and each value is a string with the
+ * parameter list and default implementation of the hook. For example, to let users
+ * optionally run code at the start of the vertex shader, the options object could
+ * include:
+ *
+ * ```js
+ * {
+ *   vertex: {
+ *     'void beforeVertex': '() {}'
+ *   }
+ * }
+ * ```
+ *
+ * Then, in your vertex shader source, you can run a hook by calling a function
+ * with the same name prefixed by `HOOK_`:
+ *
+ * ```glsl
+ * void main() {
+ *   HOOK_beforeVertex();
+ *   // Add the rest of your shader code here!
+ * }
+ * ```
+ *
  * Note: <a href="#/p5/createShader">createShader()</a>,
  * <a href="#/p5/createFilterShader">createFilterShader()</a>, and
  * <a href="#/p5/loadShader">loadShader()</a> are the recommended ways to
@@ -141718,6 +144111,10 @@
  * @param {p5.RendererGL} renderer WebGL context for this shader.
  * @param {String} vertSrc source code for the vertex shader program.
  * @param {String} fragSrc source code for the fragment shader program.
+ * @param {Object} [options] An optional object describing how this shader can
+ * be augmented with hooks. It can include:
+ *  - `vertex`: An object describing the available vertex shader hooks.
+ *  - `fragment`: An object describing the available frament shader hooks.
  *
  * @example
  * <div>
@@ -141809,6 +144206,8 @@
 
         _main.default.Shader = /*#__PURE__*/ function () {
           function _class(renderer, vertSrc, fragSrc) {
+            var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
+            };
             _classCallCheck(this, _class);
             // TODO: adapt this to not take ids, but rather,
             // to take the source for a vertex and fragment shader
@@ -141828,17 +144227,340 @@
             this._bound = false;
             this.samplers = [
             ];
-          }          /**
-   * Creates, compiles, and links the shader based on its
-   * sources for the vertex and fragment shaders (provided
-   * to the constructor). Populates known attributes and
-   * uniforms from the shader.
-   * @method init
-   * @chainable
-   * @private
-   */
-
+            this.hooks = {
+              // These should be passed in by `.modify()` instead of being manually
+              // passed in.
+              // Stores uniforms + default values.
+              uniforms: options.uniforms || {
+              },
+              // Stores custom uniform + helper declarations as a string.
+              declarations: options.declarations,
+              // Stores helper functions to prepend to shaders.
+              helpers: options.helpers || {
+              },
+              // Stores the hook implementations
+              vertex: options.vertex || {
+              },
+              fragment: options.fragment || {
+              },
+              // Stores whether or not the hook implementation has been modified
+              // from the default. This is supplied automatically by calling
+              // yourShader.modify(...).
+              modified: {
+                vertex: options.modified && options.modified.vertex || {
+                },
+                fragment: options.modified && options.modified.fragment || {
+                }
+              }
+            };
+          }
           _createClass(_class, [
+            {
+              key: 'shaderSrc',
+              value: function shaderSrc(src, shaderType) {
+                var main = 'void main';
+                var _src$split = src.split(main),
+                _src$split2 = _slicedToArray(_src$split, 2),
+                preMain = _src$split2[0],
+                postMain = _src$split2[1];
+                var hooks = '';
+                for (var key in this.hooks.uniforms) {
+                  hooks += 'uniform '.concat(key, ';\n');
+                }
+                if (this.hooks.declarations) {
+                  hooks += this.hooks.declarations + '\n';
+                }
+                if (this.hooks[shaderType].declarations) {
+                  hooks += this.hooks[shaderType].declarations + '\n';
+                }
+                for (var hookDef in this.hooks.helpers) {
+                  hooks += ''.concat(hookDef).concat(this.hooks.helpers[hookDef], '\n');
+                }
+                for (var _hookDef in this.hooks[shaderType]) {
+                  if (_hookDef === 'declarations') continue;
+                  var _hookDef$split = _hookDef.split(' '),
+                  _hookDef$split2 = _slicedToArray(_hookDef$split, 2),
+                  hookType = _hookDef$split2[0],
+                  hookName = _hookDef$split2[1]; // Add a #define so that if the shader wants to use preprocessor directives to
+                  // optimize away the extra function calls in main, it can do so
+                  if (this.hooks.modified[shaderType][_hookDef]) {
+                    hooks += '#define AUGMENTED_HOOK_' + hookName + '\n';
+                  }
+                  hooks += hookType + ' HOOK_' + hookName + this.hooks[shaderType][_hookDef] + '\n';
+                }
+                return preMain + hooks + main + postMain;
+              }              /**
+     * Shaders are written in <a href="https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders">GLSL</a>, but
+     * there are different versions of GLSL that it might be written in.
+     *
+     * Calling this method on a `p5.Shader` will return the GLSL version it uses, either `100 es` or `300 es`.
+     * WebGL 1 shaders will only use `100 es`, and WebGL 2 shaders may use either.
+     *
+     * @returns {String} The GLSL version used by the shader.
+     */
+
+            },
+            {
+              key: 'version',
+              value: function version() {
+                var match = /#version (.+)$/.exec(this.vertSrc());
+                if (match) {
+                  return match[1];
+                } else {
+                  return '100 es';
+                }
+              }
+            },
+            {
+              key: 'vertSrc',
+              value: function vertSrc() {
+                return this.shaderSrc(this._vertSrc, 'vertex');
+              }
+            },
+            {
+              key: 'fragSrc',
+              value: function fragSrc() {
+                return this.shaderSrc(this._fragSrc, 'fragment');
+              }              /**
+     * Logs the hooks available in this shader, and their current implementation.
+     *
+     * Each shader may let you override bits of its behavior. Each bit is called
+     * a *hook.* A hook is either for the *vertex* shader, if it affects the
+     * position of vertices, or in the *fragment* shader, if it affects the pixel
+     * color. This method logs those values to the console, letting you know what
+     * you are able to use in a call to
+     * <a href="#/p5.Shader/modify">`modify()`</a>.
+     *
+     * For example, this shader will produce the following output:
+     *
+     * ```js
+     * myShader = baseMaterialShader().modify({
+     *   declarations: 'uniform float time;',
+     *   'vec3 getWorldPosition': `(vec3 pos) {
+     *     pos.y += 20. * sin(time * 0.001 + pos.x * 0.05);
+     *     return pos;
+     *   }`
+     * });
+     * myShader.inspectHooks();
+     * ```
+     *
+     * ```
+     * ==== Vertex shader hooks: ====
+     * void beforeVertex() {}
+     * vec3 getLocalPosition(vec3 position) { return position; }
+     * [MODIFIED] vec3 getWorldPosition(vec3 pos) {
+     *       pos.y += 20. * sin(time * 0.001 + pos.x * 0.05);
+     *       return pos;
+     *     }
+     * vec3 getLocalNormal(vec3 normal) { return normal; }
+     * vec3 getWorldNormal(vec3 normal) { return normal; }
+     * vec2 getUV(vec2 uv) { return uv; }
+     * vec4 getVertexColor(vec4 color) { return color; }
+     * void afterVertex() {}
+     *
+     * ==== Fragment shader hooks: ====
+     * void beforeFragment() {}
+     * Inputs getPixelInputs(Inputs inputs) { return inputs; }
+     * vec4 combineColors(ColorComponents components) {
+     *                 vec4 color = vec4(0.);
+     *                 color.rgb += components.diffuse * components.baseColor;
+     *                 color.rgb += components.ambient * components.ambientColor;
+     *                 color.rgb += components.specular * components.specularColor;
+     *                 color.rgb += components.emissive;
+     *                 color.a = components.opacity;
+     *                 return color;
+     *               }
+     * vec4 getFinalColor(vec4 color) { return color; }
+     * void afterFragment() {}
+     * ```
+     *
+     * @method inspectHooks
+     * @beta
+     */
+
+            },
+            {
+              key: 'inspectHooks',
+              value: function inspectHooks() {
+                console.log('==== Vertex shader hooks: ====');
+                for (var key in this.hooks.vertex) {
+                  console.log((this.hooks.modified.vertex[key] ? '[MODIFIED] ' : '') + key + this.hooks.vertex[key]);
+                }
+                console.log('');
+                console.log('==== Fragment shader hooks: ====');
+                for (var _key in this.hooks.fragment) {
+                  console.log((this.hooks.modified.fragment[_key] ? '[MODIFIED] ' : '') + _key + this.hooks.fragment[_key]);
+                }
+                console.log('');
+                console.log('==== Helper functions: ====');
+                for (var _key2 in this.hooks.helpers) {
+                  console.log(_key2 + this.hooks.helpers[_key2]);
+                }
+              }              /**
+     * Returns a new shader, based on the original, but with custom snippets
+     * of shader code replacing default behaviour.
+     *
+     * Each shader may let you override bits of its behavior. Each bit is called
+     * a *hook.* A hook is either for the *vertex* shader, if it affects the
+     * position of vertices, or in the *fragment* shader, if it affects the pixel
+     * color. You can inspect the different hooks available by calling
+     * <a href="#/p5.Shader/inspectHooks">`yourShader.inspectHooks()`</a>. You can
+     * also read the reference for the default material, normal material, color, line, and point shaders to
+     * see what hooks they have available.
+     *
+     * `modify()` takes one parameter, `hooks`, an object with the hooks you want
+     * to override. Each key of the `hooks` object is the name
+     * of a hook, and the value is a string with the GLSL code for your hook.
+     *
+     * If you supply functions that aren't existing hooks, they will get added at the start of
+     * the shader as helper functions so that you can use them in your hooks.
+     *
+     * To add new <a href="#/p5.Shader/setUniform">uniforms</a> to your shader, you can pass in a `uniforms` object containing
+     * the type and name of the uniform as the key, and a default value or function returning
+     * a default value as its value. These will be automatically set when the shader is set
+     * with `shader(yourShader)`.
+     *
+     * You can also add a `declarations` key, where the value is a GLSL string declaring
+     * custom uniform variables, globals, and functions shared
+     * between hooks. To add declarations just in a vertex or fragment shader, add
+     * `vertexDeclarations` and `fragmentDeclarations` keys.
+     *
+     * @method modify
+     * @beta
+     * @param {Object} [hooks] The hooks in the shader to replace.
+     * @returns {p5.Shader}
+     *
+     * @example
+     * <div modernizr='webgl'>
+     * <code>
+     * let myShader;
+     *
+     * function setup() {
+     *   createCanvas(200, 200, WEBGL);
+     *   myShader = baseMaterialShader().modify({
+     *     uniforms: {
+     *       'float time': () => millis()
+     *     },
+     *     'vec3 getWorldPosition': `(vec3 pos) {
+     *       pos.y += 20. * sin(time * 0.001 + pos.x * 0.05);
+     *       return pos;
+     *     }`
+     *   });
+     * }
+     *
+     * function draw() {
+     *   background(255);
+     *   shader(myShader);
+     *   lights();
+     *   noStroke();
+     *   fill('red');
+     *   sphere(50);
+     * }
+     * </code>
+     * </div>
+     *
+     * @example
+     * <div modernizr='webgl'>
+     * <code>
+     * let myShader;
+     *
+     * function setup() {
+     *   createCanvas(200, 200, WEBGL);
+     *   myShader = baseMaterialShader().modify({
+     *     // Manually specifying a uniform
+     *     declarations: 'uniform float time;',
+     *     'vec3 getWorldPosition': `(vec3 pos) {
+     *       pos.y += 20. * sin(time * 0.001 + pos.x * 0.05);
+     *       return pos;
+     *     }`
+     *   });
+     * }
+     *
+     * function draw() {
+     *   background(255);
+     *   shader(myShader);
+     *   myShader.setUniform('time', millis());
+     *   lights();
+     *   noStroke();
+     *   fill('red');
+     *   sphere(50);
+     * }
+     * </code>
+     * </div>
+     */
+
+            },
+            {
+              key: 'modify',
+              value: function modify(hooks) {
+                _main.default._validateParameters('p5.Shader.modify', arguments);
+                var newHooks = {
+                  vertex: {
+                  },
+                  fragment: {
+                  },
+                  helpers: {
+                  }
+                };
+                for (var key in hooks) {
+                  if (key === 'declarations') continue;
+                  if (key === 'uniforms') continue;
+                  if (key === 'vertexDeclarations') {
+                    newHooks.vertex.declarations = (newHooks.vertex.declarations || '') + '\n' + hooks[key];
+                  } else if (key === 'fragmentDeclarations') {
+                    newHooks.fragment.declarations = (newHooks.fragment.declarations || '') + '\n' + hooks[key];
+                  } else if (this.hooks.vertex[key]) {
+                    newHooks.vertex[key] = hooks[key];
+                  } else if (this.hooks.fragment[key]) {
+                    newHooks.fragment[key] = hooks[key];
+                  } else {
+                    newHooks.helpers[key] = hooks[key];
+                  }
+                }
+                var modifiedVertex = Object.assign({
+                }, this.hooks.modified.vertex);
+                var modifiedFragment = Object.assign({
+                }, this.hooks.modified.fragment);
+                for (var _key3 in newHooks.vertex || {
+                }) {
+                  if (_key3 === 'declarations') continue;
+                  modifiedVertex[_key3] = true;
+                }
+                for (var _key4 in newHooks.fragment || {
+                }) {
+                  if (_key4 === 'declarations') continue;
+                  modifiedFragment[_key4] = true;
+                }
+                return new _main.default.Shader(this._renderer, this._vertSrc, this._fragSrc, {
+                  declarations: (this.hooks.declarations || '') + '\n' + (hooks.declarations || ''),
+                  uniforms: Object.assign({
+                  }, this.hooks.uniforms, hooks.uniforms || {
+                  }),
+                  fragment: Object.assign({
+                  }, this.hooks.fragment, newHooks.fragment || {
+                  }),
+                  vertex: Object.assign({
+                  }, this.hooks.vertex, newHooks.vertex || {
+                  }),
+                  helpers: Object.assign({
+                  }, this.hooks.helpers, newHooks.helpers || {
+                  }),
+                  modified: {
+                    vertex: modifiedVertex,
+                    fragment: modifiedFragment
+                  }
+                });
+              }              /**
+     * Creates, compiles, and links the shader based on its
+     * sources for the vertex and fragment shaders (provided
+     * to the constructor). Populates known attributes and
+     * uniforms from the shader.
+     * @method init
+     * @chainable
+     * @private
+     */
+
+            },
             {
               key: 'init',
               value: function init() {
@@ -141853,20 +144575,30 @@
                   // 3. linking the vertex and fragment shaders
                   this._vertShader = gl.createShader(gl.VERTEX_SHADER);
                   //load in our default vertex shader
-                  gl.shaderSource(this._vertShader, this._vertSrc);
+                  gl.shaderSource(this._vertShader, this.vertSrc());
                   gl.compileShader(this._vertShader);
                   // if our vertex shader failed compilation?
                   if (!gl.getShaderParameter(this._vertShader, gl.COMPILE_STATUS)) {
-                    _main.default._friendlyError('Yikes! An error occurred compiling the vertex shader:'.concat(gl.getShaderInfoLog(this._vertShader)));
+                    var glError = gl.getShaderInfoLog(this._vertShader);
+                    if (typeof IS_MINIFIED !== 'undefined') {
+                      console.error(glError);
+                    } else {
+                      _main.default._friendlyError('Yikes! An error occurred compiling the vertex shader:'.concat(glError));
+                    }
                     return null;
                   }
                   this._fragShader = gl.createShader(gl.FRAGMENT_SHADER);
                   //load in our material frag shader
-                  gl.shaderSource(this._fragShader, this._fragSrc);
+                  gl.shaderSource(this._fragShader, this.fragSrc());
                   gl.compileShader(this._fragShader);
                   // if our frag shader failed compilation?
                   if (!gl.getShaderParameter(this._fragShader, gl.COMPILE_STATUS)) {
-                    _main.default._friendlyError('Darn! An error occurred compiling the fragment shader:'.concat(gl.getShaderInfoLog(this._fragShader)));
+                    var _glError = gl.getShaderInfoLog(this._fragShader);
+                    if (typeof IS_MINIFIED !== 'undefined') {
+                      console.error(_glError);
+                    } else {
+                      _main.default._friendlyError('Darn! An error occurred compiling the fragment shader:'.concat(_glError));
+                    }
                     return null;
                   }
                   this._glProgram = gl.createProgram();
@@ -141880,6 +144612,29 @@
                   this._loadUniforms();
                 }
                 return this;
+              }              /**
+     * @private
+     */
+
+            },
+            {
+              key: 'setDefaultUniforms',
+              value: function setDefaultUniforms() {
+                for (var key in this.hooks.uniforms) {
+                  var _key$split = key.split(' '),
+                  _key$split2 = _slicedToArray(_key$split, 2),
+                  name = _key$split2[1];
+                  var initializer = this.hooks.uniforms[key];
+                  var value = void 0;
+                  if (initializer instanceof Function) {
+                    value = initializer();
+                  } else {
+                    value = initializer;
+                  }
+                  if (value !== undefined && value !== null) {
+                    this.setUniform(name, value);
+                  }
+                }
               }              /**
      * Copies the shader from one drawing context to another.
      *
@@ -142297,9 +145052,11 @@
             {
               key: '_setMatrixUniforms',
               value: function _setMatrixUniforms() {
-                var viewMatrix = this._renderer._curCamera.cameraMatrix;
+                var modelMatrix = this._renderer.uModelMatrix;
+                var viewMatrix = this._renderer.uViewMatrix;
                 var projectionMatrix = this._renderer.uPMatrix;
-                var modelViewMatrix = this._renderer.uMVMatrix;
+                var modelViewMatrix = modelMatrix.copy().mult(viewMatrix);
+                this._renderer.uMVMatrix = modelViewMatrix;
                 var modelViewProjectionMatrix = modelViewMatrix.copy();
                 modelViewProjectionMatrix.mult(projectionMatrix);
                 if (this.isStrokeShader()) {
@@ -142307,6 +145064,7 @@
                 }
                 this.setUniform('uViewMatrix', viewMatrix.mat4);
                 this.setUniform('uProjectionMatrix', projectionMatrix.mat4);
+                this.setUniform('uModelMatrix', modelMatrix.mat4);
                 this.setUniform('uModelViewMatrix', modelViewMatrix.mat4);
                 this.setUniform('uModelViewProjectionMatrix', modelViewProjectionMatrix.mat4);
                 if (this.uniforms.uNormalMatrix) {
@@ -142314,7 +145072,7 @@
                   this.setUniform('uNormalMatrix', this._renderer.uNMatrix.mat3);
                 }
                 if (this.uniforms.uCameraRotation) {
-                  this._renderer.curMatrix.inverseTranspose(this._renderer._curCamera.cameraMatrix);
+                  this._renderer.curMatrix.inverseTranspose(this._renderer.uViewMatrix);
                   this.setUniform('uCameraRotation', this._renderer.curMatrix.mat3);
                 }
               }              /**
@@ -142666,12 +145424,45 @@
                     }
                     break;
                   case gl.SAMPLER_2D:
-                    gl.activeTexture(gl.TEXTURE0 + uniform.samplerIndex);
-                    uniform.texture = data instanceof _main.default.Texture ? data : this._renderer.getTexture(data);
-                    gl.uniform1i(location, uniform.samplerIndex);
-                    if (uniform.texture.src.gifProperties) {
-                      uniform.texture.src._animateGif(this._renderer._pInst);
+                    if (typeof data == 'number') {
+                      if (data < gl.TEXTURE0 || data > gl.TEXTURE31 || data !== Math.ceil(data)) {
+                        console.log('🌸 p5.js says: ' + 'You\'re trying to use a number as the data for a texture.' + 'Please use a texture.');
+                        return this;
+                      }
+                      gl.activeTexture(data);
+                      gl.uniform1i(location, data);
+                    } else {
+                      gl.activeTexture(gl.TEXTURE0 + uniform.samplerIndex);
+                      uniform.texture = data instanceof _main.default.Texture ? data : this._renderer.getTexture(data);
+                      gl.uniform1i(location, uniform.samplerIndex);
+                      if (uniform.texture.src.gifProperties) {
+                        uniform.texture.src._animateGif(this._renderer._pInst);
+                      }
                     }
+                    break;
+                  case gl.SAMPLER_CUBE:
+                  case gl.SAMPLER_3D:
+                  case gl.SAMPLER_2D_SHADOW:
+                  case gl.SAMPLER_2D_ARRAY:
+                  case gl.SAMPLER_2D_ARRAY_SHADOW:
+                  case gl.SAMPLER_CUBE_SHADOW:
+                  case gl.INT_SAMPLER_2D:
+                  case gl.INT_SAMPLER_3D:
+                  case gl.INT_SAMPLER_CUBE:
+                  case gl.INT_SAMPLER_2D_ARRAY:
+                  case gl.UNSIGNED_INT_SAMPLER_2D:
+                  case gl.UNSIGNED_INT_SAMPLER_3D:
+                  case gl.UNSIGNED_INT_SAMPLER_CUBE:
+                  case gl.UNSIGNED_INT_SAMPLER_2D_ARRAY:
+                    if (typeof data !== 'number') {
+                      break;
+                    }
+                    if (data < gl.TEXTURE0 || data > gl.TEXTURE31 || data !== Math.ceil(data)) {
+                      console.log('🌸 p5.js says: ' + 'You\'re trying to use a number as the data for a texture.' + 'Please use a texture.');
+                      break;
+                    }
+                    gl.activeTexture(data);
+                    gl.uniform1i(location, data);
                     break;
                     //@todo complete all types
                 }
@@ -142814,22 +145605,27 @@
         exports.default = _default;
       },
       {
-        '../core/main': 303,
-        'core-js/modules/es.array.index-of': 181,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.array.slice': 186,
-        'core-js/modules/es.array.some': 187,
-        'core-js/modules/es.function.name': 191,
-        'core-js/modules/es.object.keys': 204,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/main': 306,
+        'core-js/modules/es.array.concat': 171,
+        'core-js/modules/es.array.index-of': 182,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.array.slice': 187,
+        'core-js/modules/es.array.some': 188,
+        'core-js/modules/es.function.name': 192,
+        'core-js/modules/es.object.assign': 201,
+        'core-js/modules/es.object.keys': 207,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    362: [
+    366: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -143157,7 +145953,10 @@
                   textureData = this.src.canvas;
                 } else if (this.isSrcMediaElement || this.isSrcP5Graphics || this.isSrcP5Renderer || this.isSrcHTMLElement) {
                   // if param is a video HTML element
-                  textureData = this.src.elt;
+                  if (this.src._ensureCanvas) {
+                    this.src._ensureCanvas();
+                  }
+                  textureData = this.src.canvas || this.src.elt;
                 } else if (this.isImageData) {
                   textureData = this.src;
                 }
@@ -143505,47 +146304,47 @@
         exports.default = _default;
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.get-prototype-of': 203,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.reflect.construct': 207,
-        'core-js/modules/es.regexp.to-string': 211,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.typed-array.copy-within': 228,
-        'core-js/modules/es.typed-array.every': 229,
-        'core-js/modules/es.typed-array.fill': 230,
-        'core-js/modules/es.typed-array.filter': 231,
-        'core-js/modules/es.typed-array.find': 233,
-        'core-js/modules/es.typed-array.find-index': 232,
-        'core-js/modules/es.typed-array.for-each': 236,
-        'core-js/modules/es.typed-array.includes': 237,
-        'core-js/modules/es.typed-array.index-of': 238,
-        'core-js/modules/es.typed-array.iterator': 241,
-        'core-js/modules/es.typed-array.join': 242,
-        'core-js/modules/es.typed-array.last-index-of': 243,
-        'core-js/modules/es.typed-array.map': 244,
-        'core-js/modules/es.typed-array.reduce': 246,
-        'core-js/modules/es.typed-array.reduce-right': 245,
-        'core-js/modules/es.typed-array.reverse': 247,
-        'core-js/modules/es.typed-array.set': 248,
-        'core-js/modules/es.typed-array.slice': 249,
-        'core-js/modules/es.typed-array.some': 250,
-        'core-js/modules/es.typed-array.sort': 251,
-        'core-js/modules/es.typed-array.subarray': 252,
-        'core-js/modules/es.typed-array.to-locale-string': 253,
-        'core-js/modules/es.typed-array.to-string': 254,
-        'core-js/modules/es.typed-array.uint8-array': 257,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.get-prototype-of': 206,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.reflect.construct': 210,
+        'core-js/modules/es.regexp.to-string': 214,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.typed-array.copy-within': 231,
+        'core-js/modules/es.typed-array.every': 232,
+        'core-js/modules/es.typed-array.fill': 233,
+        'core-js/modules/es.typed-array.filter': 234,
+        'core-js/modules/es.typed-array.find': 236,
+        'core-js/modules/es.typed-array.find-index': 235,
+        'core-js/modules/es.typed-array.for-each': 239,
+        'core-js/modules/es.typed-array.includes': 240,
+        'core-js/modules/es.typed-array.index-of': 241,
+        'core-js/modules/es.typed-array.iterator': 244,
+        'core-js/modules/es.typed-array.join': 245,
+        'core-js/modules/es.typed-array.last-index-of': 246,
+        'core-js/modules/es.typed-array.map': 247,
+        'core-js/modules/es.typed-array.reduce': 249,
+        'core-js/modules/es.typed-array.reduce-right': 248,
+        'core-js/modules/es.typed-array.reverse': 250,
+        'core-js/modules/es.typed-array.set': 251,
+        'core-js/modules/es.typed-array.slice': 252,
+        'core-js/modules/es.typed-array.some': 253,
+        'core-js/modules/es.typed-array.sort': 254,
+        'core-js/modules/es.typed-array.subarray': 255,
+        'core-js/modules/es.typed-array.to-locale-string': 256,
+        'core-js/modules/es.typed-array.to-string': 257,
+        'core-js/modules/es.typed-array.uint8-array': 260,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    363: [
+    367: [
       function (_dereq_, module, exports) {
         'use strict';
         _dereq_('core-js/modules/es.symbol');
@@ -143669,6 +146468,8 @@
         _main.default.RendererGL.prototype._applyTextProperties = function () {
           //@TODO finish implementation
           //console.error('text commands not yet implemented in webgl');
+          this._setProperty('_textAscent', null);
+          this._setProperty('_textDescent', null);
         };
         _main.default.RendererGL.prototype.textWidth = function (s) {
           if (this._isOpenType()) {
@@ -144506,25 +147307,25 @@
         };
       },
       {
-        '../core/constants': 291,
-        '../core/main': 303,
-        './p5.RendererGL.Retained': 359,
-        './p5.Shader': 361,
-        'core-js/modules/es.array.iterator': 182,
-        'core-js/modules/es.object.get-own-property-descriptor': 201,
-        'core-js/modules/es.object.to-string': 205,
-        'core-js/modules/es.regexp.exec': 210,
-        'core-js/modules/es.string.iterator': 215,
-        'core-js/modules/es.string.split': 221,
-        'core-js/modules/es.string.sub': 223,
-        'core-js/modules/es.symbol': 227,
-        'core-js/modules/es.symbol.description': 225,
-        'core-js/modules/es.symbol.iterator': 226,
-        'core-js/modules/es.weak-map': 259,
-        'core-js/modules/web.dom-collections.iterator': 261
+        '../core/constants': 294,
+        '../core/main': 306,
+        './p5.RendererGL.Retained': 363,
+        './p5.Shader': 365,
+        'core-js/modules/es.array.iterator': 183,
+        'core-js/modules/es.object.get-own-property-descriptor': 204,
+        'core-js/modules/es.object.to-string': 208,
+        'core-js/modules/es.regexp.exec': 213,
+        'core-js/modules/es.string.iterator': 218,
+        'core-js/modules/es.string.split': 224,
+        'core-js/modules/es.string.sub': 226,
+        'core-js/modules/es.symbol': 230,
+        'core-js/modules/es.symbol.description': 228,
+        'core-js/modules/es.symbol.iterator': 229,
+        'core-js/modules/es.weak-map': 262,
+        'core-js/modules/web.dom-collections.iterator': 264
       }
     ],
-    364: [
+    368: [
       function (_dereq_, module, exports) {
         module.exports = {
           'fes': {
@@ -144602,7 +147403,7 @@
       {
       }
     ],
-    365: [
+    369: [
       function (_dereq_, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', {
@@ -144647,11 +147448,11 @@
         exports.languages = languages;
       },
       {
-        './en/translation': 364
+        './en/translation': 368
       }
     ]
   }, {
   }, [
-    286
-  ]) (286)
+    289
+  ]) (289)
 });
