@@ -1,12 +1,12 @@
 ## 1. Meeting Details
 
-**Date:** 11/9/2026
+**Date:** 11/18/2026
 
-**Scrum Master:** Ian Gassner
+**Scrum Master:** Caden McBeth
 
-**Attendees:** Ian Gassner, Caden McBeth, Zeven King, Chase Lingafelt, Brennan Sweet
+**Attendees:** Ian Gassner, Caden McBeth, Chase Lingafelt, Brennan Sweet
 
-**Absent:** N/A
+**Absent:** Zeven King
  
 _
 
@@ -22,13 +22,12 @@ _
 
 *Tell the stakeholder whether the sprint delivered what it set out to.*
 
-**The goal we set:** Artwork for Title Screen, Mage Characters, and Enemies. Working Start, Options, Difficulty Buttons. 
-Battle Stage shown, with player character, enemies, and battle menu info.
+**The goal we set:** 34 points. Create Battle Submenu and Reward/Post Battle Spritework; Keyboard Playable; Simple form of Variance in Combat;
+After Combat; Gold; Enemies Targeting/Identification;
 
-**Did we meet it?** *(Partly)*
+**Did we meet it?** Yes
 
-Partly. We met all of our goals that we wanted to complete, but had issues with parts merging to Github.
-Specifically the new title screen design, and the functioning Start and Options buttons.
+Yes. All of the issues we wished to complete this sprint were completed as we saw fit.
 
 ## 3. Committed Items: Done or Not Done
 
@@ -48,15 +47,17 @@ Built by |
 
 |---------|------------|----------|-------|-------|----------|
 
-| Background and Enemy Artwork | 3 hours | Caden McBeth | Yes | Caden McBeth | 
+| Battle Submenu and Reward/Post Battle Spritework | 4 hours | Caden McBeth | Yes | Caden McBeth | 
  
-| Selectable Start Button | 3 hours | Zeven King | No | Zeven King |
+| Gold | 2 hours | Zeven King | Yes | Zeven King |
  
-| Options Menu | 1h 30m | Brennan Sweet | No | Brennan Sweet |
+| After Combat | 30 minutes | Ian Gassner | Yes | Ian Gassner |
  
-| Play Field (Battle) | 3 hours | Ian Gassner | No | Ian Gassner, Brennan Sweet, Caden McBeth |
+| Variance in Combat | 5 hours | Brennan Sweet | Yes | Brennan Sweet |
  
-| Title Screen | 1h 30m | Chase Lingafelt | Yes | Chase Lingafelt, Zeven King, Caden McBeth, Ian Gassner, Brennan Sweet |
+| Enemies Identification | 1h 30m | Chase Lingafelt | Yes | Chase Lingafelt, Ian Gassner |
+
+| Keyboard Playable | 1 hour | Ian Gassner | Yes | Ian Gassner |
  
 ---
 
@@ -64,9 +65,9 @@ Built by |
 
 | | Points |
 |---|---|
-| Committed | 22 |
-| Completed | 6 |
-| Completion rate | 27% |
+| Committed | 34 |
+| Completed | 34 |
+| Completion rate | 100% |
 
 **Velocity history:**
 
@@ -76,13 +77,7 @@ Built by |
 
 | 1 | 22 | 6 |
 
-| 2
- 
-|
- 
-|
- 
-|
+| 2 | 34 | 34 |
 
 | 3
  
@@ -104,7 +99,8 @@ Built by |
 
 **What explains the difference between committed and
  
-completed?** _
+completed?** Commited is the tasks we planned to complete at the beginning of the sprint. Completed is the work that we finished
+that also has an accurate issue description.
 
 ---
 
@@ -122,17 +118,41 @@ about every completed story,
 
 including work you didn't build.*
 
-### Issue #_: *Background and Enemy Artwork*
+### Issue #74: *Battle Submenu and Reward/Post Battle Spritework*
 
-- [ ] *Artwork for Background Created*
+- [ ] *Artwork for Battle Submenu Created*
 
-- [ ] *Artwork for Enemies Created*
+- [ ] *Artwork for Reward and Post Battle Created*
 
-### Issue #_: *Title Screen*
+### Issue #7: *Keyboard Playable*
 
-- [ ] *Title Screen shows given artwork for the background and buttons*
+- [ ] *Ability to move through menus using the arrow keys*
 
-- [ ] *Title Screen shows Difficulty Button and Difficulty Settings when clicked*
+- [ ] *Ability to progress through various screens using the ENTER or SPACE keys*
+
+### Issue #7: *Keyboard Playable*
+
+- [ ] *Ability to move through menus using the arrow keys*
+
+- [ ] *Ability to progress through various screens using the ENTER or SPACE keys*
+
+### Issue #7: *Keyboard Playable*
+
+- [ ] *Ability to move through menus using the arrow keys*
+
+- [ ] *Ability to progress through various screens using the ENTER or SPACE keys*
+
+### Issue #7: *Keyboard Playable*
+
+- [ ] *Ability to move through menus using the arrow keys*
+
+- [ ] *Ability to progress through various screens using the ENTER or SPACE keys*
+
+### Issue #7: *Keyboard Playable*
+
+- [ ] *Ability to move through menus using the arrow keys*
+
+- [ ] *Ability to progress through various screens using the ENTER or SPACE keys*
 
 ---
 
