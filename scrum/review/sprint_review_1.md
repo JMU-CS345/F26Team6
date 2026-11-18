@@ -14,7 +14,7 @@ _
 
 **Deployed build reviewed:** https://github.com/JMU-CS345/F26Team6/tree/production
 
-**Release PR into `production`:** *(link; merge it before the review begins)*
+**Release PR into `production`:** *https://github.com/JMU-CS345/F26Team6/actions/runs/44244810012*
 
 ---
 
@@ -202,7 +202,7 @@ We completed exactly what we sought out to complete when planning for this sprin
 
 **CI status
  
-on `production`:** *(passing / failing)*
+on `production`:** *passing*
 
 **Number of
  
