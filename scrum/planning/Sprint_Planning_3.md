@@ -90,18 +90,18 @@ _We did not split any stories, but rather shared the combat and tavern stories b
 plan, and how? (Sprint 1: write "n/a")*
 | Action item | How it shows up in this sprint |
 |-------------|--------------------------------|
-| | |
-| | |
+| Daily Check ins| Over break everyday we are letting the group know what we did, even if its nothing to pace ourselves and see what more needs to be accomplished. If anyone consistently does nothing then they know they need to step up|
+| Updated ACT Criteria| We also are making the ACT and details of every issue much more detailed and require review from the team since previously people were getting confused and some stories were too vague to be useful|
 ---
 ## 9. Risks and Dependencies
 *What might stop the team from meeting the sprint goal? Which stories depend on
 others being finished first?*
-_
+_The tavern and battle stories directly depend on each other as well as the implementing art story. The biggest thing that will stop our team from not making the goal is not checking in with each other. If people don't know when something else is done, then they can't start on their part and therefor could stop us from reaching our sprint goal.
 ---
 ## 10. Checklist
-- [ ] Sprint goal written
-- [ ] Every committed story meets the Definition of Ready
-- [ ] Every story has an owner
-- [ ] Board updated: committed stories in the sprint, tasks created
-- [ ] Commitment compared to velocity
-- [ ] Report committed to `scrum/planning/` via pull request
+- [Y] Sprint goal written
+- [Y] Every committed story meets the Definition of Ready
+- [Y] Every story has an owner
+- [Y] Board updated: committed stories in the sprint, tasks created
+- [Y] Commitment compared to velocity
+- [Y] Report committed to `scrum/planning/` via pull request
