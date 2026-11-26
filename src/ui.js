@@ -34,13 +34,17 @@ function drawVictoryScreen() {
         250
     );
 
+    // Go to the shop after every 6th battle, otherwise straight to the next fight
+    const goingToShop = (gameState.battlesWon % BATTLES_PER_SHOP === 0);
+    const nextScreen = goingToShop ? "shop" : "battle";
+
     // Draw the button
     fill(200);
     rect(width / 2 - 100, 320, 200, 60, 8);
 
     fill(0);
     textSize(28);
-    text("Next Battle", width / 2, 350);
+    text(goingToShop ? "Visit Shop" : "Next Battle", width / 2, 350);
 
     manageScreenButton(
         width / 2 - 100,
@@ -50,6 +54,6 @@ function drawVictoryScreen() {
         gameState,
         "screen",
         "victory",
-        "battle"
+        nextScreen
     );
 }
