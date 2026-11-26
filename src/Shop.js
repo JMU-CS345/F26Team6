@@ -5,16 +5,16 @@ const SHOP_COLUMNS = 3;
 
 // Placeholder item pool, replace with your real items later
 const SHOP_ITEM_POOL = [
-    { name: "Iron Staff", price: 50, type: "weapon" },
-    { name: "Oak Staff", price: 35, type: "weapon" },
-    { name: "Mage Robe", price: 60, type: "armor" },
-    { name: "Leather Boots", price: 40, type: "armor" },
-    { name: "Ruby Ring", price: 75, type: "accessory" },
-    { name: "Sapphire Ring", price: 75, type: "accessory" },
+    { name: "Sword", price: 50, type: "weapon" },
+    { name: "Hammer", price: 35, type: "weapon" },
+    { name: "Basic Shield", price: 60, type: "shield" },
+    { name: "Sythe", price: 40, type: "weapon" },
+    { name: "Ball and Chain", price: 75, type: "weapon" },
+    { name: "Hologram Shield", price: 75, type: "shield" },
     { name: "Health Potion", price: 20, type: "item" },
     { name: "Mana Potion", price: 20, type: "item" },
-    { name: "Lucky Charm", price: 90, type: "accessory" },
-    { name: "Wizard Hat", price: 55, type: "armor" }
+    { name: "dagger", price: 90, type: "weapon" },
+    { name: "garbage can lid", price: 55, type: "shield" }
 ];
 
 let shopStock = null;                 // null means "needs to be rolled"
