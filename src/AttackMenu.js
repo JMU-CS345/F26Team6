@@ -1,16 +1,23 @@
 const attackMenuOptions = ["Attack", "Magic", "Block", "Item"];
 
 function drawAttackMenu() {
-    // Block is instant: run it once, then go straight back to the main menu
+    if (!isPlayerTurn()) return;
+
+    // Block is instant: it ends the turn by itself
     if (gameState.battleMenu === "block") {
-        playerBlock();                  // your block logic goes here
-        gameState.battleMenu = "main";
+        playerBlock();
+        return;
     }
 
+    // A basic attack was picked: use it through the turn system, which ends the turn
     if (gameState.battleMenu.startsWith("use:")) {
         const attack = getBasicAttack(gameState.battleMenu.substring(4));
-        if (attack !== null) useBasicAttack(attack, getTargetEnemy());
-        gameState.battleMenu = "main";
+        if (attack !== null) {
+            playerUseBasicAttack(attack);
+        } else {
+            gameState.battleMenu = "main";
+        }
+        return;
     }
 
     // the one big box, always drawn
@@ -54,6 +61,6 @@ function drawAttackMenu() {
 }
 
 function playerBlock() {
-    // e.g. mark the player as blocking for the enemy's next attack,
-    // then end the player's turn
+    player.isBlocking = true;
+    endPlayerTurn("You brace yourself!");
 }
