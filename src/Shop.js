@@ -1,5 +1,18 @@
 // Shop.js
 
+const SHELF_SLOTS = [
+    { x: 80, y: 192, size: 64 },
+    { x: 184, y: 192, size: 64 },
+    { x: 288, y: 192, size: 64 },
+    { x: 638, y: 192, size: 64 },
+    { x: 742, y: 192, size: 64 },
+    { x: 846, y: 192, size: 64 }
+];
+
+const SHELF_DEBUG = false;   // set to true to show slot outlines and mouse coordinates
+
+const itemImages = {};      // filled by loadItemImages()
+
 const SHOP_ITEM_COUNT = 6;
 const SHOP_COLUMNS = 3;
 const EQUIP_PER_PAGE = 7;
@@ -11,11 +24,14 @@ const SHOP_ONE_TIME_TYPES = ["weapon", "shield", "item"];
 // ids must match the keys in your global ITEMS table
 const SHOP_ITEM_POOL = [
     { id: "sword", name: "Sword", price: 50, type: "weapon" },
+    { id: "axe", name: "Axe", price: 30, type: "weapon" },
     { id: "hammer", name: "Hammer", price: 35, type: "weapon" },
-    { id: "basicShield", name: "Basic Shield", price: 60, type: "shield" },
+    { id: "woodenShield", name: "Wooden Shield", price: 60, type: "shield" },
+    { id: "boomerang", name: "Boomerang", price: 90, type: "weapon" },
     { id: "scythe", name: "Scythe", price: 40, type: "weapon" },
     { id: "ballAndChain", name: "Ball and Chain", price: 75, type: "weapon" },
     { id: "hologramShield", name: "Hologram Shield", price: 75, type: "shield" },
+    { id: "frozenShield", name: "Frozen Shield", price: 70, type: "shield" },
     { id: "healthPotion", name: "Health Potion", price: 20, type: "item" },
     { id: "acidFlask", name: "Acid Flask", price: 40, type: "item" },
     { id: "manaPotion", name: "Mana Potion", price: 20, type: "item" },
@@ -36,6 +52,112 @@ let shopLastFrame = -2;               // frame the shop was last drawn, used to 
 function resetShopProgress() {
     shopPurchased = {};
     shopStock = null;
+}
+
+// ---------- Sprites ----------
+
+const ITEM_SPRITE_FOLDER = "assets_NEW/";   // add a subfolder here if needed, e.g. "assets_NEW/items/"
+
+// item id -> filename inside that folder. Only list the ones you have art for.
+const ITEM_SPRITE_FILES = {
+    sword: "sword.png",
+    hammer: "hammer.png",
+    scythe: "scythe.png",
+    boomerang: "boomerang.png",
+    ballAndChain: "ballAndChain.png",
+    axe: "axe.png",
+
+    hologramShield: "hologramShield.png",
+    frozenShield: "frozenShield.png",
+    woodenShield: "woodenShield.png",
+    garbageCanLid: "garbageCanLid.png",
+
+    healthPotion: "healthPotion.png",
+    manaPotion: "manaPotion.png",
+    acidFlask: "acidFlask.png"
+};
+
+const SOLD_SPRITE_FILE = "sold.png";
+let soldImage = null;
+
+// call once in setup()
+function loadItemImages() {
+    const ids = Object.keys(ITEM_SPRITE_FILES);
+    for (let i = 0; i < ids.length; i++) {
+        const id = ids[i];
+        itemImages[id] = loadImage(ITEM_SPRITE_FOLDER + ITEM_SPRITE_FILES[id],
+            function () { },
+            function () { itemImages[id] = null; });   // bad path: fall back to the placeholder
+    }
+
+    soldImage = loadImage(ITEM_SPRITE_FOLDER + SOLD_SPRITE_FILE,
+        function () { },
+        function () { soldImage = null; });   // no file: use the placeholder
+}
+
+function drawItemIcon(id, x, y, size) {
+    const img = itemImages[id];
+    if (img && img.width > 1) {
+        image(img, x, y, size, size);
+        return;
+    }
+
+    // placeholder: color by type, first letter in the middle
+    const type = ITEMS[id].type;
+    if (type === "weapon") fill(190, 70, 70);
+    else if (type === "shield") fill(70, 110, 200);
+    else fill(70, 170, 100);
+
+    noStroke();
+    rect(x, y, size, size, 8);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(size * 0.5);
+    text(ITEMS[id].name.charAt(0).toUpperCase(), x + size / 2, y + size / 2);
+}
+
+function drawSoldIcon(x, y, size) {
+    if (soldImage && soldImage.width > 1) {
+        image(soldImage, x, y, size, size);
+        return;
+    }
+
+    // placeholder if there's no sold sprite
+    noStroke();
+    fill(40, 30, 50);
+    rect(x, y, size, size, 8);
+    fill(200, 60, 60);
+    textAlign(CENTER, CENTER);
+    textSize(size * 0.3);
+    text("SOLD", x + size / 2, y + size / 2);
+}
+
+function drawShelfItems() {
+    for (let i = 0; i < shopStock.length && i < SHELF_SLOTS.length; i++) {
+        const slot = SHELF_SLOTS[i];
+
+        if (SHELF_DEBUG) {
+            // outline so you can see where each slot sits
+            noFill();
+            stroke(255, 255, 0);
+            rect(slot.x, slot.y, slot.size, slot.size);
+            noStroke();
+        }
+
+        if (shopStock[i].sold) {
+            drawSoldIcon(slot.x, slot.y, slot.size);   // bought items show the sold sprite
+            continue;
+        }
+        drawItemIcon(shopStock[i].id, slot.x, slot.y, slot.size);
+    }
+
+    if (SHELF_DEBUG) {
+        // hover over the shelf corners to read off real coordinates
+        fill(255, 255, 0);
+        textAlign(LEFT, BOTTOM);
+        textSize(14);
+        text(Math.round(mouseX) + ", " + Math.round(mouseY), mouseX + 10, mouseY - 6);
+    }
 }
 
 // ---------- RNG ----------
@@ -334,6 +456,8 @@ function drawShopScreen() {
     // fill the whole canvas first so the strip under the image matches
     background(30, 10, 40);
     image(shopBg, 0, 0, width, 500);
+
+    drawShelfItems();
 
     // cards are hidden on the equip screens
     const inEquipScreens = shopState.mode === "equipChoice" || shopState.mode === "equipList";

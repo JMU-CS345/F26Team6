@@ -65,6 +65,7 @@ function preload() {
 function setup() {
     createCanvas(1000, 600);
     rng = new GameRNG();
+    loadItemImages();
 
     Gold.add(100); //however much starting gold
 }
