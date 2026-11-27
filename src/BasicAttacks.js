@@ -3,7 +3,7 @@
 const basicAttacks = [
     { name: "jab", minDmg: 6, maxDmg: 10, accuracy: 0.95 },
     { name: "Kick", minDmg: 12, maxDmg: 14, accuracy: 0.80 },
-    { name: "Uppercut", minDmg: 50, maxDmg: 80, accuracy: 0.40 },
+    { name: "Uppercut", minDmg: 200, maxDmg: 200, accuracy: 0.99 },
     { name: "Elbow", minDmg: 9, maxDmg: 16, accuracy: 0.80 }
 ];
 

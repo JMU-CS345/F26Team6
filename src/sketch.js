@@ -2,6 +2,7 @@ let fireMage;
 let startButton;
 let optionsButton;
 let battleSubmenuCursor;
+let shopBg;
 let titleBg;
 let title;
 let rng;
@@ -19,15 +20,19 @@ let skeletonEnemy;
 let pigEnemy;
 let blockSlimeEnemy;
 
+
+const BATTLES_PER_SHOP = 6;
+
 let gameState = {
     screen: "title",
     battleMenu: "main",
-    optionsMenu: "main"
-
+    optionsMenu: "main",
+    battlesWon: 0
 };
 
 function preload() {
     fireMage = loadImage("assets/firemage_default.png");
+    shopBg = loadImage("assets_NEW/Hooded Shopkeeper in a Lantern-Lit Stall.png");
     ratEnemy = loadImage("assets/rat_enemy.png");
     smallSlimeEnemy = loadImage("assets/small_slime_enemy.png");
     mediumSlimeEnemy = loadImage("assets/medium_slime_enemy.png");
@@ -60,6 +65,7 @@ function preload() {
 function setup() {
     createCanvas(1000, 600);
     rng = new GameRNG();
+    loadItemImages();
 
     Gold.add(100); //however much starting gold
 }
@@ -84,6 +90,7 @@ function endBattle() {
     currentFight = null;
     battleEnemies = [];
 
+    gameState.battlesWon++;
     gameState.screen = "victory";
 }
 
@@ -106,8 +113,12 @@ function draw() {
     }
 
     else if (gameState.screen === "victory") {
-    drawVictoryScreen();
-}
+        drawVictoryScreen();
+    }
+
+    else if (gameState.screen === "shop") {
+        drawShopScreen();
+    }
 
     drawGoldCounter(); //puts gold on screen
 }
