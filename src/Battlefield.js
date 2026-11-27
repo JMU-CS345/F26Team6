@@ -1,9 +1,9 @@
 // Battle screen entry point.
 // Called when gameState.screen === "battle"
 function drawBattleScreen() {
+    updateBattle();
 
     background(200, 140, 90);
-
     textSize(18);
     textAlign(LEFT, TOP);
 
@@ -14,6 +14,9 @@ function drawBattleScreen() {
     drawHealthBar(50, 330, 250, 20, player);
     drawManaBar(50, 310, 250, 20);
     drawEnemyHealthBars();
+
+    drawTurnInfo();
+    drawBattleBanner();   // last = on top
 }
 
 function drawEnemies() {

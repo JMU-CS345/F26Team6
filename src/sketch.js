@@ -72,17 +72,9 @@ function setup() {
 
 function startBattle() {
     currentFight = generateFight(rng);
-    battleEnemies = [];
-    for (let i = 0; i < currentFight.enemies.length; i++) {
-        const e = currentFight.enemies[i];
-        const maxHp = enemyMaxHp(e.size);
-        battleEnemies.push({
-            type: e.type,
-            size: e.size,
-            hp: maxHp,
-            maxHp: maxHp   // placeholder, use your health system
-        });
-    }
+    battleEnemies = createEnemiesForFight(currentFight);
+    gameState.battleMenu = "main";
+    startBattleRounds(battleEnemies, rng);
 }
 
 function endBattle() {
@@ -123,12 +115,3 @@ function draw() {
     drawGoldCounter(); //puts gold on screen
 }
 
-function keyPressed() {
-    if (key === "1") useBasicAttack(basicAttacks[0], getTargetEnemy());
-    if (key === "d") damage(player, 10);
-    if (key === "h") heal(player, 10);
-    if (key === "t") {
-        const t = getTargetEnemy();
-        if (t !== null) damage(t, 10);
-    }
-}
